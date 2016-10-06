@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>【ACM教程】1.1算法概述 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="ACM,算法,ACM教程">
+  <meta name="description" content="第一节 算法概述算法是什么？&amp;emsp;&amp;emsp;算法是软件工程非常重要的基础科目。简单来说，算法就是解决特定问题的方法和步骤。为了解决现实生活中的各种问题，我们就把现实问题对应成数学问题，然后设计公式，编写程序，让计算机编译，运行得到答案——这时候运用的方法就是算法。
+&amp;emsp;&amp;emsp;尽管这里运用了“公式”这个词来形容算法，然而算法并不是大家印象中死板的数学公式。因为计算机能够执行复杂">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ACM教程】1.1算法概述">
+<meta property="og:url" content="http://www.z16388.win/2016/09/09/【ACM教程】1-1算法概述/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="第一节 算法概述算法是什么？&amp;emsp;&amp;emsp;算法是软件工程非常重要的基础科目。简单来说，算法就是解决特定问题的方法和步骤。为了解决现实生活中的各种问题，我们就把现实问题对应成数学问题，然后设计公式，编写程序，让计算机编译，运行得到答案——这时候运用的方法就是算法。
+&amp;emsp;&amp;emsp;尽管这里运用了“公式”这个词来形容算法，然而算法并不是大家印象中死板的数学公式。因为计算机能够执行复杂">
+<meta property="og:image" content="http://hi.csdn.net/attachment/201202/14/0_1329236861DBDO.gif">
+<meta property="og:updated_time" content="2016-09-09T11:30:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【ACM教程】1.1算法概述">
+<meta name="twitter:description" content="第一节 算法概述算法是什么？&amp;emsp;&amp;emsp;算法是软件工程非常重要的基础科目。简单来说，算法就是解决特定问题的方法和步骤。为了解决现实生活中的各种问题，我们就把现实问题对应成数学问题，然后设计公式，编写程序，让计算机编译，运行得到答案——这时候运用的方法就是算法。
+&amp;emsp;&amp;emsp;尽管这里运用了“公式”这个词来形容算法，然而算法并不是大家印象中死板的数学公式。因为计算机能够执行复杂">
+<meta name="twitter:image" content="http://hi.csdn.net/attachment/201202/14/0_1329236861DBDO.gif">
+  
+    <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/Favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu"  >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/logo.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">Anqi Zhao</h5>
+        <a href="mailto:z16388@outlook.com" title="z16388@outlook.com" class="mail">z16388@outlook.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              主页
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-table"></i>
+              动态
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              标签
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/int"  >
+              <i class="icon icon-lg icon-link"></i>
+              常用网址导航
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/Download"  >
+              <i class="icon icon-lg icon-cloud-download"></i>
+              下载资源
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/friend"  >
+              <i class="icon icon-lg icon-mars-double"></i>
+              友情链接
+            </a>
+          </li>
+      
+    </ul>
+    <footer class="footer">
+<!--  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>-->
+  <p>崎径 其镜 &copy; 2016<a href="/about" target="_blank">  关于我</a></p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【ACM教程】1.1算法概述</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		<a href="https://www.zhihu.com/people/zhao-an-qi-65-10" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-drupal"></i>
+		</a>
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">【ACM教程】1.1算法概述</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2016-09-09T11:00:24.000Z" itemprop="datePublished" class="page-time">
+  2016-09-09
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-【ACM教程】1-1算法概述" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM教程/">ACM教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第一节-算法概述"><span class="post-toc-text">第一节 算法概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#算法是什么？"><span class="post-toc-text">算法是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#计算机只会算数字"><span class="post-toc-text">计算机只会算数字</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数学和程序这么复杂，为什么要用计算机解决现实问题？"><span class="post-toc-text">数学和程序这么复杂，为什么要用计算机解决现实问题？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何表示一个算法"><span class="post-toc-text">如何表示一个算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何实现一个算法"><span class="post-toc-text">如何实现一个算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#衡量算法优良的标准"><span class="post-toc-text">衡量算法优良的标准</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#学习编程语言"><span class="post-toc-text">学习编程语言</span></a></li></ol></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="第一节-算法概述"><a href="#第一节-算法概述" class="headerlink" title="第一节 算法概述"></a>第一节 算法概述</h1><h2 id="算法是什么？"><a href="#算法是什么？" class="headerlink" title="算法是什么？"></a>算法是什么？</h2><p>&emsp;&emsp;算法是软件工程非常重要的基础科目。简单来说，算法就是解决特定问题的方法和步骤。为了解决现实生活中的各种问题，我们就把现实问题对应成数学问题，然后设计公式，编写程序，让计算机编译，运行得到答案——这时候运用的方法就是算法。</p>
+<p>&emsp;&emsp;尽管这里运用了“公式”这个词来形容算法，然而算法并不是大家印象中死板的数学公式。因为计算机能够执行复杂的计算，所以公式可以设计成好几行，甚至几百行，用到很多数学理论。因此，就算学习过算法的人，也不一定会设计算法。因为数学、程序上面的东西都比较复杂。想要把现实中的问题对应到数学问题，那就更加复杂了。</p>
+<p>&emsp;&emsp;通常，算法具有由三部分组成：输入、输出、计算过程。说到这里，大家可能会联想到函数。</p>
+<p>&emsp;&emsp;输入、输出是一个或一组数据，实际上是将这些数字放在数据结构中比如数组、链表。输入的来源，通常是硬盘中存储的数据，或者是由键盘输入的数字；输出的去处可能是硬盘中的文件或是由硬盘中的数据转换之后以其他的形式呈现，例如显示器。</p>
+<p>&emsp;&emsp;计算过程是一连串处理数字的指令。指令有两种类型，一种是运算，例如数学运算的加减乘除、逻辑预算的与或非、比较大小、位运算等等；另一种则是读写，例如读取某处的数字，存储数字至某处。</p>
+<p>&emsp;&emsp;在算法之前的定义中，算法的计算步骤必须是有限的。用程序的语言说：算法不能无限轮回。之所以规定算法的步骤有限是为了方便统计计算的步数。但是事实上，很多的计算机程序都是开启之后保持运行的状态，直到遇到死机或者关机。例如用于网络传输的算法。因此，实际上，算法是可以有无限步的。</p>
+<h2 id="计算机只会算数字"><a href="#计算机只会算数字" class="headerlink" title="计算机只会算数字"></a>计算机只会算数字</h2><p>&emsp;&emsp;计算机就是一台用于计算的机器，它只会计算、判断以及存储数据，但是能够做得又快又准。而程序，是一连串计算、判断、存储数据的过程。</p>
+<p>&emsp;&emsp;计算机只会处理二进制数字，计算机中的每一个文字、每一种颜色、每一种声音，都有它所对应的数字。例，我们规定：用1代表数字“一”，用2代表汉字“乙”，用3代表汉字“人”…一个数字对应一个汉子。按照这样的规定，计算机中所有的汉字都变成了数字。同理，呈现在电脑屏幕上的不同颜色、图片、影像等，都可以转化成数字。一切事物在计算机里都是数字。</p>
+<p>&emsp;&emsp;如果我们想要利用计算机解决实际问题，通常要考虑两个方面：一、计算机应该使用哪些设备?计算机如何操作这些设备？二、显示问题如何对应到数学问题?如何设计算法？当然，编写程序，计算数字，这就是程序设计师的工作。</p>
+<h2 id="数学和程序这么复杂，为什么要用计算机解决现实问题？"><a href="#数学和程序这么复杂，为什么要用计算机解决现实问题？" class="headerlink" title="数学和程序这么复杂，为什么要用计算机解决现实问题？"></a>数学和程序这么复杂，为什么要用计算机解决现实问题？</h2><p>&emsp;&emsp;计算机解决问题的速度很快，一秒可以进行几千万次以上的计算。即使是很大的数据量，计算机也能够轻松解决。打开计算机中的一份文件，用鼠标滑动页面。眼镜还没来得及眨一下，正确的内容就已经显示在显示器上了。事实上，在我们滑动页面的时候，计算机已经完成了很多次的计算，然后把正确的内容展示在显示器上了。</p>
+<p>&emsp;&emsp;人们想要用计算机来解决问题，就是因为它速度快，正确率高，而且计算机会按照人们设计的程序来进行运算。程序设计师只要设计好一个好的程序，接下来的工作就可以让计算机代劳了。计算机的运算速度比人要更快更好，计算机做得到人类做不到是事。相比于算法的复杂，程序和计算机的组合能够给人们带来更多的便利。现在，计算机应用在人们生产生活的各个方面，程序设计师们设计的程序也在世界各地发光发热。</p>
+<h2 id="如何表示一个算法"><a href="#如何表示一个算法" class="headerlink" title="如何表示一个算法"></a>如何表示一个算法</h2><p>&emsp;&emsp;有人用伪代码来表示一个算法。如要实际计算机程序，伪代码是比较方便使用的。下面是一段伪代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">GREATEST_COMMON_DIVISOR(a, b)</div><div class="line">    while a ≠ b do</div><div class="line">        if a &gt; b then</div><div class="line">            a ← a - b</div><div class="line">        else</div><div class="line">            b ← b - a</div><div class="line">    return a</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;当然，你也可以使用流程图来表示一个算法。下面是一个流程图：<br><img src="http://hi.csdn.net/attachment/201202/14/0_1329236861DBDO.gif" alt="流程图"></p>
+<h2 id="如何实现一个算法"><a href="#如何实现一个算法" class="headerlink" title="如何实现一个算法"></a>如何实现一个算法</h2><p>&emsp;&emsp;实现的意思就是实际操作，实际运行。对于程序设计师来说，就是把算法写成程序，比如C/C++程序或者是java程序，然后在计算机上去执行。这个是我们接下来我们主要研究的东西。</p>
+<h2 id="衡量算法优良的标准"><a href="#衡量算法优良的标准" class="headerlink" title="衡量算法优良的标准"></a>衡量算法优良的标准</h2><p>&emsp;&emsp;要评价一个算法的好坏，最基本的两个指标就是<strong>时间复杂度</strong>和<strong>空间复杂度</strong>。用直观的感觉来说，就是程序的执行时间和内存使用量。但是由于不同的计算机执行时间会有所不同，而且这两项指标同时会受到程序语言的类型、程序设计的技巧的影响。因此，执行时间和内存使用量并不是一个稳定的评判标准。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for ( i = 0 ; i &lt; length(A) ; i ++ )       </div><div class="line">    for (j = 0 ; j &lt; length(A)-I ; j ++ )  </div><div class="line">        if A [ j ] &lt; A [ j+1]         </div><div class="line">            swap A [ j ] and A [ j+1 ]</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;上面的程序是一个简单的数组排序问题，我们经常采用统计计算步骤的方法来去衡量一个算法的时间复杂度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">  Code                                                 step</div><div class="line">for ( i = 0 ; i &lt; length(A) ; i ++ )                  n         </div><div class="line">    for (j = 0 ; j &lt; length(A)-I ; j ++ )          n ( n - 1) / 2 </div><div class="line">        if A [ j ] &lt; A [ j+1] &#123;                    n ( n - 1) / 2 </div><div class="line">            Temp = A [ j ] ;                       n ( n - 1) / 2 </div><div class="line">            A [ j ] = A [ j + 1 ] ;                n ( n - 1) / 2 </div><div class="line">            A [ j + 1 ] = temp ;                   n ( n - 1) / 2</div></pre></td></tr></table></figure></p>
+<p>Sum = n + 5n ( n – 1 ) / 2<br>= n + 2.5n2 – 2.5n<br>= 2.5n2 – 1.5n<br>= O ( n2 )</p>
+<p>&emsp;&emsp;像上面那个算法，我们称它的时间复杂度为O ( n2 )。这是因为在上式中，我们进行的并不是精确的步骤计算。针对不同的数据，系数变动会很大。因此，我们只取代数式的最高次方。最高次方越大，时间复杂度越高，算法的速度也就越慢。并且，我们规定n必须足够大。尽管这样的估算并不是非常精准，但是还是可以对一些常见的算法进行简易的分类，粗略地比较快慢。</p>
+<p>&emsp;&emsp;下面是几种常见算法的时间复杂度和空间复杂度。（空间复杂度的计算和时间复杂度类似。）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">type                           time              space</div><div class="line">bubble sort ( 冒泡排序 )      O ( n2 )           O ( n ) </div><div class="line">insertion sort ( 插入排序 )   O ( n2 )           O ( n )  </div><div class="line">merge sort ( 归并排序 )       O ( n log ( n ) )  O ( n )  </div><div class="line">quicksort ( 快速排序 )        O ( n2 )           O ( n )  </div><div class="line">heapsort ( 堆排序 )           O ( n log ( n ) )  O ( n )  </div><div class="line">counting sort ( 计数排序 )    O ( n + r )        O ( n + r )</div></pre></td></tr></table></figure></p>
+<h2 id="学习编程语言"><a href="#学习编程语言" class="headerlink" title="学习编程语言"></a>学习编程语言</h2><p>&emsp;&emsp;学习编程语言，有两个层次：一是语言本身的语法，二是把算法转换成代码的能力。算法固然重要，然而更重要的是用一种语言来把它表述出来，这样它才能发挥作用。而使用编程语言将算法描述出来这个过程，正是我们今后学习的重点。关于各种编程语言，本教程不作详细介绍，因为其他的书籍已经介绍得足够详细了。接下来对算法的描述，以C/C++语言为主，部分辅以java语言。</p>
+<hr>
+<p>参考书目：</p>
+<blockquote>
+<p>1.《算法竞赛入门经典（第二版）》 （刘汝佳编著，2009年，清华大学出版社）<br>2.《数据结构实用教程（C语言版）（第二版）》（2009年，清华大学出版社）</p>
+</blockquote>
+
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://www.z16388.win/2016/09/09/【ACM教程】1-1算法概述/" target="_blank" rel="external">http://www.z16388.win/2016/09/09/【ACM教程】1-1算法概述/</a>
+                </p>
+                <footer><cite><a href="http://www.z16388.win">@崎径 其镜</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/2016/09/09/【ACM教程】1-2算法竞赛介绍/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【ACM教程】1.2算法竞赛介绍</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2016/09/09/ACM教程/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ACM教程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="【ACM教程】1-1算法概述" data-title="【ACM教程】1.1算法概述" data-url="http://www.z16388.win/2016/09/09/【ACM教程】1-1算法概述/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"z16388"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "【ACM教程】1.1算法概述",
+    pic: "/img/logo.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://www.z16388.win/2016/09/09/【ACM教程】1-1算法概述/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234"></script>
+
+
+
+
+
+</body>
+</html>

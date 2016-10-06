@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>崎径 其镜</title>
+  <subtitle>求学道路上的行车记录仪</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.z16388.win/"/>
+  <updated>2016-10-06T15:55:02.000Z</updated>
+  <id>http://www.z16388.win/</id>
+  
+  <author>
+    <name>Anqi Zhao</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MAC下hexo的安装与使用</title>
+    <link href="http://www.z16388.win/2016/10/06/MAC%E4%B8%8Bhexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
+    <id>http://www.z16388.win/2016/10/06/MAC下hexo的安装与使用/</id>
+    <published>2016-10-06T15:37:24.000Z</published>
+    <updated>2016-10-06T15:55:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;不知道就是造了什么孽，电脑，又炸了。唉～没想到，我这么肝，倒下的竟然是我的电脑，也是可怕。</p>
+<p>&emsp;&emsp;闲话不多说了。哥哥把他的Mac接我救急用了，刚到手还没捂热乎呢，只是随意的装了一些必须的东西。什么java啦，jsp啦，xcode啦。总之搞了很多，但是博客这个东西一直没搞好，因为一直没去研究Mac下GitHub的使用。今天，借着这个炸的机会，把我的博客给挪到啦Mac上，继续更新啦。</p>
+<p>&emsp;&emsp;讲道理，苹果的工业设计还是很好的。到手没几天，已经熟悉的七七八八了；当然也不能说熟悉到windows这种程度，但是也是到了能够日常使用，应付一些简单的coding。我们话说回来啊，这个hexo我本来是打算放弃掉的。因为前几天，我用微软的azure搭建了一个Wordpress的博客。但是令人蛋疼的是，DreamSpark订阅的微软Azure它不能使用域名绑定功能，这就很尴尬了，谁会顶着一个超长的链接去看你的博客呢对不对。所以既然电脑炸了，没了办法，那只能研究mac上怎么去使用hexo了。来，我们闲话不多说，正式开始了。</p>
+<h2 id="第一步-安装Node-js"><a href="#第一步-安装Node-js" class="headerlink" title="第一步 安装Node.js"></a>第一步 安装Node.js</h2><p>&emsp;&emsp;这是hexo必须的一步，毕竟是基于Node.js的框架嘛。至于在哪里下载，怎么安装，以及GitHub的注册，域名什么的，我就不过多赘述了，这在我之前的博客里面都有的。</p>
+<h2 id="第二步-安装hexo"><a href="#第二步-安装hexo" class="headerlink" title="第二步 安装hexo"></a>第二步 安装hexo</h2><p>&emsp;&emsp;这里直接使用Node.js的npm去安装，在终端中，浏览到你想要存放博客内容的文件夹，比如<code>cd /Applications/blog</code>。之后执行hexo的安装命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g hexo</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;安装好之后，把你之前博客的内容放到里面去；如果没有，则执行<code>hexo init</code>。然后就可以正常地去使用你的hexo了，和windows环境下的操作完全一样。</p>
+<p>&emsp;&emsp;唉～说点题外话，讲道理，上天真的是逼我这学期要好好学习啊，害怕。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;不知道就是造了什么孽，电脑，又炸了。唉～没想到，我这么肝，倒下的竟然是我的电脑，也是可怕。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;闲话不多说了。哥哥把他的Mac接我救急用了，刚到手还没捂热乎呢，只是随意的装了一些必须的东西。什么java啦，jsp啦，
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://www.z16388.win/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>联想Y400折腾第二天</title>
+    <link href="http://www.z16388.win/2016/09/30/%E8%81%94%E6%83%B3Y400%E6%8A%98%E8%85%BE%E7%AC%AC%E4%BA%8C%E5%A4%A9/"/>
+    <id>http://www.z16388.win/2016/09/30/联想Y400折腾第二天/</id>
+    <published>2016-09-30T13:45:23.000Z</published>
+    <updated>2016-09-30T14:45:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;我也是够闲的。本着不抛弃，不放弃地原则，抢救我的笔记本小Y。虽然从早上开机到现在，我。。。不不不，不能奶！总之，倒持了一天吧，不说成果怎么样，也是有一些收获的。相比于昨天的硬件，我把今天折腾的方向转向了软件。</p>
+<p>&emsp;&emsp;嘛，有一只老学长，作为长者，在计算机的各种心肝脾肺肾上都有涉猎，我很是佩服的一颗赛艇。其实我昨天就想请教他的，但是硅脂到了，也就没麻烦他了。但是，对于硬件靠脚踹，软件做系统的我，想要搞个大新闻出来，也是没那么容易的。</p>
+<p>&emsp;&emsp;看了一上午的《齐木楠雄的灾难》，真的希望万能的齐神能够保佑我。打开了AIDA64，一直监测着CPU的温度——毕竟我是怀疑CPU出问题了的。然后我就发现，AIDA64有个功能，叫做“生成报告”，随手就点了进去。然后，搞了一大串东西出来。我就看啊看，天哪，这个东西把我电脑里各种信息都搞出来了，比香港记者的新闻还要详细，不能忍。我就往下看，看到了超频这一项，发现我的CPU超频了15%。我就怀疑，是不是超频让CPU过热了，才造成的死机。<br><img src="http://oda2v68ht.bkt.clouddn.com/y400IMG20160930150757.jpg" alt=""></p>
+<p>&emsp;&emsp;我就去百毒了一下，怎么去关掉超频。看了一会儿觉得太麻烦，就放弃了。哎~还要进BIOS,还不如等我哥把他的笔记本给我寄过来呢。。。好麻烦~好麻烦。</p>
+<p>&emsp;&emsp;刚好，这会儿去问候了一下我们的老学长。老学长提了提裤腰回复道：“你这是睿频吧”。</p>
+<p>&emsp;&emsp;天哪，睿频，睿频是啥，我不能说我不知道什么是睿频吧，多丢人。百毒，百毒，赶紧百毒。很关键啊，有一篇很关键的博文告诉我了睿频和超频的区别。好吧，不是这玩意儿的错，那我只能继续求助长者了。</p>
+<p>&emsp;&emsp;“是不是你的系统炸了”。</p>
+<p>&emsp;&emsp;ありえない、ありえない！有时候关机之后都开不开，怎么可能是软件的问题，肯定是硬件的问题。</p>
+<p>&emsp;&emsp;“我觉得不是CPU导致的，你硅脂没涂好吧。”</p>
+<p>&emsp;&emsp;嘛~不排除这种可能，但是至少比之前的强很多啊。</p>
+<p>&emsp;&emsp;长者的话总是言简意赅：“唔。。。那你去看看事件管理器吧。”</p>
+<p>&emsp;&emsp;事件管理器？事件管理器！事件管理器はなに～？わがりｒない！！！はやく百毒！百毒百毒愛してる～！嗯嗯，百毒不负众望，在众多广告和莆田系医院和工口网站中，我找到了正确答案。</p>
+<p>&emsp;&emsp;找啊找啊，摸索了两分钟，搞清楚了这是个什么东西。あああああ～一堆错误和警告啊，作为程序猿，肯定要看错误嘛，警告是个什么东西!程序猿会看的警告，只有FBI的好吗！！！咳~咳~~</p>
+<p>&emsp;&emsp;在事件管理器中，我看到了一个比较敏感的时间。2016年9月26日晚上21：40：23。没错了！就是这个时间!第一次自动关机的时候！只要看每次错误关机的时间，以及前面发生了什么！不就知道错误在哪里了吗！！！我真是太机智了!!<br><img src="http://oda2v68ht.bkt.clouddn.com/y400IMG20160930153239.jpg" alt=""></p>
+<p>&emsp;&emsp;这时候，我看到了一连串的四个来自CPU的错误，天哪！肯定是它！绝对是CPU！还说不是！呵呵呵!被我打脸了吧！哈哈哈哈~但是。。。我又去查了一下，好吧，然而并没有什么卵关系，这是因特尔节能技术的那个功能。哎，又一次失望了。<br><img src="http://oda2v68ht.bkt.clouddn.com/y400IMG_20160930_171722.jpg" alt=""></p>
+<p>&emsp;&emsp;但是，我又多看了一眼！！！就是你了！犯人就是你!!!!<br><img src="http://oda2v68ht.bkt.clouddn.com/y400IMG20160930154946.jpg" alt=""></p>
+<p>&emsp;&emsp;查了一下，果然，这个服务！就是鲁大师！！！修改的！！！！！鲁大娘！！！！原来罪魁祸首！！！就是你啊！！！！害怕。然后我去开启这个服务，但是发现，缺少模块，还原服务的话虽然可以做到，但是我觉得可以顺便做一个系统嘛，一年了也该换了。再说今天一天都没。。。。不不不！不能奶!好吧，再死机我就装win10。<br><img src="http://oda2v68ht.bkt.clouddn.com/y400IMG20160930161411.jpg" alt=""><br><img src="http://oda2v68ht.bkt.clouddn.com/y400IMG_20160930_165759.jpg" alt=""></p>
+<p>&emsp;&emsp;胆儿肥了之后，我又上FF14排了个本，打了2小时！@#￥%。（23333懂的都懂）都没有问题。嘛~今天是撑过去了，但是，还是再观察一下吧。反正万一修不好的话（这不是钦定！），有我哥的笔记本嘛~233333。讲道理，这么赛艇的大新闻，还是第一次搞。嘛~自己修的话，还是比那些个电脑店放心靠谱的~。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;我也是够闲的。本着不抛弃，不放弃地原则，抢救我的笔记本小Y。虽然从早上开机到现在，我。。。不不不，不能奶！总之，倒持了一天吧，不说成果怎么样，也是有一些收获的。相比于昨天的硬件，我把今天折腾的方向转向了软件。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;嘛
+    
+    </summary>
+    
+    
+      <category term="笔记本" scheme="http://www.z16388.win/tags/%E7%AC%94%E8%AE%B0%E6%9C%AC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>联想Y400拆机换硅脂过程</title>
+    <link href="http://www.z16388.win/2016/09/29/%E8%81%94%E6%83%B3Y400%E6%8B%86%E6%9C%BA%E6%8D%A2%E7%A1%85%E8%84%82%E8%BF%87%E7%A8%8B/"/>
+    <id>http://www.z16388.win/2016/09/29/联想Y400拆机换硅脂过程/</id>
+    <published>2016-09-29T08:02:08.000Z</published>
+    <updated>2016-09-29T09:39:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;最近笔记本出了一个问题，从前天开始，玩着玩着就炸了。从讨鬼传开始，一玩就自动断电，一点办法都没有。前天晚上开始炸了1次，昨天炸了3次，但是还是可以玩的。然后查了一下，可能是散热的问题，就去网上买了硅脂换了。今天换上，还是有些问题，但是整个拆机的过程还是很惊险刺激的，下面分享给大家：</p>
+<p>&emsp;&emsp;首先是我们今天的患者，联想Y400。</p>
+<p><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_110836.jpg" alt=""></p>
+<p>&emsp;&emsp;然后是我们的硅脂：MX-4</p>
+<p><img src="http://oda2v68ht.bkt.clouddn.com/IMG20160929114420.jpg" alt=""></p>
+<p>&emsp;&emsp;接下来是工具介绍：</p>
+<p><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_110956.jpg" alt=""></p>
+<blockquote>
+<p>一套小螺丝刀<br>一个用来吸螺丝的螺丝刀<br>一个拆笔记本专用的小螺丝刀<br>棉签<br>酒精<br>雕刻刀（不知道干什么用）<br>清灰刷</p>
+</blockquote>
+<p>&emsp;&emsp;之后进行的是Y400的标准拆解过程，将电池拆掉，后盖打开，拆掉硬盘光驱以及内存条。<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_111502.jpg" alt=""></p>
+<p>&emsp;&emsp;然后我们可以拆一下网卡的排线。小心翼翼的用镊子夹掉，然后卸下唯一一个螺丝，就可以拿掉了。<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_113502.jpg" alt=""></p>
+<p>&emsp;&emsp;接下来是拆键盘了。键盘还是比较好拆的，把两个螺丝卸掉，就可以抠出来了。<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_111502_2.jpg" alt=""></p>
+<p>&emsp;&emsp;然后我们要把键盘面的电源键排线，触控板排线和键盘排线拆掉；再把反面的风扇排线拆掉，再卸掉螺丝，就可以拆掉键盘面的面板了：<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_121556_1.jpg" alt=""><br>&emsp;&emsp;这是卸掉的键盘面板：<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_125348.jpg" alt=""></p>
+<p>&emsp;&emsp;拆掉之后，把摄像头排线和硬盘排线拆掉，再卸掉主板的两个螺丝就可以拆了。因为有一个风扇的排线不是太好拆，所以我就没拆，但是这样已经可以拆散热件了：<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_130650.jpg" alt=""><br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_130912.jpg" alt=""></p>
+<p>&emsp;&emsp;我怕刮花了屏幕，所以就垫了一本书，然后拧掉散热片的螺丝，就可以涂硅脂了。<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_131616.jpg" alt=""><br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_131620.jpg" alt=""></p>
+<p>&emsp;&emsp;涂完之后我就迫不及待地装上去了，虽然打开了，表示存活，也开了下摄像头测试了一下没问题，但是还是会炸。没办法，只能等过年回家找售后了。这学期的话，先学习好吧。这是上天给我的学习的好机会，玩什么游戏！学习！<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_134437.jpg" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;最近笔记本出了一个问题，从前天开始，玩着玩着就炸了。从讨鬼传开始，一玩就自动断电，一点办法都没有。前天晚上开始炸了1次，昨天炸了3次，但是还是可以玩的。然后查了一下，可能是散热的问题，就去网上买了硅脂换了。今天换上，还是有些问题，但是整个拆机的过程还
+    
+    </summary>
+    
+    
+      <category term="笔记本" scheme="http://www.z16388.win/tags/%E7%AC%94%E8%AE%B0%E6%9C%AC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo+github博客搭建教程</title>
+    <link href="http://www.z16388.win/2016/09/13/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
+    <id>http://www.z16388.win/2016/09/13/hexo-github博客搭建教程/</id>
+    <published>2016-09-13T10:24:56.000Z</published>
+    <updated>2016-09-13T11:14:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;之前写了一篇域名绑定的教程，但是只有域名没有东西也不行啊。其实早在前几天就想写这样一篇总结性教程了，但是一直没有抽出时间。我这个博客最初也是在朋友的帮助之下搭建的，这个技术并不难用，所以我想让更多的人能够使用它。</p>
+<p>&emsp;&emsp;hexo是一个基于node.jsd静态博客框架。另外，我们可以使用github pages来存放我们的博客。这才有了现在静态博客的黄金搭档hexo+github。</p>
+<h2 id="账号注册"><a href="#账号注册" class="headerlink" title="账号注册"></a>账号注册</h2><p>我们需要以下的账号：</p>
+<p>&emsp;&emsp;<a href="https://github.com/" target="_blank" rel="external">github</a>：用于存放页面，是一个非常流行的开源社区，拥有众多的开源项目。</p>
+<p>&emsp;&emsp;<a href="http://duoshuo.com/" target="_blank" rel="external">多说</a>:用来实现博客的评论和点赞。</p>
+<p>&emsp;&emsp;<a href="www.qiniu.com">七牛云</a>：用来存放博客中使用的图片。</p>
+<p>&emsp;&emsp;<a href="https://www.aliyun.com" target="_blank" rel="external">阿里云</a>：如果你需要一个域名，可以到阿里云购买。</p>
+<p>&emsp;&emsp;<a href="https://web.umeng.com" target="_blank" rel="external">CNZZ</a>：如果你需要统计你的博客访问，可以注册一个CNZZ账号，或者是在你的博客首页加上google统计。</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>你需要下载以下几种软件：</p>
+<p>&emsp;&emsp;<a href="https://nodejs.org/" target="_blank" rel="external">Node.js</a>:用来生成静态页面，hexo的环境。</p>
+<p>&emsp;&emsp;<a href="https://git-for-windows.github.io/" target="_blank" rel="external">Git Bash</a>:把本地的内容提交到github上的软件。</p>
+<p>&emsp;&emsp;<a href="http://markdownpad.com/" target="_blank" rel="external">Markdown Pad</a>:用来写博客。</p>
+<p>&emsp;&emsp;<a href="https://notepad-plus-plus.org/" target="_blank" rel="external">NotePad++</a>:一款比较好的记事本，用来修改配置文件。</p>
+<p>&emsp;&emsp;在github创建一个新的项目，命名为：</p>
+<blockquote>
+<p>YourUserName.github.io</p>
+</blockquote>
+<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><p>&emsp;&emsp;Node.js和Git Bash安装好之后，首先，创建一个文件夹,比如叫<code>blog</code>，用于存放你的博客相关的文件。然后进入文件夹，开始安装hexo。</p>
+<p>&emsp;&emsp;右键，<code>git bash here</code>,打开git bash，然后运行安装命令：</p>
+<blockquote>
+<p>npm install -g hexo</p>
+</blockquote>
+<p>&emsp;&emsp;然后执行初始化命令：</p>
+<blockquote>
+<p>hexo init</p>
+</blockquote>
+<p>&emsp;&emsp;打开根目录下的_config.yml配置文件，修改最后的信息为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line"></div><div class="line">     type: git</div><div class="line"></div><div class="line">     repo: Your_git_io_url</div><div class="line"></div><div class="line">     branch: master</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;按照备注修改相关的参数，比如博客的名字，你的姓名等等。除此之外，你还可以到hexo的官网的主题页面，去下载你喜欢的主题，放在themes文件夹下。需要修改的参数大部分在主题的配置文件上。当然这一步你以后都可以去做。</p>
+<p>&emsp;&emsp;执行命令：</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save</p>
+</blockquote>
+<p>&emsp;&emsp;执行配置命令：</p>
+<blockquote>
+<p>hexo deploy （或者是缩写：hexo d）</p>
+</blockquote>
+<p>&emsp;&emsp;至此，博客搭建完成，你可以在浏览器输入<a href="http://YourUserName.github.io来访问。每次对博客修改之后，我们都需要先生成(" target="_blank" rel="external">http://YourUserName.github.io来访问。每次对博客修改之后，我们都需要先生成(</a><code>hexo g</code>)，再提交到git(<code>hexo d</code>)。当然，我们可以先进行本地预览，运行本地的服务器(<code>hexo s</code>)，然后用浏览器访问<localhost:4000>。<code>hexo g</code>和<code>hexo d</code>可以合并成一个指令：<code>hexo d -g</code></localhost:4000></p>
+<p>&emsp;&emsp;hexo的常用命令和写博客使用的markdown语法请参考：</p>
+<blockquote>
+<p>hexo常用命令：<a href="http://z16388.win/2016/09/09/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank" rel="external">http://z16388.win/2016/09/09/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a><br>Markdown常用语法：<a href="http://z16388.win/2016/09/09/Markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/" target="_blank" rel="external">http://z16388.win/2016/09/09/Markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;之前写了一篇域名绑定的教程，但是只有域名没有东西也不行啊。其实早在前几天就想写这样一篇总结性教程了，但是一直没有抽出时间。我这个博客最初也是在朋友的帮助之下搭建的，这个技术并不难用，所以我想让更多的人能够使用它。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://www.z16388.win/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python常用知识</title>
+    <link href="http://www.z16388.win/2016/09/12/Python%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86/"/>
+    <id>http://www.z16388.win/2016/09/12/Python常用知识/</id>
+    <published>2016-09-12T14:04:46.000Z</published>
+    <updated>2016-09-28T05:12:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;想要学Python很久了。一是流行，再是强大。现在写一篇博客，整理一下常用的知识点，以备复习。</p>
+<h2 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h2><h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>Python可以处理任意大小的整数<br>可以用<code>0xff00</code>的方法表示十六进制整数</p>
+<hr>
+<p>浮点数处理的精度也比较高，但是太高精度需要用科学记数法表示</p>
+<hr>
+<p>字符串用单引号或双引号括起来<br>转义字符大体同C<br>大量需要转义字符的地方，可以简写成：<br><code>r’\\\\\’</code><br>Python允许字符串内换行，使用…来表示：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">print(str1</div><div class="line">...str2</div><div class="line">...str3)</div></pre></td></tr></table></figure></p>
+<hr>
+<p>布尔值：<code>true false</code><br>可使用<code>and or not</code> 运算</p>
+<hr>
+<p>Python中的强制类型转换方法如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;s=input(<span class="string">'birth:'</span>)</div><div class="line">&gt;&gt;&gt;birth=int(s)</div></pre></td></tr></table></figure></p>
+<p>注意，<code>input()</code>返回的数据类型是str。</p>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><p><code>/</code> 除法，结果一定是浮点型<br><code>//</code> 整除<br><code>%</code> 求余</p>
+<h2 id="2-字符串和字符编码"><a href="#2-字符串和字符编码" class="headerlink" title="2.字符串和字符编码"></a>2.字符串和字符编码</h2><h3 id="字符串和整数的转换"><a href="#字符串和整数的转换" class="headerlink" title="字符串和整数的转换"></a>字符串和整数的转换</h3><p><code>ord()</code>函数，获取字符的整数表示<br><code>chr()</code>函数，把编码转换成对应的字符<br>可以使用转义字符表示，例如：<code>\u4e2d</code>会显示代表的汉字”中”</p>
+<h3 id="字符串和字节"><a href="#字符串和字节" class="headerlink" title="字符串和字节"></a>字符串和字节</h3><p><code>str</code>是字符串类型<br><code>bytes</code>是字节类型，需要用带<code>b</code>前缀的单引号或双引号表示：<br><code>x=b’ABC’</code><br><code>‘ABC’</code>和<code>b’ABC’</code>占用的内存不同，后者每个字符都只占用一个字节<br><code>encode()</code>方法可以把<code>str</code>转换成指定的<code>bytes</code>，例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;<span class="string">'ABC'</span>.encode(<span class="string">'ascii'</span>)</div><div class="line">&gt;&gt;&gt;<span class="string">'中文'</span>.encode(<span class="string">'utf-8'</span>)</div></pre></td></tr></table></figure></p>
+<p>把字节转换成字符串需要使用<code>decode()</code>方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;<span class="string">'ABC'</span>.decode(<span class="string">'ascii'</span>)</div></pre></td></tr></table></figure></p>
+<p><code>len()</code>函数，用于计算<code>str</code>中的字符数和<code>bytes</code>中的字节数（英文字符只占一个字节，中文字符经常占3个字节）</p>
+<hr>
+<p>要保证编译的python文件能够正确显示中文，我们除了在编写环境中指定编码类型为<code>utf-8</code>之外，通常还要在开头加上两行：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div></pre></td></tr></table></figure></p>
+<p>第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序，Windows系统会忽略这个注释；<br>第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。</p>
+<p><code>replace()</code>方法，用于取代字符串中某个字符，但是不影响字符串本身：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;a=<span class="string">'abc'</span></div><div class="line">&gt;&gt;&gt;a.replace(<span class="string">'a'</span>,<span class="string">'A'</span>)</div><div class="line"><span class="string">'Abc'</span></div><div class="line">&gt;&gt;&gt;a</div><div class="line"><span class="string">'abc'</span></div></pre></td></tr></table></figure></p>
+<h3 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h3><p>同C的格式化类似<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Hello, %s'</span> % <span class="string">'world'</span></div></pre></td></tr></table></figure></p>
+<p><code>%</code>开头的叫做占位字符，常用的占位字符有：</p>
+<blockquote>
+<p>%&emsp;&emsp;&emsp;&emsp;整数</p>
+<hr>
+<p>%f&emsp;&emsp;&emsp;&emsp;浮点数</p>
+<hr>
+<p>%s&emsp;&emsp;&emsp;&emsp;字符串</p>
+<hr>
+<p>%x&emsp;&emsp;&emsp;&emsp;十六进制整数</p>
+<hr>
+</blockquote>
+<p>格式化整数和浮点数可以指定是否补0或者确定小数的位数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'%2d-%02d'</span> % (<span class="number">3</span>, <span class="number">1</span>)</div><div class="line"><span class="string">' 3-01'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'%.2f'</span> % <span class="number">3.1415926</span></div><div class="line"><span class="string">'3.14'</span></div></pre></td></tr></table></figure></p>
+<h2 id="3-list和tuple"><a href="#3-list和tuple" class="headerlink" title="3.list和tuple"></a>3.list和tuple</h2><h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>list是Python内置的一种数据类型，列表。它是一种有序的集合，可以随时添加和删除其中的元素，声明方式如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name=[<span class="string">'tom'</span>,<span class="string">'cat'</span>,<span class="string">'car'</span>]</div></pre></td></tr></table></figure></p>
+<p>可以使用<code>len()</code>函数获取list元素的个数<br>用索引来访问每个元素，索引从<code>0</code>开始：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name[<span class="number">0</span>]</div><div class="line">tom</div></pre></td></tr></table></figure></p>
+<p>可以使用<code>-1</code>做索引，访问最后一个元素，依次类推，可以访问倒数第二，第三个元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name[<span class="number">-1</span>]</div><div class="line">car</div><div class="line">&gt;&gt;&gt;name[<span class="number">-2</span>]</div><div class="line">cat</div></pre></td></tr></table></figure></p>
+<p>可以使用<code>append()</code>方法，向list中追加元素到末尾：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name.append(<span class="string">'apple'</span>)</div><div class="line">&gt;&gt;&gt;name</div><div class="line">[<span class="string">'tom'</span>,<span class="string">'cat'</span>,<span class="string">'car'</span>,<span class="string">'apple'</span>]</div></pre></td></tr></table></figure></p>
+<p>可以使用<code>insert()</code>方法，将元素插入到指定位置，比如下标为1的位置：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name.insert(<span class="number">1</span>,<span class="string">'banana'</span>)</div><div class="line">&gt;&gt;&gt;name</div><div class="line">[<span class="string">'tom'</span>,<span class="string">'banana'</span>,<span class="string">'cat'</span>,<span class="string">'car'</span>,<span class="string">'apple'</span>]</div></pre></td></tr></table></figure></p>
+<p>可以使用<code>pop()</code>方法，删除list末尾的元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name.pop()</div><div class="line">&gt;&gt;&gt;name</div><div class="line">[<span class="string">'tom'</span>,<span class="string">'banana'</span>,<span class="string">'cat'</span>,<span class="string">'car'</span>]</div></pre></td></tr></table></figure></p>
+<p>可以使用<code>pop(i)</code>方法，删除指定位置的元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name.pop(<span class="number">1</span>)</div><div class="line">&gt;&gt;&gt;name</div><div class="line">[<span class="string">'tom'</span>,<span class="string">'cat'</span>,<span class="string">'car'</span>]</div></pre></td></tr></table></figure></p>
+<p>可以使用直接赋值的方法将某元素替换成别的元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name.[<span class="number">2</span>]=<span class="string">'apache'</span></div><div class="line">&gt;&gt;&gt;name</div><div class="line">[<span class="string">'tom'</span>,<span class="string">'cat'</span>,<span class="string">'apache'</span>]</div></pre></td></tr></table></figure></p>
+<p>list中可以存放不同类型的元素，也可以存放list（可以看做二维数组）<br>如果list中没有元素，就是一个空list，长度为0。</p>
+<h3 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h3><p>tuple叫做元组，一旦初始化就不能修改，可以使用索引来访问每个元素，但是不能赋值成另外的元素。因为它无法被修改，所以更加安全。</p>
+<p>tuple的定义方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;t=(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">&gt;&gt;&gt;t</div><div class="line">(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line"></div><div class="line">&gt;&gt;&gt;t=()</div><div class="line">&gt;&gt;&gt;t</div><div class="line">()</div><div class="line"></div><div class="line">&gt;&gt;&gt;t=(<span class="number">1</span>,)</div><div class="line">&gt;&gt;&gt;t</div><div class="line">(<span class="number">1</span>,)</div></pre></td></tr></table></figure></p>
+<p>不能使用<code>t=(1)</code>的方法来定义只有一个元素的tuple，这会让python认为它是个括号，而将t认为是一个整形变量。</p>
+<h2 id="4-dict和set"><a href="#4-dict和set" class="headerlink" title="4.dict和set"></a>4.dict和set</h2><h3 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h3><p><code>dict</code>即C++中的<code>map</code>，全称是<code>dictionary</code>，具有极快的查找速度。它的元素有两种，一种叫做<code>key</code>，另一种叫做<code>value</code>。前者是查询的参数，后者则是它所对应的值。<code>dict</code>的声明方法如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;d=&#123;<span class="string">'tom'</span>:<span class="number">90</span>,<span class="string">'cat'</span>:<span class="number">80</span>,<span class="string">'apache'</span>:<span class="number">70</span>&#125;</div><div class="line">&gt;&gt;&gt;d[<span class="string">'tom'</span>]</div><div class="line"><span class="number">90</span></div></pre></td></tr></table></figure></p>
+<p>当然，我们在“放入”的时候也很方便：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;d[<span class="string">'apache'</span>]=<span class="number">60</span></div><div class="line">&gt;&gt;&gt;d[<span class="string">'apache'</span>]</div><div class="line"><span class="number">60</span></div></pre></td></tr></table></figure></p>
+<p>每个<code>key</code>只对应一个值，后面赋的值会将前面的覆盖。</p>
+<p>我们可以使用<code>in</code>来判断一个<code>key</code>是否存在：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;<span class="string">'toom'</span> <span class="keyword">in</span> d</div><div class="line"><span class="keyword">False</span></div></pre></td></tr></table></figure></p>
+<p>可以使用<code>get</code>方法来获取指定的<code>value</code>。如果不存在，可以返回指定的值：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;d.get(<span class="string">'tom'</span>)</div><div class="line"><span class="number">90</span></div><div class="line">&gt;&gt;&gt;d.get(<span class="string">'tomm'</span>,<span class="number">-1</span>)</div><div class="line"><span class="number">-1</span></div></pre></td></tr></table></figure></p>
+<p>dict的特点</p>
+<blockquote>
+<ol>
+<li>查找和插入的速度极快，不会随着key的增加而变慢；</li>
+<li>需要占用大量的内存，内存浪费多。</li>
+</ol>
+</blockquote>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p><code>set</code>是一组key的集合，但不存储value。因为key不能重复，所以在<code>set</code>中没有重复的元素。要创建一个<code>set</code>需要提供一个list作为输入集合：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;s=set([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</div><div class="line">&gt;&gt;&gt;s</div><div class="line">&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</div><div class="line"></div><div class="line">&gt;&gt;&gt;s=set([<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>])</div><div class="line">&gt;&gt;&gt;s</div><div class="line">&gt;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</div></pre></td></tr></table></figure></p>
+<p>通过<code>add(key)</code>方法可以添加到set中：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;s.add(<span class="number">4</span>)</div><div class="line">&gt;&gt;&gt;s</div><div class="line">&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</div></pre></td></tr></table></figure></p>
+<p>通过<code>remove(key)</code>方法可以删除元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;s.remove(<span class="number">4</span>)</div><div class="line">&gt;&gt;&gt;s</div><div class="line">&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</div></pre></td></tr></table></figure></p>
+<p><code>set</code>可以看成无序无重复元素的集合，可以进行交集，并集等操作：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;s1=set([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</div><div class="line">&gt;&gt;&gt;s2=set([<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</div><div class="line">&gt;&gt;&gt;s1&amp;s2</div><div class="line">&#123;<span class="number">2</span>,<span class="number">3</span>&#125;</div><div class="line">&gt;&gt;&gt;s1|s2</div><div class="line">&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="5-判断与循环"><a href="#5-判断与循环" class="headerlink" title="5.判断与循环"></a>5.判断与循环</h2><h3 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h3><p>Python也有<code>if</code>和<code>else</code>语句，但是和C比起来又显得非常“任性”。它没有小括号，也没有大括号，具体例子如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">age = <span class="number">20</span></div><div class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</div><div class="line">	print(<span class="string">"your age is %d"</span>,age)</div><div class="line">	print(<span class="string">'adult'</span>)</div></pre></td></tr></table></figure></p>
+<p>根据Python的缩进规则，如果满足<code>if</code>后的条件，则会执行缩进的两个<code>print</code>语句，<code>else</code>也类似：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">age = <span class="number">3</span></div><div class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</div><div class="line">    print(<span class="string">'your age is'</span>, age)</div><div class="line">    print(<span class="string">'adult'</span>)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    print(<span class="string">'your age is'</span>, age)</div><div class="line">    print(<span class="string">'teenager'</span>)</div></pre></td></tr></table></figure></p>
+<p>注意不要少写了<code>：</code>。</p>
+<p>Python中还有<code>elif</code>语句，也就是<code>else if</code>的缩写，所以if语句的完整版就是：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> &lt;条件判断<span class="number">1</span>&gt;:</div><div class="line">    &lt;执行<span class="number">1</span>&gt;</div><div class="line"><span class="keyword">elif</span> &lt;条件判断<span class="number">2</span>&gt;:</div><div class="line">    &lt;执行<span class="number">2</span>&gt;</div><div class="line"><span class="keyword">elif</span> &lt;条件判断<span class="number">3</span>&gt;:</div><div class="line">    &lt;执行<span class="number">3</span>&gt;</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    &lt;执行<span class="number">4</span>&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p><code>for…in</code>循环，可以依次将list或tuple中的每个元素迭代出来：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">names=[<span class="string">'tom'</span>,<span class="string">'cat'</span>,<span class="string">'apache'</span>]</div><div class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</div><div class="line">	print(name)</div></pre></td></tr></table></figure></p>
+<p>执行这段代码，就会依次打印出<code>names</code>中的每个元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tom</div><div class="line">cat</div><div class="line">apache</div></pre></td></tr></table></figure></p>
+<hr>
+<p><code>for x in …</code>循环，可以将元素依次代入变量<code>x</code>，然后执行缩进的语句，例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sum=<span class="number">0</span>;</div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>]:</div><div class="line">	sum+=x;</div><div class="line">print(sum)</div></pre></td></tr></table></figure></p>
+<p>这段代码显示的结果是0-10的累加和</p>
+<p>Python提供了<code>range()</code>函数来生成一个整数序列，比如<code>range(5)</code>生成的是从0开始的5个整数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;list(rangr(<span class="number">5</span>))</div><div class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</div></pre></td></tr></table></figure></p>
+<p>则0累加到100的程序可以写成：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sum=<span class="number">0</span></div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">101</span>):</div><div class="line">	sum+=x</div><div class="line">print(sum)</div></pre></td></tr></table></figure></p>
+<hr>
+<p>Python中也有<code>while</code>循环，用法和C类似：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sum=<span class="number">0</span></div><div class="line">n=<span class="number">0</span>;</div><div class="line"><span class="keyword">while</span> n&lt;<span class="number">101</span>:</div><div class="line">	sum+=n</div><div class="line">	n+=<span class="number">1</span></div><div class="line">print(sum)</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;想要学Python很久了。一是流行，再是强大。现在写一篇博客，整理一下常用的知识点，以备复习。&lt;/p&gt;
+&lt;h2 id=&quot;1-数据类型&quot;&gt;&lt;a href=&quot;#1-数据类型&quot; class=&quot;headerlink&quot; title=&quot;1.数据类型&quot;&gt;&lt;/a&gt;1
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://www.z16388.win/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客第三天</title>
+    <link href="http://www.z16388.win/2016/09/11/%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%89%E5%A4%A9/"/>
+    <id>http://www.z16388.win/2016/09/11/博客第三天/</id>
+    <published>2016-09-11T14:29:29.000Z</published>
+    <updated>2016-09-11T15:36:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;今天零零星星看了好多东西。早上知乎给我推送了一篇文章，讲的是一些比较好的Python资料。随便点进去一个看了，然后就收藏在手机上了，打算下床用电脑看。之后研究了一会儿插入网易云音乐歌单，然后看了一点儿java，打算写一点网络程序。</p>
+<p>&emsp;&emsp;一口气零零散散搞了好多东西，但是什么都没有搞成，什么都没有学到。看来以后应当集中精力去做一件事，一步一个脚印，走好做好，这样才能有更多的收获吧。感觉应该先去整理一下Python的基础知识，然后再看java的多线程和网络，再做一个小东西。当然，六级也要开始准备了，之前计划的日语学习也要开始了。</p>
+<p>&emsp;&emsp;要做的事情还有很多，，，</p>
+<p>&emsp;&emsp;博客的话，明天把插入的音乐改掉，侧边栏减少内容，想办法增加右上角的功能按钮。另外再研究一下今天刚刚搞的Font-Awesome的用法。</p>
+<p>&emsp;&emsp;学习是一件很难的事，但是一点一点来，总有能够学成的时候，加油。Yes you can！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;今天零零星星看了好多东西。早上知乎给我推送了一篇文章，讲的是一些比较好的Python资料。随便点进去一个看了，然后就收藏在手机上了，打算下床用电脑看。之后研究了一会儿插入网易云音乐歌单，然后看了一点儿java，打算写一点网络程序。&lt;/p&gt;
+&lt;p&gt;&amp;e
+    
+    </summary>
+    
+    
+      <category term="心情" scheme="http://www.z16388.win/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在博客中插入网易云音乐歌单</title>
+    <link href="http://www.z16388.win/2016/09/11/%E5%9C%A8%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%8F%92%E5%85%A5%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%AD%8C%E5%8D%95/"/>
+    <id>http://www.z16388.win/2016/09/11/在博客中插入网易云音乐歌单/</id>
+    <published>2016-09-11T03:37:44.000Z</published>
+    <updated>2016-09-11T04:09:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;因为版权的原因，网易云音乐已经禁止了歌单的“生成外链播放器”的功能，只能单首歌曲的进行。之前还有查看代码的方法，现在连生成外链播放器的代码都找不到了。但是，方法还是有的。</p>
+<p>&emsp;&emsp;首先我们找到以前的代码，以我的歌单为例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; </div><div class="line">marginheight=&quot;0&quot; width=240 height=100 </div><div class="line">src=&quot;http://music.163.com/outchain/player?type=0&amp;id=462197233&amp;auto=0&amp;height=430&quot;&gt;</div><div class="line">&lt;/iframe&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;我们来解释一下里面几个比较有用的几个参数：</p>
+<blockquote>
+<p>&emsp;&emsp;1.第二行里面的 width=240 height=100 是用来控制播放器的大小的。但是要注意的是，播放器左侧有图片，如果要完全显示的话，宽度一定要长于270<br>&emsp;&emsp;2.第三行有两个比较有用的参数，一个是id 一个是auto。id改成你歌单的ID，可以在网页端进入你的歌单，在地址栏里查看；auto是自动播放属性，0是关闭，非0即开启。后面的height没有任何意义。</p>
+</blockquote>
+<p>&emsp;&emsp;另外歌单的歌曲顺序由加入歌单的顺序决定，这点很麻烦，在歌曲时一定要注意次序。</p>
+<p>&emsp;&emsp;令人遗憾的是，网易云音乐的歌单插入毕竟是已经禁止了的功能，有些时候会出现资源加载失败的状况。所以说，想要让自己的博客唱起来，还是只能单个音乐地用。如果想要更好的效果，还是要选用第三方播放器。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;因为版权的原因，网易云音乐已经禁止了歌单的“生成外链播放器”的功能，只能单首歌曲的进行。之前还有查看代码的方法，现在连生成外链播放器的代码都找不到了。但是，方法还是有的。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;首先我们找到以前的代码，以我的歌单为例：
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://www.z16388.win/tags/hexo/"/>
+    
+      <category term="音乐" scheme="http://www.z16388.win/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客第二天</title>
+    <link href="http://www.z16388.win/2016/09/10/%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%BA%8C%E5%A4%A9/"/>
+    <id>http://www.z16388.win/2016/09/10/博客第二天/</id>
+    <published>2016-09-10T10:12:05.000Z</published>
+    <updated>2016-09-11T14:32:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;昨天转了很多以前写的东西，搞域名解析到一点多，直到笔记本没电，写博客真心会上瘾啊。</p>
+<p>&emsp;&emsp;上午十一点多到一期，等开题，谁知道搞到四点一道都没做出来，真心心累。回到寝室什么都不想干，浑身乏力，好久没有体会过学习的辛苦了。</p>
+<p>&emsp;&emsp;总之，从昨天起，开始坚持写吧，也算是对自己的督促。养成习惯，记录自己今天学到了什么，有哪些不做。积少成多，这么做真真是极好的233333。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;昨天转了很多以前写的东西，搞域名解析到一点多，直到笔记本没电，写博客真心会上瘾啊。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;上午十一点多到一期，等开题，谁知道搞到四点一道都没做出来，真心心累。回到寝室什么都不想干，浑身乏力，好久没有体会过学习的辛苦了。
+    
+    </summary>
+    
+    
+      <category term="心情" scheme="http://www.z16388.win/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【ACM教程】3.1递归</title>
+    <link href="http://www.z16388.win/2016/09/10/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-1%E9%80%92%E5%BD%92/"/>
+    <id>http://www.z16388.win/2016/09/10/【ACM教程】3-1递归/</id>
+    <published>2016-09-10T07:12:02.000Z</published>
+    <updated>2016-09-10T07:21:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第一节-递归"><a href="#第一节-递归" class="headerlink" title="第一节 递归"></a>第一节 递归</h1><p>&emsp;&emsp;递归是一个语言中最难理解的内容之一，它是通过自己调用自己的方法，来进行运算的方法。关于递归有一个非常有意思的定义：</p>
+<blockquote>
+<p>递归：参见“递归”</p>
+</blockquote>
+<p>&emsp;&emsp;在生活中，我们也会遇到这样的递归例子：</p>
+<blockquote>
+<p>导员：“你给任课老师请假就行了”。<br>任课老师：“去让你导员给你写个假条”。</p>
+</blockquote>
+<p>&emsp;&emsp;其实在以前的学习中，我们也遇到过递归的思想，数学归纳法就是：</p>
+<blockquote>
+<p>1是正整数<br>如果k是正整数，证明k+1也是正整数<br>若①和②满足，则证明序列n是正整数序列</p>
+</blockquote>
+<p>&emsp;&emsp;C语言和C++是支持递归的。但是，在使用递归的时候，大家应该注意跳出递归的条件，不然就会发生上面导员和任课老师模型之间的无限循环问题。C/C++语言中的递归一般是通过函数来实现的：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">func(n) &#123;</div><div class="line">    <span class="keyword">if</span>(xxx) &#123;</div><div class="line">        func(n+<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> </div><div class="line">    <span class="keyword">return</span> xxx;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;下面进行几道简单的递归练习题：</p>
+<p>&emsp;&emsp;<a href="http://www.clang.cc/oj/problem.php?id=1229" target="_blank" rel="external">最小公倍数</a></p>
+<p>&emsp;&emsp;<a href="http://www.clang.cc/oj/problem.php?id=1236" target="_blank" rel="external">母牛生小牛</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第一节-递归&quot;&gt;&lt;a href=&quot;#第一节-递归&quot; class=&quot;headerlink&quot; title=&quot;第一节 递归&quot;&gt;&lt;/a&gt;第一节 递归&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;递归是一个语言中最难理解的内容之一，它是通过自己调用自己的方法，来进行运算的方法。关
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【游戏安利】噬神者</title>
+    <link href="http://www.z16388.win/2016/09/10/%E3%80%90%E6%B8%B8%E6%88%8F%E5%AE%89%E5%88%A9%E3%80%91%E5%99%AC%E7%A5%9E%E8%80%85/"/>
+    <id>http://www.z16388.win/2016/09/10/【游戏安利】噬神者/</id>
+    <published>2016-09-10T00:56:37.000Z</published>
+    <updated>2016-09-10T07:43:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="【游戏安利】噬神者"><a href="#【游戏安利】噬神者" class="headerlink" title="【游戏安利】噬神者"></a>【游戏安利】噬神者</h1><p>&emsp;&emsp;噬神者是我非常喜欢的游戏系列，它由日本万代南梦宫制作发行，初版在psp上，二代之后以及我要安利的狂怒解放和解放重生都是在PS4，PSV，Steam三平台都有的。</p>
+<p>&emsp;&emsp;要说玩，那玩的时间可不少，但是让我安利的话，我却不知道怎么说了。于是，我就问我的联机群里的小伙伴们，如果让他们安利，他们会怎么做。</p>
+<p><img src="http://oda2v68ht.bkt.clouddn.com/52d6887499d8d8a4954a9a04bd809ad9.jpg" alt="噬神者"></p>
+<blockquote>
+<p>乳摇 大枪 啪啪啪</p>
+</blockquote>
+<p>&emsp;&emsp;群里的月冷dalao是这么说的。</p>
+<p><img src="http://oda2v68ht.bkt.clouddn.com/u=3855970304,1491459108&amp;fm=21&amp;gp=0.jpg" alt="alisha"></p>
+<blockquote>
+<p>mh式的操作，精美的人设，未来风，武器多且酷炫，各种大触的子弹，alisa</p>
+</blockquote>
+<p>&emsp;&emsp;群里的英灵Archer是这么说的。</p>
+<p>&emsp;&emsp;嘛~这里顺便说一下，噬神者Steam联机群：</p>
+<blockquote>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;533840872</p>
+</blockquote>
+<p>&emsp;&emsp;但是，其实让我来说的话，作为一个动漫风格，剧情很好的共斗游戏，和朋友在一起联机的体验是最好的。当劳累了一天，和朋友们在游戏里用子弹对♂轰时，仿佛一天的压力都没了。</p>
+<p>&emsp;&emsp;嘛~总之，我安利一个人也是马马虎虎的。拉他进群，下午就买游戏了。。。</p>
+<p>&emsp;&emsp;还是放一个宣传片吧，官方的安利还是更可靠点的呢2333。</p>
+<embed height="452" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://share.acg.tv/flash.swf" flashvars="aid=5574173&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">
+
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;【游戏安利】噬神者&quot;&gt;&lt;a href=&quot;#【游戏安利】噬神者&quot; class=&quot;headerlink&quot; title=&quot;【游戏安利】噬神者&quot;&gt;&lt;/a&gt;【游戏安利】噬神者&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;噬神者是我非常喜欢的游戏系列，它由日本万代南梦宫制作发行，初
+    
+    </summary>
+    
+    
+      <category term="游戏安利" scheme="http://www.z16388.win/tags/%E6%B8%B8%E6%88%8F%E5%AE%89%E5%88%A9/"/>
+    
+      <category term="游戏" scheme="http://www.z16388.win/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+      <category term="Steam" scheme="http://www.z16388.win/tags/Steam/"/>
+    
+      <category term="心情" scheme="http://www.z16388.win/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>给Github Pages绑定阿里云域名</title>
+    <link href="http://www.z16388.win/2016/09/09/%E7%BB%99Github-Pages%E7%BB%91%E5%AE%9A%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D/"/>
+    <id>http://www.z16388.win/2016/09/09/给Github-Pages绑定阿里云域名/</id>
+    <published>2016-09-09T15:54:20.000Z</published>
+    <updated>2016-09-13T10:26:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;我在阿里云上注册了一个域名<z16388.win>，现在想把它和我的Github Pages绑定起来，也就是说我想达到访问这个域名，能够进入我的博客<z16388.github.io>的目的。</z16388.github.io></z16388.win></p>
+<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>&emsp;&emsp;运行cmd，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ping yourusername.github.io</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;然后我们会看到一个IP地址。</p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>&emsp;&emsp;在你的阿里云域名解析设置中，添加以下两项内容</p>
+<blockquote>
+<p>A&emsp;&emsp;&emsp;&emsp;www&emsp;&emsp;&emsp;&emsp;&emsp;      Your IP<br>A&emsp;&emsp;&emsp;&emsp;@&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;      Your IP</p>
+</blockquote>
+<p>&emsp;&emsp;保存，等待十分钟左右，你就可以使用你的域名来访问你的博客了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;我在阿里云上注册了一个域名&lt;z16388.win&gt;，现在想把它和我的Github Pages绑定起来，也就是说我想达到访问这个域名，能够进入我的博客&lt;z16388.github.io&gt;的目的。&lt;/z16388.github.io&gt;&lt;/z16388.w
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://www.z16388.win/tags/hexo/"/>
+    
+      <category term="域名" scheme="http://www.z16388.win/tags/%E5%9F%9F%E5%90%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【ACM教程】2.4JAVA大数</title>
+    <link href="http://www.z16388.win/2016/09/09/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-4JAVA%E5%A4%A7%E6%95%B0/"/>
+    <id>http://www.z16388.win/2016/09/09/【ACM教程】2-4JAVA大数/</id>
+    <published>2016-09-09T14:35:24.000Z</published>
+    <updated>2016-09-09T14:39:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第四节-JAVA大数"><a href="#第四节-JAVA大数" class="headerlink" title="第四节 JAVA大数"></a>第四节 JAVA大数</h1><p>&emsp;&emsp;由于近些年，大数据的兴起，在ACM比赛中，经常会出现大数的问题。</p>
+<p>&emsp;&emsp;大数，字面意思很简单。而在编程中，特指超过32位二进制的数。虽然低于64位的数据计算可以使用long long 的数据类型，但是如果出现乘法，则难免会越界。这样的问题，我们称为大数问题。</p>
+<p>&emsp;&emsp;虽然C++给我们提供了大数，但是使用起来不是很方便。特别是在处理乘法和除法的时候，代码可能会达到上百行。JAVA的大数类则比较实用，在ACM竞赛中，我们大多使用JAVA语言进行大数题目的计算。下面是JAVA大数加法的程序:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.math.BigInteger;                          </div><div class="line"><span class="keyword">import</span> java.util.Scanner;                             </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;                                  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String args[])</span> </span>&#123;              </div><div class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);          </div><div class="line">        <span class="keyword">while</span>(in.hasNextBigInteger()) &#123;               </div><div class="line">            BigInteger a = in.nextBigInteger();         </div><div class="line">            BigInteger b = in.nextBigInteger();         </div><div class="line">            System.out.println(b.add(a));             </div><div class="line">       &#125;                                        </div><div class="line">         in.close();                                 </div><div class="line">    &#125;                                            </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;需要特别注意的是，普通的四则运算符号在大数加减时不能使用，我们要使用类似于C++中运算符重载的方法来进行计算。常用的几种运算如下：</p>
+<blockquote>
+<p>add( )              加法<br>subtract( )          减法<br>multiply( )          乘法<br>divide( )            除法<br>remainder ( )        求余<br>abs( )              绝对值<br>pow( int n )         n次幂</p>
+</blockquote>
+<p>&emsp;&emsp;不仅如此，大数只能和大数进行运算。在需要使用常数的时候，我们需要用下面这种方法进行定义：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BigInteger a = <span class="keyword">new</span> BigInteger ( “XXXXXXX” );</div></pre></td></tr></table></figure></p>
+<p>练习：</p>
+<p>&emsp;&emsp;&emsp;&emsp;<a href="http://www.clang.cc/oj/problem.php?id=1425" target="_blank" rel="external">Ti6奖金池</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第四节-JAVA大数&quot;&gt;&lt;a href=&quot;#第四节-JAVA大数&quot; class=&quot;headerlink&quot; title=&quot;第四节 JAVA大数&quot;&gt;&lt;/a&gt;第四节 JAVA大数&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;由于近些年，大数据的兴起，在ACM比赛中，经常会出现
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【ACM教程】2-3排序、查找与初始化</title>
+    <link href="http://www.z16388.win/2016/09/09/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-3%E6%8E%92%E5%BA%8F%E3%80%81%E6%9F%A5%E6%89%BE%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
+    <id>http://www.z16388.win/2016/09/09/【ACM教程】2-3排序、查找与初始化/</id>
+    <published>2016-09-09T14:26:37.000Z</published>
+    <updated>2016-09-09T14:33:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第三节-排序、查找与初始化"><a href="#第三节-排序、查找与初始化" class="headerlink" title="第三节 排序、查找与初始化"></a>第三节 排序、查找与初始化</h1><p>&emsp;&emsp;STL指的是C++的标准模板库。使用STL能给我们带来很大的便利，但是它比较复杂，我们只选取一些算法竞赛中常用的STL进行一系列的讲解。首先，我们先学习第一部分。排序和初始化。</p>
+<h2 id="排序与查找"><a href="#排序与查找" class="headerlink" title="排序与查找"></a>排序与查找</h2><p>&emsp;&emsp;排序与查找是两个对于数据常用的操作。C++给我们提供了sort() 和lower_bound() 两个函数来实现这两个功能，这两个函数都在algorithm头文件中。首先，介绍一下两个函数的参数。</p>
+<blockquote>
+<p>sort（起始地址，终点地址，比较方法）；<br>lower_bound（起始地址，终点地址，查找元素）；</p>
+</blockquote>
+<p>&emsp;&emsp;sort() 函数可以对任意对象进行排序，不一定是默认的数据类型。但是，在使用其他类型的时候，我们要首先要对该类型进行“大于”或者“小于”运算进行定义。排序的对象可以存放在数组里，也可以存放在vector中（动态数组，以后会进行讲解）。但是，在使用的细节上有所不同。前者是：sort(a,a+n)   后者是：sort(v.begin(),v.end())。</p>
+<blockquote>
+<p>Lower_bound() </p>
+</blockquote>
+<p>&emsp;&emsp;这个函数的作用是查找“大于或等于x的第一个位置”。</p>
+<p>&emsp;&emsp;stable_sort()函数和sort()函数类似，与后者的区别是，排序之后，不改变相同值元素的相对位置。我们称stable_sort()为稳定排序，举个例子，a1,a2,a3,a4,a5是一数组，其中a2=a4，那么经过排序之后是：a1,a2,a4,a3,a5，我们能看到，排序前后a2总是在a4的前面。在数组的排序中，可能效果不太明显，但是如果是对结构体的排序就会有明显的区别。</p>
+<p>&emsp;&emsp;使用这两个函数，将会给我们带来很大的便利。不仅缩短了代码的长度，而且可能要比我们所了解的各种排序查找方法更加优秀，无论是时间复杂度或者空间复杂度。</p>
+<p>&emsp;&emsp;请练习下面的题目：</p>
+<p>&emsp;&emsp;&emsp;&emsp;<a href="http://www.clang.cc/oj/problem.php?id=1423" target="_blank" rel="external">好汉杯积分问题</a></p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>&emsp;&emsp;在做和图、矩阵有关的题目时，我们经常会对二维数组进行初始化。将两个无关点之间的距离初始化为无穷，或者是给单位矩阵非对角线元素进行的初始化。C++给我们提供了memset() 函数实现初始化，这个函数在cstring头文件中。下面是memset() 函数的参数：</p>
+<blockquote>
+<p>Memset(数组名，初始化内容，初始化范围)；</p>
+</blockquote>
+<p>&emsp;&emsp;请练习下面的题目：</p>
+<p>&emsp;&emsp;&emsp;&emsp;<a href="http://www.clang.cc/oj/problem.php?id=1424" target="_blank" rel="external">我要送人头！</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第三节-排序、查找与初始化&quot;&gt;&lt;a href=&quot;#第三节-排序、查找与初始化&quot; class=&quot;headerlink&quot; title=&quot;第三节 排序、查找与初始化&quot;&gt;&lt;/a&gt;第三节 排序、查找与初始化&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;STL指的是C++的标准模板
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【ACM教程】2.2竞赛C++入门</title>
+    <link href="http://www.z16388.win/2016/09/09/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-2%E7%AB%9E%E8%B5%9BC++%E5%85%A5%E9%97%A8/"/>
+    <id>http://www.z16388.win/2016/09/09/【ACM教程】2-2竞赛C++入门/</id>
+    <published>2016-09-09T14:11:43.000Z</published>
+    <updated>2016-09-09T14:27:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第二节-竞赛C-入门"><a href="#第二节-竞赛C-入门" class="headerlink" title="第二节 竞赛C++入门"></a>第二节 竞赛C++入门</h1><p>&emsp;&emsp;本系列文章是以读者学习过C语言为背景的。C语言是一门很好的语言，但是在算法竞赛中却不是十分流行。举个例子：在2013年的ACM/ICPC世界总决赛中，有1347份代码使用C++提交，323份使用Java提交，但唯独C语言没有人使用。</p>
+<p>&emsp;&emsp;在我们参加各类软件竞赛时，C语言的程序代码其实都可以直接作为C++程序来进行编译。C++博大精深，但是也会有很多让人诟病的地方。我们在比赛中，重点只需要利用它其中很少的一部分特性。</p>
+<h2 id="C-框架"><a href="#C-框架" class="headerlink" title="C++框架"></a>C++框架</h2><p>&emsp;&emsp;虽然C语言的程序可以直接在C++中运行，但是并不是以C++的写法，下面简单地区别一下两种语言。</p>
+<p>C:a+b。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span>                      </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                            </span></div><div class="line">&#123;                                    </div><div class="line">    <span class="keyword">int</span> a,b;                           </div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b)==<span class="number">2</span>)      </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);                </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;                         </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>C++:返回两个个实数中，较小的一个的绝对值。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span>                     </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span>                       </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span>                    </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;                    </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                             </span></div><div class="line">&#123;                                     </div><div class="line">    <span class="keyword">double</span> a,b;                        </div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b) &#123;                  </div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">fabs</span>(min(a,b))&lt;&lt;<span class="built_in">endl</span>;      </div><div class="line">    &#125;                   </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;            </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;首先，和之前我们写的C程序进行比较，在我们使用数学相关的函数时，调用的头文件变成了cmath。实际上math.h依然存在，但是在C++中我们比较推荐使用cmath。类似地，stdio.h变成了cstdio，string.h变成了cstring。</p>
+<p>&emsp;&emsp;其次，在我们新增的两个头文件中：iostream提供了输入输出流，而algorithm则提供了一些常用的算法，就比如我们刚刚使用的min()函数。但是，在比赛中建议大家手动编写max和min函数，以免发生意外。</p>
+<p>&emsp;&emsp;cin&gt;&gt;a 和 cout&lt;&lt;a 就是我们前面提到的输入输出流，他们就相当于C语言中的scanf和printf函数。相比于后面两个函数，我们在使用输入输出流时省略了%d、%s等占位符。一个是简化了这些繁琐的东西，再一个可以轻易地避免long long 型的输入输出占位符不统一的问题（%i64d、%lld）。但是，C++流是不完美的，其最致命的缺点就是运行太慢，以致于有些题目会在后面明确注明：本题的输入量很大，请不要使用C++的流输入。另外，不要将cout和printf混合使用，会造成输出的数据混乱。</p>
+<p>&emsp;&emsp;cin&gt;&gt;a我们还看到了有这一行：using namespace std; 。在C++中，有个概念叫做名称空间。把函数放在名称空间里，我们可以通过这样的方法进行调用：  </p>
+<blockquote>
+<p>空间名:函数名();</p>
+</blockquote>
+<p>&emsp;&emsp;cin&gt;&gt;a而我们头文件iostream和algorithm就是放在std 名空间中的。如果我们在写程序的时候，不把std里的名字导入默认空间，那么我们在使用输入输出流的时候就要这么写了：</p>
+<blockquote>
+<p>std:cin&gt;&gt;a;<br>std:cout&lt;&lt;a;</p>
+</blockquote>
+<p>&emsp;&emsp;C++和C语言的数据类型非常相近，最显著的区别就是多了一个bool类型（ture/false）。</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>&emsp;&emsp;如果想要在一个函数中去操作主函数中的数值，我们除了可以利用指针之外，C++还给我们提供了引用。相比于指针，引用的功能上比指针要弱，但是减少了出错的可能，还能提高代码的可读性。下面我们来看一个例子:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span>            </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span>               </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;           </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swapp</span><span class="params">(<span class="keyword">int</span>&amp; a,<span class="keyword">int</span>&amp; b)</span>        </span></div><div class="line">&#123;                            </div><div class="line">    <span class="keyword">int</span> t=a;a=b;b=t;             </div><div class="line">&#125;                             </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                      </span></div><div class="line">&#123;                              </div><div class="line">    <span class="keyword">int</span> a=<span class="number">3</span>,b=<span class="number">4</span>;                 </div><div class="line">    swapp(a,b);                 </div><div class="line">    <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="string">" "</span>&lt;&lt;b&lt;&lt;<span class="built_in">endl</span>;       </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;                    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;在上面的程序中，我们使用了饮用。在参数的前面加上“&amp;”符号，就表示这个传参是按照传引用的方式进行传递，而不是C语言中的按值传递。这样，在上面的函数内改变参数的值，也会修改到函数的实参。</p>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p>&emsp;&emsp;在之前，我们可能接触过一些C++给我们提供的函数，比如sort()。默认的函数功能是提供从小到大的排序。如果我们需要从大到小排序，难道需要我们重写sort()吗。</p>
+<p>&emsp;&emsp;C++给我们提供了模板功能，可以对一些函数进行修改。</p>
+<p>&emsp;&emsp;sort()函数的参数实际上有三个：sort(begin,end,[compare]);第三个是非必填项，意思是排序方式。我们只需要在使用sort函数之前，对它的排序方式进行规定，就可以实现从大到小的排序了。下面是代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> a&gt;b;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a[<span class="number">5</span>];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++) &#123;</div><div class="line">           <span class="built_in">cin</span>&gt;&gt;a[i];</div><div class="line">    &#125;</div><div class="line">    sort(a,a+<span class="number">5</span>,compare);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++) &#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第二节-竞赛C-入门&quot;&gt;&lt;a href=&quot;#第二节-竞赛C-入门&quot; class=&quot;headerlink&quot; title=&quot;第二节 竞赛C++入门&quot;&gt;&lt;/a&gt;第二节 竞赛C++入门&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;本系列文章是以读者学习过C语言为背景的。C语言是
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【ACM教程】2.1常用输入输出格式</title>
+    <link href="http://www.z16388.win/2016/09/09/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-1%E5%B8%B8%E7%94%A8%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F/"/>
+    <id>http://www.z16388.win/2016/09/09/【ACM教程】2-1常用输入输出格式/</id>
+    <published>2016-09-09T12:34:22.000Z</published>
+    <updated>2016-09-09T12:45:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第一节-常用输入输出格式"><a href="#第一节-常用输入输出格式" class="headerlink" title="第一节 常用输入输出格式"></a>第一节 常用输入输出格式</h1><p>&emsp;&emsp;写程序，大家都会写。但是在比赛里面怎样写程序，应该按照怎样的格式去写程序，都是有严格的要求的。下面简单介绍一下各种比赛中，常见的输入输出格式。</p>
+<h2 id="OI"><a href="#OI" class="headerlink" title="OI"></a>OI</h2><p>&emsp;&emsp;OI比赛中，输入输出均需要使用文件操作。常见的格式如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span>             </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                    </span></div><div class="line">&#123;                           </div><div class="line">    FILE *fin,*fout;            </div><div class="line">    fin=fopen(<span class="string">"fin.txt"</span>,<span class="string">"r"</span>);     </div><div class="line">    fout=fopen(<span class="string">"fout.txt"</span>,<span class="string">"w"</span>);  </div><div class="line">    <span class="keyword">int</span> a,b,sum;               </div><div class="line">    <span class="built_in">fscanf</span>(fin,<span class="string">"%d %d"</span>,&amp;a,&amp;b);   </div><div class="line">    sum=a+b;                 </div><div class="line">    <span class="built_in">fprintf</span>(fout,<span class="string">"%d\n"</span>,sum);    </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;                 </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="蓝桥杯"><a href="#蓝桥杯" class="headerlink" title="蓝桥杯"></a>蓝桥杯</h2><p>&emsp;&emsp;蓝桥杯比赛对格式的要求不是很高，养成良好的代码书写习惯即可。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span>             </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                    </span></div><div class="line">&#123;                           </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Hello world\n"</span>);     </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;                 </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="ACM"><a href="#ACM" class="headerlink" title="ACM"></a>ACM</h2><p>&emsp;&emsp;ACM比赛中，对输入输出的要求多种多样。因为题目都是英语，所以大家应当仔细审题，控制好输入和输出。其中，一下几种情况会经常出现。</p>
+<p>&emsp;&emsp;第一种，输入一个或一组数据。方法同蓝桥杯比赛。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span>             </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                    </span></div><div class="line">&#123;                           </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Hello world\n"</span>);     </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;                 </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;第二种，输入多组数据。题目中，常见的描述方式为：The input will consist of a series of pairs of integers a and b, separated by a space, one pair of integers per line.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span>                       </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span>                     </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;                    </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                              </span></div><div class="line">&#123;                                     </div><div class="line">    <span class="keyword">int</span> i,j;                             </div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;i,&amp;j)!=EOF) &#123;     </div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i+j);               </div><div class="line">    &#125;                                 </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;                           </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这里我们的输入语句是写在while循环语句里面的，后面有一个!=EOF。EOF是文件结尾的标志，也就是说循环在输入结束时停止。这种输入方法在ACM中最为常见，大家应当熟练掌握。</p>
+<p>&emsp;&emsp;第三种，输入多组数据，直到遇到0，0这组数据时，停止输入。常见描述方式为：Input contains multiple test cases. Each test case contains a pair of integers a and b, one pair of integers per line. A test case containing 0 0 terminates the input and this test case is not to be processed.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span>                     </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span>                   </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;                  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                            </span></div><div class="line">&#123;                                   </div><div class="line">    <span class="keyword">int</span> i,j;                           </div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;i,&amp;j)&amp;&amp;(i||j)) &#123; </div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i+j);             </div><div class="line">    &#125;                               </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;                         </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;第四种，输入一个数字n，接下来输入n组测试数据。常见的描述方式为：Input contains an integer N in the first line, and then N lines follow.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span>               </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span>             </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;            </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                     </span></div><div class="line">&#123;                             </div><div class="line">    <span class="keyword">int</span> n;                      </div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);             </div><div class="line">    <span class="keyword">while</span>(n--) &#123;                 </div><div class="line">        <span class="keyword">int</span> i,j;                 </div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;i,&amp;j);     </div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i+j);        </div><div class="line">    &#125;                          </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;                    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;另外，在输入字符串时，我们可以使用gets()函数<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> buf [ <span class="number">20</span> ] ; </div><div class="line">gets ( buf ) ;</div></pre></td></tr></table></figure></p>
+<p>练习题目：Clang 1085~1092题</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第一节-常用输入输出格式&quot;&gt;&lt;a href=&quot;#第一节-常用输入输出格式&quot; class=&quot;headerlink&quot; title=&quot;第一节 常用输入输出格式&quot;&gt;&lt;/a&gt;第一节 常用输入输出格式&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;写程序，大家都会写。但是在比赛里面怎
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【ACM教程】1.3常用编译环境与OJ系统</title>
+    <link href="http://www.z16388.win/2016/09/09/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%911-3%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://www.z16388.win/2016/09/09/【ACM教程】1-3算法竞赛介绍/</id>
+    <published>2016-09-09T11:35:32.000Z</published>
+    <updated>2016-09-10T07:42:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第三节-常用编译环境与OJ系统"><a href="#第三节-常用编译环境与OJ系统" class="headerlink" title="第三节 常用编译环境与OJ系统"></a>第三节 常用编译环境与OJ系统</h1><h2 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h2><p>&emsp;&emsp;编译环境就是我们编写代码时所使用的软件。在参加算法类竞赛时，我们通常使用以下三种软件。</p>
+<ol>
+<li>DEV-C++</li>
+</ol>
+<p><img src="http://oda2v68ht.bkt.clouddn.com/1.png" alt="dev"></p>
+<p>&emsp;&emsp;Dev-C++为OI和蓝桥杯C/C++组比赛中的指定编译环境。</p>
+<ol>
+<li>Code::Blocks</li>
+</ol>
+<p><img src="http://oda2v68ht.bkt.clouddn.com/2.png" alt="cod"></p>
+<p>&emsp;&emsp;Code::Blocks为ACM比赛中指定的C/C++编译环境。</p>
+<ol>
+<li>Eclipse</li>
+</ol>
+<p><img src="http://oda2v68ht.bkt.clouddn.com/3.png" alt="ecl"></p>
+<p>&emsp;&emsp;Eclipse为蓝桥杯java组和ACM中指定的java编译环境。</p>
+<h2 id="常用OJ系统"><a href="#常用OJ系统" class="headerlink" title="常用OJ系统"></a>常用OJ系统</h2><p>HDU: <a href="http://acm.hdu.edu.cn/" target="_blank" rel="external">http://acm.hdu.edu.cn/</a><br>PKU: <a href="http://poj.org/" target="_blank" rel="external">http://poj.org/</a><br>Clang: <a href="http://www.clang.cc/" target="_blank" rel="external">http://www.clang.cc/</a><br>Codevs: <a href="http://www.codevs.cn/" target="_blank" rel="external">http://www.codevs.cn/</a><br>51nod: <a href="http://www.51nod.com/" target="_blank" rel="external">http://www.51nod.com/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第三节-常用编译环境与OJ系统&quot;&gt;&lt;a href=&quot;#第三节-常用编译环境与OJ系统&quot; class=&quot;headerlink&quot; title=&quot;第三节 常用编译环境与OJ系统&quot;&gt;&lt;/a&gt;第三节 常用编译环境与OJ系统&lt;/h1&gt;&lt;h2 id=&quot;编译环境&quot;&gt;&lt;a href
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【ACM教程】1.2算法竞赛介绍</title>
+    <link href="http://www.z16388.win/2016/09/09/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%911-2%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://www.z16388.win/2016/09/09/【ACM教程】1-2算法竞赛介绍/</id>
+    <published>2016-09-09T11:21:37.000Z</published>
+    <updated>2016-09-09T12:35:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第二节-算法竞赛介绍"><a href="#第二节-算法竞赛介绍" class="headerlink" title="第二节 算法竞赛介绍"></a>第二节 算法竞赛介绍</h1><p>&emsp;&emsp;本教程是针对参加各种算法竞赛的同学们编写的。这一节主要介绍几种比较有名的算法竞赛。</p>
+<h2 id="OI-Olympiad-in-Informatics，信息学奥林匹克竞赛"><a href="#OI-Olympiad-in-Informatics，信息学奥林匹克竞赛" class="headerlink" title="OI(Olympiad in Informatics，信息学奥林匹克竞赛)"></a>OI(Olympiad in Informatics，信息学奥林匹克竞赛)</h2><p>&emsp;&emsp;OI是Olympiad in Informatics的简称，1987年，保加利亚的Sendov教授在联合国教科文组织第24届全体会议上，倡议举行国际信息学奥林匹克，定名为International Olympiad in Informatics，简称IOI。OI是面向中学生的一年一度的信息学科竞赛。第一届国际信息学奥林匹克竞赛于1989年在保加利亚的布拉维茨举行。</p>
+<p>&emsp;&emsp;考的内容主要是计算机编程。OI的比赛有NOIP，NOI，IOI等。NOIP是最初级别的比赛，分初赛和复赛，初赛为笔试，选出成绩优秀的选手参加复赛；复赛是上机编程，选出各个省市的一等奖，参加省级OI（NOIP是参加NOI的必备条件）。NOI是通过NOIP或各省省选选出的优秀选手组成省队参加的全国比赛。NOI选出全国一二三等奖，并选出国家集训队。</p>
+<p>&emsp;&emsp;中国队参加8届大赛，届届名列前茅。中国队共计派出选手31人次，全部获奖，累计金牌17块、银牌6块，铜牌8块。在这种世界级别的智能大赛中，中国的娃娃们给参赛国的领队和选手留下了深刻的印象，盛赞“中国队是整体实力最强的队”。在波IOI’92 的发奖大会上，组委会为金牌得主设置了6台高档微计算机， 中国队捧回了3台。在IOI’94（瑞典），黄天明同学编的程序比组委会的标准答案运行速度快了20倍，组委会非常欣赏，派专人到中国队驻地索取原程序。1995年中国队首次派女选手参加IOI， 结果两位女选手杨域和林凌荣登金牌领奖台，填补了国际信息学赛事上女选手从未拿过金牌的空白，引起轰动。IOI’96（匈牙利）中国队经努力拼搏，4名选手夺得4枚金牌，实现了全“金”的突破，创造了新的纪录。近几年来，中国选手在国际信息学奥林匹克竞赛中表现优异，已连续三年在IOI中全部摘得金牌。</p>
+<h2 id="ACM-ICPC"><a href="#ACM-ICPC" class="headerlink" title="ACM-ICPC"></a>ACM-ICPC</h2><p>ACM-Association for Computing Machinery，国际计算机学会。<br>ICPC-International Collegiate Programming Contest，国际大学生程序设计竞赛。</p>
+<p>&emsp;&emsp;ACM国际大学生程序设计竞赛是由国际计算机学会（ACM）主办的，一项旨在展示大学生创新能力、团队精神和在压力下编写程序、分析和解决问题能力的年度竞赛。经过近30多年的发展，ACM国际大学生程序设计竞赛已经发展成为最具影响力的大学生计算机竞赛。赛事目前由IBM公司赞助。</p>
+<p>&emsp;&emsp;赛事由各大洲区域预赛和全球总决赛两个阶段组成。各预赛区第一名自动获得参加全球总决赛的资格。决赛安排在每年的3-4月举行，而区域预赛一般安排在上一年的9-12月举行。一个大学可以有多支队伍参加区域预赛，但只能有一支队伍参加全球总决赛</p>
+<p>&emsp;&emsp;竞赛进行5个小时，一般有11—13道试题，由同队的三名选手使用同一台计算机协作完成。当解决了一道试题之后，将其提交给评委，由评委判断其是否正确。若提交的程序运行不正确，则该程序将被退回给参赛队，参赛队可以进行修改后再一次提交该问题。竞赛结束后，参赛各队以解出问题的多少进行排名，若解出问题数相同，按照总用时的长短排名。总用时为每个解决了的问题所用时间之和。一个解决了的问题所用的时间是竞赛开始到提交被接受的时间加上该问题的罚时(每次提交通不过，罚时20分钟)。没有解决的问题不记时。美国英语为竞赛的工作语言。竞赛的所有书面材料(包括试题)将用美国英语写出，区域竞赛中可以使用其它语言。总决赛可以使用的程序设计语言包括pascal，c，c++及java，也可以使用其它语言。具体的操作系统及语言版本各年有所不同。</p>
+<p>竞赛流程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">参赛队伍最多由三名参赛队员组成。 </div><div class="line">竞赛中一般命题10题左右，试题描述为英文，比赛时间为5个小时，前四个小时可以看到实时排名，最后一小时封榜，无法看到排名。</div><div class="line">竞赛可以使用的语言：C++、C、Java和Pascal。但final赛只有C/C++;</div><div class="line">重点考察选手的算法和程序设计能力，不考察任何Windows编程知识；</div><div class="line">选手可携带任何非电子类资料，包括书籍和打印出来的程序等，部分赛区会对携带的资料进行限制；</div><div class="line">评委负责将结果（正确或出错的类型）通过网络尽快返回给选手，除此之外不提供任何额外帮助；</div></pre></td></tr></table></figure></p>
+<p>返回结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Accepted. ---通过！(AC)</div><div class="line">Wrong Answer. ---答案错。(WA)</div><div class="line">Run Time Error. ---程序运行出错，意外终止等。(RTE)</div><div class="line">Time Limit Exceeded. ---超时。程序没在规定时间内出答案。(TLE)</div><div class="line">Presentation Error. ---格式错。程序没按规定的格式输出答案。(PE)</div><div class="line">Memory Limit Exceeded. ---超内存。程序没在规定空间内出答案。(MLE)</div><div class="line">Compile Error. ---编译错。程序编译不过。(CE)</div></pre></td></tr></table></figure></p>
+<p>ACM试题的特点：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">严格的输入输出格式，有一点儿偏差都不能够AC；</div><div class="line">对算法的高效有着极致的追求，即使算法正确，但是如果效率不高，也不能AC；</div><div class="line">测试数据庞大，即使算法是正确的，不能应对极端的测试数据的话，也不能AC；</div><div class="line">强调解决实际问题的能力，试题大多会有大篇幅的描述，需要有一定的读题能力，分析能力，当然，英语也很重要。</div></pre></td></tr></table></figure></p>
+<h2 id="蓝桥杯"><a href="#蓝桥杯" class="headerlink" title="蓝桥杯"></a>蓝桥杯</h2><p>&emsp;&emsp;蓝桥杯由工业和信息化部人才交流中心举办，全称为：“全国软件专业人才设计与创业大赛”。包含个人和团队两个比赛项目。个人竞赛分为：C/C++本科A组，C/C++本科B组，C/C++高职高专组，java本科A组， java本科B组，java高职高专组，嵌入式设计与开发大学组，嵌入式设计与开发研究生组，单片机设计与开发本科组，单片机设计与开发高职高专组，电子设计与开发本科组，电子设计与开发高职高专组共12个组别。每位选手只能参加其中一个组别的竞赛。</p>
+<p>&emsp;&emsp;蓝桥杯算法类比赛是一个比较新的比赛，到2016年共举办了七次，在国内外的知名度还不是很高。但是获得省赛一等奖以上可以获得IBM颁发的“高级软件工程师认证”和工信部颁发的“电子信息从业人员高级证书”。</p>
+<hr>
+<p>参考资料：</p>
+<blockquote>
+<p>   IOI官方网站：<www.ioinformatics.org><br>   ACM-ICPC：<a href="https://icpc.baylor.edu/" target="_blank" rel="external">https://icpc.baylor.edu/</a><br>   蓝桥杯官方网站：<a href="http://www.lanqiao.org/" target="_blank" rel="external">http://www.lanqiao.org/</a></www.ioinformatics.org></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第二节-算法竞赛介绍&quot;&gt;&lt;a href=&quot;#第二节-算法竞赛介绍&quot; class=&quot;headerlink&quot; title=&quot;第二节 算法竞赛介绍&quot;&gt;&lt;/a&gt;第二节 算法竞赛介绍&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;本教程是针对参加各种算法竞赛的同学们编写的。这一节主
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【ACM教程】1.1算法概述</title>
+    <link href="http://www.z16388.win/2016/09/09/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%911-1%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0/"/>
+    <id>http://www.z16388.win/2016/09/09/【ACM教程】1-1算法概述/</id>
+    <published>2016-09-09T11:00:24.000Z</published>
+    <updated>2016-09-09T11:30:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第一节-算法概述"><a href="#第一节-算法概述" class="headerlink" title="第一节 算法概述"></a>第一节 算法概述</h1><h2 id="算法是什么？"><a href="#算法是什么？" class="headerlink" title="算法是什么？"></a>算法是什么？</h2><p>&emsp;&emsp;算法是软件工程非常重要的基础科目。简单来说，算法就是解决特定问题的方法和步骤。为了解决现实生活中的各种问题，我们就把现实问题对应成数学问题，然后设计公式，编写程序，让计算机编译，运行得到答案——这时候运用的方法就是算法。</p>
+<p>&emsp;&emsp;尽管这里运用了“公式”这个词来形容算法，然而算法并不是大家印象中死板的数学公式。因为计算机能够执行复杂的计算，所以公式可以设计成好几行，甚至几百行，用到很多数学理论。因此，就算学习过算法的人，也不一定会设计算法。因为数学、程序上面的东西都比较复杂。想要把现实中的问题对应到数学问题，那就更加复杂了。</p>
+<p>&emsp;&emsp;通常，算法具有由三部分组成：输入、输出、计算过程。说到这里，大家可能会联想到函数。</p>
+<p>&emsp;&emsp;输入、输出是一个或一组数据，实际上是将这些数字放在数据结构中比如数组、链表。输入的来源，通常是硬盘中存储的数据，或者是由键盘输入的数字；输出的去处可能是硬盘中的文件或是由硬盘中的数据转换之后以其他的形式呈现，例如显示器。</p>
+<p>&emsp;&emsp;计算过程是一连串处理数字的指令。指令有两种类型，一种是运算，例如数学运算的加减乘除、逻辑预算的与或非、比较大小、位运算等等；另一种则是读写，例如读取某处的数字，存储数字至某处。</p>
+<p>&emsp;&emsp;在算法之前的定义中，算法的计算步骤必须是有限的。用程序的语言说：算法不能无限轮回。之所以规定算法的步骤有限是为了方便统计计算的步数。但是事实上，很多的计算机程序都是开启之后保持运行的状态，直到遇到死机或者关机。例如用于网络传输的算法。因此，实际上，算法是可以有无限步的。</p>
+<h2 id="计算机只会算数字"><a href="#计算机只会算数字" class="headerlink" title="计算机只会算数字"></a>计算机只会算数字</h2><p>&emsp;&emsp;计算机就是一台用于计算的机器，它只会计算、判断以及存储数据，但是能够做得又快又准。而程序，是一连串计算、判断、存储数据的过程。</p>
+<p>&emsp;&emsp;计算机只会处理二进制数字，计算机中的每一个文字、每一种颜色、每一种声音，都有它所对应的数字。例，我们规定：用1代表数字“一”，用2代表汉字“乙”，用3代表汉字“人”…一个数字对应一个汉子。按照这样的规定，计算机中所有的汉字都变成了数字。同理，呈现在电脑屏幕上的不同颜色、图片、影像等，都可以转化成数字。一切事物在计算机里都是数字。</p>
+<p>&emsp;&emsp;如果我们想要利用计算机解决实际问题，通常要考虑两个方面：一、计算机应该使用哪些设备?计算机如何操作这些设备？二、显示问题如何对应到数学问题?如何设计算法？当然，编写程序，计算数字，这就是程序设计师的工作。</p>
+<h2 id="数学和程序这么复杂，为什么要用计算机解决现实问题？"><a href="#数学和程序这么复杂，为什么要用计算机解决现实问题？" class="headerlink" title="数学和程序这么复杂，为什么要用计算机解决现实问题？"></a>数学和程序这么复杂，为什么要用计算机解决现实问题？</h2><p>&emsp;&emsp;计算机解决问题的速度很快，一秒可以进行几千万次以上的计算。即使是很大的数据量，计算机也能够轻松解决。打开计算机中的一份文件，用鼠标滑动页面。眼镜还没来得及眨一下，正确的内容就已经显示在显示器上了。事实上，在我们滑动页面的时候，计算机已经完成了很多次的计算，然后把正确的内容展示在显示器上了。</p>
+<p>&emsp;&emsp;人们想要用计算机来解决问题，就是因为它速度快，正确率高，而且计算机会按照人们设计的程序来进行运算。程序设计师只要设计好一个好的程序，接下来的工作就可以让计算机代劳了。计算机的运算速度比人要更快更好，计算机做得到人类做不到是事。相比于算法的复杂，程序和计算机的组合能够给人们带来更多的便利。现在，计算机应用在人们生产生活的各个方面，程序设计师们设计的程序也在世界各地发光发热。</p>
+<h2 id="如何表示一个算法"><a href="#如何表示一个算法" class="headerlink" title="如何表示一个算法"></a>如何表示一个算法</h2><p>&emsp;&emsp;有人用伪代码来表示一个算法。如要实际计算机程序，伪代码是比较方便使用的。下面是一段伪代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">GREATEST_COMMON_DIVISOR(a, b)</div><div class="line">    while a ≠ b do</div><div class="line">        if a &gt; b then</div><div class="line">            a ← a - b</div><div class="line">        else</div><div class="line">            b ← b - a</div><div class="line">    return a</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;当然，你也可以使用流程图来表示一个算法。下面是一个流程图：<br><img src="http://hi.csdn.net/attachment/201202/14/0_1329236861DBDO.gif" alt="流程图"></p>
+<h2 id="如何实现一个算法"><a href="#如何实现一个算法" class="headerlink" title="如何实现一个算法"></a>如何实现一个算法</h2><p>&emsp;&emsp;实现的意思就是实际操作，实际运行。对于程序设计师来说，就是把算法写成程序，比如C/C++程序或者是java程序，然后在计算机上去执行。这个是我们接下来我们主要研究的东西。</p>
+<h2 id="衡量算法优良的标准"><a href="#衡量算法优良的标准" class="headerlink" title="衡量算法优良的标准"></a>衡量算法优良的标准</h2><p>&emsp;&emsp;要评价一个算法的好坏，最基本的两个指标就是<strong>时间复杂度</strong>和<strong>空间复杂度</strong>。用直观的感觉来说，就是程序的执行时间和内存使用量。但是由于不同的计算机执行时间会有所不同，而且这两项指标同时会受到程序语言的类型、程序设计的技巧的影响。因此，执行时间和内存使用量并不是一个稳定的评判标准。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for ( i = 0 ; i &lt; length(A) ; i ++ )       </div><div class="line">    for (j = 0 ; j &lt; length(A)-I ; j ++ )  </div><div class="line">        if A [ j ] &lt; A [ j+1]         </div><div class="line">            swap A [ j ] and A [ j+1 ]</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;上面的程序是一个简单的数组排序问题，我们经常采用统计计算步骤的方法来去衡量一个算法的时间复杂度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">  Code                                                 step</div><div class="line">for ( i = 0 ; i &lt; length(A) ; i ++ )                  n         </div><div class="line">    for (j = 0 ; j &lt; length(A)-I ; j ++ )          n ( n - 1) / 2 </div><div class="line">        if A [ j ] &lt; A [ j+1] &#123;                    n ( n - 1) / 2 </div><div class="line">            Temp = A [ j ] ;                       n ( n - 1) / 2 </div><div class="line">            A [ j ] = A [ j + 1 ] ;                n ( n - 1) / 2 </div><div class="line">            A [ j + 1 ] = temp ;                   n ( n - 1) / 2</div></pre></td></tr></table></figure></p>
+<p>Sum = n + 5n ( n – 1 ) / 2<br>= n + 2.5n2 – 2.5n<br>= 2.5n2 – 1.5n<br>= O ( n2 )</p>
+<p>&emsp;&emsp;像上面那个算法，我们称它的时间复杂度为O ( n2 )。这是因为在上式中，我们进行的并不是精确的步骤计算。针对不同的数据，系数变动会很大。因此，我们只取代数式的最高次方。最高次方越大，时间复杂度越高，算法的速度也就越慢。并且，我们规定n必须足够大。尽管这样的估算并不是非常精准，但是还是可以对一些常见的算法进行简易的分类，粗略地比较快慢。</p>
+<p>&emsp;&emsp;下面是几种常见算法的时间复杂度和空间复杂度。（空间复杂度的计算和时间复杂度类似。）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">type                           time              space</div><div class="line">bubble sort ( 冒泡排序 )      O ( n2 )           O ( n ) </div><div class="line">insertion sort ( 插入排序 )   O ( n2 )           O ( n )  </div><div class="line">merge sort ( 归并排序 )       O ( n log ( n ) )  O ( n )  </div><div class="line">quicksort ( 快速排序 )        O ( n2 )           O ( n )  </div><div class="line">heapsort ( 堆排序 )           O ( n log ( n ) )  O ( n )  </div><div class="line">counting sort ( 计数排序 )    O ( n + r )        O ( n + r )</div></pre></td></tr></table></figure></p>
+<h2 id="学习编程语言"><a href="#学习编程语言" class="headerlink" title="学习编程语言"></a>学习编程语言</h2><p>&emsp;&emsp;学习编程语言，有两个层次：一是语言本身的语法，二是把算法转换成代码的能力。算法固然重要，然而更重要的是用一种语言来把它表述出来，这样它才能发挥作用。而使用编程语言将算法描述出来这个过程，正是我们今后学习的重点。关于各种编程语言，本教程不作详细介绍，因为其他的书籍已经介绍得足够详细了。接下来对算法的描述，以C/C++语言为主，部分辅以java语言。</p>
+<hr>
+<p>参考书目：</p>
+<blockquote>
+<p>1.《算法竞赛入门经典（第二版）》 （刘汝佳编著，2009年，清华大学出版社）<br>2.《数据结构实用教程（C语言版）（第二版）》（2009年，清华大学出版社）</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第一节-算法概述&quot;&gt;&lt;a href=&quot;#第一节-算法概述&quot; class=&quot;headerlink&quot; title=&quot;第一节 算法概述&quot;&gt;&lt;/a&gt;第一节 算法概述&lt;/h1&gt;&lt;h2 id=&quot;算法是什么？&quot;&gt;&lt;a href=&quot;#算法是什么？&quot; class=&quot;headerli
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ACM教程</title>
+    <link href="http://www.z16388.win/2016/09/09/ACM%E6%95%99%E7%A8%8B/"/>
+    <id>http://www.z16388.win/2016/09/09/ACM教程/</id>
+    <published>2016-09-09T10:53:22.000Z</published>
+    <updated>2016-09-10T07:23:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ACM教程"><a href="#ACM教程" class="headerlink" title="ACM教程"></a>ACM教程</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;从今天起，我将会在<a href="https://z16388.win" target="_blank" rel="external">我的博客</a>同步更新我的ACM教程系列。虽说是教程，但是两年ACM经历的我还是有许多要学的东西，在这里写下自己的学习经历，也算是共同进步吧。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h3 id="第一章-简介"><a href="#第一章-简介" class="headerlink" title="第一章 简介"></a>第一章 简介</h3><h4 id="第1节-算法概述"><a href="#第1节-算法概述" class="headerlink" title="第1节 算法概述"></a><a href="http://z16388.github.io/2016/09/09/【ACM教程】1-1算法概述/" target="_blank" rel="external">第1节 算法概述</a></h4><h4 id="第2节-算法竞赛介绍"><a href="#第2节-算法竞赛介绍" class="headerlink" title="第2节 算法竞赛介绍"></a><a href="http://z16388.win/2016/09/09/【ACM教程】1-2算法竞赛介绍/" target="_blank" rel="external">第2节 算法竞赛介绍</a></h4><h4 id="第3节-常用编译环境与OJ系统"><a href="#第3节-常用编译环境与OJ系统" class="headerlink" title="第3节 常用编译环境与OJ系统"></a><a href="http://z16388.win/2016/09/09/【ACM教程】1-3算法竞赛介绍/" target="_blank" rel="external">第3节 常用编译环境与OJ系统</a></h4><h3 id="第二章-走进算法竞赛"><a href="#第二章-走进算法竞赛" class="headerlink" title="第二章 走进算法竞赛"></a>第二章 走进算法竞赛</h3><h4 id="第1节-常用输入输出格式"><a href="#第1节-常用输入输出格式" class="headerlink" title="第1节 常用输入输出格式"></a><a href="http://z16388.win/2016/09/09/【ACM教程】2-1常用输入输出格式/" target="_blank" rel="external">第1节 常用输入输出格式</a></h4><h4 id="第2节-竞赛C-入门"><a href="#第2节-竞赛C-入门" class="headerlink" title="第2节 竞赛C++入门"></a><a href="http://z16388.win/2016/09/09/【ACM教程】2-2竞赛C++入门/" target="_blank" rel="external">第2节 竞赛C++入门</a></h4><h4 id="第3节-排序、查找与初始化"><a href="#第3节-排序、查找与初始化" class="headerlink" title="第3节 排序、查找与初始化"></a><a href="http://z16388.win/2016/09/09/【ACM教程】2-3排序、查找与初始化/" target="_blank" rel="external">第3节 排序、查找与初始化</a></h4><h4 id="第4节-JAVA大数"><a href="#第4节-JAVA大数" class="headerlink" title="第4节 JAVA大数"></a><a href="http://z16388.win/2016/09/09/【ACM教程】2-4JAVA大数/" target="_blank" rel="external">第4节 JAVA大数</a></h4><h3 id="第三章-算法初步"><a href="#第三章-算法初步" class="headerlink" title="第三章 算法初步"></a>第三章 算法初步</h3><h4 id="第1节-递归"><a href="#第1节-递归" class="headerlink" title="第1节 递归"></a><a href="http://z16388.win/2016/09/10/【ACM教程】3-1递归/" target="_blank" rel="external">第1节 递归</a></h4>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;ACM教程&quot;&gt;&lt;a href=&quot;#ACM教程&quot; class=&quot;headerlink&quot; title=&quot;ACM教程&quot;&gt;&lt;/a&gt;ACM教程&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo常用命令</title>
+    <link href="http://www.z16388.win/2016/09/09/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://www.z16388.win/2016/09/09/hexo常用命令/</id>
+    <published>2016-09-09T10:38:06.000Z</published>
+    <updated>2016-09-09T10:43:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="hexo常用命令笔记"><a href="#hexo常用命令笔记" class="headerlink" title="hexo常用命令笔记"></a>hexo常用命令笔记</h1><hr>
+<h2 id="1-hexo相关"><a href="#1-hexo相关" class="headerlink" title="1.hexo相关"></a>1.hexo相关</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install hexo -g #安装  </div><div class="line">npm update hexo -g #升级  </div><div class="line">hexo init #初始化</div></pre></td></tr></table></figure>
+<h2 id="2-常用的缩写"><a href="#2-常用的缩写" class="headerlink" title="2.常用的缩写"></a>2.常用的缩写</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章</div><div class="line">hexo p == hexo publish</div><div class="line">hexo g == hexo generate#生成</div><div class="line">hexo s == hexo server #启动服务预览</div><div class="line">hexo d == hexo deploy#部署</div></pre></td></tr></table></figure>
+<p><b>持续更新</b></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;hexo常用命令笔记&quot;&gt;&lt;a href=&quot;#hexo常用命令笔记&quot; class=&quot;headerlink&quot; title=&quot;hexo常用命令笔记&quot;&gt;&lt;/a&gt;hexo常用命令笔记&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;1-hexo相关&quot;&gt;&lt;a href=&quot;#1-hexo相关
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://www.z16388.win/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>

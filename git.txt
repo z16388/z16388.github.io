@@ -1,0 +1,8 @@
+git clone <url>
+git pull <url>
+
+git add .
+git  commit -m "changes log" 
+git push -u origin master  
+
+https://github.com/z16388/blogsource.git

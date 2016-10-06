@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>【ACM教程】2.2竞赛C++入门 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="ACM,算法,ACM教程">
+  <meta name="description" content="第二节 竞赛C++入门&amp;emsp;&amp;emsp;本系列文章是以读者学习过C语言为背景的。C语言是一门很好的语言，但是在算法竞赛中却不是十分流行。举个例子：在2013年的ACM/ICPC世界总决赛中，有1347份代码使用C++提交，323份使用Java提交，但唯独C语言没有人使用。
+&amp;emsp;&amp;emsp;在我们参加各类软件竞赛时，C语言的程序代码其实都可以直接作为C++程序来进行编译。C++博大精深">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ACM教程】2.2竞赛C++入门">
+<meta property="og:url" content="http://www.z16388.win/2016/09/09/【ACM教程】2-2竞赛C++入门/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="第二节 竞赛C++入门&amp;emsp;&amp;emsp;本系列文章是以读者学习过C语言为背景的。C语言是一门很好的语言，但是在算法竞赛中却不是十分流行。举个例子：在2013年的ACM/ICPC世界总决赛中，有1347份代码使用C++提交，323份使用Java提交，但唯独C语言没有人使用。
+&amp;emsp;&amp;emsp;在我们参加各类软件竞赛时，C语言的程序代码其实都可以直接作为C++程序来进行编译。C++博大精深">
+<meta property="og:updated_time" content="2016-09-09T14:27:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【ACM教程】2.2竞赛C++入门">
+<meta name="twitter:description" content="第二节 竞赛C++入门&amp;emsp;&amp;emsp;本系列文章是以读者学习过C语言为背景的。C语言是一门很好的语言，但是在算法竞赛中却不是十分流行。举个例子：在2013年的ACM/ICPC世界总决赛中，有1347份代码使用C++提交，323份使用Java提交，但唯独C语言没有人使用。
+&amp;emsp;&amp;emsp;在我们参加各类软件竞赛时，C语言的程序代码其实都可以直接作为C++程序来进行编译。C++博大精深">
+  
+    <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/Favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu"  >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/logo.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">Anqi Zhao</h5>
+        <a href="mailto:z16388@outlook.com" title="z16388@outlook.com" class="mail">z16388@outlook.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              主页
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-table"></i>
+              动态
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              标签
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/int"  >
+              <i class="icon icon-lg icon-link"></i>
+              常用网址导航
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/Download"  >
+              <i class="icon icon-lg icon-cloud-download"></i>
+              下载资源
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/friend"  >
+              <i class="icon icon-lg icon-mars-double"></i>
+              友情链接
+            </a>
+          </li>
+      
+    </ul>
+    <footer class="footer">
+<!--  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>-->
+  <p>崎径 其镜 &copy; 2016<a href="/about" target="_blank">  关于我</a></p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【ACM教程】2.2竞赛C++入门</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		<a href="https://www.zhihu.com/people/zhao-an-qi-65-10" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-drupal"></i>
+		</a>
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">【ACM教程】2.2竞赛C++入门</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2016-09-09T14:11:43.000Z" itemprop="datePublished" class="page-time">
+  2016-09-09
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-【ACM教程】2-2竞赛C++入门" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM教程/">ACM教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第二节-竞赛C-入门"><span class="post-toc-text">第二节 竞赛C++入门</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-框架"><span class="post-toc-text">C++框架</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#引用"><span class="post-toc-text">引用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模板"><span class="post-toc-text">模板</span></a></li></ol></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="第二节-竞赛C-入门"><a href="#第二节-竞赛C-入门" class="headerlink" title="第二节 竞赛C++入门"></a>第二节 竞赛C++入门</h1><p>&emsp;&emsp;本系列文章是以读者学习过C语言为背景的。C语言是一门很好的语言，但是在算法竞赛中却不是十分流行。举个例子：在2013年的ACM/ICPC世界总决赛中，有1347份代码使用C++提交，323份使用Java提交，但唯独C语言没有人使用。</p>
+<p>&emsp;&emsp;在我们参加各类软件竞赛时，C语言的程序代码其实都可以直接作为C++程序来进行编译。C++博大精深，但是也会有很多让人诟病的地方。我们在比赛中，重点只需要利用它其中很少的一部分特性。</p>
+<h2 id="C-框架"><a href="#C-框架" class="headerlink" title="C++框架"></a>C++框架</h2><p>&emsp;&emsp;虽然C语言的程序可以直接在C++中运行，但是并不是以C++的写法，下面简单地区别一下两种语言。</p>
+<p>C:a+b。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span>                      </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                            </span></div><div class="line">&#123;                                    </div><div class="line">    <span class="keyword">int</span> a,b;                           </div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b)==<span class="number">2</span>)      </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);                </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;                         </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>C++:返回两个个实数中，较小的一个的绝对值。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span>                     </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span>                       </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span>                    </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;                    </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                             </span></div><div class="line">&#123;                                     </div><div class="line">    <span class="keyword">double</span> a,b;                        </div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b) &#123;                  </div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">fabs</span>(min(a,b))&lt;&lt;<span class="built_in">endl</span>;      </div><div class="line">    &#125;                   </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;            </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;首先，和之前我们写的C程序进行比较，在我们使用数学相关的函数时，调用的头文件变成了cmath。实际上math.h依然存在，但是在C++中我们比较推荐使用cmath。类似地，stdio.h变成了cstdio，string.h变成了cstring。</p>
+<p>&emsp;&emsp;其次，在我们新增的两个头文件中：iostream提供了输入输出流，而algorithm则提供了一些常用的算法，就比如我们刚刚使用的min()函数。但是，在比赛中建议大家手动编写max和min函数，以免发生意外。</p>
+<p>&emsp;&emsp;cin&gt;&gt;a 和 cout&lt;&lt;a 就是我们前面提到的输入输出流，他们就相当于C语言中的scanf和printf函数。相比于后面两个函数，我们在使用输入输出流时省略了%d、%s等占位符。一个是简化了这些繁琐的东西，再一个可以轻易地避免long long 型的输入输出占位符不统一的问题（%i64d、%lld）。但是，C++流是不完美的，其最致命的缺点就是运行太慢，以致于有些题目会在后面明确注明：本题的输入量很大，请不要使用C++的流输入。另外，不要将cout和printf混合使用，会造成输出的数据混乱。</p>
+<p>&emsp;&emsp;cin&gt;&gt;a我们还看到了有这一行：using namespace std; 。在C++中，有个概念叫做名称空间。把函数放在名称空间里，我们可以通过这样的方法进行调用：  </p>
+<blockquote>
+<p>空间名:函数名();</p>
+</blockquote>
+<p>&emsp;&emsp;cin&gt;&gt;a而我们头文件iostream和algorithm就是放在std 名空间中的。如果我们在写程序的时候，不把std里的名字导入默认空间，那么我们在使用输入输出流的时候就要这么写了：</p>
+<blockquote>
+<p>std:cin&gt;&gt;a;<br>std:cout&lt;&lt;a;</p>
+</blockquote>
+<p>&emsp;&emsp;C++和C语言的数据类型非常相近，最显著的区别就是多了一个bool类型（ture/false）。</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>&emsp;&emsp;如果想要在一个函数中去操作主函数中的数值，我们除了可以利用指针之外，C++还给我们提供了引用。相比于指针，引用的功能上比指针要弱，但是减少了出错的可能，还能提高代码的可读性。下面我们来看一个例子:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span>            </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span>               </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;           </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swapp</span><span class="params">(<span class="keyword">int</span>&amp; a,<span class="keyword">int</span>&amp; b)</span>        </span></div><div class="line">&#123;                            </div><div class="line">    <span class="keyword">int</span> t=a;a=b;b=t;             </div><div class="line">&#125;                             </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                      </span></div><div class="line">&#123;                              </div><div class="line">    <span class="keyword">int</span> a=<span class="number">3</span>,b=<span class="number">4</span>;                 </div><div class="line">    swapp(a,b);                 </div><div class="line">    <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="string">" "</span>&lt;&lt;b&lt;&lt;<span class="built_in">endl</span>;       </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;                    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;在上面的程序中，我们使用了饮用。在参数的前面加上“&amp;”符号，就表示这个传参是按照传引用的方式进行传递，而不是C语言中的按值传递。这样，在上面的函数内改变参数的值，也会修改到函数的实参。</p>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p>&emsp;&emsp;在之前，我们可能接触过一些C++给我们提供的函数，比如sort()。默认的函数功能是提供从小到大的排序。如果我们需要从大到小排序，难道需要我们重写sort()吗。</p>
+<p>&emsp;&emsp;C++给我们提供了模板功能，可以对一些函数进行修改。</p>
+<p>&emsp;&emsp;sort()函数的参数实际上有三个：sort(begin,end,[compare]);第三个是非必填项，意思是排序方式。我们只需要在使用sort函数之前，对它的排序方式进行规定，就可以实现从大到小的排序了。下面是代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> a&gt;b;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a[<span class="number">5</span>];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++) &#123;</div><div class="line">           <span class="built_in">cin</span>&gt;&gt;a[i];</div><div class="line">    &#125;</div><div class="line">    sort(a,a+<span class="number">5</span>,compare);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++) &#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://www.z16388.win/2016/09/09/【ACM教程】2-2竞赛C++入门/" target="_blank" rel="external">http://www.z16388.win/2016/09/09/【ACM教程】2-2竞赛C++入门/</a>
+                </p>
+                <footer><cite><a href="http://www.z16388.win">@崎径 其镜</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/2016/09/09/【ACM教程】2-3排序、查找与初始化/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【ACM教程】2-3排序、查找与初始化</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2016/09/09/【ACM教程】2-1常用输入输出格式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【ACM教程】2.1常用输入输出格式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="【ACM教程】2-2竞赛C++入门" data-title="【ACM教程】2.2竞赛C++入门" data-url="http://www.z16388.win/2016/09/09/【ACM教程】2-2竞赛C++入门/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"z16388"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "【ACM教程】2.2竞赛C++入门",
+    pic: "/img/logo.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://www.z16388.win/2016/09/09/【ACM教程】2-2竞赛C++入门/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234"></script>
+
+
+
+
+
+</body>
+</html>

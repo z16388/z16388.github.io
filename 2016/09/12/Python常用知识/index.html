@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Python常用知识 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="Python">
+  <meta name="description" content="&amp;emsp;&amp;emsp;想要学Python很久了。一是流行，再是强大。现在写一篇博客，整理一下常用的知识点，以备复习。
+1.数据类型数据Python可以处理任意大小的整数可以用0xff00的方法表示十六进制整数
+
+浮点数处理的精度也比较高，但是太高精度需要用科学记数法表示
+
+字符串用单引号或双引号括起来转义字符大体同C大量需要转义字符的地方，可以简写成：r’\\\\\’Python允许字符串内换行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python常用知识">
+<meta property="og:url" content="http://www.z16388.win/2016/09/12/Python常用知识/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;想要学Python很久了。一是流行，再是强大。现在写一篇博客，整理一下常用的知识点，以备复习。
+1.数据类型数据Python可以处理任意大小的整数可以用0xff00的方法表示十六进制整数
+
+浮点数处理的精度也比较高，但是太高精度需要用科学记数法表示
+
+字符串用单引号或双引号括起来转义字符大体同C大量需要转义字符的地方，可以简写成：r’\\\\\’Python允许字符串内换行">
+<meta property="og:updated_time" content="2016-09-28T05:12:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python常用知识">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;想要学Python很久了。一是流行，再是强大。现在写一篇博客，整理一下常用的知识点，以备复习。
+1.数据类型数据Python可以处理任意大小的整数可以用0xff00的方法表示十六进制整数
+
+浮点数处理的精度也比较高，但是太高精度需要用科学记数法表示
+
+字符串用单引号或双引号括起来转义字符大体同C大量需要转义字符的地方，可以简写成：r’\\\\\’Python允许字符串内换行">
+  
+    <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/Favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu"  >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/logo.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">Anqi Zhao</h5>
+        <a href="mailto:z16388@outlook.com" title="z16388@outlook.com" class="mail">z16388@outlook.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              主页
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-table"></i>
+              动态
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              标签
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/int"  >
+              <i class="icon icon-lg icon-link"></i>
+              常用网址导航
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/Download"  >
+              <i class="icon icon-lg icon-cloud-download"></i>
+              下载资源
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/friend"  >
+              <i class="icon icon-lg icon-mars-double"></i>
+              友情链接
+            </a>
+          </li>
+      
+    </ul>
+    <footer class="footer">
+<!--  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>-->
+  <p>崎径 其镜 &copy; 2016<a href="/about" target="_blank">  关于我</a></p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python常用知识</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		<a href="https://www.zhihu.com/people/zhao-an-qi-65-10" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-drupal"></i>
+		</a>
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">Python常用知识</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2016-09-12T14:04:46.000Z" itemprop="datePublished" class="page-time">
+  2016-09-12
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-Python常用知识" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-数据类型"><span class="post-toc-text">1.数据类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据"><span class="post-toc-text">数据</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运算符"><span class="post-toc-text">运算符</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-字符串和字符编码"><span class="post-toc-text">2.字符串和字符编码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符串和整数的转换"><span class="post-toc-text">字符串和整数的转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符串和字节"><span class="post-toc-text">字符串和字节</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#格式化"><span class="post-toc-text">格式化</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-list和tuple"><span class="post-toc-text">3.list和tuple</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#list"><span class="post-toc-text">list</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#tuple"><span class="post-toc-text">tuple</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-dict和set"><span class="post-toc-text">4.dict和set</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#dict"><span class="post-toc-text">dict</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#set"><span class="post-toc-text">set</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-判断与循环"><span class="post-toc-text">5.判断与循环</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#判断"><span class="post-toc-text">判断</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#循环"><span class="post-toc-text">循环</span></a></li></ol></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <p>&emsp;&emsp;想要学Python很久了。一是流行，再是强大。现在写一篇博客，整理一下常用的知识点，以备复习。</p>
+<h2 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h2><h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>Python可以处理任意大小的整数<br>可以用<code>0xff00</code>的方法表示十六进制整数</p>
+<hr>
+<p>浮点数处理的精度也比较高，但是太高精度需要用科学记数法表示</p>
+<hr>
+<p>字符串用单引号或双引号括起来<br>转义字符大体同C<br>大量需要转义字符的地方，可以简写成：<br><code>r’\\\\\’</code><br>Python允许字符串内换行，使用…来表示：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">print(str1</div><div class="line">...str2</div><div class="line">...str3)</div></pre></td></tr></table></figure></p>
+<hr>
+<p>布尔值：<code>true false</code><br>可使用<code>and or not</code> 运算</p>
+<hr>
+<p>Python中的强制类型转换方法如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;s=input(<span class="string">'birth:'</span>)</div><div class="line">&gt;&gt;&gt;birth=int(s)</div></pre></td></tr></table></figure></p>
+<p>注意，<code>input()</code>返回的数据类型是str。</p>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><p><code>/</code> 除法，结果一定是浮点型<br><code>//</code> 整除<br><code>%</code> 求余</p>
+<h2 id="2-字符串和字符编码"><a href="#2-字符串和字符编码" class="headerlink" title="2.字符串和字符编码"></a>2.字符串和字符编码</h2><h3 id="字符串和整数的转换"><a href="#字符串和整数的转换" class="headerlink" title="字符串和整数的转换"></a>字符串和整数的转换</h3><p><code>ord()</code>函数，获取字符的整数表示<br><code>chr()</code>函数，把编码转换成对应的字符<br>可以使用转义字符表示，例如：<code>\u4e2d</code>会显示代表的汉字”中”</p>
+<h3 id="字符串和字节"><a href="#字符串和字节" class="headerlink" title="字符串和字节"></a>字符串和字节</h3><p><code>str</code>是字符串类型<br><code>bytes</code>是字节类型，需要用带<code>b</code>前缀的单引号或双引号表示：<br><code>x=b’ABC’</code><br><code>‘ABC’</code>和<code>b’ABC’</code>占用的内存不同，后者每个字符都只占用一个字节<br><code>encode()</code>方法可以把<code>str</code>转换成指定的<code>bytes</code>，例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;<span class="string">'ABC'</span>.encode(<span class="string">'ascii'</span>)</div><div class="line">&gt;&gt;&gt;<span class="string">'中文'</span>.encode(<span class="string">'utf-8'</span>)</div></pre></td></tr></table></figure></p>
+<p>把字节转换成字符串需要使用<code>decode()</code>方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;<span class="string">'ABC'</span>.decode(<span class="string">'ascii'</span>)</div></pre></td></tr></table></figure></p>
+<p><code>len()</code>函数，用于计算<code>str</code>中的字符数和<code>bytes</code>中的字节数（英文字符只占一个字节，中文字符经常占3个字节）</p>
+<hr>
+<p>要保证编译的python文件能够正确显示中文，我们除了在编写环境中指定编码类型为<code>utf-8</code>之外，通常还要在开头加上两行：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python3</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div></pre></td></tr></table></figure></p>
+<p>第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序，Windows系统会忽略这个注释；<br>第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。</p>
+<p><code>replace()</code>方法，用于取代字符串中某个字符，但是不影响字符串本身：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;a=<span class="string">'abc'</span></div><div class="line">&gt;&gt;&gt;a.replace(<span class="string">'a'</span>,<span class="string">'A'</span>)</div><div class="line"><span class="string">'Abc'</span></div><div class="line">&gt;&gt;&gt;a</div><div class="line"><span class="string">'abc'</span></div></pre></td></tr></table></figure></p>
+<h3 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h3><p>同C的格式化类似<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Hello, %s'</span> % <span class="string">'world'</span></div></pre></td></tr></table></figure></p>
+<p><code>%</code>开头的叫做占位字符，常用的占位字符有：</p>
+<blockquote>
+<p>%&emsp;&emsp;&emsp;&emsp;整数</p>
+<hr>
+<p>%f&emsp;&emsp;&emsp;&emsp;浮点数</p>
+<hr>
+<p>%s&emsp;&emsp;&emsp;&emsp;字符串</p>
+<hr>
+<p>%x&emsp;&emsp;&emsp;&emsp;十六进制整数</p>
+<hr>
+</blockquote>
+<p>格式化整数和浮点数可以指定是否补0或者确定小数的位数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'%2d-%02d'</span> % (<span class="number">3</span>, <span class="number">1</span>)</div><div class="line"><span class="string">' 3-01'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'%.2f'</span> % <span class="number">3.1415926</span></div><div class="line"><span class="string">'3.14'</span></div></pre></td></tr></table></figure></p>
+<h2 id="3-list和tuple"><a href="#3-list和tuple" class="headerlink" title="3.list和tuple"></a>3.list和tuple</h2><h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>list是Python内置的一种数据类型，列表。它是一种有序的集合，可以随时添加和删除其中的元素，声明方式如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name=[<span class="string">'tom'</span>,<span class="string">'cat'</span>,<span class="string">'car'</span>]</div></pre></td></tr></table></figure></p>
+<p>可以使用<code>len()</code>函数获取list元素的个数<br>用索引来访问每个元素，索引从<code>0</code>开始：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name[<span class="number">0</span>]</div><div class="line">tom</div></pre></td></tr></table></figure></p>
+<p>可以使用<code>-1</code>做索引，访问最后一个元素，依次类推，可以访问倒数第二，第三个元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name[<span class="number">-1</span>]</div><div class="line">car</div><div class="line">&gt;&gt;&gt;name[<span class="number">-2</span>]</div><div class="line">cat</div></pre></td></tr></table></figure></p>
+<p>可以使用<code>append()</code>方法，向list中追加元素到末尾：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name.append(<span class="string">'apple'</span>)</div><div class="line">&gt;&gt;&gt;name</div><div class="line">[<span class="string">'tom'</span>,<span class="string">'cat'</span>,<span class="string">'car'</span>,<span class="string">'apple'</span>]</div></pre></td></tr></table></figure></p>
+<p>可以使用<code>insert()</code>方法，将元素插入到指定位置，比如下标为1的位置：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name.insert(<span class="number">1</span>,<span class="string">'banana'</span>)</div><div class="line">&gt;&gt;&gt;name</div><div class="line">[<span class="string">'tom'</span>,<span class="string">'banana'</span>,<span class="string">'cat'</span>,<span class="string">'car'</span>,<span class="string">'apple'</span>]</div></pre></td></tr></table></figure></p>
+<p>可以使用<code>pop()</code>方法，删除list末尾的元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name.pop()</div><div class="line">&gt;&gt;&gt;name</div><div class="line">[<span class="string">'tom'</span>,<span class="string">'banana'</span>,<span class="string">'cat'</span>,<span class="string">'car'</span>]</div></pre></td></tr></table></figure></p>
+<p>可以使用<code>pop(i)</code>方法，删除指定位置的元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name.pop(<span class="number">1</span>)</div><div class="line">&gt;&gt;&gt;name</div><div class="line">[<span class="string">'tom'</span>,<span class="string">'cat'</span>,<span class="string">'car'</span>]</div></pre></td></tr></table></figure></p>
+<p>可以使用直接赋值的方法将某元素替换成别的元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;name.[<span class="number">2</span>]=<span class="string">'apache'</span></div><div class="line">&gt;&gt;&gt;name</div><div class="line">[<span class="string">'tom'</span>,<span class="string">'cat'</span>,<span class="string">'apache'</span>]</div></pre></td></tr></table></figure></p>
+<p>list中可以存放不同类型的元素，也可以存放list（可以看做二维数组）<br>如果list中没有元素，就是一个空list，长度为0。</p>
+<h3 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h3><p>tuple叫做元组，一旦初始化就不能修改，可以使用索引来访问每个元素，但是不能赋值成另外的元素。因为它无法被修改，所以更加安全。</p>
+<p>tuple的定义方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;t=(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">&gt;&gt;&gt;t</div><div class="line">(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line"></div><div class="line">&gt;&gt;&gt;t=()</div><div class="line">&gt;&gt;&gt;t</div><div class="line">()</div><div class="line"></div><div class="line">&gt;&gt;&gt;t=(<span class="number">1</span>,)</div><div class="line">&gt;&gt;&gt;t</div><div class="line">(<span class="number">1</span>,)</div></pre></td></tr></table></figure></p>
+<p>不能使用<code>t=(1)</code>的方法来定义只有一个元素的tuple，这会让python认为它是个括号，而将t认为是一个整形变量。</p>
+<h2 id="4-dict和set"><a href="#4-dict和set" class="headerlink" title="4.dict和set"></a>4.dict和set</h2><h3 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h3><p><code>dict</code>即C++中的<code>map</code>，全称是<code>dictionary</code>，具有极快的查找速度。它的元素有两种，一种叫做<code>key</code>，另一种叫做<code>value</code>。前者是查询的参数，后者则是它所对应的值。<code>dict</code>的声明方法如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;d=&#123;<span class="string">'tom'</span>:<span class="number">90</span>,<span class="string">'cat'</span>:<span class="number">80</span>,<span class="string">'apache'</span>:<span class="number">70</span>&#125;</div><div class="line">&gt;&gt;&gt;d[<span class="string">'tom'</span>]</div><div class="line"><span class="number">90</span></div></pre></td></tr></table></figure></p>
+<p>当然，我们在“放入”的时候也很方便：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;d[<span class="string">'apache'</span>]=<span class="number">60</span></div><div class="line">&gt;&gt;&gt;d[<span class="string">'apache'</span>]</div><div class="line"><span class="number">60</span></div></pre></td></tr></table></figure></p>
+<p>每个<code>key</code>只对应一个值，后面赋的值会将前面的覆盖。</p>
+<p>我们可以使用<code>in</code>来判断一个<code>key</code>是否存在：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;<span class="string">'toom'</span> <span class="keyword">in</span> d</div><div class="line"><span class="keyword">False</span></div></pre></td></tr></table></figure></p>
+<p>可以使用<code>get</code>方法来获取指定的<code>value</code>。如果不存在，可以返回指定的值：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;d.get(<span class="string">'tom'</span>)</div><div class="line"><span class="number">90</span></div><div class="line">&gt;&gt;&gt;d.get(<span class="string">'tomm'</span>,<span class="number">-1</span>)</div><div class="line"><span class="number">-1</span></div></pre></td></tr></table></figure></p>
+<p>dict的特点</p>
+<blockquote>
+<ol>
+<li>查找和插入的速度极快，不会随着key的增加而变慢；</li>
+<li>需要占用大量的内存，内存浪费多。</li>
+</ol>
+</blockquote>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p><code>set</code>是一组key的集合，但不存储value。因为key不能重复，所以在<code>set</code>中没有重复的元素。要创建一个<code>set</code>需要提供一个list作为输入集合：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;s=set([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</div><div class="line">&gt;&gt;&gt;s</div><div class="line">&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</div><div class="line"></div><div class="line">&gt;&gt;&gt;s=set([<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>])</div><div class="line">&gt;&gt;&gt;s</div><div class="line">&gt;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</div></pre></td></tr></table></figure></p>
+<p>通过<code>add(key)</code>方法可以添加到set中：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;s.add(<span class="number">4</span>)</div><div class="line">&gt;&gt;&gt;s</div><div class="line">&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</div></pre></td></tr></table></figure></p>
+<p>通过<code>remove(key)</code>方法可以删除元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;s.remove(<span class="number">4</span>)</div><div class="line">&gt;&gt;&gt;s</div><div class="line">&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</div></pre></td></tr></table></figure></p>
+<p><code>set</code>可以看成无序无重复元素的集合，可以进行交集，并集等操作：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;s1=set([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</div><div class="line">&gt;&gt;&gt;s2=set([<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</div><div class="line">&gt;&gt;&gt;s1&amp;s2</div><div class="line">&#123;<span class="number">2</span>,<span class="number">3</span>&#125;</div><div class="line">&gt;&gt;&gt;s1|s2</div><div class="line">&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="5-判断与循环"><a href="#5-判断与循环" class="headerlink" title="5.判断与循环"></a>5.判断与循环</h2><h3 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h3><p>Python也有<code>if</code>和<code>else</code>语句，但是和C比起来又显得非常“任性”。它没有小括号，也没有大括号，具体例子如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">age = <span class="number">20</span></div><div class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</div><div class="line">	print(<span class="string">"your age is %d"</span>,age)</div><div class="line">	print(<span class="string">'adult'</span>)</div></pre></td></tr></table></figure></p>
+<p>根据Python的缩进规则，如果满足<code>if</code>后的条件，则会执行缩进的两个<code>print</code>语句，<code>else</code>也类似：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">age = <span class="number">3</span></div><div class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</div><div class="line">    print(<span class="string">'your age is'</span>, age)</div><div class="line">    print(<span class="string">'adult'</span>)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    print(<span class="string">'your age is'</span>, age)</div><div class="line">    print(<span class="string">'teenager'</span>)</div></pre></td></tr></table></figure></p>
+<p>注意不要少写了<code>：</code>。</p>
+<p>Python中还有<code>elif</code>语句，也就是<code>else if</code>的缩写，所以if语句的完整版就是：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> &lt;条件判断<span class="number">1</span>&gt;:</div><div class="line">    &lt;执行<span class="number">1</span>&gt;</div><div class="line"><span class="keyword">elif</span> &lt;条件判断<span class="number">2</span>&gt;:</div><div class="line">    &lt;执行<span class="number">2</span>&gt;</div><div class="line"><span class="keyword">elif</span> &lt;条件判断<span class="number">3</span>&gt;:</div><div class="line">    &lt;执行<span class="number">3</span>&gt;</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    &lt;执行<span class="number">4</span>&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p><code>for…in</code>循环，可以依次将list或tuple中的每个元素迭代出来：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">names=[<span class="string">'tom'</span>,<span class="string">'cat'</span>,<span class="string">'apache'</span>]</div><div class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</div><div class="line">	print(name)</div></pre></td></tr></table></figure></p>
+<p>执行这段代码，就会依次打印出<code>names</code>中的每个元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tom</div><div class="line">cat</div><div class="line">apache</div></pre></td></tr></table></figure></p>
+<hr>
+<p><code>for x in …</code>循环，可以将元素依次代入变量<code>x</code>，然后执行缩进的语句，例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sum=<span class="number">0</span>;</div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>]:</div><div class="line">	sum+=x;</div><div class="line">print(sum)</div></pre></td></tr></table></figure></p>
+<p>这段代码显示的结果是0-10的累加和</p>
+<p>Python提供了<code>range()</code>函数来生成一个整数序列，比如<code>range(5)</code>生成的是从0开始的5个整数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;list(rangr(<span class="number">5</span>))</div><div class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</div></pre></td></tr></table></figure></p>
+<p>则0累加到100的程序可以写成：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sum=<span class="number">0</span></div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">101</span>):</div><div class="line">	sum+=x</div><div class="line">print(sum)</div></pre></td></tr></table></figure></p>
+<hr>
+<p>Python中也有<code>while</code>循环，用法和C类似：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sum=<span class="number">0</span></div><div class="line">n=<span class="number">0</span>;</div><div class="line"><span class="keyword">while</span> n&lt;<span class="number">101</span>:</div><div class="line">	sum+=n</div><div class="line">	n+=<span class="number">1</span></div><div class="line">print(sum)</div></pre></td></tr></table></figure></p>
+
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://www.z16388.win/2016/09/12/Python常用知识/" target="_blank" rel="external">http://www.z16388.win/2016/09/12/Python常用知识/</a>
+                </p>
+                <footer><cite><a href="http://www.z16388.win">@崎径 其镜</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/2016/09/13/hexo-github博客搭建教程/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">hexo+github博客搭建教程</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2016/09/11/博客第三天/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">博客第三天</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Python常用知识" data-title="Python常用知识" data-url="http://www.z16388.win/2016/09/12/Python常用知识/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"z16388"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "Python常用知识",
+    pic: "/img/logo.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://www.z16388.win/2016/09/12/Python常用知识/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234"></script>
+
+
+
+
+
+</body>
+</html>
