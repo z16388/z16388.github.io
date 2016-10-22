@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2016-10-22T06:09:55.000Z</updated>
+  <updated>2016-10-22T06:17:58.000Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -20,10 +20,16 @@
     <link href="http://www.z16388.win/2016/10/22/aboutdjac/"/>
     <id>http://www.z16388.win/2016/10/22/aboutdjac/</id>
     <published>2016-10-22T05:46:19.000Z</published>
-    <updated>2016-10-22T06:09:55.000Z</updated>
+    <updated>2016-10-22T06:17:58.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="关于大连交通大学软件竞赛协会"><a href="#关于大连交通大学软件竞赛协会" class="headerlink" title="关于大连交通大学软件竞赛协会"></a>关于大连交通大学软件竞赛协会</h1><p>&emsp;&emsp;大连交通大学软件竞赛协会（以下简称：协会）成立于2015年10月，前身是大连交通大学ACM俱乐部。ACM俱乐部是由参加ACM竞赛的学长们自发组织成立的学习交流性组织，多年来诞生了我校大批技术大牛。前辈们参赛诸多，为我校捧得诸多荣誉。曾有学长在亚洲区预赛中，夺得过银牌。</p>
 <p>&emsp;&emsp;2015年10月，在ACM协会的基础上，成立了大连交通大学软件竞赛协会。协会由学生自发组织，大连交通大学软件学院支持，进行算法相关的学习与培训，参加ACM和蓝桥杯为主的算法竞赛，为校争光。</p>
+<h1 id="协会招新"><a href="#协会招新" class="headerlink" title="协会招新"></a>协会招新</h1><p>&emsp;&emsp;原则上，协会面向大连交通大学全体四年制／五年制全日制本科生开放，有以下条件者优先：</p>
+<ul>
+<li>参加过ACM／OI等竞赛的</li>
+<li>对算法感兴趣或接触过的</li>
+<li>大二以上</li>
+</ul>
 <h1 id="大连交通大学竞赛相关政策"><a href="#大连交通大学竞赛相关政策" class="headerlink" title="大连交通大学竞赛相关政策"></a>大连交通大学竞赛相关政策</h1><p>&emsp;&emsp;根据《大连交通大学关于大学生科技创新活动的若干规定》（大交大发[2006】63号]、《大连交通大学指导学生科技创新活动教师工作量核算及奖励办法》（大交大发[2007]147号）等文件精神，为进一步加强和规范我校大学生科技创新活动的深入发展，培养学生的创新精神和实践能力，鼓励学生积极参与科技创新活动，鼓励教师积极参与指导大学生科技创新活动、浓厚校园学术科技氛围，提高大学生创新能力和综合素质，颁发了大学生科技创新活动实施细则。详见：<a href="http://202.199.128.101/cxjy/shownews.asp?id=82" target="_blank" rel="external">http://202.199.128.101/cxjy/shownews.asp?id=82</a></p>
 ]]></content>
     
@@ -795,10 +801,10 @@
     <link href="http://www.z16388.win/2016/09/09/ACM%E6%95%99%E7%A8%8B/"/>
     <id>http://www.z16388.win/2016/09/09/ACM教程/</id>
     <published>2016-09-09T10:53:22.000Z</published>
-    <updated>2016-10-22T06:11:43.000Z</updated>
+    <updated>2016-10-22T06:13:10.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="ACM教程"><a href="#ACM教程" class="headerlink" title="ACM教程"></a>ACM教程</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;从今天起，我将会在<a href="https://z16388.win" target="_blank" rel="external">我的博客</a>同步更新我的ACM教程系列。虽说是教程，但是两年ACM经历的我还是有许多要学的东西，在这里写下自己的学习经历，也算是共同进步吧。</p>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h3 id="第一章-简介"><a href="#第一章-简介" class="headerlink" title="第一章 简介"></a>第一章 简介</h3><h4 id="第1节-算法概述"><a href="#第1节-算法概述" class="headerlink" title="第1节 算法概述"></a><a href="http://z16388.github.io/2016/09/09/【ACM教程】1-1算法概述/" target="_blank" rel="external">第1节 算法概述</a></h4><h4 id="第2节-算法竞赛介绍"><a href="#第2节-算法竞赛介绍" class="headerlink" title="第2节 算法竞赛介绍"></a><a href="http://z16388.win/2016/09/09/【ACM教程】1-2算法竞赛介绍/" target="_blank" rel="external">第2节 算法竞赛介绍</a></h4><h4 id="第3节-常用编译环境与OJ系统"><a href="#第3节-常用编译环境与OJ系统" class="headerlink" title="第3节 常用编译环境与OJ系统"></a><a href="http://z16388.win/2016/09/09/【ACM教程】1-3算法竞赛介绍/" target="_blank" rel="external">第3节 常用编译环境与OJ系统</a></h4><h3 id="大连交通大学-软件竞赛协会介绍"><a href="#大连交通大学-软件竞赛协会介绍" class="headerlink" title="大连交通大学 软件竞赛协会介绍"></a><a href="http://www.z16388.win/2016/10/22/aboutdjac/">大连交通大学 软件竞赛协会介绍</a></h3><h3 id="第二章-走进算法竞赛"><a href="#第二章-走进算法竞赛" class="headerlink" title="第二章 走进算法竞赛"></a>第二章 走进算法竞赛</h3><h4 id="第1节-常用输入输出格式"><a href="#第1节-常用输入输出格式" class="headerlink" title="第1节 常用输入输出格式"></a><a href="http://z16388.win/2016/09/09/【ACM教程】2-1常用输入输出格式/" target="_blank" rel="external">第1节 常用输入输出格式</a></h4><h4 id="第2节-竞赛C-入门"><a href="#第2节-竞赛C-入门" class="headerlink" title="第2节 竞赛C++入门"></a><a href="http://z16388.win/2016/09/09/【ACM教程】2-2竞赛C++入门/" target="_blank" rel="external">第2节 竞赛C++入门</a></h4><h4 id="第3节-排序、查找与初始化"><a href="#第3节-排序、查找与初始化" class="headerlink" title="第3节 排序、查找与初始化"></a><a href="http://z16388.win/2016/09/09/【ACM教程】2-3排序、查找与初始化/" target="_blank" rel="external">第3节 排序、查找与初始化</a></h4><h4 id="第4节-JAVA大数"><a href="#第4节-JAVA大数" class="headerlink" title="第4节 JAVA大数"></a><a href="http://z16388.win/2016/09/09/【ACM教程】2-4JAVA大数/" target="_blank" rel="external">第4节 JAVA大数</a></h4><h3 id="第三章-算法初步"><a href="#第三章-算法初步" class="headerlink" title="第三章 算法初步"></a>第三章 算法初步</h3><h4 id="第1节-递归"><a href="#第1节-递归" class="headerlink" title="第1节 递归"></a><a href="http://z16388.win/2016/09/10/【ACM教程】3-1递归/" target="_blank" rel="external">第1节 递归</a></h4>]]></content>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h3 id="第一章-简介"><a href="#第一章-简介" class="headerlink" title="第一章 简介"></a>第一章 简介</h3><h4 id="第1节-算法概述"><a href="#第1节-算法概述" class="headerlink" title="第1节 算法概述"></a><a href="http://z16388.github.io/2016/09/09/【ACM教程】1-1算法概述/" target="_blank" rel="external">第1节 算法概述</a></h4><h4 id="第2节-算法竞赛介绍"><a href="#第2节-算法竞赛介绍" class="headerlink" title="第2节 算法竞赛介绍"></a><a href="http://z16388.win/2016/09/09/【ACM教程】1-2算法竞赛介绍/" target="_blank" rel="external">第2节 算法竞赛介绍</a></h4><h4 id="第3节-常用编译环境与OJ系统"><a href="#第3节-常用编译环境与OJ系统" class="headerlink" title="第3节 常用编译环境与OJ系统"></a><a href="http://z16388.win/2016/09/09/【ACM教程】1-3算法竞赛介绍/" target="_blank" rel="external">第3节 常用编译环境与OJ系统</a></h4><h4 id="大连交通大学-软件竞赛协会介绍"><a href="#大连交通大学-软件竞赛协会介绍" class="headerlink" title="大连交通大学 软件竞赛协会介绍"></a><a href="http://www.z16388.win/2016/10/22/aboutdjac/">大连交通大学 软件竞赛协会介绍</a></h4><h3 id="第二章-走进算法竞赛"><a href="#第二章-走进算法竞赛" class="headerlink" title="第二章 走进算法竞赛"></a>第二章 走进算法竞赛</h3><h4 id="第1节-常用输入输出格式"><a href="#第1节-常用输入输出格式" class="headerlink" title="第1节 常用输入输出格式"></a><a href="http://z16388.win/2016/09/09/【ACM教程】2-1常用输入输出格式/" target="_blank" rel="external">第1节 常用输入输出格式</a></h4><h4 id="第2节-竞赛C-入门"><a href="#第2节-竞赛C-入门" class="headerlink" title="第2节 竞赛C++入门"></a><a href="http://z16388.win/2016/09/09/【ACM教程】2-2竞赛C++入门/" target="_blank" rel="external">第2节 竞赛C++入门</a></h4><h4 id="第3节-排序、查找与初始化"><a href="#第3节-排序、查找与初始化" class="headerlink" title="第3节 排序、查找与初始化"></a><a href="http://z16388.win/2016/09/09/【ACM教程】2-3排序、查找与初始化/" target="_blank" rel="external">第3节 排序、查找与初始化</a></h4><h4 id="第4节-JAVA大数"><a href="#第4节-JAVA大数" class="headerlink" title="第4节 JAVA大数"></a><a href="http://z16388.win/2016/09/09/【ACM教程】2-4JAVA大数/" target="_blank" rel="external">第4节 JAVA大数</a></h4><h3 id="第三章-算法初步"><a href="#第三章-算法初步" class="headerlink" title="第三章 算法初步"></a>第三章 算法初步</h3><h4 id="第1节-递归"><a href="#第1节-递归" class="headerlink" title="第1节 递归"></a><a href="http://z16388.win/2016/09/10/【ACM教程】3-1递归/" target="_blank" rel="external">第1节 递归</a></h4>]]></content>
     
     <summary type="html">
     
