@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2016-10-30T15:11:56.000Z</updated>
+  <updated>2016-10-30T16:01:09.000Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ACM常用模版</title>
+    <link href="http://www.z16388.win/2016/10/30/ACM%E5%B8%B8%E7%94%A8%E6%A8%A1%E7%89%88/"/>
+    <id>http://www.z16388.win/2016/10/30/ACM常用模版/</id>
+    <published>2016-10-30T15:57:55.000Z</published>
+    <updated>2016-10-30T16:01:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>求素数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">su</span><span class="params">(<span class="keyword">int</span> b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=(<span class="keyword">int</span>)<span class="built_in">sqrt</span>(b);i++) &#123;</div><div class="line">        <span class="keyword">if</span>(b%i==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最大公约数和最小公倍数</p>
+<p>```C++<br>int gcd(int a,int b)  //最大公约数<br>{<br>    if(b==0) return a;<br>    else return gcd(b,a%b);<br>}<br>int lcm(int a,int b)  //最小公倍数<br>{<br>    return a/gcd(a,b)*b;<br>}</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;求素数&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;li
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>【ACM教程】2.4编程细节</title>
@@ -68,10 +97,11 @@
     <link href="http://www.z16388.win/2016/10/30/hud2011-2020%E7%AD%94%E6%A1%88/"/>
     <id>http://www.z16388.win/2016/10/30/hud2011-2020答案/</id>
     <published>2016-10-30T14:28:10.000Z</published>
-    <updated>2016-10-30T14:32:36.000Z</updated>
+    <updated>2016-10-30T15:57:18.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="hdu2011-多项式求和"><a href="#hdu2011-多项式求和" class="headerlink" title="hdu2011 多项式求和"></a>hdu2011 多项式求和</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> m,n;</div><div class="line">    <span class="keyword">double</span> sum=<span class="number">0.0</span>,f=<span class="number">1.0</span>;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</div><div class="line">    <span class="keyword">while</span>(m--) &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">        sum=<span class="number">0.0</span>,f=<span class="number">1.0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            sum+=f/i;</div><div class="line">            f=<span class="number">-1.0</span>*f;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%.2f\n"</span>,sum);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="hud2012-素数判定"><a href="#hud2012-素数判定" class="headerlink" title="hud2012 素数判定"></a>hud2012 素数判定</h2><h2 id="hdu2013-蟠桃记"><a href="#hdu2013-蟠桃记" class="headerlink" title="hdu2013 蟠桃记"></a>hdu2013 蟠桃记</h2><h2 id="hdu2014-青年歌手大赛-评委会打分"><a href="#hdu2014-青年歌手大赛-评委会打分" class="headerlink" title="hdu2014 青年歌手大赛_评委会打分"></a>hdu2014 青年歌手大赛_评委会打分</h2><h2 id="hdu2015-偶数求和"><a href="#hdu2015-偶数求和" class="headerlink" title="hdu2015 偶数求和"></a>hdu2015 偶数求和</h2><h2 id="hdu2016-数据的交换输出"><a href="#hdu2016-数据的交换输出" class="headerlink" title="hdu2016 数据的交换输出"></a>hdu2016 数据的交换输出</h2><h2 id="hdu2017-字符串统计"><a href="#hdu2017-字符串统计" class="headerlink" title="hdu2017 字符串统计"></a>hdu2017 字符串统计</h2><h2 id="hdu2018-母牛的故事"><a href="#hdu2018-母牛的故事" class="headerlink" title="hdu2018 母牛的故事"></a>hdu2018 母牛的故事</h2><h2 id="hdu2019-数列有序！"><a href="#hdu2019-数列有序！" class="headerlink" title="hdu2019 数列有序！"></a>hdu2019 数列有序！</h2><h2 id="hdu2020-绝对值排序"><a href="#hdu2020-绝对值排序" class="headerlink" title="hdu2020 绝对值排序"></a>hdu2020 绝对值排序</h2>]]></content>
+<h2 id="hud2012-素数判定"><a href="#hud2012-素数判定" class="headerlink" title="hud2012 素数判定"></a>hud2012 素数判定</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">cal</span><span class="params">(<span class="keyword">int</span> a)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> a*a+a+<span class="number">41</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">su</span><span class="params">(<span class="keyword">int</span> b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=(<span class="keyword">int</span>)<span class="built_in">sqrt</span>(b);i++) &#123;</div><div class="line">        <span class="keyword">if</span>(b%i==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> x,y,flag=<span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;x,&amp;y)&amp;&amp;(x||y)) &#123;</div><div class="line">        flag=<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=x;i&lt;=y;i++)</div><div class="line">            <span class="keyword">if</span>(su(cal(i))==<span class="number">0</span>) flag=<span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span>(flag==<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">"OK\n"</span>);</div><div class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"Sorry\n"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="hdu2013-蟠桃记"><a href="#hdu2013-蟠桃记" class="headerlink" title="hdu2013 蟠桃记"></a>hdu2013 蟠桃记</h2><h2 id="hdu2014-青年歌手大赛-评委会打分"><a href="#hdu2014-青年歌手大赛-评委会打分" class="headerlink" title="hdu2014 青年歌手大赛_评委会打分"></a>hdu2014 青年歌手大赛_评委会打分</h2><h2 id="hdu2015-偶数求和"><a href="#hdu2015-偶数求和" class="headerlink" title="hdu2015 偶数求和"></a>hdu2015 偶数求和</h2><h2 id="hdu2016-数据的交换输出"><a href="#hdu2016-数据的交换输出" class="headerlink" title="hdu2016 数据的交换输出"></a>hdu2016 数据的交换输出</h2><h2 id="hdu2017-字符串统计"><a href="#hdu2017-字符串统计" class="headerlink" title="hdu2017 字符串统计"></a>hdu2017 字符串统计</h2><h2 id="hdu2018-母牛的故事"><a href="#hdu2018-母牛的故事" class="headerlink" title="hdu2018 母牛的故事"></a>hdu2018 母牛的故事</h2><h2 id="hdu2019-数列有序！"><a href="#hdu2019-数列有序！" class="headerlink" title="hdu2019 数列有序！"></a>hdu2019 数列有序！</h2><h2 id="hdu2020-绝对值排序"><a href="#hdu2020-绝对值排序" class="headerlink" title="hdu2020 绝对值排序"></a>hdu2020 绝对值排序</h2>]]></content>
     
     <summary type="html">
     
@@ -655,13 +685,13 @@
     </summary>
     
     
+      <category term="心情" scheme="http://www.z16388.win/tags/%E5%BF%83%E6%83%85/"/>
+    
       <category term="游戏安利" scheme="http://www.z16388.win/tags/%E6%B8%B8%E6%88%8F%E5%AE%89%E5%88%A9/"/>
     
       <category term="游戏" scheme="http://www.z16388.win/tags/%E6%B8%B8%E6%88%8F/"/>
     
       <category term="Steam" scheme="http://www.z16388.win/tags/Steam/"/>
-    
-      <category term="心情" scheme="http://www.z16388.win/tags/%E5%BF%83%E6%83%85/"/>
     
   </entry>
   
@@ -762,52 +792,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;第三节-排序、查找与初始化&quot;&gt;&lt;a href=&quot;#第三节-排序、查找与初始化&quot; class=&quot;headerlink&quot; title=&quot;第三节 排序、查找与初始化&quot;&gt;&lt;/a&gt;第三节 排序、查找与初始化&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;STL指的是C++的标准模板
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】2.3竞赛C++入门</title>
-    <link href="http://www.z16388.win/2016/09/09/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-2%E7%AB%9E%E8%B5%9BC++%E5%85%A5%E9%97%A8/"/>
-    <id>http://www.z16388.win/2016/09/09/【ACM教程】2-2竞赛C++入门/</id>
-    <published>2016-09-09T14:11:43.000Z</published>
-    <updated>2016-10-28T09:49:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第三节-竞赛C-入门"><a href="#第三节-竞赛C-入门" class="headerlink" title="第三节 竞赛C++入门"></a>第三节 竞赛C++入门</h1><p>&emsp;&emsp;本系列文章是以读者学习过C语言为背景的。C语言是一门很好的语言，但是在算法竞赛中却不是十分流行。举个例子：在2013年的ACM/ICPC世界总决赛中，有1347份代码使用C++提交，323份使用Java提交，但唯独C语言没有人使用。</p>
-<p>&emsp;&emsp;在我们参加各类软件竞赛时，C语言的程序代码其实都可以直接作为C++程序来进行编译。C++博大精深，但是也会有很多让人诟病的地方。我们在比赛中，重点只需要利用它其中很少的一部分特性。</p>
-<h2 id="C-框架"><a href="#C-框架" class="headerlink" title="C++框架"></a>C++框架</h2><p>&emsp;&emsp;虽然C语言的程序可以直接在C++中运行，但是并不是以C++的写法，下面简单地区别一下两种语言。</p>
-<p>C:a+b。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span>                      </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                            </span></div><div class="line">&#123;                                    </div><div class="line">    <span class="keyword">int</span> a,b;                           </div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b)==<span class="number">2</span>)      </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);                </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;                         </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>C++:返回两个个实数中，较小的一个的绝对值。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span>                     </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span>                       </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span>                    </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;                    </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                             </span></div><div class="line">&#123;                                     </div><div class="line">    <span class="keyword">double</span> a,b;                        </div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b) &#123;                  </div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">fabs</span>(min(a,b))&lt;&lt;<span class="built_in">endl</span>;      </div><div class="line">    &#125;                   </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;            </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;首先，和之前我们写的C程序进行比较，在我们使用数学相关的函数时，调用的头文件变成了cmath。实际上math.h依然存在，但是在C++中我们比较推荐使用cmath。类似地，stdio.h变成了cstdio，string.h变成了cstring。</p>
-<p>&emsp;&emsp;其次，在我们新增的两个头文件中：iostream提供了输入输出流，而algorithm则提供了一些常用的算法，就比如我们刚刚使用的min()函数。但是，在比赛中建议大家手动编写max和min函数，以免发生意外。</p>
-<p>&emsp;&emsp;cin&gt;&gt;a 和 cout&lt;&lt;a 就是我们前面提到的输入输出流，他们就相当于C语言中的scanf和printf函数。相比于后面两个函数，我们在使用输入输出流时省略了%d、%s等占位符。一个是简化了这些繁琐的东西，再一个可以轻易地避免long long 型的输入输出占位符不统一的问题（%i64d、%lld）。但是，C++流是不完美的，其最致命的缺点就是运行太慢，以致于有些题目会在后面明确注明：本题的输入量很大，请不要使用C++的流输入。另外，不要将cout和printf混合使用，会造成输出的数据混乱。</p>
-<p>&emsp;&emsp;cin&gt;&gt;a我们还看到了有这一行：using namespace std; 。在C++中，有个概念叫做名称空间。把函数放在名称空间里，我们可以通过这样的方法进行调用：  </p>
-<blockquote>
-<p>空间名:函数名();</p>
-</blockquote>
-<p>&emsp;&emsp;cin&gt;&gt;a而我们头文件iostream和algorithm就是放在std 名空间中的。如果我们在写程序的时候，不把std里的名字导入默认空间，那么我们在使用输入输出流的时候就要这么写了：</p>
-<blockquote>
-<p>std:cin&gt;&gt;a;<br>std:cout&lt;&lt;a;</p>
-</blockquote>
-<p>&emsp;&emsp;C++和C语言的数据类型非常相近，最显著的区别就是多了一个bool类型（ture/false）。</p>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>&emsp;&emsp;如果想要在一个函数中去操作主函数中的数值，我们除了可以利用指针之外，C++还给我们提供了引用。相比于指针，引用的功能上比指针要弱，但是减少了出错的可能，还能提高代码的可读性。下面我们来看一个例子:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span>            </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span>               </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;           </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swapp</span><span class="params">(<span class="keyword">int</span>&amp; a,<span class="keyword">int</span>&amp; b)</span>        </span></div><div class="line">&#123;                            </div><div class="line">    <span class="keyword">int</span> t=a;a=b;b=t;             </div><div class="line">&#125;                             </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                      </span></div><div class="line">&#123;                              </div><div class="line">    <span class="keyword">int</span> a=<span class="number">3</span>,b=<span class="number">4</span>;                 </div><div class="line">    swapp(a,b);                 </div><div class="line">    <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="string">" "</span>&lt;&lt;b&lt;&lt;<span class="built_in">endl</span>;       </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;                    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;在上面的程序中，我们使用了饮用。在参数的前面加上“&amp;”符号，就表示这个传参是按照传引用的方式进行传递，而不是C语言中的按值传递。这样，在上面的函数内改变参数的值，也会修改到函数的实参。</p>
-<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p>&emsp;&emsp;在之前，我们可能接触过一些C++给我们提供的函数，比如sort()。默认的函数功能是提供从小到大的排序。如果我们需要从大到小排序，难道需要我们重写sort()吗。</p>
-<p>&emsp;&emsp;C++给我们提供了模板功能，可以对一些函数进行修改。</p>
-<p>&emsp;&emsp;sort()函数的参数实际上有三个：sort(begin,end,[compare]);第三个是非必填项，意思是排序方式。我们只需要在使用sort函数之前，对它的排序方式进行规定，就可以实现从大到小的排序了。下面是代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> a&gt;b;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a[<span class="number">5</span>];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++) &#123;</div><div class="line">           <span class="built_in">cin</span>&gt;&gt;a[i];</div><div class="line">    &#125;</div><div class="line">    sort(a,a+<span class="number">5</span>,compare);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++) &#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第三节-竞赛C-入门&quot;&gt;&lt;a href=&quot;#第三节-竞赛C-入门&quot; class=&quot;headerlink&quot; title=&quot;第三节 竞赛C++入门&quot;&gt;&lt;/a&gt;第三节 竞赛C++入门&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;本系列文章是以读者学习过C语言为背景的。C语言是
     
     </summary>
     
