@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>【ACM教程】2.4编程细节 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="ACM,算法,ACM教程">
+  <meta name="description" content="细节决定成败，态度决定一切。
+
+&amp;emsp;&amp;emsp;在我们程序编写的过程中，有一些细节我们需要注意，这对你以后的代码质量都会有很大的影响。下面，我会介绍一些常见的细节。
+合理的缩进&amp;emsp;&amp;emsp;虽然编译器会忽略代码中一切空格和换行，但是一段乱奇葩早的缩进的代码真的是能逼死强迫症的。
+&amp;emsp;&amp;emsp;常见的缩进方式是使用Tab键，默认4个空格。相同等级的语句不缩进，次级语句需">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ACM教程】2.4编程细节">
+<meta property="og:url" content="http://www.z16388.win/2016/10/30/【ACM教程】2-4编程细节/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="细节决定成败，态度决定一切。
+
+&amp;emsp;&amp;emsp;在我们程序编写的过程中，有一些细节我们需要注意，这对你以后的代码质量都会有很大的影响。下面，我会介绍一些常见的细节。
+合理的缩进&amp;emsp;&amp;emsp;虽然编译器会忽略代码中一切空格和换行，但是一段乱奇葩早的缩进的代码真的是能逼死强迫症的。
+&amp;emsp;&amp;emsp;常见的缩进方式是使用Tab键，默认4个空格。相同等级的语句不缩进，次级语句需">
+<meta property="og:updated_time" content="2016-10-30T15:11:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【ACM教程】2.4编程细节">
+<meta name="twitter:description" content="细节决定成败，态度决定一切。
+
+&amp;emsp;&amp;emsp;在我们程序编写的过程中，有一些细节我们需要注意，这对你以后的代码质量都会有很大的影响。下面，我会介绍一些常见的细节。
+合理的缩进&amp;emsp;&amp;emsp;虽然编译器会忽略代码中一切空格和换行，但是一段乱奇葩早的缩进的代码真的是能逼死强迫症的。
+&amp;emsp;&amp;emsp;常见的缩进方式是使用Tab键，默认4个空格。相同等级的语句不缩进，次级语句需">
+  
+    <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/Favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu"  >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/logo.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">Anqi Zhao</h5>
+        <a href="mailto:z16388@outlook.com" title="z16388@outlook.com" class="mail">z16388@outlook.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              主页
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-table"></i>
+              动态
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              标签
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="http://www.z16388.win/2016/09/09/ACM教程/"  >
+              <i class="icon icon-lg icon-adn"></i>
+              ACM教程
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/int"  >
+              <i class="icon icon-lg icon-link"></i>
+              常用网址导航
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/Download"  >
+              <i class="icon icon-lg icon-cloud-download"></i>
+              下载资源
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/friend"  >
+              <i class="icon icon-lg icon-mars-double"></i>
+              友情链接
+            </a>
+          </li>
+      
+    </ul>
+    <footer class="footer">
+<!--  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>-->
+  <p>崎径 其镜 &copy; 2016<a href="/about" target="_blank">  关于我</a></p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【ACM教程】2.4编程细节</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		<a href="https://www.zhihu.com/people/zhao-an-qi-65-10" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-drupal"></i>
+		</a>
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">【ACM教程】2.4编程细节</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2016-10-30T14:39:21.000Z" itemprop="datePublished" class="page-time">
+  2016-10-30
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-【ACM教程】2-4编程细节" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM教程/">ACM教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#合理的缩进"><span class="post-toc-text">合理的缩进</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#统一的大括号"><span class="post-toc-text">统一的大括号</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#不同类型数据之间的计算"><span class="post-toc-text">不同类型数据之间的计算</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#程序的模块化"><span class="post-toc-text">程序的模块化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于数组"><span class="post-toc-text">关于数组</span></a></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>细节决定成败，态度决定一切。</p>
+</blockquote>
+<p>&emsp;&emsp;在我们程序编写的过程中，有一些细节我们需要注意，这对你以后的代码质量都会有很大的影响。下面，我会介绍一些常见的细节。</p>
+<h2 id="合理的缩进"><a href="#合理的缩进" class="headerlink" title="合理的缩进"></a>合理的缩进</h2><p>&emsp;&emsp;虽然编译器会忽略代码中一切空格和换行，但是一段乱奇葩早的缩进的代码真的是能逼死强迫症的。</p>
+<p>&emsp;&emsp;常见的缩进方式是使用Tab键，默认4个空格。相同等级的语句不缩进，次级语句需要缩进，比如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)</div><div class="line">	sum+=i;</div><div class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;在上面的代码中，我们看到循环体是累加计算，属于循环语句的次级语句，所以应当缩进。而输出是和循环同一等级的，所以要和for循环对齐。</p>
+<p>&emsp;&emsp;除此之外，大括号的缩进也很重要，这一点在下面会介绍。</p>
+<h2 id="统一的大括号"><a href="#统一的大括号" class="headerlink" title="统一的大括号"></a>统一的大括号</h2><p>&emsp;&emsp;大括号也是决定一个程序是否整齐的关键，我们常用以下两种方法：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> sum=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)</div><div class="line">	&#123;</div><div class="line">		sum+=i;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> sum=<span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++) &#123;</div><div class="line">			sum+=i;</div><div class="line">		&#125;</div><div class="line">		System.out.println(sum);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="不同类型数据之间的计算"><a href="#不同类型数据之间的计算" class="headerlink" title="不同类型数据之间的计算"></a>不同类型数据之间的计算</h2><p>&emsp;&emsp;这种情况经常出现在ACM的题目中，就比如hdu2002和hdu2009。如果是把int型数据赋值给double是没有问题的，但是如果是double数据给int，就会出现精度的损失，造成计算的失误。</p>
+<p>&emsp;&emsp;hdu2002中的分数4/3。如果直接在程序里这么写，程序会当成4整除3来计算，应当写成<code>4.0/3.0</code>。</p>
+<p>&emsp;&emsp;hdu2009题如果想要写成<code>m=sqrt(m)</code>的话，就要保证m的类型是double类型，否则在赋值时会损失精度。</p>
+<h2 id="程序的模块化"><a href="#程序的模块化" class="headerlink" title="程序的模块化"></a>程序的模块化</h2><p>&emsp;&emsp;模块化思想很重要，像C++和Java都是面向对象的编程语言，集成化程度很高。但是并不意味着我们写C就不要模块化。模块化的程序可读性高，便于修改。</p>
+<p>&emsp;&emsp;比如hdu2005，判断是否是闰年的题目。我在判断是否是闰年时，写了一个函数，功能是：如果是闰年返回1，否则返回0。</p>
+<p>&emsp;&emsp;当然不仅限于如此，假设某程序需要按照一个公式进行计算，但是后来我们突然想要改变计算过程，如果你把公式写在函数里，那么只需要修改函数就行了，避免了对主函数的修改。</p>
+<h2 id="关于数组"><a href="#关于数组" class="headerlink" title="关于数组"></a>关于数组</h2><p>&emsp;&emsp;关于数组有两点需要注意。</p>
+<p>&emsp;&emsp;首先是对下标的确定。我们知道，数组的下标和元素的序号是刚好相差1的。那么我们可以抛弃数组的第一个元素，只使用数组的第二个往后的元素，这样可以统一下标和元素序号，比如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a[<span class="number">101</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++) &#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;再者，在申请数组大小的时候，我们可以多申请几个。有时候也可能要同时申请多组，这时候，推荐大家使用宏定义，比如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 10010</span></div><div class="line"><span class="keyword">int</span> a[N],b[N],c[N];</div></pre></td></tr></table></figure>
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://www.z16388.win/2016/10/30/【ACM教程】2-4编程细节/" target="_blank" rel="external">http://www.z16388.win/2016/10/30/【ACM教程】2-4编程细节/</a>
+                </p>
+                <footer><cite><a href="http://www.z16388.win">@崎径 其镜</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2016/10/30/hud2011-2020答案/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">hud2011-2020答案</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="【ACM教程】2-4编程细节" data-title="【ACM教程】2.4编程细节" data-url="http://www.z16388.win/2016/10/30/【ACM教程】2-4编程细节/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"z16388"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "【ACM教程】2.4编程细节",
+    pic: "/img/logo.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://www.z16388.win/2016/10/30/【ACM教程】2-4编程细节/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234"></script>
+
+
+
+
+
+</body>
+</html>
