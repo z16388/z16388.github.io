@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2016-10-30T16:06:57.000Z</updated>
+  <updated>2016-10-31T05:12:23.000Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于杉果社区发展的二三想法</title>
+    <link href="http://www.z16388.win/2016/10/31/%E5%85%B3%E4%BA%8E%E6%9D%89%E6%9E%9C%E7%A4%BE%E5%8C%BA%E5%8F%91%E5%B1%95%E7%9A%84%E8%8B%A5%E5%B9%B2%E6%84%8F%E8%A7%81/"/>
+    <id>http://www.z16388.win/2016/10/31/关于杉果社区发展的若干意见/</id>
+    <published>2016-10-31T04:52:28.000Z</published>
+    <updated>2016-10-31T05:12:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;在杉果一年多，不算久也不算短，也剁了很多东西。从开始的陌生，到现在的熟悉，杉果带给了我很多（剁手的机会）一步步走来，看着社区的变化，想要说很多，各种想法也很凌乱。总之，还是本着站着说话不腰疼的立场，说一说自己的看法吧。</p>
+<p>&emsp;&emsp;社区要想发展，定位、内容、管理、活动、UI等等，各种都不能少，那么，我就结合现状，发表一下自己的意见。</p>
+<p>&emsp;&emsp;首先在定位上，杉果社区应该是成为一个玩家的交流平台，而不是一个评价商品的地方。那么，我们就应该给客户提供这样一个地方。之前我在给员子的私信中提到了这一点。刚好，也看到了这样的一个功能即将要上线的消息，我觉得，在“垃圾内容”上，应该很快会有所改善。</p>
+<p>&emsp;&emsp;当然，没了活动时的抱怨，干货也要有对不对。所以第二点比较重要的，就是“独家内容”。必须是杉果特色的，必须是别家都找不到的。像之前和游戏厂商黑恶势力的谈笑风生活动啦，这样的好机会不应该成为给直播平台带来流量的活动对不对，为什么要便宜别人呢。结合自己的社区，发布自己的独家内容，这一点很重要。而且，杉果电台虽然做的很良心，但是我觉得受众可能还不是很广。我觉得如果去b站发视频的话，可能会有更好的效果。</p>
+<p>&emsp;&emsp;管理层面我觉得暂时还不需要考虑，因为没人（心疼）。当然，人多之后的打算也是要提前做的。分区，管理，内容，各种方面，都要去做，当然这是后话。</p>
+<p>&emsp;&emsp;活动，社区活动从来不缺，看万圣节活动对不对，下面复制粘贴300多回复，多火热。但是，活动结束呢？没有员子水贴和某up主的视频，我觉得可能三四天都看不到新的内容。活动是带来流量的方法，但是也要做对活动。像这样直接拿key走的活动，给人一种廉价感，而且是为了奖品而活动。我觉得应该活动日常化，积分化，让所有的人都参与进来。不是什么新人活动啦，发评测活动啦，这样除了会让人注册一堆小号，或者多一堆没有营养的测评之外，没有别的用处了。记得很久以前听说社区会有大改，但是等了好久也没有见到变化。。。社区现状就是抱怨和领key的地方。。。</p>
+<p>&emsp;&emsp;UI不说了，毕竟不是专业搞UI的，但是至少steam的api该更新一下了，移动端密码框的安全性还有不能用psn的话就去掉这个功能对不对。</p>
+<p>&emsp;&emsp;总之，千言万语总结成一句话：希望杉果越来越好，至少，我会等着。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;在杉果一年多，不算久也不算短，也剁了很多东西。从开始的陌生，到现在的熟悉，杉果带给了我很多（剁手的机会）一步步走来，看着社区的变化，想要说很多，各种想法也很凌乱。总之，还是本着站着说话不腰疼的立场，说一说自己的看法吧。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;e
+    
+    </summary>
+    
+    
+      <category term="游戏" scheme="http://www.z16388.win/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+      <category term="心情" scheme="http://www.z16388.win/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
   
   <entry>
     <title>ACM常用模版</title>
@@ -109,9 +140,9 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
     
   </entry>
   
@@ -141,9 +172,9 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
     
   </entry>
   
@@ -182,9 +213,9 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
     
   </entry>
   
@@ -684,13 +715,13 @@
     </summary>
     
     
-      <category term="心情" scheme="http://www.z16388.win/tags/%E5%BF%83%E6%83%85/"/>
-    
       <category term="游戏安利" scheme="http://www.z16388.win/tags/%E6%B8%B8%E6%88%8F%E5%AE%89%E5%88%A9/"/>
     
       <category term="游戏" scheme="http://www.z16388.win/tags/%E6%B8%B8%E6%88%8F/"/>
     
       <category term="Steam" scheme="http://www.z16388.win/tags/Steam/"/>
+    
+      <category term="心情" scheme="http://www.z16388.win/tags/%E5%BF%83%E6%83%85/"/>
     
   </entry>
   
@@ -747,50 +778,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;第X节-JAVA大数&quot;&gt;&lt;a href=&quot;#第X节-JAVA大数&quot; class=&quot;headerlink&quot; title=&quot;第X节 JAVA大数&quot;&gt;&lt;/a&gt;第X节 JAVA大数&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;由于近些年，大数据的兴起，在ACM比赛中，经常会出现
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】2.3排序、查找与初始化</title>
-    <link href="http://www.z16388.win/2016/09/09/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-3%E6%8E%92%E5%BA%8F%E3%80%81%E6%9F%A5%E6%89%BE%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
-    <id>http://www.z16388.win/2016/09/09/【ACM教程】2-3排序、查找与初始化/</id>
-    <published>2016-09-09T14:26:37.000Z</published>
-    <updated>2016-10-30T14:38:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第三节-排序、查找与初始化"><a href="#第三节-排序、查找与初始化" class="headerlink" title="第三节 排序、查找与初始化"></a>第三节 排序、查找与初始化</h1><p>&emsp;&emsp;STL指的是C++的标准模板库。使用STL能给我们带来很大的便利，但是它比较复杂，我们只选取一些算法竞赛中常用的STL进行一系列的讲解。首先，我们先学习第一部分。排序和初始化。</p>
-<h2 id="排序与查找"><a href="#排序与查找" class="headerlink" title="排序与查找"></a>排序与查找</h2><p>&emsp;&emsp;排序与查找是两个对于数据常用的操作。C++给我们提供了sort() 和lower_bound() 两个函数来实现这两个功能，这两个函数都在algorithm头文件中。首先，介绍一下两个函数的参数。</p>
-<blockquote>
-<p>sort（起始地址，终点地址，比较方法）；<br>lower_bound（起始地址，终点地址，查找元素）；</p>
-</blockquote>
-<p>&emsp;&emsp;sort() 函数可以对任意对象进行排序，不一定是默认的数据类型。但是，在使用其他类型的时候，我们要首先要对该类型进行“大于”或者“小于”运算进行定义。排序的对象可以存放在数组里，也可以存放在vector中（动态数组，以后会进行讲解）。但是，在使用的细节上有所不同。前者是：sort(a,a+n)   后者是：sort(v.begin(),v.end())。</p>
-<blockquote>
-<p>Lower_bound() </p>
-</blockquote>
-<p>&emsp;&emsp;这个函数的作用是查找“大于或等于x的第一个位置”。</p>
-<p>&emsp;&emsp;stable_sort()函数和sort()函数类似，与后者的区别是，排序之后，不改变相同值元素的相对位置。我们称stable_sort()为稳定排序，举个例子，a1,a2,a3,a4,a5是一数组，其中a2=a4，那么经过排序之后是：a1,a2,a4,a3,a5，我们能看到，排序前后a2总是在a4的前面。在数组的排序中，可能效果不太明显，但是如果是对结构体的排序就会有明显的区别。</p>
-<p>&emsp;&emsp;使用这两个函数，将会给我们带来很大的便利。不仅缩短了代码的长度，而且可能要比我们所了解的各种排序查找方法更加优秀，无论是时间复杂度或者空间复杂度。</p>
-<p>&emsp;&emsp;请练习下面的题目：</p>
-<p>&emsp;&emsp;&emsp;&emsp;<a href="http://www.clang.cc/oj/problem.php?id=1423" target="_blank" rel="external">好汉杯积分问题</a></p>
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>&emsp;&emsp;在做和图、矩阵有关的题目时，我们经常会对二维数组进行初始化。将两个无关点之间的距离初始化为无穷，或者是给单位矩阵非对角线元素进行的初始化。C++给我们提供了memset() 函数实现初始化，这个函数在cstring头文件中。下面是memset() 函数的参数：</p>
-<blockquote>
-<p>Memset(数组名，初始化内容，初始化范围)；</p>
-</blockquote>
-<p>&emsp;&emsp;请练习下面的题目：</p>
-<p>&emsp;&emsp;&emsp;&emsp;<a href="http://www.clang.cc/oj/problem.php?id=1424" target="_blank" rel="external">我要送人头！</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第三节-排序、查找与初始化&quot;&gt;&lt;a href=&quot;#第三节-排序、查找与初始化&quot; class=&quot;headerlink&quot; title=&quot;第三节 排序、查找与初始化&quot;&gt;&lt;/a&gt;第三节 排序、查找与初始化&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;STL指的是C++的标准模板
     
     </summary>
     
