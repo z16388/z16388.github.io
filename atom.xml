@@ -683,13 +683,13 @@
   </entry>
   
   <entry>
-    <title>【ACM教程】3.3递归</title>
-    <link href="http://www.z16388.win/2016/09/10/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-3%E9%80%92%E5%BD%92/"/>
-    <id>http://www.z16388.win/2016/09/10/【ACM教程】3-3递归/</id>
+    <title>【ACM教程】3.2递归</title>
+    <link href="http://www.z16388.win/2016/09/10/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-2%E9%80%92%E5%BD%92/"/>
+    <id>http://www.z16388.win/2016/09/10/【ACM教程】3-2递归/</id>
     <published>2016-09-10T07:12:02.000Z</published>
-    <updated>2016-11-02T07:56:21.000Z</updated>
+    <updated>2016-11-02T09:13:12.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="第三节-递归"><a href="#第三节-递归" class="headerlink" title="第三节 递归"></a>第三节 递归</h1><p>&emsp;&emsp;递归是一个语言中最难理解的内容之一，它是通过自己调用自己的方法，来进行运算的方法。关于递归有一个非常有意思的定义：</p>
+    <content type="html"><![CDATA[<h1 id="第二节-递归"><a href="#第二节-递归" class="headerlink" title="第二节 递归"></a>第二节 递归</h1><p>&emsp;&emsp;递归是一个语言中最难理解的内容之一，它是通过自己调用自己的方法，来进行运算的方法。关于递归有一个非常有意思的定义：</p>
 <blockquote>
 <p>递归：参见“递归”</p>
 </blockquote>
@@ -709,7 +709,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;第三节-递归&quot;&gt;&lt;a href=&quot;#第三节-递归&quot; class=&quot;headerlink&quot; title=&quot;第三节 递归&quot;&gt;&lt;/a&gt;第三节 递归&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;递归是一个语言中最难理解的内容之一，它是通过自己调用自己的方法，来进行运算的方法。关
+      &lt;h1 id=&quot;第二节-递归&quot;&gt;&lt;a href=&quot;#第二节-递归&quot; class=&quot;headerlink&quot; title=&quot;第二节 递归&quot;&gt;&lt;/a&gt;第二节 递归&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;递归是一个语言中最难理解的内容之一，它是通过自己调用自己的方法，来进行运算的方法。关
     
     </summary>
     
