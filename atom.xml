@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2016-10-31T05:13:59.000Z</updated>
+  <updated>2016-11-02T08:35:38.000Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【ACM教程】3-1枚举</title>
+    <link href="http://www.z16388.win/2016/11/02/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-1%E6%9E%9A%E4%B8%BE/"/>
+    <id>http://www.z16388.win/2016/11/02/【ACM教程】3-1枚举/</id>
+    <published>2016-11-02T07:55:31.000Z</published>
+    <updated>2016-11-02T08:35:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第一节-枚举"><a href="#第一节-枚举" class="headerlink" title="第一节 枚举"></a>第一节 枚举</h1><p>&emsp;&emsp;枚举又叫穷举，是程序设计中最常用的算法之一，是一种很*很暴力的算法。要说它的方法，就是没有方法——通过将所有可能的结果一一列举出来进行判断，获得想要的结果的方法。枚举算法的特点就是比较单纯，容易写出来程序，但是速度非常慢，只能用来解决小规模的问题。</p>
+<p>&emsp;&emsp;常见的题型有很多，比如计算空缺算式或者是火柴棒问题，接下来我们来举例说明一道非常经典的题目，来体会一下枚举算法。</p>
+<p>&emsp;&emsp;我国古代数学家章丘建在《算经》一书中提过一道数学问题：鸡翁一值钱五，鸡母一值钱散，鸡雏三值钱一。百钱买百鸡，问鸡翁、鸡母、鸡雏各几何。这就是经典的百钱百鸡问题。除了原书中使用的方程式之外，我们还可以使用枚举法来进行计算，代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i,j,k;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">20</span>;i++)</div><div class="line">    <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=<span class="number">33</span>;j++)</div><div class="line">    <span class="keyword">for</span>(k=<span class="number">1</span>;k&lt;=<span class="number">100</span>;k++)</div><div class="line">    <span class="keyword">if</span>((i*<span class="number">5</span>+j*<span class="number">3</span>+k/<span class="number">3</span>==<span class="number">100</span>)&amp;&amp;(i+j+k==<span class="number">100</span>)&amp;&amp;(k%<span class="number">3</span>==<span class="number">0</span>))</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>,i,j,k);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;在之前杭电的练习题中，我们也遇到过使用枚举算法的题目，hdu2010题的水仙花数就是。大家可以练习一下全排列的问题，练习一下枚举算法。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第一节-枚举&quot;&gt;&lt;a href=&quot;#第一节-枚举&quot; class=&quot;headerlink&quot; title=&quot;第一节 枚举&quot;&gt;&lt;/a&gt;第一节 枚举&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;枚举又叫穷举，是程序设计中最常用的算法之一，是一种很*很暴力的算法。要说它的方法，就
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>关于杉果社区发展的二三想法</title>
@@ -654,13 +683,13 @@
   </entry>
   
   <entry>
-    <title>【ACM教程】3.1递归</title>
-    <link href="http://www.z16388.win/2016/09/10/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-1%E9%80%92%E5%BD%92/"/>
-    <id>http://www.z16388.win/2016/09/10/【ACM教程】3-1递归/</id>
+    <title>【ACM教程】3.3递归</title>
+    <link href="http://www.z16388.win/2016/09/10/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-3%E9%80%92%E5%BD%92/"/>
+    <id>http://www.z16388.win/2016/09/10/【ACM教程】3-3递归/</id>
     <published>2016-09-10T07:12:02.000Z</published>
-    <updated>2016-09-10T07:21:37.000Z</updated>
+    <updated>2016-11-02T07:56:21.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="第一节-递归"><a href="#第一节-递归" class="headerlink" title="第一节 递归"></a>第一节 递归</h1><p>&emsp;&emsp;递归是一个语言中最难理解的内容之一，它是通过自己调用自己的方法，来进行运算的方法。关于递归有一个非常有意思的定义：</p>
+    <content type="html"><![CDATA[<h1 id="第三节-递归"><a href="#第三节-递归" class="headerlink" title="第三节 递归"></a>第三节 递归</h1><p>&emsp;&emsp;递归是一个语言中最难理解的内容之一，它是通过自己调用自己的方法，来进行运算的方法。关于递归有一个非常有意思的定义：</p>
 <blockquote>
 <p>递归：参见“递归”</p>
 </blockquote>
@@ -680,7 +709,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;第一节-递归&quot;&gt;&lt;a href=&quot;#第一节-递归&quot; class=&quot;headerlink&quot; title=&quot;第一节 递归&quot;&gt;&lt;/a&gt;第一节 递归&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;递归是一个语言中最难理解的内容之一，它是通过自己调用自己的方法，来进行运算的方法。关
+      &lt;h1 id=&quot;第三节-递归&quot;&gt;&lt;a href=&quot;#第三节-递归&quot; class=&quot;headerlink&quot; title=&quot;第三节 递归&quot;&gt;&lt;/a&gt;第三节 递归&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;递归是一个语言中最难理解的内容之一，它是通过自己调用自己的方法，来进行运算的方法。关
     
     </summary>
     
@@ -768,40 +797,6 @@
       <category term="hexo" scheme="http://www.z16388.win/tags/hexo/"/>
     
       <category term="域名" scheme="http://www.z16388.win/tags/%E5%9F%9F%E5%90%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】2.XJAVA大数</title>
-    <link href="http://www.z16388.win/2016/09/09/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-4JAVA%E5%A4%A7%E6%95%B0/"/>
-    <id>http://www.z16388.win/2016/09/09/【ACM教程】2-4JAVA大数/</id>
-    <published>2016-09-09T14:35:24.000Z</published>
-    <updated>2016-10-30T14:36:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第X节-JAVA大数"><a href="#第X节-JAVA大数" class="headerlink" title="第X节 JAVA大数"></a>第X节 JAVA大数</h1><p>&emsp;&emsp;由于近些年，大数据的兴起，在ACM比赛中，经常会出现大数的问题。</p>
-<p>&emsp;&emsp;大数，字面意思很简单。而在编程中，特指超过32位二进制的数。虽然低于64位的数据计算可以使用long long 的数据类型，但是如果出现乘法，则难免会越界。这样的问题，我们称为大数问题。</p>
-<p>&emsp;&emsp;虽然C++给我们提供了大数，但是使用起来不是很方便。特别是在处理乘法和除法的时候，代码可能会达到上百行。JAVA的大数类则比较实用，在ACM竞赛中，我们大多使用JAVA语言进行大数题目的计算。下面是JAVA大数加法的程序:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.math.BigInteger;                          </div><div class="line"><span class="keyword">import</span> java.util.Scanner;                             </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;                                  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String args[])</span> </span>&#123;              </div><div class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);          </div><div class="line">        <span class="keyword">while</span>(in.hasNextBigInteger()) &#123;               </div><div class="line">            BigInteger a = in.nextBigInteger();         </div><div class="line">            BigInteger b = in.nextBigInteger();         </div><div class="line">            System.out.println(b.add(a));             </div><div class="line">       &#125;                                        </div><div class="line">         in.close();                                 </div><div class="line">    &#125;                                            </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;需要特别注意的是，普通的四则运算符号在大数加减时不能使用，我们要使用类似于C++中运算符重载的方法来进行计算。常用的几种运算如下：</p>
-<blockquote>
-<p>add( )              加法<br>subtract( )          减法<br>multiply( )          乘法<br>divide( )            除法<br>remainder ( )        求余<br>abs( )              绝对值<br>pow( int n )         n次幂</p>
-</blockquote>
-<p>&emsp;&emsp;不仅如此，大数只能和大数进行运算。在需要使用常数的时候，我们需要用下面这种方法进行定义：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BigInteger a = <span class="keyword">new</span> BigInteger ( “XXXXXXX” );</div></pre></td></tr></table></figure></p>
-<p>练习：</p>
-<p>&emsp;&emsp;&emsp;&emsp;<a href="http://www.clang.cc/oj/problem.php?id=1425" target="_blank" rel="external">Ti6奖金池</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第X节-JAVA大数&quot;&gt;&lt;a href=&quot;#第X节-JAVA大数&quot; class=&quot;headerlink&quot; title=&quot;第X节 JAVA大数&quot;&gt;&lt;/a&gt;第X节 JAVA大数&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;由于近些年，大数据的兴起，在ACM比赛中，经常会出现
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
