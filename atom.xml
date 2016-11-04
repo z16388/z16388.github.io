@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2016-11-02T08:35:38.000Z</updated>
+  <updated>2016-11-04T09:27:42.000Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>R语言二三事</title>
+    <link href="http://www.z16388.win/2016/11/04/R%E8%AF%AD%E8%A8%80%E4%BA%8C%E4%B8%89%E4%BA%8B/"/>
+    <id>http://www.z16388.win/2016/11/04/R语言二三事/</id>
+    <published>2016-11-04T09:18:34.000Z</published>
+    <updated>2016-11-04T09:27:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;上午上完第一节课之后，想要到图书馆寻找几本算法相关的书籍未果，偶然发现了两本不错的书。一本是《Python语言程序设计》，另一本就是《R语言初学指南》了。</p>
+<p>&emsp;&emsp;早些时候我就有关注过R了，听说是一个最近很火的数据分析语言，具有强大的数据分析功能，在各领域都有所使用。这也算是第一次接触，还没回到寝室就迫不及待地打开翻了两页，顿时整个人都不好了——我看到了一堆讨厌极了的矩阵。。。</p>
+<p>&emsp;&emsp;回到寝室，从序开始看，发现这是一本很浅显的书，内容的话还涉及一些行业上的实例，比如说在第三节就有一个金融数学上的例子，刚好我们才学过的一些东西都用上了。</p>
+<p>&emsp;&emsp;下载好，给win和mac都安装好，摸索使用了一下，发现这真是一个非常好的数学工具。比起MATLAB臃肿的安装包，R的基础包只有不到100mb，而且足够初学者的使用，这一点我非常欣赏。虽然UI不是很理想，但是功能强大不就好了吗。</p>
+<p>&emsp;&emsp;基本的语法和Python有着一定的相似之处，使用起来和MATLAB也很类似。总之，希望能够学下去吧~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;上午上完第一节课之后，想要到图书馆寻找几本算法相关的书籍未果，偶然发现了两本不错的书。一本是《Python语言程序设计》，另一本就是《R语言初学指南》了。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;早些时候我就有关注过R了，听说是一个最近很火的数据分析语
+    
+    </summary>
+    
+    
+      <category term="R" scheme="http://www.z16388.win/tags/R/"/>
+    
+  </entry>
   
   <entry>
     <title>【ACM教程】3-1枚举</title>
@@ -689,7 +715,7 @@
     <link href="http://www.z16388.win/2016/09/10/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-2%E9%80%92%E5%BD%92/"/>
     <id>http://www.z16388.win/2016/09/10/【ACM教程】3-2递归/</id>
     <published>2016-09-10T07:12:02.000Z</published>
-    <updated>2016-11-02T09:18:46.000Z</updated>
+    <updated>2016-11-02T11:54:06.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第二节-递归"><a href="#第二节-递归" class="headerlink" title="第二节 递归"></a>第二节 递归</h1><p>&emsp;&emsp;递归是一个语言中最难理解的内容之一，它是通过自己调用自己的方法，来进行运算的方法。关于递归有一个非常有意思的定义：</p>
 <blockquote>
@@ -767,37 +793,6 @@
       <category term="Steam" scheme="http://www.z16388.win/tags/Steam/"/>
     
       <category term="心情" scheme="http://www.z16388.win/tags/%E5%BF%83%E6%83%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>给Github Pages绑定阿里云域名</title>
-    <link href="http://www.z16388.win/2016/09/09/%E7%BB%99Github-Pages%E7%BB%91%E5%AE%9A%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D/"/>
-    <id>http://www.z16388.win/2016/09/09/给Github-Pages绑定阿里云域名/</id>
-    <published>2016-09-09T15:54:20.000Z</published>
-    <updated>2016-09-13T10:26:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;我在阿里云上注册了一个域名<z16388.win>，现在想把它和我的Github Pages绑定起来，也就是说我想达到访问这个域名，能够进入我的博客<z16388.github.io>的目的。</z16388.github.io></z16388.win></p>
-<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>&emsp;&emsp;运行cmd，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ping yourusername.github.io</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;然后我们会看到一个IP地址。</p>
-<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>&emsp;&emsp;在你的阿里云域名解析设置中，添加以下两项内容</p>
-<blockquote>
-<p>A&emsp;&emsp;&emsp;&emsp;www&emsp;&emsp;&emsp;&emsp;&emsp;      Your IP<br>A&emsp;&emsp;&emsp;&emsp;@&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;      Your IP</p>
-</blockquote>
-<p>&emsp;&emsp;保存，等待十分钟左右，你就可以使用你的域名来访问你的博客了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;我在阿里云上注册了一个域名&lt;z16388.win&gt;，现在想把它和我的Github Pages绑定起来，也就是说我想达到访问这个域名，能够进入我的博客&lt;z16388.github.io&gt;的目的。&lt;/z16388.github.io&gt;&lt;/z16388.w
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://www.z16388.win/tags/hexo/"/>
-    
-      <category term="域名" scheme="http://www.z16388.win/tags/%E5%9F%9F%E5%90%8D/"/>
     
   </entry>
   
