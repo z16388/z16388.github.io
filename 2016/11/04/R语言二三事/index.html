@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="崎径 其镜">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;上午上完第一节课之后，想要到图书馆寻找几本算法相关的书籍未果，偶然发现了两本不错的书。一本是《Python语言程序设计》，另一本就是《R语言初学指南》了。
 &amp;emsp;&amp;emsp;早些时候我就有关注过R了，听说是一个最近很火的数据分析语言，具有强大的数据分析功能，在各领域都有所使用。这也算是第一次接触，还没回到寝室就迫不及待地打开翻了两页，顿时整个人都不好了——我看到了一堆">
-<meta property="og:updated_time" content="2016-11-04T09:27:42.000Z">
+<meta property="og:updated_time" content="2016-11-04T09:44:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R语言二三事">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;上午上完第一节课之后，想要到图书馆寻找几本算法相关的书籍未果，偶然发现了两本不错的书。一本是《Python语言程序设计》，另一本就是《R语言初学指南》了。
@@ -226,7 +226,25 @@
 <p>&emsp;&emsp;早些时候我就有关注过R了，听说是一个最近很火的数据分析语言，具有强大的数据分析功能，在各领域都有所使用。这也算是第一次接触，还没回到寝室就迫不及待地打开翻了两页，顿时整个人都不好了——我看到了一堆讨厌极了的矩阵。。。</p>
 <p>&emsp;&emsp;回到寝室，从序开始看，发现这是一本很浅显的书，内容的话还涉及一些行业上的实例，比如说在第三节就有一个金融数学上的例子，刚好我们才学过的一些东西都用上了。</p>
 <p>&emsp;&emsp;下载好，给win和mac都安装好，摸索使用了一下，发现这真是一个非常好的数学工具。比起MATLAB臃肿的安装包，R的基础包只有不到100mb，而且足够初学者的使用，这一点我非常欣赏。虽然UI不是很理想，但是功能强大不就好了吗。</p>
-<p>&emsp;&emsp;基本的语法和Python有着一定的相似之处，使用起来和MATLAB也很类似。总之，希望能够学下去吧~</p>
+<p>&emsp;&emsp;基本的语法和Python有着一定的相似之处，使用起来和MATLAB也很类似。总之，希望能够学下去吧。下面总结一下今天学到的R常用的基础语法：</p>
+<hr>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="number">5</span>+<span class="number">7</span></div><div class="line">[<span class="number">1</span>] <span class="number">12</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;和Python类似，可以直接实现两个数的运算。常用的运算除了加减乘除之外，还有乘方，例：<code>e^2</code></p>
+<hr>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; sally=<span class="number">5</span>+<span class="number">7</span></div><div class="line">&gt; ralph=<span class="number">4</span>-<span class="number">2</span></div><div class="line">&gt; sally-ralph</div><div class="line">[<span class="number">1</span>] <span class="number">10</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;可以将数据存放在变量中进行运算。</p>
+<hr>
+<p>&emsp;&emsp;赋值有两种方法，较老的版本使用箭头来进行赋值，现在和其他语言类似，都可以使用一个等号表示赋值，这两种方法是等价的：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; a=a+<span class="number">1</span></div><div class="line">&gt; a&lt;-a+<span class="number">1</span></div></pre></td></tr></table></figure>
+<hr>
+<p>向量：</p>
+<p>&emsp;&emsp;向量是数学中一个相当常用的概念，在R里当然是必不可少的。我们可以通过下面的方法来创建一个向量：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; x=c(<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>)</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;向量可以进行加减乘除乘方等运算。除此之外，还有一种特殊的向量，用来表示一个连续的序列，例如：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; j=<span class="number">0</span>:<span class="number">5</span></div><div class="line">&gt; j</div><div class="line">[<span class="number">1</span>] <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;冒号申请的连续序列可能在后面的过程中经常使用，比如在绘图时，可能需要很多的坐标，这时候使用这种向量会极大地方便我们的绘图工作。</p>
+<hr>
+<p>学习ing</p>
 
             <blockquote>
                 <p>
