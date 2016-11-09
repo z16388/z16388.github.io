@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2016-11-09T09:33:17.000Z</updated>
+  <updated>2016-11-09T09:35:12.000Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【ACM教程】3-3二分查找</title>
+    <title>【ACM教程】3.3二分查找</title>
     <link href="http://www.z16388.win/2016/11/09/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-3%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
     <id>http://www.z16388.win/2016/11/09/【ACM教程】3-3二分查找/</id>
     <published>2016-11-09T08:40:36.000Z</published>
-    <updated>2016-11-09T09:33:17.000Z</updated>
+    <updated>2016-11-09T09:35:12.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第三节-二分查找"><a href="#第三节-二分查找" class="headerlink" title="第三节 二分查找"></a>第三节 二分查找</h1><p>&emsp;&emsp;这次我们要学习的，就是著名的高效的，并且应用非常广泛的二分查找算法，简称二分法（Binary Search）。二分查找的时间复杂度为O(lgn)，是优化程序的常用方法之一。在我们使用的java教科书中，经常会见到作者举的一个例子——猜数字。这个程序就是让你去猜测一个给定范围内的数字，当然，我们可以暴力一点，把所有可能的结果都掏出来试一试——枚举。但是真正在写程序的时候，这样效率可能会非常低，这个时候我们就需要使用二分法来去做这个游戏。</p>
 <p>&emsp;&emsp;我们可以这样去做：选择这个区间中间的数，大了，就把它当做新的区间的起点，继续做；小了就往左去找区间，以此类推，这就是我们在数学上学习过的二分法，那么，怎么能够在程序中实现呢？代码如下：</p>
