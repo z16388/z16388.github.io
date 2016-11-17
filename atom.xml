@@ -78,7 +78,7 @@
     <link href="http://www.z16388.win/2016/11/16/Steps/"/>
     <id>http://www.z16388.win/2016/11/16/Steps/</id>
     <published>2016-11-16T11:06:30.000Z</published>
-    <updated>2016-11-16T11:31:43.000Z</updated>
+    <updated>2016-11-17T06:24:47.000Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;hdu里的题目，题目量大，种类多，很多人用，同时也不方便找对应难度的试题。只知道水题都在11页，那么其他的题目都该怎么刷呢。</p>
 <p>&emsp;&emsp;其实hdu有一个比较隐蔽的功能叫做ACM Steps，按照难度将题目随机分配出来的，难度相近，全部做完才能进入下一关，比较适合练习。</p>
@@ -86,7 +86,7 @@
 <p>第一章：</p>
 <ul>
 <li>A+B</li>
-<li>输入输出，排序，ascii问题</li>
+<li>输入输出，快速幂，排序，ascii问题</li>
 </ul>
 ]]></content>
     
