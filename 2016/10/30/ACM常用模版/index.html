@@ -10,25 +10,19 @@
   
   
   <meta name="keywords" content="ACM,算法,ACM教程">
-  <meta name="description" content="求素数
-1234567int su(int b)&amp;#123;    for(int i=2;i&amp;lt;=(int)sqrt(b);i++) &amp;#123;        if(b%i==0) return 0;    &amp;#125;    return 1;&amp;#125;
-最大公约数和最小公倍数
-123456789int gcd(int a,int b)  //最大公约数&amp;#123;	if(b==0)">
+  <meta name="description" content="求素数1234567int su(int b)&amp;#123;    for(int i=2;i&amp;lt;=(int)sqrt(b);i++) &amp;#123;        if(b%i==0) return 0;    &amp;#125;    return 1;&amp;#125;
+最大公约数和最小公倍数欧几里得定力：两个整数的最大公约数等于其中较小的那个数和两数相除余数的最大公约数。123456789int gc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ACM常用模版">
 <meta property="og:url" content="http://www.z16388.win/2016/10/30/ACM常用模版/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content="求素数
-1234567int su(int b)&amp;#123;    for(int i=2;i&amp;lt;=(int)sqrt(b);i++) &amp;#123;        if(b%i==0) return 0;    &amp;#125;    return 1;&amp;#125;
-最大公约数和最小公倍数
-123456789int gcd(int a,int b)  //最大公约数&amp;#123;	if(b==0)">
-<meta property="og:updated_time" content="2016-10-30T16:06:57.000Z">
+<meta property="og:description" content="求素数1234567int su(int b)&amp;#123;    for(int i=2;i&amp;lt;=(int)sqrt(b);i++) &amp;#123;        if(b%i==0) return 0;    &amp;#125;    return 1;&amp;#125;
+最大公约数和最小公倍数欧几里得定力：两个整数的最大公约数等于其中较小的那个数和两数相除余数的最大公约数。123456789int gc">
+<meta property="og:updated_time" content="2016-11-18T09:32:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ACM常用模版">
-<meta name="twitter:description" content="求素数
-1234567int su(int b)&amp;#123;    for(int i=2;i&amp;lt;=(int)sqrt(b);i++) &amp;#123;        if(b%i==0) return 0;    &amp;#125;    return 1;&amp;#125;
-最大公约数和最小公倍数
-123456789int gcd(int a,int b)  //最大公约数&amp;#123;	if(b==0)">
+<meta name="twitter:description" content="求素数1234567int su(int b)&amp;#123;    for(int i=2;i&amp;lt;=(int)sqrt(b);i++) &amp;#123;        if(b%i==0) return 0;    &amp;#125;    return 1;&amp;#125;
+最大公约数和最小公倍数欧几里得定力：两个整数的最大公约数等于其中较小的那个数和两数相除余数的最大公约数。123456789int gc">
   
     <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
   
@@ -220,7 +214,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#求素数"><span class="post-toc-text">求素数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最大公约数和最小公倍数"><span class="post-toc-text">最大公约数和最小公倍数</span></a></li></ol>
             </nav>
             
         </aside>
@@ -228,10 +222,9 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>求素数</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">su</span><span class="params">(<span class="keyword">int</span> b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=(<span class="keyword">int</span>)<span class="built_in">sqrt</span>(b);i++) &#123;</div><div class="line">        <span class="keyword">if</span>(b%i==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>最大公约数和最小公倍数</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>  <span class="comment">//最大公约数</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(b==<span class="number">0</span>) <span class="keyword">return</span> a;</div><div class="line">	<span class="keyword">else</span> <span class="keyword">return</span> gcd(b,a%b);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>  <span class="comment">//最小公倍数</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">return</span> a/gcd(a,b)*b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h3 id="求素数"><a href="#求素数" class="headerlink" title="求素数"></a>求素数</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">su</span><span class="params">(<span class="keyword">int</span> b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=(<span class="keyword">int</span>)<span class="built_in">sqrt</span>(b);i++) &#123;</div><div class="line">        <span class="keyword">if</span>(b%i==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="最大公约数和最小公倍数"><a href="#最大公约数和最小公倍数" class="headerlink" title="最大公约数和最小公倍数"></a>最大公约数和最小公倍数</h3><p>欧几里得定力：两个整数的最大公约数等于其中较小的那个数和两数相除余数的最大公约数。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>  <span class="comment">//最大公约数</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(b==<span class="number">0</span>) <span class="keyword">return</span> a;</div><div class="line">	<span class="keyword">else</span> <span class="keyword">return</span> gcd(b,a%b);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>  <span class="comment">//最小公倍数</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">return</span> a/gcd(a,b)*b;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
             <blockquote>
                 <p>
                 本文地址：
