@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2016-11-16T13:00:43.000Z</updated>
+  <updated>2016-12-31T16:21:09.000Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2017新年祝福</title>
+    <link href="http://www.z16388.win/2017/01/01/2017/"/>
+    <id>http://www.z16388.win/2017/01/01/2017/</id>
+    <published>2016-12-31T16:16:10.000Z</published>
+    <updated>2016-12-31T16:21:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;2016已经成为了过去式，新的一年已经来临。过去的一年里，无论有多少收获，2017，我们都会遇到一个新的自己。祝大家在新的一年里，能够距离自己的目标更进一步，保持自己的信心，继续前进。无论结果如何，这都会是我们人生中最精彩的一年——今年。</p>
+<p>&emsp;&emsp;2017，要实训，要考研，要学习日语，要加强算法的练习，完善ACM的教程，要增进刀塔的技术…</p>
+<p>&emsp;&emsp;我们笑着送走2016，2017，也会是快乐的一年。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;2016已经成为了过去式，新的一年已经来临。过去的一年里，无论有多少收获，2017，我们都会遇到一个新的自己。祝大家在新的一年里，能够距离自己的目标更进一步，保持自己的信心，继续前进。无论结果如何，这都会是我们人生中最精彩的一年——今年。&lt;/p&gt;
+&lt;
+    
+    </summary>
+    
+    
+      <category term="心情" scheme="http://www.z16388.win/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
   
   <entry>
     <title>hdu1326,hdu2088</title>
@@ -40,9 +64,9 @@
     </summary>
     
     
-      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
-    
       <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
     
   </entry>
   
@@ -67,9 +91,9 @@
     </summary>
     
     
-      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
-    
       <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
     
   </entry>
   
@@ -440,9 +464,9 @@
     </summary>
     
     
-      <category term="游戏" scheme="http://www.z16388.win/tags/%E6%B8%B8%E6%88%8F/"/>
-    
       <category term="心情" scheme="http://www.z16388.win/tags/%E5%BF%83%E6%83%85/"/>
+    
+      <category term="游戏" scheme="http://www.z16388.win/tags/%E6%B8%B8%E6%88%8F/"/>
     
   </entry>
   
@@ -552,9 +576,9 @@
     </summary>
     
     
-      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
-    
       <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
     
   </entry>
   
@@ -584,9 +608,9 @@
     </summary>
     
     
-      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
-    
       <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
     
   </entry>
   
@@ -625,9 +649,9 @@
     </summary>
     
     
-      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
-    
       <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
     
   </entry>
   
@@ -774,43 +798,6 @@
     
       &lt;p&gt;&amp;emsp;&amp;emsp;我也是够闲的。本着不抛弃，不放弃地原则，抢救我的笔记本小Y。虽然从早上开机到现在，我。。。不不不，不能奶！总之，倒持了一天吧，不说成果怎么样，也是有一些收获的。相比于昨天的硬件，我把今天折腾的方向转向了软件。&lt;/p&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;嘛
-    
-    </summary>
-    
-    
-      <category term="笔记本" scheme="http://www.z16388.win/tags/%E7%AC%94%E8%AE%B0%E6%9C%AC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>联想Y400拆机换硅脂过程</title>
-    <link href="http://www.z16388.win/2016/09/29/%E8%81%94%E6%83%B3Y400%E6%8B%86%E6%9C%BA%E6%8D%A2%E7%A1%85%E8%84%82%E8%BF%87%E7%A8%8B/"/>
-    <id>http://www.z16388.win/2016/09/29/联想Y400拆机换硅脂过程/</id>
-    <published>2016-09-29T08:02:08.000Z</published>
-    <updated>2016-09-29T09:39:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;最近笔记本出了一个问题，从前天开始，玩着玩着就炸了。从讨鬼传开始，一玩就自动断电，一点办法都没有。前天晚上开始炸了1次，昨天炸了3次，但是还是可以玩的。然后查了一下，可能是散热的问题，就去网上买了硅脂换了。今天换上，还是有些问题，但是整个拆机的过程还是很惊险刺激的，下面分享给大家：</p>
-<p>&emsp;&emsp;首先是我们今天的患者，联想Y400。</p>
-<p><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_110836.jpg" alt=""></p>
-<p>&emsp;&emsp;然后是我们的硅脂：MX-4</p>
-<p><img src="http://oda2v68ht.bkt.clouddn.com/IMG20160929114420.jpg" alt=""></p>
-<p>&emsp;&emsp;接下来是工具介绍：</p>
-<p><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_110956.jpg" alt=""></p>
-<blockquote>
-<p>一套小螺丝刀<br>一个用来吸螺丝的螺丝刀<br>一个拆笔记本专用的小螺丝刀<br>棉签<br>酒精<br>雕刻刀（不知道干什么用）<br>清灰刷</p>
-</blockquote>
-<p>&emsp;&emsp;之后进行的是Y400的标准拆解过程，将电池拆掉，后盖打开，拆掉硬盘光驱以及内存条。<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_111502.jpg" alt=""></p>
-<p>&emsp;&emsp;然后我们可以拆一下网卡的排线。小心翼翼的用镊子夹掉，然后卸下唯一一个螺丝，就可以拿掉了。<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_113502.jpg" alt=""></p>
-<p>&emsp;&emsp;接下来是拆键盘了。键盘还是比较好拆的，把两个螺丝卸掉，就可以抠出来了。<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_111502_2.jpg" alt=""></p>
-<p>&emsp;&emsp;然后我们要把键盘面的电源键排线，触控板排线和键盘排线拆掉；再把反面的风扇排线拆掉，再卸掉螺丝，就可以拆掉键盘面的面板了：<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_121556_1.jpg" alt=""><br>&emsp;&emsp;这是卸掉的键盘面板：<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_125348.jpg" alt=""></p>
-<p>&emsp;&emsp;拆掉之后，把摄像头排线和硬盘排线拆掉，再卸掉主板的两个螺丝就可以拆了。因为有一个风扇的排线不是太好拆，所以我就没拆，但是这样已经可以拆散热件了：<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_130650.jpg" alt=""><br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_130912.jpg" alt=""></p>
-<p>&emsp;&emsp;我怕刮花了屏幕，所以就垫了一本书，然后拧掉散热片的螺丝，就可以涂硅脂了。<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_131616.jpg" alt=""><br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_131620.jpg" alt=""></p>
-<p>&emsp;&emsp;涂完之后我就迫不及待地装上去了，虽然打开了，表示存活，也开了下摄像头测试了一下没问题，但是还是会炸。没办法，只能等过年回家找售后了。这学期的话，先学习好吧。这是上天给我的学习的好机会，玩什么游戏！学习！<br><img src="http://oda2v68ht.bkt.clouddn.com/IMG_20160929_134437.jpg" alt=""></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;最近笔记本出了一个问题，从前天开始，玩着玩着就炸了。从讨鬼传开始，一玩就自动断电，一点办法都没有。前天晚上开始炸了1次，昨天炸了3次，但是还是可以玩的。然后查了一下，可能是散热的问题，就去网上买了硅脂换了。今天换上，还是有些问题，但是整个拆机的过程还
     
     </summary>
     
