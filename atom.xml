@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2016-12-31T16:21:09.000Z</updated>
+  <updated>2017-01-22T17:44:04.000Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -14,6 +14,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VPS笔记</title>
+    <link href="http://www.z16388.win/2017/01/22/VPS%E7%AC%94%E8%AE%B0/"/>
+    <id>http://www.z16388.win/2017/01/22/VPS笔记/</id>
+    <published>2017-01-22T13:28:47.000Z</published>
+    <updated>2017-01-22T17:44:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;登录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh root@ip</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;安装可视化管理面板<strong>AMH</strong></p>
+<ol>
+<li>登录</li>
+<li><p>运行脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://amysql.com/file/AMH/4.2/amh.sh; chmod 775 amh.sh; ./amh.sh 2&gt;&amp;1 | tee amh.log;</div></pre></td></tr></table></figure>
+</li>
+<li><p>根据安装步骤提醒键入相应内容，完成安装</p>
+</li>
+<li>使用ip和配置的端口进行访问，例如<code><a href="http://ip:8888" target="_blank" rel="external">http://ip:8888</a></code></li>
+</ol>
+<p>&emsp;&emsp;ShadowsocksR一键安装脚本<br>安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh</div><div class="line">chmod +x shadowsocksR.sh</div><div class="line">./shadowsocksR.sh 2&gt;&amp;1 | tee shadowsocksR.log</div></pre></td></tr></table></figure></p>
+<p>卸载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./shadowsocksR.sh uninstall</div></pre></td></tr></table></figure></p>
+<p>其他操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">启动：/etc/init.d/shadowsocks start</div><div class="line">停止：/etc/init.d/shadowsocks stop</div><div class="line">重启：/etc/init.d/shadowsocks restart</div><div class="line">状态：/etc/init.d/shadowsocks status</div><div class="line"></div><div class="line">配置文件路径：/etc/shadowsocks.json</div><div class="line">日志文件路径：/var/log/shadowsocks.log</div><div class="line">代码安装目录：/usr/local/shadowsocks</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;登录：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;cod
+    
+    </summary>
+    
+    
+      <category term="VPS" scheme="http://www.z16388.win/tags/VPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【ACM教程】3.7排序（一）</title>
+    <link href="http://www.z16388.win/2017/01/18/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-7%E6%8E%92%E5%BA%8F%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://www.z16388.win/2017/01/18/【ACM教程】3-7排序（一）/</id>
+    <published>2017-01-18T03:25:23.000Z</published>
+    <updated>2017-01-19T15:13:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第七节-排序（一）"><a href="#第七节-排序（一）" class="headerlink" title="第七节 排序（一）"></a>第七节 排序（一）</h1><p>&emsp;&emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数据进行排序的时候，我们可能需要花费很多的时间和资源。因此，优化排序算法是我们在优化程序中的一个重要步骤。在我们前面的学习中，我们已经接触到了C++的STL中<code>sort()</code>函数。那么，在无法使用STL的情况或者是需要一些特殊的要求的排序，我们就需要对排序算法进行手撸。因此，掌握各种常见的排序方法极为重要。接下来，我们将会从冒泡排序开始，系统地对常见的排序算法进行练习。</p>
+<h2 id="冒泡排序（Bubble-Sort）"><a href="#冒泡排序（Bubble-Sort）" class="headerlink" title="冒泡排序（Bubble Sort）"></a>冒泡排序（Bubble Sort）</h2><p>&emsp;&emsp;我们早在学习C语言的时候，就已经接触到这种排序方法了，是一种非常简便的排序方法。我们依次比较相邻的两个元素，以达到排序的目的。冒泡排序的运作方式如下：</p>
+<blockquote>
+<p>重复走访所要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们相互交换<br>如果这个数列一共有<code>n</code>个元素，我们需要进行<code>n-1</code>组比较，每一组需要进行<code>n-i</code>次比较</p>
+</blockquote>
+<p>&emsp;&emsp;下面是冒泡排序的C语言代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a[<span class="number">15</span>];</div><div class="line">    <span class="keyword">int</span> n=<span class="number">10</span>,i,j,t;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</div><div class="line">        a[i]=<span class="number">10</span>-i;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;n;i++)</div><div class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n-i;j++) <span class="comment">//这里可以记作i+j=n;</span></div><div class="line">        sif(a[j]&gt;a[j+<span class="number">1</span>]) &#123;</div><div class="line">                t=a[j];</div><div class="line">                a[j]=a[j+<span class="number">1</span>];</div><div class="line">                a[j+<span class="number">1</span>]=t;</div><div class="line">            &#125;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>,a[i]);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;冒泡排序是一种常用的排序方法，但是它的时间复杂度为<code>O(n^2)</code>，在做题时不推荐使用。</p>
+<h2 id="快速排序（Quick-Sort）"><a href="#快速排序（Quick-Sort）" class="headerlink" title="快速排序（Quick Sort）"></a>快速排序（Quick Sort）</h2><p>&emsp;&emsp;快速排序是对冒泡排序的一种改进，它的基本思想和冒泡排序类似：</p>
+<blockquote>
+<p>通过一趟排序将序列分成两部分<br>保证左侧部分的数据都比右侧的小<br>再分别对两侧进行排序</p>
+</blockquote>
+<p>&emsp;&emsp;快速排序是排序算法中的优等生，它的时间复杂度为<code>O(logn)</code>，但是要到达了最不理想的状态，也就是针对一个完全反序的数列进行排序。这个时候，它就变成了冒泡排序，时间复杂度为<code>O(n^2)</code>。在去年的蓝桥杯比赛中，就成为了一道代码填空题，题目是这样的：</p>
+<blockquote>
+<p>排序在各种场合经常被用到。</p>
+<p>快速排序是十分常用的高效率的算法。</p>
+<p>其思想是：先选一个“标尺”，</p>
+<p>用它把整个队列过一遍筛子，</p>
+<p>以保证：其左边的元素都不大于它，其右边的元素都不小于它。</p>
+<p>这样，排序问题就被分割为两个子区间。</p>
+<p>再分别对子区间排序就可以了。</p>
+<p>下面的代码是一种实现，请分析并填写划线部分缺少的代码。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> t = a[i];</div><div class="line">    a[i] = a[j];</div><div class="line">    a[j] = t;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i = p;</div><div class="line">    <span class="keyword">int</span> j = r + <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> x = a[p];</div><div class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</div><div class="line">        <span class="keyword">while</span>(i&lt;r &amp;&amp; a[++i]&lt;x);</div><div class="line">        <span class="keyword">while</span>(a[--j]&gt;x);</div><div class="line">        <span class="keyword">if</span>(i&gt;=j) <span class="keyword">break</span>;</div><div class="line">        swap(a,i,j);</div><div class="line">    &#125;</div><div class="line"><span class="number">______________________</span>;</div><div class="line"></div><div class="line"><span class="keyword">return</span> j;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">quicksort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(p&lt;r)&#123;</div><div class="line">    <span class="keyword">int</span> q = partition(a,p,r);</div><div class="line">    quicksort(a,p,q<span class="number">-1</span>);</div><div class="line">    quicksort(a,q+<span class="number">1</span>,r);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">5</span>,<span class="number">13</span>,<span class="number">6</span>,<span class="number">24</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">19</span>,<span class="number">27</span>,<span class="number">6</span>,<span class="number">12</span>,<span class="number">1</span>,<span class="number">17</span>&#125;;</div><div class="line">    <span class="keyword">int</span> N = <span class="number">12</span>;</div><div class="line">    quicksort(a, <span class="number">0</span>, N<span class="number">-1</span>);</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++) <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"/n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：只填写缺少的内容，不要书写任何题面已有代码或说明性文字。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第七节-排序（一）&quot;&gt;&lt;a href=&quot;#第七节-排序（一）&quot; class=&quot;headerlink&quot; title=&quot;第七节 排序（一）&quot;&gt;&lt;/a&gt;第七节 排序（一）&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>2017新年祝福</title>
@@ -64,9 +151,9 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
     
   </entry>
   
@@ -91,9 +178,9 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
     
   </entry>
   
@@ -135,7 +222,7 @@
     <link href="http://www.z16388.win/2016/11/16/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-6%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89%E6%A0%91%E3%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E5%9B%BE/"/>
     <id>http://www.z16388.win/2016/11/16/【ACM教程】3-6数据结构基础（2）树、二叉树和图/</id>
     <published>2016-11-16T06:49:28.000Z</published>
-    <updated>2016-11-16T10:37:18.000Z</updated>
+    <updated>2017-01-18T03:20:26.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第六节-数据结构基础（2）树、二叉树和图"><a href="#第六节-数据结构基础（2）树、二叉树和图" class="headerlink" title="第六节 数据结构基础（2）树、二叉树和图"></a>第六节 数据结构基础（2）树、二叉树和图</h1><p>&emsp;&emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。</p>
 <h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>&emsp;&emsp;树形结构是一类非常重要的非线性数据结构，其中以树和二叉树最为常用。树结构在客观世界中广泛存在，比如我们日常生活中常见的组织结构图：<br><img src="http://www.wxtgcl.com/images/organization.jpg" alt=""></p>
@@ -190,6 +277,7 @@
 <p>&emsp;&emsp;以这种结点结构构成的二叉链表作为二叉树的存储结构，叫做线索二叉链表，对某种次序遍历使其变成线索二叉树的过程叫做线索化。</p>
 <h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><h3 id="emsp-emsp-图的定义"><a href="#emsp-emsp-图的定义" class="headerlink" title="&emsp;&emsp;图的定义"></a>&emsp;&emsp;图的定义</h3><p>&emsp;&emsp;图是较线性表和树更为复杂的数据结构。在图结构中，结点之间的关系是任意的——图中任意两个元素都有可能相关。图中的数据元素称为定点（Vertex），VR是表示两个点之间的关系的集合,<v,w>是VR中的元素，表示的是从v到w的的一条弧（Arc）。v为初始点（弧尾），w为终端点（弧头），此时的图称为有向图。如果对任意的<v,w>都有<w,v>，则用无序队（v,w）来代替这个有序对，表示v和w之间的一条边，此时的图为无向图。</w,v></v,w></v,w></p>
 <p><img src="http://img.my.csdn.net/uploads/201212/27/1356610270_4985.png" alt=""></p>
+<p>&emsp;&emsp;有关图的问题还有很多，在数学上，我们专门有一门研究图的学科，叫做图论，这也将是接下来我们的研究对象。在今后的学习中，我们可能会接触到以下内容：</p>
 <h3 id="emsp-emsp-图的存储方法"><a href="#emsp-emsp-图的存储方法" class="headerlink" title="&emsp;&emsp;图的存储方法"></a>&emsp;&emsp;图的存储方法</h3><h3 id="emsp-emsp-图的遍历"><a href="#emsp-emsp-图的遍历" class="headerlink" title="&emsp;&emsp;图的遍历"></a>&emsp;&emsp;图的遍历</h3><h4 id="emsp-emsp-emsp-emsp-深度优先搜索（dfs）"><a href="#emsp-emsp-emsp-emsp-深度优先搜索（dfs）" class="headerlink" title="&emsp;&emsp;&emsp;&emsp;深度优先搜索（dfs）"></a>&emsp;&emsp;&emsp;&emsp;深度优先搜索（dfs）</h4><h4 id="emsp-emsp-emsp-emsp-广度优先搜索（bfs）"><a href="#emsp-emsp-emsp-emsp-广度优先搜索（bfs）" class="headerlink" title="&emsp;&emsp;&emsp;&emsp;广度优先搜索（bfs）"></a>&emsp;&emsp;&emsp;&emsp;广度优先搜索（bfs）</h4><h3 id="emsp-emsp-图的连通性"><a href="#emsp-emsp-图的连通性" class="headerlink" title="&emsp;&emsp;图的连通性"></a>&emsp;&emsp;图的连通性</h3><p>&emsp;&emsp;克鲁斯卡尔算法</p>
 <h3 id="emsp-emsp-最短路径"><a href="#emsp-emsp-最短路径" class="headerlink" title="&emsp;&emsp;最短路径"></a>&emsp;&emsp;最短路径</h3><h4 id="emsp-emsp-emsp-emsp-单源最短路径"><a href="#emsp-emsp-emsp-emsp-单源最短路径" class="headerlink" title="&emsp;&emsp;&emsp;&emsp;单源最短路径"></a>&emsp;&emsp;&emsp;&emsp;单源最短路径</h4><p>&emsp;&emsp;迪杰斯特拉算法</p>
 <h4 id="emsp-emsp-emsp-emsp-多源最短路径"><a href="#emsp-emsp-emsp-emsp-多源最短路径" class="headerlink" title="&emsp;&emsp;&emsp;&emsp;多源最短路径"></a>&emsp;&emsp;&emsp;&emsp;多源最短路径</h4><p>&emsp;&emsp;普里姆算法</p>
@@ -576,9 +664,9 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
     
   </entry>
   
@@ -608,9 +696,9 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
     
   </entry>
   
@@ -649,9 +737,9 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
     
   </entry>
   
@@ -735,74 +823,6 @@
       <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
     
       <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MAC下hexo的安装与使用</title>
-    <link href="http://www.z16388.win/2016/10/06/MAC%E4%B8%8Bhexo%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
-    <id>http://www.z16388.win/2016/10/06/MAC下hexo的安装与使用/</id>
-    <published>2016-10-06T15:37:24.000Z</published>
-    <updated>2016-10-06T15:55:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;不知道就是造了什么孽，电脑，又炸了。唉～没想到，我这么肝，倒下的竟然是我的电脑，也是可怕。</p>
-<p>&emsp;&emsp;闲话不多说了。哥哥把他的Mac接我救急用了，刚到手还没捂热乎呢，只是随意的装了一些必须的东西。什么java啦，jsp啦，xcode啦。总之搞了很多，但是博客这个东西一直没搞好，因为一直没去研究Mac下GitHub的使用。今天，借着这个炸的机会，把我的博客给挪到啦Mac上，继续更新啦。</p>
-<p>&emsp;&emsp;讲道理，苹果的工业设计还是很好的。到手没几天，已经熟悉的七七八八了；当然也不能说熟悉到windows这种程度，但是也是到了能够日常使用，应付一些简单的coding。我们话说回来啊，这个hexo我本来是打算放弃掉的。因为前几天，我用微软的azure搭建了一个Wordpress的博客。但是令人蛋疼的是，DreamSpark订阅的微软Azure它不能使用域名绑定功能，这就很尴尬了，谁会顶着一个超长的链接去看你的博客呢对不对。所以既然电脑炸了，没了办法，那只能研究mac上怎么去使用hexo了。来，我们闲话不多说，正式开始了。</p>
-<h2 id="第一步-安装Node-js"><a href="#第一步-安装Node-js" class="headerlink" title="第一步 安装Node.js"></a>第一步 安装Node.js</h2><p>&emsp;&emsp;这是hexo必须的一步，毕竟是基于Node.js的框架嘛。至于在哪里下载，怎么安装，以及GitHub的注册，域名什么的，我就不过多赘述了，这在我之前的博客里面都有的。</p>
-<h2 id="第二步-安装hexo"><a href="#第二步-安装hexo" class="headerlink" title="第二步 安装hexo"></a>第二步 安装hexo</h2><p>&emsp;&emsp;这里直接使用Node.js的npm去安装，在终端中，浏览到你想要存放博客内容的文件夹，比如<code>cd /Applications/blog</code>。之后执行hexo的安装命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g hexo</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;安装好之后，把你之前博客的内容放到里面去；如果没有，则执行<code>hexo init</code>。然后就可以正常地去使用你的hexo了，和windows环境下的操作完全一样。</p>
-<p>&emsp;&emsp;唉～说点题外话，讲道理，上天真的是逼我这学期要好好学习啊，害怕。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;不知道就是造了什么孽，电脑，又炸了。唉～没想到，我这么肝，倒下的竟然是我的电脑，也是可怕。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;闲话不多说了。哥哥把他的Mac接我救急用了，刚到手还没捂热乎呢，只是随意的装了一些必须的东西。什么java啦，jsp啦，
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://www.z16388.win/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>联想Y400折腾第二天</title>
-    <link href="http://www.z16388.win/2016/09/30/%E8%81%94%E6%83%B3Y400%E6%8A%98%E8%85%BE%E7%AC%AC%E4%BA%8C%E5%A4%A9/"/>
-    <id>http://www.z16388.win/2016/09/30/联想Y400折腾第二天/</id>
-    <published>2016-09-30T13:45:23.000Z</published>
-    <updated>2016-09-30T14:45:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;我也是够闲的。本着不抛弃，不放弃地原则，抢救我的笔记本小Y。虽然从早上开机到现在，我。。。不不不，不能奶！总之，倒持了一天吧，不说成果怎么样，也是有一些收获的。相比于昨天的硬件，我把今天折腾的方向转向了软件。</p>
-<p>&emsp;&emsp;嘛，有一只老学长，作为长者，在计算机的各种心肝脾肺肾上都有涉猎，我很是佩服的一颗赛艇。其实我昨天就想请教他的，但是硅脂到了，也就没麻烦他了。但是，对于硬件靠脚踹，软件做系统的我，想要搞个大新闻出来，也是没那么容易的。</p>
-<p>&emsp;&emsp;看了一上午的《齐木楠雄的灾难》，真的希望万能的齐神能够保佑我。打开了AIDA64，一直监测着CPU的温度——毕竟我是怀疑CPU出问题了的。然后我就发现，AIDA64有个功能，叫做“生成报告”，随手就点了进去。然后，搞了一大串东西出来。我就看啊看，天哪，这个东西把我电脑里各种信息都搞出来了，比香港记者的新闻还要详细，不能忍。我就往下看，看到了超频这一项，发现我的CPU超频了15%。我就怀疑，是不是超频让CPU过热了，才造成的死机。<br><img src="http://oda2v68ht.bkt.clouddn.com/y400IMG20160930150757.jpg" alt=""></p>
-<p>&emsp;&emsp;我就去百毒了一下，怎么去关掉超频。看了一会儿觉得太麻烦，就放弃了。哎~还要进BIOS,还不如等我哥把他的笔记本给我寄过来呢。。。好麻烦~好麻烦。</p>
-<p>&emsp;&emsp;刚好，这会儿去问候了一下我们的老学长。老学长提了提裤腰回复道：“你这是睿频吧”。</p>
-<p>&emsp;&emsp;天哪，睿频，睿频是啥，我不能说我不知道什么是睿频吧，多丢人。百毒，百毒，赶紧百毒。很关键啊，有一篇很关键的博文告诉我了睿频和超频的区别。好吧，不是这玩意儿的错，那我只能继续求助长者了。</p>
-<p>&emsp;&emsp;“是不是你的系统炸了”。</p>
-<p>&emsp;&emsp;ありえない、ありえない！有时候关机之后都开不开，怎么可能是软件的问题，肯定是硬件的问题。</p>
-<p>&emsp;&emsp;“我觉得不是CPU导致的，你硅脂没涂好吧。”</p>
-<p>&emsp;&emsp;嘛~不排除这种可能，但是至少比之前的强很多啊。</p>
-<p>&emsp;&emsp;长者的话总是言简意赅：“唔。。。那你去看看事件管理器吧。”</p>
-<p>&emsp;&emsp;事件管理器？事件管理器！事件管理器はなに～？わがりｒない！！！はやく百毒！百毒百毒愛してる～！嗯嗯，百毒不负众望，在众多广告和莆田系医院和工口网站中，我找到了正确答案。</p>
-<p>&emsp;&emsp;找啊找啊，摸索了两分钟，搞清楚了这是个什么东西。あああああ～一堆错误和警告啊，作为程序猿，肯定要看错误嘛，警告是个什么东西!程序猿会看的警告，只有FBI的好吗！！！咳~咳~~</p>
-<p>&emsp;&emsp;在事件管理器中，我看到了一个比较敏感的时间。2016年9月26日晚上21：40：23。没错了！就是这个时间!第一次自动关机的时候！只要看每次错误关机的时间，以及前面发生了什么！不就知道错误在哪里了吗！！！我真是太机智了!!<br><img src="http://oda2v68ht.bkt.clouddn.com/y400IMG20160930153239.jpg" alt=""></p>
-<p>&emsp;&emsp;这时候，我看到了一连串的四个来自CPU的错误，天哪！肯定是它！绝对是CPU！还说不是！呵呵呵!被我打脸了吧！哈哈哈哈~但是。。。我又去查了一下，好吧，然而并没有什么卵关系，这是因特尔节能技术的那个功能。哎，又一次失望了。<br><img src="http://oda2v68ht.bkt.clouddn.com/y400IMG_20160930_171722.jpg" alt=""></p>
-<p>&emsp;&emsp;但是，我又多看了一眼！！！就是你了！犯人就是你!!!!<br><img src="http://oda2v68ht.bkt.clouddn.com/y400IMG20160930154946.jpg" alt=""></p>
-<p>&emsp;&emsp;查了一下，果然，这个服务！就是鲁大师！！！修改的！！！！！鲁大娘！！！！原来罪魁祸首！！！就是你啊！！！！害怕。然后我去开启这个服务，但是发现，缺少模块，还原服务的话虽然可以做到，但是我觉得可以顺便做一个系统嘛，一年了也该换了。再说今天一天都没。。。。不不不！不能奶!好吧，再死机我就装win10。<br><img src="http://oda2v68ht.bkt.clouddn.com/y400IMG20160930161411.jpg" alt=""><br><img src="http://oda2v68ht.bkt.clouddn.com/y400IMG_20160930_165759.jpg" alt=""></p>
-<p>&emsp;&emsp;胆儿肥了之后，我又上FF14排了个本，打了2小时！@#￥%。（23333懂的都懂）都没有问题。嘛~今天是撑过去了，但是，还是再观察一下吧。反正万一修不好的话（这不是钦定！），有我哥的笔记本嘛~233333。讲道理，这么赛艇的大新闻，还是第一次搞。嘛~自己修的话，还是比那些个电脑店放心靠谱的~。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;我也是够闲的。本着不抛弃，不放弃地原则，抢救我的笔记本小Y。虽然从早上开机到现在，我。。。不不不，不能奶！总之，倒持了一天吧，不说成果怎么样，也是有一些收获的。相比于昨天的硬件，我把今天折腾的方向转向了软件。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;嘛
-    
-    </summary>
-    
-    
-      <category term="笔记本" scheme="http://www.z16388.win/tags/%E7%AC%94%E8%AE%B0%E6%9C%AC/"/>
     
   </entry>
   

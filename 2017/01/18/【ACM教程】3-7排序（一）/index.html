@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>【ACM教程】3.7排序（一） | 崎径 其镜 | 求学道路上的行车记录仪</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="ACM,算法,ACM教程">
+  <meta name="description" content="第七节 排序（一）&amp;emsp;&amp;emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数据进行排序的时候，我们可能需要花费很多的时间和资源。因此，优化排序算法是我们在优化程序中的一个重要步骤。在我们前面的学习中，我们已经接触到了C++的STL中sort()函数。那么，在无法使用STL的情况或者是需要一些特殊的要求的排序，我们就需要对排序算法进行手撸。因此，掌握各种常见的排序方法极为重">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ACM教程】3.7排序（一）">
+<meta property="og:url" content="http://www.z16388.win/2017/01/18/【ACM教程】3-7排序（一）/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="第七节 排序（一）&amp;emsp;&amp;emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数据进行排序的时候，我们可能需要花费很多的时间和资源。因此，优化排序算法是我们在优化程序中的一个重要步骤。在我们前面的学习中，我们已经接触到了C++的STL中sort()函数。那么，在无法使用STL的情况或者是需要一些特殊的要求的排序，我们就需要对排序算法进行手撸。因此，掌握各种常见的排序方法极为重">
+<meta property="og:updated_time" content="2017-01-19T15:13:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【ACM教程】3.7排序（一）">
+<meta name="twitter:description" content="第七节 排序（一）&amp;emsp;&amp;emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数据进行排序的时候，我们可能需要花费很多的时间和资源。因此，优化排序算法是我们在优化程序中的一个重要步骤。在我们前面的学习中，我们已经接触到了C++的STL中sort()函数。那么，在无法使用STL的情况或者是需要一些特殊的要求的排序，我们就需要对排序算法进行手撸。因此，掌握各种常见的排序方法极为重">
+  
+    <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/Favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu"  >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/logo.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">Anqi Zhao</h5>
+        <a href="mailto:z16388@outlook.com" title="z16388@outlook.com" class="mail">z16388@outlook.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              主页
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-table"></i>
+              动态
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              标签
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="http://www.z16388.win/2016/09/09/ACM教程/"  >
+              <i class="icon icon-lg icon-adn"></i>
+              ACM教程
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/int"  >
+              <i class="icon icon-lg icon-link"></i>
+              常用网址导航
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/Download"  >
+              <i class="icon icon-lg icon-cloud-download"></i>
+              下载资源
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/friend"  >
+              <i class="icon icon-lg icon-mars-double"></i>
+              友情链接
+            </a>
+          </li>
+      
+    </ul>
+    <footer class="footer">
+<!--  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>-->
+  <p>崎径 其镜 &copy; 2017<a href="/about" target="_blank">  关于我</a></p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【ACM教程】3.7排序（一）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		<a href="https://www.zhihu.com/people/zhao-an-qi-65-10" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-drupal"></i>
+		</a>
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">【ACM教程】3.7排序（一）</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2017-01-18T03:25:23.000Z" itemprop="datePublished" class="page-time">
+  2017-01-18
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-【ACM教程】3-7排序（一）" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM教程/">ACM教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第七节-排序（一）"><span class="post-toc-text">第七节 排序（一）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#冒泡排序（Bubble-Sort）"><span class="post-toc-text">冒泡排序（Bubble Sort）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快速排序（Quick-Sort）"><span class="post-toc-text">快速排序（Quick Sort）</span></a></li></ol></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="第七节-排序（一）"><a href="#第七节-排序（一）" class="headerlink" title="第七节 排序（一）"></a>第七节 排序（一）</h1><p>&emsp;&emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数据进行排序的时候，我们可能需要花费很多的时间和资源。因此，优化排序算法是我们在优化程序中的一个重要步骤。在我们前面的学习中，我们已经接触到了C++的STL中<code>sort()</code>函数。那么，在无法使用STL的情况或者是需要一些特殊的要求的排序，我们就需要对排序算法进行手撸。因此，掌握各种常见的排序方法极为重要。接下来，我们将会从冒泡排序开始，系统地对常见的排序算法进行练习。</p>
+<h2 id="冒泡排序（Bubble-Sort）"><a href="#冒泡排序（Bubble-Sort）" class="headerlink" title="冒泡排序（Bubble Sort）"></a>冒泡排序（Bubble Sort）</h2><p>&emsp;&emsp;我们早在学习C语言的时候，就已经接触到这种排序方法了，是一种非常简便的排序方法。我们依次比较相邻的两个元素，以达到排序的目的。冒泡排序的运作方式如下：</p>
+<blockquote>
+<p>重复走访所要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们相互交换<br>如果这个数列一共有<code>n</code>个元素，我们需要进行<code>n-1</code>组比较，每一组需要进行<code>n-i</code>次比较</p>
+</blockquote>
+<p>&emsp;&emsp;下面是冒泡排序的C语言代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a[<span class="number">15</span>];</div><div class="line">    <span class="keyword">int</span> n=<span class="number">10</span>,i,j,t;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</div><div class="line">        a[i]=<span class="number">10</span>-i;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;n;i++)</div><div class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n-i;j++) <span class="comment">//这里可以记作i+j=n;</span></div><div class="line">        sif(a[j]&gt;a[j+<span class="number">1</span>]) &#123;</div><div class="line">                t=a[j];</div><div class="line">                a[j]=a[j+<span class="number">1</span>];</div><div class="line">                a[j+<span class="number">1</span>]=t;</div><div class="line">            &#125;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>,a[i]);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;冒泡排序是一种常用的排序方法，但是它的时间复杂度为<code>O(n^2)</code>，在做题时不推荐使用。</p>
+<h2 id="快速排序（Quick-Sort）"><a href="#快速排序（Quick-Sort）" class="headerlink" title="快速排序（Quick Sort）"></a>快速排序（Quick Sort）</h2><p>&emsp;&emsp;快速排序是对冒泡排序的一种改进，它的基本思想和冒泡排序类似：</p>
+<blockquote>
+<p>通过一趟排序将序列分成两部分<br>保证左侧部分的数据都比右侧的小<br>再分别对两侧进行排序</p>
+</blockquote>
+<p>&emsp;&emsp;快速排序是排序算法中的优等生，它的时间复杂度为<code>O(logn)</code>，但是要到达了最不理想的状态，也就是针对一个完全反序的数列进行排序。这个时候，它就变成了冒泡排序，时间复杂度为<code>O(n^2)</code>。在去年的蓝桥杯比赛中，就成为了一道代码填空题，题目是这样的：</p>
+<blockquote>
+<p>排序在各种场合经常被用到。</p>
+<p>快速排序是十分常用的高效率的算法。</p>
+<p>其思想是：先选一个“标尺”，</p>
+<p>用它把整个队列过一遍筛子，</p>
+<p>以保证：其左边的元素都不大于它，其右边的元素都不小于它。</p>
+<p>这样，排序问题就被分割为两个子区间。</p>
+<p>再分别对子区间排序就可以了。</p>
+<p>下面的代码是一种实现，请分析并填写划线部分缺少的代码。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> t = a[i];</div><div class="line">    a[i] = a[j];</div><div class="line">    a[j] = t;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i = p;</div><div class="line">    <span class="keyword">int</span> j = r + <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> x = a[p];</div><div class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</div><div class="line">        <span class="keyword">while</span>(i&lt;r &amp;&amp; a[++i]&lt;x);</div><div class="line">        <span class="keyword">while</span>(a[--j]&gt;x);</div><div class="line">        <span class="keyword">if</span>(i&gt;=j) <span class="keyword">break</span>;</div><div class="line">        swap(a,i,j);</div><div class="line">    &#125;</div><div class="line"><span class="number">______________________</span>;</div><div class="line"></div><div class="line"><span class="keyword">return</span> j;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">quicksort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(p&lt;r)&#123;</div><div class="line">    <span class="keyword">int</span> q = partition(a,p,r);</div><div class="line">    quicksort(a,p,q<span class="number">-1</span>);</div><div class="line">    quicksort(a,q+<span class="number">1</span>,r);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">5</span>,<span class="number">13</span>,<span class="number">6</span>,<span class="number">24</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">19</span>,<span class="number">27</span>,<span class="number">6</span>,<span class="number">12</span>,<span class="number">1</span>,<span class="number">17</span>&#125;;</div><div class="line">    <span class="keyword">int</span> N = <span class="number">12</span>;</div><div class="line">    quicksort(a, <span class="number">0</span>, N<span class="number">-1</span>);</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++) <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"/n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：只填写缺少的内容，不要书写任何题面已有代码或说明性文字。</p>
+</blockquote>
+
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://www.z16388.win/2017/01/18/【ACM教程】3-7排序（一）/" target="_blank" rel="external">http://www.z16388.win/2017/01/18/【ACM教程】3-7排序（一）/</a>
+                </p>
+                <footer><cite><a href="http://www.z16388.win">@崎径 其镜</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/2017/01/22/VPS笔记/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">VPS笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2017/01/01/2017/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2017新年祝福</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="【ACM教程】3-7排序（一）" data-title="【ACM教程】3.7排序（一）" data-url="http://www.z16388.win/2017/01/18/【ACM教程】3-7排序（一）/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"z16388"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "【ACM教程】3.7排序（一）",
+    pic: "/img/logo.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://www.z16388.win/2017/01/18/【ACM教程】3-7排序（一）/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234"></script>
+
+
+
+
+
+</body>
+</html>

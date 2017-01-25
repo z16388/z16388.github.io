@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://www.wxtgcl.com/images/organization.jpg">
 <meta property="og:image" content="http://7xospc.com1.z0.glb.clouddn.com/6-5-5.jpg">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201212/27/1356610270_4985.png">
-<meta property="og:updated_time" content="2016-11-16T10:37:18.000Z">
+<meta property="og:updated_time" content="2017-01-18T03:20:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【ACM教程】3.6数据结构基础（2）树、二叉树和图">
 <meta name="twitter:description" content="第六节 数据结构基础（2）树、二叉树和图&amp;emsp;&amp;emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。
@@ -279,6 +279,7 @@
 <p>&emsp;&emsp;以这种结点结构构成的二叉链表作为二叉树的存储结构，叫做线索二叉链表，对某种次序遍历使其变成线索二叉树的过程叫做线索化。</p>
 <h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><h3 id="emsp-emsp-图的定义"><a href="#emsp-emsp-图的定义" class="headerlink" title="&emsp;&emsp;图的定义"></a>&emsp;&emsp;图的定义</h3><p>&emsp;&emsp;图是较线性表和树更为复杂的数据结构。在图结构中，结点之间的关系是任意的——图中任意两个元素都有可能相关。图中的数据元素称为定点（Vertex），VR是表示两个点之间的关系的集合,<v,w>是VR中的元素，表示的是从v到w的的一条弧（Arc）。v为初始点（弧尾），w为终端点（弧头），此时的图称为有向图。如果对任意的<v,w>都有<w,v>，则用无序队（v,w）来代替这个有序对，表示v和w之间的一条边，此时的图为无向图。</w,v></v,w></v,w></p>
 <p><img src="http://img.my.csdn.net/uploads/201212/27/1356610270_4985.png" alt=""></p>
+<p>&emsp;&emsp;有关图的问题还有很多，在数学上，我们专门有一门研究图的学科，叫做图论，这也将是接下来我们的研究对象。在今后的学习中，我们可能会接触到以下内容：</p>
 <h3 id="emsp-emsp-图的存储方法"><a href="#emsp-emsp-图的存储方法" class="headerlink" title="&emsp;&emsp;图的存储方法"></a>&emsp;&emsp;图的存储方法</h3><h3 id="emsp-emsp-图的遍历"><a href="#emsp-emsp-图的遍历" class="headerlink" title="&emsp;&emsp;图的遍历"></a>&emsp;&emsp;图的遍历</h3><h4 id="emsp-emsp-emsp-emsp-深度优先搜索（dfs）"><a href="#emsp-emsp-emsp-emsp-深度优先搜索（dfs）" class="headerlink" title="&emsp;&emsp;&emsp;&emsp;深度优先搜索（dfs）"></a>&emsp;&emsp;&emsp;&emsp;深度优先搜索（dfs）</h4><h4 id="emsp-emsp-emsp-emsp-广度优先搜索（bfs）"><a href="#emsp-emsp-emsp-emsp-广度优先搜索（bfs）" class="headerlink" title="&emsp;&emsp;&emsp;&emsp;广度优先搜索（bfs）"></a>&emsp;&emsp;&emsp;&emsp;广度优先搜索（bfs）</h4><h3 id="emsp-emsp-图的连通性"><a href="#emsp-emsp-图的连通性" class="headerlink" title="&emsp;&emsp;图的连通性"></a>&emsp;&emsp;图的连通性</h3><p>&emsp;&emsp;克鲁斯卡尔算法</p>
 <h3 id="emsp-emsp-最短路径"><a href="#emsp-emsp-最短路径" class="headerlink" title="&emsp;&emsp;最短路径"></a>&emsp;&emsp;最短路径</h3><h4 id="emsp-emsp-emsp-emsp-单源最短路径"><a href="#emsp-emsp-emsp-emsp-单源最短路径" class="headerlink" title="&emsp;&emsp;&emsp;&emsp;单源最短路径"></a>&emsp;&emsp;&emsp;&emsp;单源最短路径</h4><p>&emsp;&emsp;迪杰斯特拉算法</p>
 <h4 id="emsp-emsp-emsp-emsp-多源最短路径"><a href="#emsp-emsp-emsp-emsp-多源最短路径" class="headerlink" title="&emsp;&emsp;&emsp;&emsp;多源最短路径"></a>&emsp;&emsp;&emsp;&emsp;多源最短路径</h4><p>&emsp;&emsp;普里姆算法</p>
