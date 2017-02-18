@@ -56,7 +56,7 @@
     <link href="http://www.z16388.win/2017/01/18/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-7%E6%8E%92%E5%BA%8F%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://www.z16388.win/2017/01/18/【ACM教程】3-7排序（一）/</id>
     <published>2017-01-18T03:25:23.000Z</published>
-    <updated>2017-01-19T15:13:21.000Z</updated>
+    <updated>2017-02-18T12:32:36.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第七节-排序（一）"><a href="#第七节-排序（一）" class="headerlink" title="第七节 排序（一）"></a>第七节 排序（一）</h1><p>&emsp;&emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数据进行排序的时候，我们可能需要花费很多的时间和资源。因此，优化排序算法是我们在优化程序中的一个重要步骤。在我们前面的学习中，我们已经接触到了C++的STL中<code>sort()</code>函数。那么，在无法使用STL的情况或者是需要一些特殊的要求的排序，我们就需要对排序算法进行手撸。因此，掌握各种常见的排序方法极为重要。接下来，我们将会从冒泡排序开始，系统地对常见的排序算法进行练习。</p>
 <h2 id="冒泡排序（Bubble-Sort）"><a href="#冒泡排序（Bubble-Sort）" class="headerlink" title="冒泡排序（Bubble Sort）"></a>冒泡排序（Bubble Sort）</h2><p>&emsp;&emsp;我们早在学习C语言的时候，就已经接触到这种排序方法了，是一种非常简便的排序方法。我们依次比较相邻的两个元素，以达到排序的目的。冒泡排序的运作方式如下：</p>
@@ -85,6 +85,7 @@
 <blockquote>
 <p>注意：只填写缺少的内容，不要书写任何题面已有代码或说明性文字。</p>
 </blockquote>
+<p>&emsp;&emsp;这里的答案是<code>swap(a,p,j)</code>，我们就以上面的例子来简单地描述一下快速排序。首先我们看，这个程序中有四个函数，<code>swap()</code>函数实现的是值交换，<code>main()</code>是声明了一个数组，然后对他进行快速排序然后打印出来，我们就不多说了。现在我们来看一下<code>quicksort</code>这个函数。这个函数就是用来实现我们在前面描述过的“分别对两个子区间进行快速排序”这个过程，也比较简单。比较让人头疼就是要我们填空的这个<code>partition()</code>函数。</p>
 ]]></content>
     
     <summary type="html">

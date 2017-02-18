@@ -16,7 +16,7 @@
 <meta property="og:url" content="http://www.z16388.win/2017/01/18/【ACM教程】3-7排序（一）/index.html">
 <meta property="og:site_name" content="崎径 其镜">
 <meta property="og:description" content="第七节 排序（一）&amp;emsp;&amp;emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数据进行排序的时候，我们可能需要花费很多的时间和资源。因此，优化排序算法是我们在优化程序中的一个重要步骤。在我们前面的学习中，我们已经接触到了C++的STL中sort()函数。那么，在无法使用STL的情况或者是需要一些特殊的要求的排序，我们就需要对排序算法进行手撸。因此，掌握各种常见的排序方法极为重">
-<meta property="og:updated_time" content="2017-01-19T15:13:21.000Z">
+<meta property="og:updated_time" content="2017-02-18T12:32:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【ACM教程】3.7排序（一）">
 <meta name="twitter:description" content="第七节 排序（一）&amp;emsp;&amp;emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数据进行排序的时候，我们可能需要花费很多的时间和资源。因此，优化排序算法是我们在优化程序中的一个重要步骤。在我们前面的学习中，我们已经接触到了C++的STL中sort()函数。那么，在无法使用STL的情况或者是需要一些特殊的要求的排序，我们就需要对排序算法进行手撸。因此，掌握各种常见的排序方法极为重">
@@ -246,6 +246,7 @@
 <blockquote>
 <p>注意：只填写缺少的内容，不要书写任何题面已有代码或说明性文字。</p>
 </blockquote>
+<p>&emsp;&emsp;这里的答案是<code>swap(a,p,j)</code>，我们就以上面的例子来简单地描述一下快速排序。首先我们看，这个程序中有四个函数，<code>swap()</code>函数实现的是值交换，<code>main()</code>是声明了一个数组，然后对他进行快速排序然后打印出来，我们就不多说了。现在我们来看一下<code>quicksort</code>这个函数。这个函数就是用来实现我们在前面描述过的“分别对两个子区间进行快速排序”这个过程，也比较简单。比较让人头疼就是要我们填空的这个<code>partition()</code>函数。</p>
 
             <blockquote>
                 <p>
