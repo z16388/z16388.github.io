@@ -10,22 +10,25 @@
   
   
   <meta name="keywords" content="ACM,算法,ACM教程">
-  <meta name="description" content="第六节 数据结构基础（2）树、二叉树和图&amp;emsp;&amp;emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。
-树&amp;emsp;&amp;emsp;树形结构是一类非常重要的非线性数据结构，其中以树和二叉树最为常用。树结构在客观世界中广泛存在，比如我们日常生活中常">
+  <meta name="description" content="&amp;emsp;&amp;emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。
+树&amp;emsp;&amp;emsp;树形结构是一类非常重要的非线性数据结构，其中以树和二叉树最为常用。树结构在客观世界中广泛存在，比如我们日常生活中常见的组织结构图：
+&amp;emsp;&amp;emsp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【ACM教程】3.6数据结构基础（2）树、二叉树和图">
 <meta property="og:url" content="http://www.z16388.win/2016/11/16/【ACM教程】3-6数据结构基础（2）树、二叉树和图/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content="第六节 数据结构基础（2）树、二叉树和图&amp;emsp;&amp;emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。
-树&amp;emsp;&amp;emsp;树形结构是一类非常重要的非线性数据结构，其中以树和二叉树最为常用。树结构在客观世界中广泛存在，比如我们日常生活中常">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。
+树&amp;emsp;&amp;emsp;树形结构是一类非常重要的非线性数据结构，其中以树和二叉树最为常用。树结构在客观世界中广泛存在，比如我们日常生活中常见的组织结构图：
+&amp;emsp;&amp;emsp">
 <meta property="og:image" content="http://www.wxtgcl.com/images/organization.jpg">
 <meta property="og:image" content="http://7xospc.com1.z0.glb.clouddn.com/6-5-5.jpg">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201212/27/1356610270_4985.png">
-<meta property="og:updated_time" content="2017-01-18T03:20:26.000Z">
+<meta property="og:updated_time" content="2017-03-06T11:06:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【ACM教程】3.6数据结构基础（2）树、二叉树和图">
-<meta name="twitter:description" content="第六节 数据结构基础（2）树、二叉树和图&amp;emsp;&amp;emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。
-树&amp;emsp;&amp;emsp;树形结构是一类非常重要的非线性数据结构，其中以树和二叉树最为常用。树结构在客观世界中广泛存在，比如我们日常生活中常">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。
+树&amp;emsp;&amp;emsp;树形结构是一类非常重要的非线性数据结构，其中以树和二叉树最为常用。树结构在客观世界中广泛存在，比如我们日常生活中常见的组织结构图：
+&amp;emsp;&amp;emsp">
 <meta name="twitter:image" content="http://www.wxtgcl.com/images/organization.jpg">
   
     <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
@@ -218,7 +221,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第六节-数据结构基础（2）树、二叉树和图"><span class="post-toc-text">第六节 数据结构基础（2）树、二叉树和图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#树"><span class="post-toc-text">树</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二叉树"><span class="post-toc-text">二叉树</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-二叉树的定义和性质"><span class="post-toc-text">  二叉树的定义和性质</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-二叉树的存储结构"><span class="post-toc-text">  二叉树的存储结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-二叉树的遍历和线索二叉树"><span class="post-toc-text">  二叉树的遍历和线索二叉树</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图"><span class="post-toc-text">图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-图的定义"><span class="post-toc-text">  图的定义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-图的存储方法"><span class="post-toc-text">  图的存储方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-图的遍历"><span class="post-toc-text">  图的遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#emsp-emsp-emsp-emsp-深度优先搜索（dfs）"><span class="post-toc-text">    深度优先搜索（dfs）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#emsp-emsp-emsp-emsp-广度优先搜索（bfs）"><span class="post-toc-text">    广度优先搜索（bfs）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-图的连通性"><span class="post-toc-text">  图的连通性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-最短路径"><span class="post-toc-text">  最短路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#emsp-emsp-emsp-emsp-单源最短路径"><span class="post-toc-text">    单源最短路径</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#emsp-emsp-emsp-emsp-多源最短路径"><span class="post-toc-text">    多源最短路径</span></a></li></ol></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#树"><span class="post-toc-text">树</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二叉树"><span class="post-toc-text">二叉树</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-二叉树的定义和性质"><span class="post-toc-text">  二叉树的定义和性质</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-二叉树的存储结构"><span class="post-toc-text">  二叉树的存储结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-二叉树的遍历和线索二叉树"><span class="post-toc-text">  二叉树的遍历和线索二叉树</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图"><span class="post-toc-text">图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-图的定义"><span class="post-toc-text">  图的定义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-图的存储方法"><span class="post-toc-text">  图的存储方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-图的遍历"><span class="post-toc-text">  图的遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#emsp-emsp-emsp-emsp-深度优先搜索（dfs）"><span class="post-toc-text">    深度优先搜索（dfs）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#emsp-emsp-emsp-emsp-广度优先搜索（bfs）"><span class="post-toc-text">    广度优先搜索（bfs）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-图的连通性"><span class="post-toc-text">  图的连通性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#emsp-emsp-最短路径"><span class="post-toc-text">  最短路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#emsp-emsp-emsp-emsp-单源最短路径"><span class="post-toc-text">    单源最短路径</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#emsp-emsp-emsp-emsp-多源最短路径"><span class="post-toc-text">    多源最短路径</span></a></li></ol></li></ol></li></ol>
             </nav>
             
         </aside>
@@ -226,7 +229,7 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="第六节-数据结构基础（2）树、二叉树和图"><a href="#第六节-数据结构基础（2）树、二叉树和图" class="headerlink" title="第六节 数据结构基础（2）树、二叉树和图"></a>第六节 数据结构基础（2）树、二叉树和图</h1><p>&emsp;&emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。</p>
+            <p>&emsp;&emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。</p>
 <h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>&emsp;&emsp;树形结构是一类非常重要的非线性数据结构，其中以树和二叉树最为常用。树结构在客观世界中广泛存在，比如我们日常生活中常见的组织结构图：<br><img src="http://www.wxtgcl.com/images/organization.jpg" alt=""></p>
 <p>&emsp;&emsp;树是n个结点的有限集合，在任意一棵非空的树中：</p>
 <ul>

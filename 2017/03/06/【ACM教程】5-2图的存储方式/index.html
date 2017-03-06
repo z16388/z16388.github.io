@@ -3,35 +3,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hdu1326,hdu2088 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+  <title>【ACM教程】5-2图的存储方式 | 崎径 其镜 | 求学道路上的行车记录仪</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
-  <meta name="keywords" content="ACM,hdu">
-  <meta name="description" content="&amp;emsp;&amp;emsp;这两道是同一道题，只是区别在输出格式。
-&amp;emsp;&amp;emsp;算出需要移动的方块个数（相差平均数的总个数）即可，需要注意的是每两个输出之间有一个空行。
-&amp;emsp;&amp;emsp;2088就比较套路，最后一组输出没有空行。
-hdu1326
-12345678910111213141516171819202122232425262728#include&amp;lt;cstdio&amp;gt;">
+  <meta name="keywords" content="ACM,算法,ACM教程">
+  <meta name="description" content="链表&amp;emsp;&amp;emsp;我们在第三章对数据结构的简单了解中学习了，图和树可以使用链表来进行存储。参考第六节 数据结构基础（2）树、二叉树和图。虽然链表能够很方便地，在逻辑上对图进行定义和运算，但是我们知道，在比赛中我们的时间是有限的。如果花大量的时间去构建一个模型，然后针对这个模型的各种运算进行编写会耗费大量的时间。这个时候，我们就需要一个简单的数学模型，来处理这些数据。
+图的矩阵表示&amp;ems">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hdu1326,hdu2088">
-<meta property="og:url" content="http://www.z16388.win/2016/11/16/hdu1326-hdu2088/index.html">
+<meta property="og:title" content="【ACM教程】5-2图的存储方式">
+<meta property="og:url" content="http://www.z16388.win/2017/03/06/【ACM教程】5-2图的存储方式/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;这两道是同一道题，只是区别在输出格式。
-&amp;emsp;&amp;emsp;算出需要移动的方块个数（相差平均数的总个数）即可，需要注意的是每两个输出之间有一个空行。
-&amp;emsp;&amp;emsp;2088就比较套路，最后一组输出没有空行。
-hdu1326
-12345678910111213141516171819202122232425262728#include&amp;lt;cstdio&amp;gt;">
-<meta property="og:updated_time" content="2016-11-16T13:00:43.000Z">
+<meta property="og:description" content="链表&amp;emsp;&amp;emsp;我们在第三章对数据结构的简单了解中学习了，图和树可以使用链表来进行存储。参考第六节 数据结构基础（2）树、二叉树和图。虽然链表能够很方便地，在逻辑上对图进行定义和运算，但是我们知道，在比赛中我们的时间是有限的。如果花大量的时间去构建一个模型，然后针对这个模型的各种运算进行编写会耗费大量的时间。这个时候，我们就需要一个简单的数学模型，来处理这些数据。
+图的矩阵表示&amp;ems">
+<meta property="og:image" content="http://amuseum.cdstm.cn/AMuseum/math/images/c/7_brige_2.jpg">
+<meta property="og:updated_time" content="2017-03-06T11:37:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hdu1326,hdu2088">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;这两道是同一道题，只是区别在输出格式。
-&amp;emsp;&amp;emsp;算出需要移动的方块个数（相差平均数的总个数）即可，需要注意的是每两个输出之间有一个空行。
-&amp;emsp;&amp;emsp;2088就比较套路，最后一组输出没有空行。
-hdu1326
-12345678910111213141516171819202122232425262728#include&amp;lt;cstdio&amp;gt;">
+<meta name="twitter:title" content="【ACM教程】5-2图的存储方式">
+<meta name="twitter:description" content="链表&amp;emsp;&amp;emsp;我们在第三章对数据结构的简单了解中学习了，图和树可以使用链表来进行存储。参考第六节 数据结构基础（2）树、二叉树和图。虽然链表能够很方便地，在逻辑上对图进行定义和运算，但是我们知道，在比赛中我们的时间是有限的。如果花大量的时间去构建一个模型，然后针对这个模型的各种运算进行编写会耗费大量的时间。这个时候，我们就需要一个简单的数学模型，来处理这些数据。
+图的矩阵表示&amp;ems">
+<meta name="twitter:image" content="http://amuseum.cdstm.cn/AMuseum/math/images/c/7_brige_2.jpg">
   
     <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
   
@@ -128,7 +121,7 @@ hdu1326
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">hdu1326,hdu2088</div>
+        <div class="flex-col header-title ellipsis">【ACM教程】5-2图的存储方式</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -158,11 +151,11 @@ hdu1326
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">hdu1326,hdu2088</h1>
+    <h1 class="author">【ACM教程】5-2图的存储方式</h1>
     <h5 class="subtitle">
         
-            <time datetime="2016-11-16T12:06:16.000Z" itemprop="datePublished" class="page-time">
-  2016-11-16
+            <time datetime="2017-03-06T11:03:14.000Z" itemprop="datePublished" class="page-time">
+  2017-03-06
 </time>
 
 
@@ -172,11 +165,11 @@ hdu1326
 </header>
 
     <div class="container body-wrap">
-      <article id="post-hdu1326-hdu2088" 
+      <article id="post-【ACM教程】5-2图的存储方式" 
   class="article article-type-post" itemprop="blogPost">
     <div class="post-meta flex-row">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hdu/">hdu</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM教程/">ACM教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </div>
     <div class="post-body">
@@ -223,7 +216,7 @@ hdu1326
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#链表"><span class="post-toc-text">链表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图的矩阵表示"><span class="post-toc-text">图的矩阵表示</span></a></li></ol>
             </nav>
             
         </aside>
@@ -231,18 +224,63 @@ hdu1326
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>&emsp;&emsp;这两道是同一道题，只是区别在输出格式。</p>
-<p>&emsp;&emsp;算出需要移动的方块个数（相差平均数的总个数）即可，需要注意的是每两个输出之间有一个空行。</p>
-<p>&emsp;&emsp;2088就比较套路，最后一组输出没有空行。</p>
-<p>hdu1326</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 55</span></div><div class="line"><span class="keyword">int</span> a[N];</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n,flag=<span class="number">0</span>,ave,sum;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)&amp;&amp;n) &#123;</div><div class="line">        ave=<span class="number">0</span>,sum=<span class="number">0</span>;</div><div class="line">        <span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">            ave+=a[i];</div><div class="line">        &#125;</div><div class="line">        ave/=n;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="keyword">if</span>(a[i]&lt;ave) &#123;</div><div class="line">                sum+=ave-a[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"Set #%d\n"</span>,++flag);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"The minimum number of moves is %d.\n\n"</span>,sum);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>hdu 2088</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 55</span></div><div class="line"><span class="keyword">int</span> a[N];</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n,ave,sum,flag=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)&amp;&amp;n) &#123;</div><div class="line">        ave=<span class="number">0</span>,sum=<span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span>(flag++) <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">        <span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">            ave+=a[i];</div><div class="line">        &#125;</div><div class="line">        ave/=n;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="keyword">if</span>(a[i]&lt;ave) &#123;</div><div class="line">                sum+=ave-a[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p>&emsp;&emsp;我们在第三章对数据结构的简单了解中学习了，图和树可以使用链表来进行存储。参考<a href="http://www.z16388.win/2016/11/16/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-6%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89%E6%A0%91%E3%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E5%9B%BE/">第六节 数据结构基础（2）树、二叉树和图</a>。虽然链表能够很方便地，在逻辑上对图进行定义和运算，但是我们知道，在比赛中我们的时间是有限的。如果花大量的时间去构建一个模型，然后针对这个模型的各种运算进行编写会耗费大量的时间。这个时候，我们就需要一个简单的数学模型，来处理这些数据。</p>
+<h2 id="图的矩阵表示"><a href="#图的矩阵表示" class="headerlink" title="图的矩阵表示"></a>图的矩阵表示</h2><p>&emsp;&emsp;在数学上，我们经常用矩阵来表示一个图。我们知道，图是由它们的顶点和他们之间的邻接关系来唯一确定的。这个时候我们只需要两个矩阵，一个用来存放他们的定点，另一个来存放他们之间的关系。</p>
+<p>&emsp;&emsp;举个例子：在上一节中，我们接触到了一个非常经典的七桥问题的图。</p>
+<p><img src="http://amuseum.cdstm.cn/AMuseum/math/images/c/7_brige_2.jpg" alt=""></p>
+<p>&emsp;&emsp;图中的三个点我们分别命名为：</p>
+<blockquote>
+<p>A<br>B &emsp;&emsp;&emsp;D<br>C</p>
+</blockquote>
+<p>&emsp;&emsp;这时，我们可以用一个矩阵V来表示这个图中的点。<code>V={A,B,C,D}</code>那怎么来表示他们之间的联系呢？我们用另一个矩阵M，如果两个点之间是相连的，我们就让m^ij=m^ji=1。如果它们之间没有联系，则m^ij=m^ji=0。那么，<br>M=</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">A</th>
+<th style="text-align:center">B</th>
+<th style="text-align:center">C</th>
+<th style="text-align:center">D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">inf</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">inf</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">inf</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">D</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">inf</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;&emsp;如果这是个有向图，我们可以根据行和列来确定出发和到达的定点；如果这是个对路径长度有要求的图，就比如在计算最短路径的时候，我们可以将矩阵中的数据改为两个点之间的距离。</p>
+<p>&emsp;&emsp;在编程的时候，我们可以使用数组来存放这样的矩阵。既方便计算，也能够精确表示。在今后的学习中，我们大多数时候都会使用这种方法来表示和运算。</p>
 
             <blockquote>
                 <p>
                 本文地址：
-                <a href="http://www.z16388.win/2016/11/16/hdu1326-hdu2088/" target="_blank" rel="external">http://www.z16388.win/2016/11/16/hdu1326-hdu2088/</a>
+                <a href="http://www.z16388.win/2017/03/06/【ACM教程】5-2图的存储方式/" target="_blank" rel="external">http://www.z16388.win/2017/03/06/【ACM教程】5-2图的存储方式/</a>
                 </p>
                 <footer><cite><a href="http://www.z16388.win">@崎径 其镜</a></cite></footer>
             </blockquote>
@@ -250,19 +288,12 @@ hdu1326
             
 <nav class="post-nav">
   
-    <div class="waves-block waves-effect prev fl">
-      <a href="/2017/01/01/2017/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">2017新年祝福</h4>
-      </a>
-    </div>
-  
 
   
     <div class="waves-block waves-effect next fr">
-      <a href="/2016/11/16/hdu1720/" id="post-next" class="post-nav-link">
+      <a href="/2017/03/06/【ACM教程】5-1图论的基本概念/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">hdu1720 A+B Coming</h4>
+        <h4 class="title">【ACM教程】5.1图论的基本概念</h4>
       </a>
     </div>
   
@@ -273,7 +304,7 @@ hdu1326
             
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hdu1326-hdu2088" data-title="hdu1326,hdu2088" data-url="http://www.z16388.win/2016/11/16/hdu1326-hdu2088/index.html"></div>
+	<div class="ds-thread" data-thread-key="【ACM教程】5-2图的存储方式" data-title="【ACM教程】5-2图的存储方式" data-url="http://www.z16388.win/2017/03/06/【ACM教程】5-2图的存储方式/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -304,10 +335,10 @@ hdu1326
 
 <script>
 var BLOG_SHARE = {
-    title: "hdu1326,hdu2088",
+    title: "【ACM教程】5-2图的存储方式",
     pic: "/img/logo.jpg",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://www.z16388.win/2016/11/16/hdu1326-hdu2088/index.html"
+    url: "http://www.z16388.win/2017/03/06/【ACM教程】5-2图的存储方式/index.html"
 };
 </script>
 <div class="global-share" id="global-share">

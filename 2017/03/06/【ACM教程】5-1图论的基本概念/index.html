@@ -3,35 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hdu1326,hdu2088 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+  <title>【ACM教程】5.1图论的基本概念 | 崎径 其镜 | 求学道路上的行车记录仪</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
-  <meta name="keywords" content="ACM,hdu">
-  <meta name="description" content="&amp;emsp;&amp;emsp;这两道是同一道题，只是区别在输出格式。
-&amp;emsp;&amp;emsp;算出需要移动的方块个数（相差平均数的总个数）即可，需要注意的是每两个输出之间有一个空行。
-&amp;emsp;&amp;emsp;2088就比较套路，最后一组输出没有空行。
-hdu1326
-12345678910111213141516171819202122232425262728#include&amp;lt;cstdio&amp;gt;">
+  <meta name="keywords" content="ACM,算法,ACM教程">
+  <meta name="description" content="&amp;emsp;&amp;emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。
+图论的历史&amp;emsp;&amp;emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名的一个数学问题，即哥尼">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hdu1326,hdu2088">
-<meta property="og:url" content="http://www.z16388.win/2016/11/16/hdu1326-hdu2088/index.html">
+<meta property="og:title" content="【ACM教程】5.1图论的基本概念">
+<meta property="og:url" content="http://www.z16388.win/2017/03/06/【ACM教程】5-1图论的基本概念/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;这两道是同一道题，只是区别在输出格式。
-&amp;emsp;&amp;emsp;算出需要移动的方块个数（相差平均数的总个数）即可，需要注意的是每两个输出之间有一个空行。
-&amp;emsp;&amp;emsp;2088就比较套路，最后一组输出没有空行。
-hdu1326
-12345678910111213141516171819202122232425262728#include&amp;lt;cstdio&amp;gt;">
-<meta property="og:updated_time" content="2016-11-16T13:00:43.000Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。
+图论的历史&amp;emsp;&amp;emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名的一个数学问题，即哥尼">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201303/16/1363441203_6349.jpg">
+<meta property="og:image" content="http://amuseum.cdstm.cn/AMuseum/math/images/c/7_brige_2.jpg">
+<meta property="og:updated_time" content="2017-03-06T11:05:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hdu1326,hdu2088">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;这两道是同一道题，只是区别在输出格式。
-&amp;emsp;&amp;emsp;算出需要移动的方块个数（相差平均数的总个数）即可，需要注意的是每两个输出之间有一个空行。
-&amp;emsp;&amp;emsp;2088就比较套路，最后一组输出没有空行。
-hdu1326
-12345678910111213141516171819202122232425262728#include&amp;lt;cstdio&amp;gt;">
+<meta name="twitter:title" content="【ACM教程】5.1图论的基本概念">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。
+图论的历史&amp;emsp;&amp;emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名的一个数学问题，即哥尼">
+<meta name="twitter:image" content="http://img.my.csdn.net/uploads/201303/16/1363441203_6349.jpg">
   
     <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
   
@@ -128,7 +122,7 @@ hdu1326
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">hdu1326,hdu2088</div>
+        <div class="flex-col header-title ellipsis">【ACM教程】5.1图论的基本概念</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -158,11 +152,11 @@ hdu1326
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">hdu1326,hdu2088</h1>
+    <h1 class="author">【ACM教程】5.1图论的基本概念</h1>
     <h5 class="subtitle">
         
-            <time datetime="2016-11-16T12:06:16.000Z" itemprop="datePublished" class="page-time">
-  2016-11-16
+            <time datetime="2017-03-06T10:25:05.000Z" itemprop="datePublished" class="page-time">
+  2017-03-06
 </time>
 
 
@@ -172,11 +166,11 @@ hdu1326
 </header>
 
     <div class="container body-wrap">
-      <article id="post-hdu1326-hdu2088" 
+      <article id="post-【ACM教程】5-1图论的基本概念" 
   class="article article-type-post" itemprop="blogPost">
     <div class="post-meta flex-row">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hdu/">hdu</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM教程/">ACM教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </div>
     <div class="post-body">
@@ -223,7 +217,7 @@ hdu1326
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图论的历史"><span class="post-toc-text">图论的历史</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图论简介"><span class="post-toc-text">图论简介</span></a></li></ol>
             </nav>
             
         </aside>
@@ -231,18 +225,22 @@ hdu1326
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>&emsp;&emsp;这两道是同一道题，只是区别在输出格式。</p>
-<p>&emsp;&emsp;算出需要移动的方块个数（相差平均数的总个数）即可，需要注意的是每两个输出之间有一个空行。</p>
-<p>&emsp;&emsp;2088就比较套路，最后一组输出没有空行。</p>
-<p>hdu1326</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 55</span></div><div class="line"><span class="keyword">int</span> a[N];</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n,flag=<span class="number">0</span>,ave,sum;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)&amp;&amp;n) &#123;</div><div class="line">        ave=<span class="number">0</span>,sum=<span class="number">0</span>;</div><div class="line">        <span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">            ave+=a[i];</div><div class="line">        &#125;</div><div class="line">        ave/=n;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="keyword">if</span>(a[i]&lt;ave) &#123;</div><div class="line">                sum+=ave-a[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"Set #%d\n"</span>,++flag);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"The minimum number of moves is %d.\n\n"</span>,sum);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>hdu 2088</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 55</span></div><div class="line"><span class="keyword">int</span> a[N];</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n,ave,sum,flag=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)&amp;&amp;n) &#123;</div><div class="line">        ave=<span class="number">0</span>,sum=<span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span>(flag++) <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">        <span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">            ave+=a[i];</div><div class="line">        &#125;</div><div class="line">        ave/=n;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="keyword">if</span>(a[i]&lt;ave) &#123;</div><div class="line">                sum+=ave-a[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <p>&emsp;&emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。</p>
+<h2 id="图论的历史"><a href="#图论的历史" class="headerlink" title="图论的历史"></a>图论的历史</h2><p>&emsp;&emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名的一个数学问题，即哥尼斯堡七桥问题，从而使他成为了图论的创始人。</p>
+<p>&emsp;&emsp;七桥问题呢，就是在一个城市的中间，有一条河，河中有两个小岛。在两岸和小岛之间呢，有七座桥。我们需要找到一个路径，使得我们从这四块陆地的其中一个开始，通过每一座桥，并恰好回到起点。</p>
+<p><img src="http://img.my.csdn.net/uploads/201303/16/1363441203_6349.jpg" alt=""></p>
+<p>&emsp;&emsp;欧拉为了解决七桥问题，将这个问题转化为了一个数学问题。他认为这种走法是否存在，与岛的形状、大小、以及桥的长短等因素都没有关系，重要的是陆地之间是否有桥联通。因此他用点表示陆地，线表示陆地间的桥梁，就得出了七桥问题的示意图。欧拉在1736年证明了这个路径是不存在的，并进行了进一步的推广得出了一个判别法则—，用于判别给定一个图是否可以走遍。</p>
+<p><img src="http://amuseum.cdstm.cn/AMuseum/math/images/c/7_brige_2.jpg" alt=""></p>
+<p>&emsp;&emsp;除此之外，我们在高中曾经学习过基尔霍夫电压定律。基尔霍夫在1847年运用图论解决了电路理论中求解联立方程组问题，并引入了“树”的概念，可惜在当时并没有受到重视。1857年，凯莱在研究饱和碳氢化合物时，发现了一族重要的图，称其为树，并利用树来计算其同分异构体的数目。</p>
+<p>&emsp;&emsp;20世纪后，图论的应用渗透到了其他的很多领域，在计算机网络、博弈论等方面起到了重要的作用。它是组合数学的一个分支，和数值分析、拓扑学等有着密切的联系。比如对于基础的图论来说，它不需要有高深复杂的数学工具，只需要一些集合、二元关系与线性代数知识，结合一般的逻辑推理来解决问题。</p>
+<h2 id="图论简介"><a href="#图论简介" class="headerlink" title="图论简介"></a>图论简介</h2><p>&emsp;&emsp;这里我们讨论的图论并不是几何学上的图形，而是客观世界中，某些具体事物间相互联系的一个数学抽象。用点来表示事物，用边来表示关系。这种由定点及连接这些点的所有边组成的就是我们图论中的图。其中的点我们称为顶点，线称之为边。当边具有方向性时，图是有向图。（否则为无向图）</p>
+<p>&emsp;&emsp;图在研究现实问题时会经常使用到，比如在地图上找到一条能够最快到达目的地的线路。这都是我们今后将要学习的内容。</p>
+<p>&emsp;&emsp;从一个顶点出发，如果存在一个路径，能够回到该顶点，我们称之为圈。没有圈的连通图称为树，树是特殊的图。在解决问题时，我们有时候需要将图转化为它的“生成树”再对问题进行处理。</p>
 
             <blockquote>
                 <p>
                 本文地址：
-                <a href="http://www.z16388.win/2016/11/16/hdu1326-hdu2088/" target="_blank" rel="external">http://www.z16388.win/2016/11/16/hdu1326-hdu2088/</a>
+                <a href="http://www.z16388.win/2017/03/06/【ACM教程】5-1图论的基本概念/" target="_blank" rel="external">http://www.z16388.win/2017/03/06/【ACM教程】5-1图论的基本概念/</a>
                 </p>
                 <footer><cite><a href="http://www.z16388.win">@崎径 其镜</a></cite></footer>
             </blockquote>
@@ -251,18 +249,18 @@ hdu1326
 <nav class="post-nav">
   
     <div class="waves-block waves-effect prev fl">
-      <a href="/2017/01/01/2017/" id="post-prev" class="post-nav-link">
+      <a href="/2017/03/06/【ACM教程】5-2图的存储方式/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">2017新年祝福</h4>
+        <h4 class="title">【ACM教程】5-2图的存储方式</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next fr">
-      <a href="/2016/11/16/hdu1720/" id="post-next" class="post-nav-link">
+      <a href="/2017/02/21/lanqiao7/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">hdu1720 A+B Coming</h4>
+        <h4 class="title">第七届蓝桥杯C/C++省赛B组题目详解</h4>
       </a>
     </div>
   
@@ -273,7 +271,7 @@ hdu1326
             
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hdu1326-hdu2088" data-title="hdu1326,hdu2088" data-url="http://www.z16388.win/2016/11/16/hdu1326-hdu2088/index.html"></div>
+	<div class="ds-thread" data-thread-key="【ACM教程】5-1图论的基本概念" data-title="【ACM教程】5.1图论的基本概念" data-url="http://www.z16388.win/2017/03/06/【ACM教程】5-1图论的基本概念/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -304,10 +302,10 @@ hdu1326
 
 <script>
 var BLOG_SHARE = {
-    title: "hdu1326,hdu2088",
+    title: "【ACM教程】5.1图论的基本概念",
     pic: "/img/logo.jpg",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://www.z16388.win/2016/11/16/hdu1326-hdu2088/index.html"
+    url: "http://www.z16388.win/2017/03/06/【ACM教程】5-1图论的基本概念/index.html"
 };
 </script>
 <div class="global-share" id="global-share">

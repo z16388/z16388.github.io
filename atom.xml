@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2017-02-22T12:06:44.000Z</updated>
+  <updated>2017-03-06T11:37:39.000Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -16,11 +16,123 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【ACM教程】5-2图的存储方式</title>
+    <link href="http://www.z16388.win/2017/03/06/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-2%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/"/>
+    <id>http://www.z16388.win/2017/03/06/【ACM教程】5-2图的存储方式/</id>
+    <published>2017-03-06T11:03:14.000Z</published>
+    <updated>2017-03-06T11:37:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p>&emsp;&emsp;我们在第三章对数据结构的简单了解中学习了，图和树可以使用链表来进行存储。参考<a href="http://www.z16388.win/2016/11/16/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-6%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89%E6%A0%91%E3%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E5%9B%BE/">第六节 数据结构基础（2）树、二叉树和图</a>。虽然链表能够很方便地，在逻辑上对图进行定义和运算，但是我们知道，在比赛中我们的时间是有限的。如果花大量的时间去构建一个模型，然后针对这个模型的各种运算进行编写会耗费大量的时间。这个时候，我们就需要一个简单的数学模型，来处理这些数据。</p>
+<h2 id="图的矩阵表示"><a href="#图的矩阵表示" class="headerlink" title="图的矩阵表示"></a>图的矩阵表示</h2><p>&emsp;&emsp;在数学上，我们经常用矩阵来表示一个图。我们知道，图是由它们的顶点和他们之间的邻接关系来唯一确定的。这个时候我们只需要两个矩阵，一个用来存放他们的定点，另一个来存放他们之间的关系。</p>
+<p>&emsp;&emsp;举个例子：在上一节中，我们接触到了一个非常经典的七桥问题的图。</p>
+<p><img src="http://amuseum.cdstm.cn/AMuseum/math/images/c/7_brige_2.jpg" alt=""></p>
+<p>&emsp;&emsp;图中的三个点我们分别命名为：</p>
+<blockquote>
+<p>A<br>B &emsp;&emsp;&emsp;D<br>C</p>
+</blockquote>
+<p>&emsp;&emsp;这时，我们可以用一个矩阵V来表示这个图中的点。<code>V={A,B,C,D}</code>那怎么来表示他们之间的联系呢？我们用另一个矩阵M，如果两个点之间是相连的，我们就让m^ij=m^ji=1。如果它们之间没有联系，则m^ij=m^ji=0。那么，<br>M=</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">A</th>
+<th style="text-align:center">B</th>
+<th style="text-align:center">C</th>
+<th style="text-align:center">D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">inf</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">inf</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">inf</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">D</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">inf</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;&emsp;如果这是个有向图，我们可以根据行和列来确定出发和到达的定点；如果这是个对路径长度有要求的图，就比如在计算最短路径的时候，我们可以将矩阵中的数据改为两个点之间的距离。</p>
+<p>&emsp;&emsp;在编程的时候，我们可以使用数组来存放这样的矩阵。既方便计算，也能够精确表示。在今后的学习中，我们大多数时候都会使用这种方法来表示和运算。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;链表&quot;&gt;&lt;a href=&quot;#链表&quot; class=&quot;headerlink&quot; title=&quot;链表&quot;&gt;&lt;/a&gt;链表&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;我们在第三章对数据结构的简单了解中学习了，图和树可以使用链表来进行存储。参考&lt;a href=&quot;http://www.
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【ACM教程】5.1图论的基本概念</title>
+    <link href="http://www.z16388.win/2017/03/06/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-1%E5%9B%BE%E8%AE%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
+    <id>http://www.z16388.win/2017/03/06/【ACM教程】5-1图论的基本概念/</id>
+    <published>2017-03-06T10:25:05.000Z</published>
+    <updated>2017-03-06T11:05:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。</p>
+<h2 id="图论的历史"><a href="#图论的历史" class="headerlink" title="图论的历史"></a>图论的历史</h2><p>&emsp;&emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名的一个数学问题，即哥尼斯堡七桥问题，从而使他成为了图论的创始人。</p>
+<p>&emsp;&emsp;七桥问题呢，就是在一个城市的中间，有一条河，河中有两个小岛。在两岸和小岛之间呢，有七座桥。我们需要找到一个路径，使得我们从这四块陆地的其中一个开始，通过每一座桥，并恰好回到起点。</p>
+<p><img src="http://img.my.csdn.net/uploads/201303/16/1363441203_6349.jpg" alt=""></p>
+<p>&emsp;&emsp;欧拉为了解决七桥问题，将这个问题转化为了一个数学问题。他认为这种走法是否存在，与岛的形状、大小、以及桥的长短等因素都没有关系，重要的是陆地之间是否有桥联通。因此他用点表示陆地，线表示陆地间的桥梁，就得出了七桥问题的示意图。欧拉在1736年证明了这个路径是不存在的，并进行了进一步的推广得出了一个判别法则—，用于判别给定一个图是否可以走遍。</p>
+<p><img src="http://amuseum.cdstm.cn/AMuseum/math/images/c/7_brige_2.jpg" alt=""></p>
+<p>&emsp;&emsp;除此之外，我们在高中曾经学习过基尔霍夫电压定律。基尔霍夫在1847年运用图论解决了电路理论中求解联立方程组问题，并引入了“树”的概念，可惜在当时并没有受到重视。1857年，凯莱在研究饱和碳氢化合物时，发现了一族重要的图，称其为树，并利用树来计算其同分异构体的数目。</p>
+<p>&emsp;&emsp;20世纪后，图论的应用渗透到了其他的很多领域，在计算机网络、博弈论等方面起到了重要的作用。它是组合数学的一个分支，和数值分析、拓扑学等有着密切的联系。比如对于基础的图论来说，它不需要有高深复杂的数学工具，只需要一些集合、二元关系与线性代数知识，结合一般的逻辑推理来解决问题。</p>
+<h2 id="图论简介"><a href="#图论简介" class="headerlink" title="图论简介"></a>图论简介</h2><p>&emsp;&emsp;这里我们讨论的图论并不是几何学上的图形，而是客观世界中，某些具体事物间相互联系的一个数学抽象。用点来表示事物，用边来表示关系。这种由定点及连接这些点的所有边组成的就是我们图论中的图。其中的点我们称为顶点，线称之为边。当边具有方向性时，图是有向图。（否则为无向图）</p>
+<p>&emsp;&emsp;图在研究现实问题时会经常使用到，比如在地图上找到一条能够最快到达目的地的线路。这都是我们今后将要学习的内容。</p>
+<p>&emsp;&emsp;从一个顶点出发，如果存在一个路径，能够回到该顶点，我们称之为圈。没有圈的连通图称为树，树是特殊的图。在解决问题时，我们有时候需要将图转化为它的“生成树”再对问题进行处理。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。&lt;/p&gt;
+&lt;h2 id=&quot;图论的历史&quot;&gt;&lt;a href=&quot;#图论的历史&quot; c
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>第七届蓝桥杯C/C++省赛B组题目详解</title>
     <link href="http://www.z16388.win/2017/02/21/lanqiao7/"/>
     <id>http://www.z16388.win/2017/02/21/lanqiao7/</id>
     <published>2017-02-21T11:36:29.000Z</published>
-    <updated>2017-02-22T12:06:44.000Z</updated>
+    <updated>2017-02-23T12:34:34.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="第一题-煤球数目"><a href="#第一题-煤球数目" class="headerlink" title="第一题 煤球数目"></a>第一题 煤球数目</h2><blockquote>
 <p>有一堆煤球，堆成三角棱锥形。具体：<br>第一层放1个，<br>第二层3个（排列成三角形），<br>第三层6个（排列成三角形），<br>第四层10个（排列成三角形），<br>….<br>如果一共有100层，共有多少个煤球？<br>请填表示煤球总数目的数字。<br>注意：你提交的应该是一个整数，不要填写任何多余的内容或说明性文字。</p>
@@ -59,6 +171,7 @@
 <h2 id="第六题-方格填数"><a href="#第六题-方格填数" class="headerlink" title="第六题 方格填数"></a>第六题 方格填数</h2><blockquote>
 <p>如下的10个格子<br>&emsp;+–+–+–+<br>　|　|　|　|<br>+–+–+–+–+<br>|　|　|　|　|<br>+–+–+–+–+<br>|　|　|　|<br>+–+–+–+<br>（4*3的长方形，左上角和右下角分别缺少一个方格）<br>填入0~9的数字。要求：连续的两个数字不能相邻。<br>（左右、上下、对角都算相邻）<br>一共有多少种可能的填数方案？<br>请填写表示方案数目的整数。<br>注意：你提交的应该是一个整数，不要填写任何多余的内容或说明性文字。</p>
 </blockquote>
+<p>&emsp;&emsp;这道题目又是可以使用暴力枚举做出来的，去年比赛的时候想的太复杂了，没做出来，也是非常后悔。讲所有</p>
 ]]></content>
     
     <summary type="html">
@@ -210,9 +323,9 @@
     </summary>
     
     
-      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
-    
       <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
     
   </entry>
   
@@ -237,9 +350,9 @@
     </summary>
     
     
-      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
-    
       <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
     
   </entry>
   
@@ -281,9 +394,9 @@
     <link href="http://www.z16388.win/2016/11/16/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-6%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89%E6%A0%91%E3%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E5%9B%BE/"/>
     <id>http://www.z16388.win/2016/11/16/【ACM教程】3-6数据结构基础（2）树、二叉树和图/</id>
     <published>2016-11-16T06:49:28.000Z</published>
-    <updated>2017-01-18T03:20:26.000Z</updated>
+    <updated>2017-03-06T11:06:07.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="第六节-数据结构基础（2）树、二叉树和图"><a href="#第六节-数据结构基础（2）树、二叉树和图" class="headerlink" title="第六节 数据结构基础（2）树、二叉树和图"></a>第六节 数据结构基础（2）树、二叉树和图</h1><p>&emsp;&emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。</p>
+    <content type="html"><![CDATA[<p>&emsp;&emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。</p>
 <h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>&emsp;&emsp;树形结构是一类非常重要的非线性数据结构，其中以树和二叉树最为常用。树结构在客观世界中广泛存在，比如我们日常生活中常见的组织结构图：<br><img src="http://www.wxtgcl.com/images/organization.jpg" alt=""></p>
 <p>&emsp;&emsp;树是n个结点的有限集合，在任意一棵非空的树中：</p>
 <ul>
@@ -344,7 +457,8 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;第六节-数据结构基础（2）树、二叉树和图&quot;&gt;&lt;a href=&quot;#第六节-数据结构基础（2）树、二叉树和图&quot; class=&quot;headerlink&quot; title=&quot;第六节 数据结构基础（2）树、二叉树和图&quot;&gt;&lt;/a&gt;第六节 数据结构基础（2）树、二叉树和图&lt;/h1&gt;&lt;
+      &lt;p&gt;&amp;emsp;&amp;emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。&lt;/p&gt;
+&lt;h2 id=&quot;树&quot;&gt;&lt;a href=&quot;#树&quot;
     
     </summary>
     
@@ -723,9 +837,9 @@
     </summary>
     
     
-      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
-    
       <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
     
   </entry>
   
@@ -755,101 +869,9 @@
     </summary>
     
     
-      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
-    
       <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hdu2000-2010答案</title>
-    <link href="http://www.z16388.win/2016/10/28/hdu2000-2010/"/>
-    <id>http://www.z16388.win/2016/10/28/hdu2000-2010/</id>
-    <published>2016-10-28T11:16:10.000Z</published>
-    <updated>2016-10-30T15:05:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="hdu2000-ASCII码排序"><a href="#hdu2000-ASCII码排序" class="headerlink" title="hdu2000 ASCII码排序"></a>hdu2000 ASCII码排序</h2><p>&emsp;&emsp;这是一道简单的排序问题，可以直接使用sort函数解决，但是如果使用值交换的方法则需要注意回车的消除。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> a[<span class="number">4</span>],t;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%c%c%c"</span>,&amp;a[<span class="number">1</span>],&amp;a[<span class="number">2</span>],&amp;a[<span class="number">3</span>])!=EOF) &#123;</div><div class="line">        getchar();</div><div class="line">        <span class="keyword">if</span>(a[<span class="number">1</span>]&gt;a[<span class="number">2</span>]) &#123;</div><div class="line">            t=a[<span class="number">1</span>];</div><div class="line">            a[<span class="number">1</span>]=a[<span class="number">2</span>];</div><div class="line">            a[<span class="number">2</span>]=t;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(a[<span class="number">2</span>]&gt;a[<span class="number">3</span>]) &#123;</div><div class="line">            t=a[<span class="number">2</span>];</div><div class="line">            a[<span class="number">2</span>]=a[<span class="number">3</span>];</div><div class="line">            a[<span class="number">3</span>]=t;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(a[<span class="number">1</span>]&gt;a[<span class="number">2</span>]) &#123;</div><div class="line">            t=a[<span class="number">1</span>];</div><div class="line">            a[<span class="number">1</span>]=a[<span class="number">2</span>];</div><div class="line">            a[<span class="number">2</span>]=t;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%c %c %c\n"</span>,a[<span class="number">1</span>],a[<span class="number">2</span>],a[<span class="number">3</span>]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> str[<span class="number">3</span>];</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;str) &#123;</div><div class="line">        sort(str,str+<span class="number">3</span>);</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;str[<span class="number">0</span>]&lt;&lt;<span class="string">" "</span>&lt;&lt;str[<span class="number">1</span>]&lt;&lt;<span class="string">" "</span>&lt;&lt;str[<span class="number">2</span>]&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="hdu2001-计算两点间的距离"><a href="#hdu2001-计算两点间的距离" class="headerlink" title="hdu2001 计算两点间的距离"></a>hdu2001 计算两点间的距离</h2><p>&emsp;&emsp;这是一道简单的计算题，第一次使用了数学函数和双精度的数，没有太多需要注意的地方。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">double</span> x1,y1,x2,y2;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;x1&gt;&gt;y1&gt;&gt;x2&gt;&gt;y2) &#123;</div><div class="line">        <span class="keyword">double</span> jie=<span class="built_in">sqrt</span>((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,jie);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="hdu2002-计算球体体积"><a href="#hdu2002-计算球体体积" class="headerlink" title="hdu2002 计算球体体积"></a>hdu2002 计算球体体积</h2><p>&emsp;&emsp;这是一道求球体体积的计算题，需要注意的是，这里可能会出现整数和实数之间的乘法，需要注意的是题目中的4/3需要写成4.0/3.0，这一点很容易犯错。</p>
-<p>&emsp;&emsp;还有一点需要注意的是，我们应当使用题目中所给的pi值，否则结果可能会出现一定的误差。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.1415927</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">double</span> r;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;r) &#123;</div><div class="line">        <span class="keyword">double</span> jie=<span class="number">4.0</span>*PI*r*r*r/<span class="number">3.0</span>;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%.3lf\n"</span>,jie);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="hdu2003-求绝对值"><a href="#hdu2003-求绝对值" class="headerlink" title="hdu2003 求绝对值"></a>hdu2003 求绝对值</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.1415927</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">double</span> r;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;r) &#123;</div><div class="line">        <span class="keyword">double</span> jie=<span class="built_in">fabs</span>(r);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,jie);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>#hdu2004 成绩转换</p>
-<p>&emsp;&emsp;这道题需要仔细审题，一定要注意分数的范围，无论是上界还是下界。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> grade;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;grade)!=EOF) &#123;</div><div class="line">        <span class="keyword">if</span>(grade&gt;=<span class="number">90</span>&amp;&amp;grade&lt;=<span class="number">100</span>) <span class="built_in">printf</span>(<span class="string">"A\n"</span>);</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(grade&gt;=<span class="number">80</span>&amp;&amp;grade&lt;=<span class="number">89</span>) <span class="built_in">printf</span>(<span class="string">"B\n"</span>);</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(grade&gt;=<span class="number">70</span>&amp;&amp;grade&lt;=<span class="number">79</span>) <span class="built_in">printf</span>(<span class="string">"C\n"</span>);</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(grade&gt;=<span class="number">60</span>&amp;&amp;grade&lt;=<span class="number">69</span>) <span class="built_in">printf</span>(<span class="string">"D\n"</span>);</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(grade&gt;=<span class="number">0</span>&amp;&amp;grade&lt;=<span class="number">59</span>) <span class="built_in">printf</span>(<span class="string">"E\n"</span>);</div><div class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"Score is error!\n"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="hdu2005-第几天？"><a href="#hdu2005-第几天？" class="headerlink" title="hdu2005 第几天？"></a>hdu2005 第几天？</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">runn</span><span class="params">(<span class="keyword">int</span> yy)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(yy%<span class="number">400</span>==<span class="number">0</span>||(yy%<span class="number">100</span>!=<span class="number">0</span>&amp;&amp;yy%<span class="number">4</span>==<span class="number">0</span>))</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span> ;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span> ;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> y,m,d,sum;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d/%d/%d"</span>,&amp;y,&amp;m,&amp;d)!=EOF) &#123;</div><div class="line">        sum = <span class="number">0</span> ;</div><div class="line">        <span class="keyword">switch</span>(m<span class="number">-1</span>) &#123;</div><div class="line">            <span class="keyword">case</span> <span class="number">11</span> : sum+=<span class="number">30</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">10</span> : sum+=<span class="number">31</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">9</span>  : sum+=<span class="number">30</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">8</span>  : sum+=<span class="number">31</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">7</span>  : sum+=<span class="number">31</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">6</span>  : sum+=<span class="number">30</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">5</span>  : sum+=<span class="number">31</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">4</span>  : sum+=<span class="number">30</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">3</span>  : sum+=<span class="number">31</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">2</span>  :<span class="keyword">if</span> (runn(y)==<span class="number">1</span>) sum+=<span class="number">29</span>;</div><div class="line">                     <span class="keyword">else</span> sum+=<span class="number">28</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">1</span>  : sum+=<span class="number">31</span>;</div><div class="line">        &#125;</div><div class="line">        sum+=d;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="hdu2006-求奇数的乘积"><a href="#hdu2006-求奇数的乘积" class="headerlink" title="hdu2006 求奇数的乘积"></a>hdu2006 求奇数的乘积</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="keyword">int</span> liste[<span class="number">100</span>];</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)!=EOF) &#123;</div><div class="line">        <span class="keyword">int</span> i;</div><div class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;liste[i]);</div><div class="line">        <span class="keyword">int</span> sum=<span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">            <span class="keyword">if</span>(liste[i]%<span class="number">2</span>!=<span class="number">0</span>)</div><div class="line">                sum*=liste[i];</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="hdu2007-平方和与立方和"><a href="#hdu2007-平方和与立方和" class="headerlink" title="hdu2007 平方和与立方和"></a>hdu2007 平方和与立方和</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> m,n,t,i;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;m,&amp;n)!=EOF) &#123;</div><div class="line">        <span class="keyword">if</span>(m&gt;n) &#123;</div><div class="line">            t=m;</div><div class="line">            m=n;</div><div class="line">            n=t;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> s1=<span class="number">0</span>,s2=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(i=m;i&lt;=n;i++) &#123;</div><div class="line">            <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>) s1=s1+i*i;</div><div class="line">            <span class="keyword">else</span> s2=s2+i*i*i;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,s1,s2);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="hdu2008-数值统计"><a href="#hdu2008-数值统计" class="headerlink" title="hdu2008 数值统计"></a>hdu2008 数值统计</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="keyword">double</span> liste[<span class="number">100</span>];</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)&amp;&amp;n) &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%lf"</span>,&amp;liste[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> a=<span class="number">0</span>,b=<span class="number">0</span>,c=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="keyword">if</span>(liste[i]&lt;<span class="number">0</span>) a++;</div><div class="line">            <span class="keyword">if</span>(liste[i]==<span class="number">0</span>) b++;</div><div class="line">            <span class="keyword">if</span>(liste[i]&gt;<span class="number">0</span>) c++;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>,a,b,c);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="hdu2009-求数列的和"><a href="#hdu2009-求数列的和" class="headerlink" title="hdu2009 求数列的和"></a>hdu2009 求数列的和</h2><p>&emsp;&emsp;这一题看起来很简单，但是需要进行不同类型数据的运算。这一点还是比较容易犯一些错误的，大家需要注意一些。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">double</span> sum;</div><div class="line">    <span class="keyword">int</span> m,n;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;m,&amp;n)!=EOF) &#123;</div><div class="line">        sum=<span class="number">0.0</span>;</div><div class="line">        <span class="keyword">double</span> mm=m;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            sum+=mm;</div><div class="line">            mm=<span class="built_in">sqrt</span>(mm);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%.2f\n"</span>,sum);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="hdu2010-水仙花数"><a href="#hdu2010-水仙花数" class="headerlink" title="hdu2010 水仙花数"></a>hdu2010 水仙花数</h2><p>&emsp;&emsp;这是一道很经典的题目，可能需要使用比较多的判断。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> m,n,flag;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;m,&amp;n)!=EOF) &#123;</div><div class="line">        <span class="keyword">int</span> i=m;</div><div class="line">        flag=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(i=m;i&lt;=n;i++) &#123;</div><div class="line">            <span class="keyword">int</span> a,b,c;</div><div class="line">            a=i/<span class="number">100</span>;</div><div class="line">            b=i/<span class="number">10</span>%<span class="number">10</span>;</div><div class="line">            c=i%<span class="number">10</span>;</div><div class="line">            <span class="keyword">if</span>(i==a*a*a+b*b*b+c*c*c) &#123;</div><div class="line">                <span class="keyword">if</span>(flag==<span class="number">0</span>) &#123;</div><div class="line">                    flag++;</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"%d"</span>,i);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> &#123;</div><div class="line">                    flag++;</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">" %d"</span>,i);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(flag==<span class="number">0</span>) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"no\n"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;hdu2000-ASCII码排序&quot;&gt;&lt;a href=&quot;#hdu2000-ASCII码排序&quot; class=&quot;headerlink&quot; title=&quot;hdu2000 ASCII码排序&quot;&gt;&lt;/a&gt;hdu2000 ASCII码排序&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;这是
-    
-    </summary>
-    
     
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
-    
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】2.2从排序开始</title>
-    <link href="http://www.z16388.win/2016/10/28/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-1.5%E4%BB%8E%E6%8E%92%E5%BA%8F%E5%BC%80%E5%A7%8B/"/>
-    <id>http://www.z16388.win/2016/10/28/【ACM教程】2-1.5从排序开始/</id>
-    <published>2016-10-28T08:29:49.000Z</published>
-    <updated>2016-10-31T10:40:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;今天看群里有同学说：“看dalao的博客，今天晚上估计要讲C++框架了”，这我能忍？让你们猜到了，我该多没面子啊。所以呢，今天我就把教程改了一下，顺便更好地串联后面的内容。</p>
-<p>&emsp;&emsp;如题，我们今天要讲的是排序，排序是写程序中，比较重要的一个部分，以后也会专门做一个章节去讲，今天只涉及一些简单的排序方法。</p>
-<h2 id="这他喵叫排序？——桶排序"><a href="#这他喵叫排序？——桶排序" class="headerlink" title="这他喵叫排序？——桶排序"></a>这他喵叫排序？——桶排序</h2><p>&emsp;&emsp;一直讲排序，可能会有些枯燥，我们先来点好玩的。</p>
-<p>&emsp;&emsp;桶排序是最简单的排序算法，思路也是最奇葩的，奇葩到我都不想把它算作排序。那么它具体是怎么来的呢，我们来看下面一个题目：</p>
-<blockquote>
-<p>&emsp;&emsp;在一次体育比赛中，某个选手的动作将会由多名裁判进行打分，分值在0～10之间的整数。输入一个数组，存放有N名裁判给出的分数(1&lt;=N&lt;=10000)，输出要求从大到小输出裁判打出的分数。</p>
-</blockquote>
-<p>&emsp;&emsp;这道题很简单，有同学该说了，“我知道！用冒泡！”行，冒泡的确可以解决这个问题，但是时间复杂度可能会比较高。这道题，有一种更好的方法，那就是我们这一节的主角——桶排序，今天学了可能一辈子都再也用不到的排序方法。那么，究竟应该怎么去做呢？</p>
-<p>&emsp;&emsp;首先声明一个长度为11的数组<code>a[11]</code>，再将该数组的每个元素都赋值为0。当选手得分为s时，进行操作<code>a[s]++</code>。这样进行一遍便利之后，我们数组中每个元素都将表示得s分的次数。这样，我们只需要将s打印<code>a[s]</code>次，就会得到我们需要的结果，代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 10010</span></div><div class="line"><span class="keyword">int</span> grade[N];</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n,a[<span class="number">11</span>];</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;grade[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">        a[grade[i]]++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">10</span>;i&gt;=<span class="number">1</span>;i--) &#123;</div><div class="line">        <span class="keyword">if</span>(a[i]==<span class="number">0</span>) <span class="keyword">continue</span>;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=a[i];j++) &#123;</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"%d"</span>,i);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="基础中的基础，“牛奶杯”排序"><a href="#基础中的基础，“牛奶杯”排序" class="headerlink" title="基础中的基础，“牛奶杯”排序"></a>基础中的基础，“牛奶杯”排序</h2><p>&emsp;&emsp;有一杯水，一杯牛奶，想让他们两个换一下，那么我们得需要另一个杯子作为中转站。这是我们在写程序中，进行值交换的最简单的方法。比如航电上的hdu2000题：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=2000" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=2000</a>这就是一道使用牛奶杯排序法的题目,我们只需要一个中间变量就可以实现两个变量值的交换，然后比较三次达到排序的目的。这种方法比较麻烦，适用于样本比较少的排序。</p>
-<h2 id="C-，带带我（利用C-的STL函数排序）"><a href="#C-，带带我（利用C-的STL函数排序）" class="headerlink" title="C++，带带我（利用C++的STL函数排序）"></a>C++，带带我（利用C++的STL函数排序）</h2><p>&emsp;&emsp;其实在竞赛中，我们最常使用的是C++的STL中的排序函数。（STL是C++的标准模版库）</p>
-<p>&emsp;&emsp;<code>sort()</code>函数是我们最常用的排序函数，它在<code>algorithm</code>头文件中，使用时需要在你的程序上方添加一行：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;排序函数在比赛中都是被允许的，它拥有三个参数：</p>
-<blockquote>
-<p>sort(起始地址,终止地址,[比较方法])</p>
-</blockquote>
-<p>&emsp;&emsp;其中比较方法不是必须参数，它的使用方法我们将会在下一节进行说明。那么，一个使用<code>sort()</code>函数进行排序的简单程序如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a[<span class="number">11</span>];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++) &#123;</div><div class="line">        <span class="built_in">cin</span>&gt;&gt;a[i];</div><div class="line">    &#125;</div><div class="line">    sort(a+<span class="number">1</span>,a+<span class="number">10</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++) &#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;刚刚的那道hdu2000也可以使用这种方法去做，代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> str[<span class="number">3</span>];</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;str) &#123;</div><div class="line">        sort(str,str+<span class="number">3</span>);</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;str[<span class="number">0</span>]&lt;&lt;<span class="string">" "</span>&lt;&lt;str[<span class="number">1</span>]&lt;&lt;<span class="string">" "</span>&lt;&lt;str[<span class="number">2</span>]&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>&emsp;&emsp;除了排序，初始化也很重要。在做和图、矩阵有关的题目时，我们经常会对二维数组进行初始化。将两个无关点之间的距离初始化为无穷，或者是给单位矩阵非对角线元素进行的初始化。C++给我们提供了memset() 函数实现初始化，这个函数在cstring头文件中。下面是memset() 函数的参数：</p>
-<blockquote>
-<p>Memset(数组名，初始化内容，初始化范围)；</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;今天看群里有同学说：“看dalao的博客，今天晚上估计要讲C++框架了”，这我能忍？让你们猜到了，我该多没面子啊。所以呢，今天我就把教程改了一下，顺便更好地串联后面的内容。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;如题，我们今天要讲的是排序，排序是写程
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
