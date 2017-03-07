@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2017-03-06T11:37:39.000Z</updated>
+  <updated>2017-03-06T12:34:32.000Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -16,11 +16,52 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【ACM教程】5-2图的存储方式</title>
+    <title>【ACM教程】4.1动态规划简介</title>
+    <link href="http://www.z16388.win/2017/03/06/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%914-1%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%80%E4%BB%8B/"/>
+    <id>http://www.z16388.win/2017/03/06/【ACM教程】4-1动态规划简介/</id>
+    <published>2017-03-06T12:05:18.000Z</published>
+    <updated>2017-03-06T12:34:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>&emsp;&emsp;动态规划是运筹学的一个分支，是求解决策过程最优化的数学方法。它将多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解。在现实生活中，我们经常会使用到动态规划。例如求最短路径、库存管理、排序、装载等问题，用动态规划方法比用其他方法更加简便。</p>
+<p>&emsp;&emsp;动态规划主要用于求解以时间划分阶段的动态过程问题。但是在一些与时间无关的问题中，我们可以人为地引入时间因素，把它视为多阶段决策过程，也可以使用动态规划来求解。</p>
+<h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>&emsp;&emsp;动态规划算法经常用于求解具有某种最优性的问题中。在这类问题里，可能会有很多的可行解。每个解都对应一个值，我们希望得到具有最优解的值。动态规划算法的思路与分治法类似，其具体的思想也是将问题分割成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。</p>
+<p>&emsp;&emsp;在使用分治法的过程中，有些子问题可能计算了多次。如果我们能够保存已经解决的子问题的答案，在需要的时候直接拿出来，这样就会节省很多时间。我们可以使用一个表来存放我们计算的子问题的结果，无论这个问题在以后是否会用到，只要它被计算过，我们就将它存入表格中。这就是动态规划的基本思想。</p>
+<h2 id="相关术语与性质"><a href="#相关术语与性质" class="headerlink" title="相关术语与性质"></a>相关术语与性质</h2><p>&emsp;&emsp;首先，我们来介绍动态规划的三要素——阶段、状态和决策。</p>
+<p>&emsp;&emsp;阶段：把所给求解问题的过程恰当地分成若干个相互联系的阶段，以便于求解，过程不同，阶段数就可能不同．描述阶段的变量称为阶段变量。在多数情况下，阶段变量是离散的，用k表示。此外，也有阶段变量是连续的情形。如果过程可以在任何时刻作出决策，且在任意两个不同的时刻之间允许有无穷多个决策时，阶段变量就是连续的。</p>
+<p>&emsp;&emsp;状态：状态表示每个阶段开始面临的自然状况或客观条件，它不以人们的主观意志为转移，也称为不可控因素。过程的状态通常可以用一个或一组数来描述，称为状态变量。一般，状态是离散的，但有时为了方便也将状态取成连续的。</p>
+<p>&emsp;&emsp;决策：一个阶段的状态给定以后，从该状态演变到下一阶段某个状态的一种选择（行动）称为决策。在最优控制中，也称为控制。在许多问题中，决策可以自然而然地表示为一个数或一组数。不同的决策对应着不同的数值。描述决策的变量称决策变量，因状态满足无后效性，故在每个阶段选择决策时只需考虑当前的状态而无须考虑过程的历史。</p>
+<p>&emsp;&emsp;在介绍决策时，我们提到了一个很重要的性质——无后效性。这是动态规划算法的的基本准则：</p>
+<blockquote>
+<p>&emsp;&emsp;我们要求状态具有下面的性质：如果给定某一阶段的状态，则在这一阶段以后过程中的发展不受这阶段以前各段状态的影响，所有各阶段都确定时，整个过程也就确定了；换句话说，过程的每一次实现可以用一个状态序列表示，在前面的例子中每阶段的状态是该线路的始点，确定了这些点的序列，整个线路也就完全确定。从某一阶段以后的线路开始，当这段的始点给定时，不受以前线路（所通过的点）的影响。状态的这个性质意味着过程的历史只能通过当前的状态去影响它的未来的发展，这个性质称为无后效性。</p>
+</blockquote>
+<p>&emsp;&emsp;状态转移方程：给定k阶段状态变量x(k)的值后，如果这一阶段的决策变量一经确定，第k+1阶段的状态变量x(k+1)也就完全确定，即x(k+1)的值随x(k)和第k阶段的决策u(k)的值变化而变化，那么可以把这一关系看成(x(k)，u(k))与x(k+1)确定的对应关系，我们来用x(k+1)=Tk(x(k),u(k))表示。它展示了从k阶段到k+1阶段的状态转移规律，我们称之为状态转移方程。</p>
+<p>&emsp;&emsp;由每个阶段的决策组成的序列称为策略。对于每一个实际的多阶段决策过程，可供选取的策略有一定的范围限制，这个范围称为允许策略集合。允许策略集合中达到最优效果的策略称为最优策略。</p>
+<p>&emsp;&emsp;最优化原理:作为整个过程的最优策略，它满足：相对前面决策所形成的状态而言，余下的子策略必然构成“最优子策略”。一个问题满足最优化原理也称其拥有最优子结构性质。最优性原理实际上是要求问题的最优策略的子策略也是最优。</p>
+<h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>&emsp;&emsp;综合前面的概念，如果我们把动态规划求解问题的过程比作工厂的生产线，那么阶段就是生产某个商品的不同环节，状态就是工件当前的状态，决策就是对工件进行的操作。之前对工件进行的操作只是在当时起效，我们可以在后面的过程中对它进行进一步的加工。不同阶段是对前面产品的一个小小的总结，由一个个过程，最终构成了最终的生产线。</p>
+<p>&emsp;&emsp;一个状态经过一个决策变成了另外的一个状态，这个过程就是状态转移。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;动态规划是运筹学的一个分支，是求解决策过程最优化的数学方法。它将多阶段过程转化为一系列单阶段问题，利
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【ACM教程】5.2图的存储方式</title>
     <link href="http://www.z16388.win/2017/03/06/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-2%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/"/>
     <id>http://www.z16388.win/2017/03/06/【ACM教程】5-2图的存储方式/</id>
     <published>2017-03-06T11:03:14.000Z</published>
-    <updated>2017-03-06T11:37:39.000Z</updated>
+    <updated>2017-03-06T12:05:30.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p>&emsp;&emsp;我们在第三章对数据结构的简单了解中学习了，图和树可以使用链表来进行存储。参考<a href="http://www.z16388.win/2016/11/16/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-6%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89%E6%A0%91%E3%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E5%9B%BE/">第六节 数据结构基础（2）树、二叉树和图</a>。虽然链表能够很方便地，在逻辑上对图进行定义和运算，但是我们知道，在比赛中我们的时间是有限的。如果花大量的时间去构建一个模型，然后针对这个模型的各种运算进行编写会耗费大量的时间。这个时候，我们就需要一个简单的数学模型，来处理这些数据。</p>
 <h2 id="图的矩阵表示"><a href="#图的矩阵表示" class="headerlink" title="图的矩阵表示"></a>图的矩阵表示</h2><p>&emsp;&emsp;在数学上，我们经常用矩阵来表示一个图。我们知道，图是由它们的顶点和他们之间的邻接关系来唯一确定的。这个时候我们只需要两个矩阵，一个用来存放他们的定点，另一个来存放他们之间的关系。</p>
@@ -227,7 +268,7 @@
     <link href="http://www.z16388.win/2017/01/18/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-7%E6%8E%92%E5%BA%8F%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://www.z16388.win/2017/01/18/【ACM教程】3-7排序（一）/</id>
     <published>2017-01-18T03:25:23.000Z</published>
-    <updated>2017-02-18T12:32:36.000Z</updated>
+    <updated>2017-03-07T11:22:05.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第七节-排序（一）"><a href="#第七节-排序（一）" class="headerlink" title="第七节 排序（一）"></a>第七节 排序（一）</h1><p>&emsp;&emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数据进行排序的时候，我们可能需要花费很多的时间和资源。因此，优化排序算法是我们在优化程序中的一个重要步骤。在我们前面的学习中，我们已经接触到了C++的STL中<code>sort()</code>函数。那么，在无法使用STL的情况或者是需要一些特殊的要求的排序，我们就需要对排序算法进行手撸。因此，掌握各种常见的排序方法极为重要。接下来，我们将会从冒泡排序开始，系统地对常见的排序算法进行练习。</p>
 <h2 id="冒泡排序（Bubble-Sort）"><a href="#冒泡排序（Bubble-Sort）" class="headerlink" title="冒泡排序（Bubble Sort）"></a>冒泡排序（Bubble Sort）</h2><p>&emsp;&emsp;我们早在学习C语言的时候，就已经接触到这种排序方法了，是一种非常简便的排序方法。我们依次比较相邻的两个元素，以达到排序的目的。冒泡排序的运作方式如下：</p>
@@ -257,6 +298,9 @@
 <p>注意：只填写缺少的内容，不要书写任何题面已有代码或说明性文字。</p>
 </blockquote>
 <p>&emsp;&emsp;这里的答案是<code>swap(a,p,j)</code>，我们就以上面的例子来简单地描述一下快速排序。首先我们看，这个程序中有四个函数，<code>swap()</code>函数实现的是值交换，<code>main()</code>是声明了一个数组，然后对他进行快速排序然后打印出来，我们就不多说了。现在我们来看一下<code>quicksort</code>这个函数。这个函数就是用来实现我们在前面描述过的“分别对两个子区间进行快速排序”这个过程，也比较简单。比较让人头疼就是要我们填空的这个<code>partition()</code>函数。</p>
+<p>&emsp;&emsp;下面就让我们来回忆一下快速排序的方法。快速排序就是找一个标尺（一般是一段序列的第一个），比他大的放在他左边，比他小的放在他右边。那么程序上是怎么实现的呢？</p>
+<p>&emsp;&emsp;我们需要在程序中定义两个指针，分别从序列的两端出发，左侧的指针向右寻找比标尺大的数据，右侧的指针向左寻找比标尺小的数据，但是在实现上，有两种方法。第一种：先从右侧出发，找到第一个比标尺小的数据，将其和标尺交换位置。然后从左侧出发，找到第一个比标尺大的数据，交换位置，直到两标尺相遇。但是这种方法会频繁地使用赋值操作，那么还有一种改进思路：我们让标尺在a[0]的位置不动，将a[1]作为左侧指针的出发点。两指针分别从左右出发，找到相应的数据之后对两个数据交换位置，直到两个指针相遇。之后再把标尺放在正确的位置上，完成排序。而这个正确的位置呢，就是两指针相遇的位置。</p>
+<p>&emsp;&emsp;在<code>partition()</code>函数中，有三个参数，第一个参数i,j,x。i作为low指针，j作为high指针，而x即是标尺。我们看在函数中，i初始化为标尺的位置后，在下面的while循环里，使用的是++i。这就保证了标尺是不移动的，也就是说这个程序使用的是第二种思路。仔细阅读代码，我们可以发现，函数中缺少的正是最后一步——将标尺移动到正确的位置。所以需要补填的代码是<code>swap(a,p,j)</code>。</p>
 ]]></content>
     
     <summary type="html">
@@ -323,9 +367,9 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
     
   </entry>
   
@@ -350,9 +394,9 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
     
   </entry>
   
@@ -837,41 +881,9 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
     
-  </entry>
-  
-  <entry>
-    <title>hdu1089-1096输入输出练习答案</title>
-    <link href="http://www.z16388.win/2016/10/28/1089-1096%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%BB%83%E4%B9%A0/"/>
-    <id>http://www.z16388.win/2016/10/28/1089-1096输入输出练习/</id>
-    <published>2016-10-28T11:40:22.000Z</published>
-    <updated>2016-10-30T14:35:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;这是ACM基本的输入输出练习，答案如下：</p>
-<p>hdu1089<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a,b;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b)!=EOF) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>hdu1090<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a,b,n;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">    <span class="keyword">while</span>(n--) &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>hdu1091<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a,b;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b)&amp;&amp;(a||b)) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>hdu1092<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)&amp;&amp;n) &#123;</div><div class="line">        <span class="keyword">int</span> s=<span class="number">0</span>,b,i;</div><div class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;b);</div><div class="line">                s+=b;</div><div class="line">        &#125;        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,s);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>hdu1093<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">    <span class="keyword">while</span>(n--) &#123;</div><div class="line">        <span class="keyword">int</span> a,b,i,s=<span class="number">0</span>;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</div><div class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=a;i++) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;b);</div><div class="line">            s+=b;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,s);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>hdu1094<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)!=EOF) &#123;</div><div class="line">        <span class="keyword">int</span> s=<span class="number">0</span>,b,i;</div><div class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;b);</div><div class="line">            s+=b;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,s);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>hdu1095<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a,b;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b)!=EOF) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n\n"</span>,a+b);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>hdu1096<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">    <span class="keyword">while</span>(n--) &#123;</div><div class="line">        <span class="keyword">int</span> a,b,i,s=<span class="number">0</span>;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</div><div class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=a;i++) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;b);</div><div class="line">            s+=b;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,s);</div><div class="line">        <span class="keyword">if</span>(n!=<span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;这是ACM基本的输入输出练习，答案如下：&lt;/p&gt;
-&lt;p&gt;hdu1089&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/
-    
-    </summary>
-    
-    
       <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
     
   </entry>
   
