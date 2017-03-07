@@ -10,21 +10,21 @@
   
   
   <meta name="keywords" content="ACM,算法,ACM教程">
-  <meta name="description" content="&amp;emsp;&amp;emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。
-图论的历史&amp;emsp;&amp;emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名的一个数学问题，即哥尼">
+  <meta name="description" content="第一节 图论的基本概念&amp;emsp;&amp;emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。
+图论的历史&amp;emsp;&amp;emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【ACM教程】5.1图论的基本概念">
 <meta property="og:url" content="http://www.z16388.win/2017/03/06/【ACM教程】5-1图论的基本概念/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。
-图论的历史&amp;emsp;&amp;emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名的一个数学问题，即哥尼">
+<meta property="og:description" content="第一节 图论的基本概念&amp;emsp;&amp;emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。
+图论的历史&amp;emsp;&amp;emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201303/16/1363441203_6349.jpg">
 <meta property="og:image" content="http://amuseum.cdstm.cn/AMuseum/math/images/c/7_brige_2.jpg">
-<meta property="og:updated_time" content="2017-03-06T11:05:37.000Z">
+<meta property="og:updated_time" content="2017-03-07T12:11:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【ACM教程】5.1图论的基本概念">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。
-图论的历史&amp;emsp;&amp;emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名的一个数学问题，即哥尼">
+<meta name="twitter:description" content="第一节 图论的基本概念&amp;emsp;&amp;emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。
+图论的历史&amp;emsp;&amp;emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名">
 <meta name="twitter:image" content="http://img.my.csdn.net/uploads/201303/16/1363441203_6349.jpg">
   
     <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
@@ -217,7 +217,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图论的历史"><span class="post-toc-text">图论的历史</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图论简介"><span class="post-toc-text">图论简介</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第一节-图论的基本概念"><span class="post-toc-text">第一节 图论的基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图论的历史"><span class="post-toc-text">图论的历史</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图论简介"><span class="post-toc-text">图论简介</span></a></li></ol></li></ol>
             </nav>
             
         </aside>
@@ -225,7 +225,7 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>&emsp;&emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。</p>
+            <h1 id="第一节-图论的基本概念"><a href="#第一节-图论的基本概念" class="headerlink" title="第一节 图论的基本概念"></a>第一节 图论的基本概念</h1><p>&emsp;&emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。</p>
 <h2 id="图论的历史"><a href="#图论的历史" class="headerlink" title="图论的历史"></a>图论的历史</h2><p>&emsp;&emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名的一个数学问题，即哥尼斯堡七桥问题，从而使他成为了图论的创始人。</p>
 <p>&emsp;&emsp;七桥问题呢，就是在一个城市的中间，有一条河，河中有两个小岛。在两岸和小岛之间呢，有七座桥。我们需要找到一个路径，使得我们从这四块陆地的其中一个开始，通过每一座桥，并恰好回到起点。</p>
 <p><img src="http://img.my.csdn.net/uploads/201303/16/1363441203_6349.jpg" alt=""></p>

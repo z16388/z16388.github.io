@@ -10,22 +10,22 @@
   
   
   <meta name="keywords" content="ACM,算法,ACM教程">
-  <meta name="description" content="&amp;emsp;&amp;emsp;今天看群里有同学说：“看dalao的博客，今天晚上估计要讲C++框架了”，这我能忍？让你们猜到了，我该多没面子啊。所以呢，今天我就把教程改了一下，顺便更好地串联后面的内容。
+  <meta name="description" content="第二节 从排序开始&amp;emsp;&amp;emsp;今天看群里有同学说：“看dalao的博客，今天晚上估计要讲C++框架了”，这我能忍？让你们猜到了，我该多没面子啊。所以呢，今天我就把教程改了一下，顺便更好地串联后面的内容。
 &amp;emsp;&amp;emsp;如题，我们今天要讲的是排序，排序是写程序中，比较重要的一个部分，以后也会专门做一个章节去讲，今天只涉及一些简单的排序方法。
-这他喵叫排序？——桶排序&amp;emsp;&amp;emsp;一直讲">
+这他喵叫排序？——桶排序&amp;emsp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【ACM教程】2.2从排序开始">
 <meta property="og:url" content="http://www.z16388.win/2016/10/28/【ACM教程】2-2从排序开始/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;今天看群里有同学说：“看dalao的博客，今天晚上估计要讲C++框架了”，这我能忍？让你们猜到了，我该多没面子啊。所以呢，今天我就把教程改了一下，顺便更好地串联后面的内容。
+<meta property="og:description" content="第二节 从排序开始&amp;emsp;&amp;emsp;今天看群里有同学说：“看dalao的博客，今天晚上估计要讲C++框架了”，这我能忍？让你们猜到了，我该多没面子啊。所以呢，今天我就把教程改了一下，顺便更好地串联后面的内容。
 &amp;emsp;&amp;emsp;如题，我们今天要讲的是排序，排序是写程序中，比较重要的一个部分，以后也会专门做一个章节去讲，今天只涉及一些简单的排序方法。
-这他喵叫排序？——桶排序&amp;emsp;&amp;emsp;一直讲">
-<meta property="og:updated_time" content="2016-10-31T10:40:54.000Z">
+这他喵叫排序？——桶排序&amp;emsp;">
+<meta property="og:updated_time" content="2017-03-07T12:07:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【ACM教程】2.2从排序开始">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;今天看群里有同学说：“看dalao的博客，今天晚上估计要讲C++框架了”，这我能忍？让你们猜到了，我该多没面子啊。所以呢，今天我就把教程改了一下，顺便更好地串联后面的内容。
+<meta name="twitter:description" content="第二节 从排序开始&amp;emsp;&amp;emsp;今天看群里有同学说：“看dalao的博客，今天晚上估计要讲C++框架了”，这我能忍？让你们猜到了，我该多没面子啊。所以呢，今天我就把教程改了一下，顺便更好地串联后面的内容。
 &amp;emsp;&amp;emsp;如题，我们今天要讲的是排序，排序是写程序中，比较重要的一个部分，以后也会专门做一个章节去讲，今天只涉及一些简单的排序方法。
-这他喵叫排序？——桶排序&amp;emsp;&amp;emsp;一直讲">
+这他喵叫排序？——桶排序&amp;emsp;">
   
     <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
   
@@ -217,7 +217,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#这他喵叫排序？——桶排序"><span class="post-toc-text">这他喵叫排序？——桶排序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基础中的基础，“牛奶杯”排序"><span class="post-toc-text">基础中的基础，“牛奶杯”排序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-，带带我（利用C-的STL函数排序）"><span class="post-toc-text">C++，带带我（利用C++的STL函数排序）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#初始化"><span class="post-toc-text">初始化</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第二节-从排序开始"><span class="post-toc-text">第二节 从排序开始</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#这他喵叫排序？——桶排序"><span class="post-toc-text">这他喵叫排序？——桶排序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基础中的基础，“牛奶杯”排序"><span class="post-toc-text">基础中的基础，“牛奶杯”排序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-，带带我（利用C-的STL函数排序）"><span class="post-toc-text">C++，带带我（利用C++的STL函数排序）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#初始化"><span class="post-toc-text">初始化</span></a></li></ol></li></ol>
             </nav>
             
         </aside>
@@ -225,7 +225,7 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>&emsp;&emsp;今天看群里有同学说：“看dalao的博客，今天晚上估计要讲C++框架了”，这我能忍？让你们猜到了，我该多没面子啊。所以呢，今天我就把教程改了一下，顺便更好地串联后面的内容。</p>
+            <h1 id="第二节-从排序开始"><a href="#第二节-从排序开始" class="headerlink" title="第二节 从排序开始"></a>第二节 从排序开始</h1><p>&emsp;&emsp;今天看群里有同学说：“看dalao的博客，今天晚上估计要讲C++框架了”，这我能忍？让你们猜到了，我该多没面子啊。所以呢，今天我就把教程改了一下，顺便更好地串联后面的内容。</p>
 <p>&emsp;&emsp;如题，我们今天要讲的是排序，排序是写程序中，比较重要的一个部分，以后也会专门做一个章节去讲，今天只涉及一些简单的排序方法。</p>
 <h2 id="这他喵叫排序？——桶排序"><a href="#这他喵叫排序？——桶排序" class="headerlink" title="这他喵叫排序？——桶排序"></a>这他喵叫排序？——桶排序</h2><p>&emsp;&emsp;一直讲排序，可能会有些枯燥，我们先来点好玩的。</p>
 <p>&emsp;&emsp;桶排序是最简单的排序算法，思路也是最奇葩的，奇葩到我都不想把它算作排序。那么它具体是怎么来的呢，我们来看下面一个题目：</p>
