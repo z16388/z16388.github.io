@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2017-03-07T12:11:42.000Z</updated>
+  <updated>2017-03-07T12:34:49.000Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -16,17 +16,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【ACM教程】4-2子序列问题</title>
+    <title>【ACM教程】4.2子序列问题</title>
     <link href="http://www.z16388.win/2017/03/07/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%914-2%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/"/>
     <id>http://www.z16388.win/2017/03/07/【ACM教程】4-2子序列问题/</id>
     <published>2017-03-07T12:04:26.000Z</published>
-    <updated>2017-03-07T12:11:42.000Z</updated>
+    <updated>2017-03-07T12:34:49.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="第二节-子序列问题"><a href="#第二节-子序列问题" class="headerlink" title="第二节 子序列问题"></a>第二节 子序列问题</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="第二节-子序列问题"><a href="#第二节-子序列问题" class="headerlink" title="第二节 子序列问题"></a>第二节 子序列问题</h1><p>&emsp;&emsp;在了解了动态规划的基本知识之后，我们来看一个比较简单的模型，子序列问题。这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。</p>
+<h2 id="模型抽象"><a href="#模型抽象" class="headerlink" title="模型抽象"></a>模型抽象</h2><p>&emsp;&emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：</p>
+<blockquote>
+<ul>
+<li>最长非降子序列问题：在一个无序序列a^1,a^2,…,a^n中，找到一个最长的子序列满足：</li>
+</ul>
+<ol>
+<li>&emsp;a^i&lt;=a^j&lt;=…&lt;=a^m</li>
+<li>&emsp;i&lt;j&lt;…&lt;m</li>
+</ol>
+<ul>
+<li>最长下降子序列问题：在一个无序序列a^1,a^2,…,a^n中，找到一个最长的子序列满足：</li>
+</ul>
+<ol>
+<li>a^i&gt;a^j&gt;…&gt;a^m</li>
+<li>i&gt;j&gt;…&gt;m</li>
+</ol>
+</blockquote>
+]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;第二节-子序列问题&quot;&gt;&lt;a href=&quot;#第二节-子序列问题&quot; class=&quot;headerlink&quot; title=&quot;第二节 子序列问题&quot;&gt;&lt;/a&gt;第二节 子序列问题&lt;/h1&gt;
+      &lt;h1 id=&quot;第二节-子序列问题&quot;&gt;&lt;a href=&quot;#第二节-子序列问题&quot; class=&quot;headerlink&quot; title=&quot;第二节 子序列问题&quot;&gt;&lt;/a&gt;第二节 子序列问题&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;在了解了动态规划的基本知识之后，我们来看一个比较简单的模型，
     
     </summary>
     

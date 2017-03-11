@@ -3,23 +3,35 @@
 <head>
   <meta charset="utf-8">
   
-  <title>【ACM教程】4-2子序列问题 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+  <title>【ACM教程】4.2子序列问题 | 崎径 其镜 | 求学道路上的行车记录仪</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
   <meta name="keywords" content="ACM,算法,ACM教程,动态规划">
-  <meta name="description" content="第二节 子序列问题">
+  <meta name="description" content="第二节 子序列问题&amp;emsp;&amp;emsp;在了解了动态规划的基本知识之后，我们来看一个比较简单的模型，子序列问题。这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。
+模型抽象&amp;emsp;&amp;emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：
+
+
+最长非降子序列问题：在一个无序序列a^1,a^2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【ACM教程】4-2子序列问题">
+<meta property="og:title" content="【ACM教程】4.2子序列问题">
 <meta property="og:url" content="http://www.z16388.win/2017/03/07/【ACM教程】4-2子序列问题/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content="第二节 子序列问题">
-<meta property="og:updated_time" content="2017-03-07T12:11:42.000Z">
+<meta property="og:description" content="第二节 子序列问题&amp;emsp;&amp;emsp;在了解了动态规划的基本知识之后，我们来看一个比较简单的模型，子序列问题。这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。
+模型抽象&amp;emsp;&amp;emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：
+
+
+最长非降子序列问题：在一个无序序列a^1,a^2">
+<meta property="og:updated_time" content="2017-03-07T12:34:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【ACM教程】4-2子序列问题">
-<meta name="twitter:description" content="第二节 子序列问题">
+<meta name="twitter:title" content="【ACM教程】4.2子序列问题">
+<meta name="twitter:description" content="第二节 子序列问题&amp;emsp;&amp;emsp;在了解了动态规划的基本知识之后，我们来看一个比较简单的模型，子序列问题。这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。
+模型抽象&amp;emsp;&amp;emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：
+
+
+最长非降子序列问题：在一个无序序列a^1,a^2">
   
     <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
   
@@ -116,7 +128,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">【ACM教程】4-2子序列问题</div>
+        <div class="flex-col header-title ellipsis">【ACM教程】4.2子序列问题</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -146,7 +158,7 @@
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">【ACM教程】4-2子序列问题</h1>
+    <h1 class="author">【ACM教程】4.2子序列问题</h1>
     <h5 class="subtitle">
         
             <time datetime="2017-03-07T12:04:26.000Z" itemprop="datePublished" class="page-time">
@@ -211,7 +223,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第二节-子序列问题"><span class="post-toc-text">第二节 子序列问题</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第二节-子序列问题"><span class="post-toc-text">第二节 子序列问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模型抽象"><span class="post-toc-text">模型抽象</span></a></li></ol></li></ol>
             </nav>
             
         </aside>
@@ -219,7 +231,25 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="第二节-子序列问题"><a href="#第二节-子序列问题" class="headerlink" title="第二节 子序列问题"></a>第二节 子序列问题</h1>
+            <h1 id="第二节-子序列问题"><a href="#第二节-子序列问题" class="headerlink" title="第二节 子序列问题"></a>第二节 子序列问题</h1><p>&emsp;&emsp;在了解了动态规划的基本知识之后，我们来看一个比较简单的模型，子序列问题。这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。</p>
+<h2 id="模型抽象"><a href="#模型抽象" class="headerlink" title="模型抽象"></a>模型抽象</h2><p>&emsp;&emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：</p>
+<blockquote>
+<ul>
+<li>最长非降子序列问题：在一个无序序列a^1,a^2,…,a^n中，找到一个最长的子序列满足：</li>
+</ul>
+<ol>
+<li>&emsp;a^i&lt;=a^j&lt;=…&lt;=a^m</li>
+<li>&emsp;i&lt;j&lt;…&lt;m</li>
+</ol>
+<ul>
+<li>最长下降子序列问题：在一个无序序列a^1,a^2,…,a^n中，找到一个最长的子序列满足：</li>
+</ul>
+<ol>
+<li>a^i&gt;a^j&gt;…&gt;a^m</li>
+<li>i&gt;j&gt;…&gt;m</li>
+</ol>
+</blockquote>
+
             <blockquote>
                 <p>
                 本文地址：
@@ -247,7 +277,7 @@
             
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="【ACM教程】4-2子序列问题" data-title="【ACM教程】4-2子序列问题" data-url="http://www.z16388.win/2017/03/07/【ACM教程】4-2子序列问题/index.html"></div>
+	<div class="ds-thread" data-thread-key="【ACM教程】4-2子序列问题" data-title="【ACM教程】4.2子序列问题" data-url="http://www.z16388.win/2017/03/07/【ACM教程】4-2子序列问题/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -278,7 +308,7 @@
 
 <script>
 var BLOG_SHARE = {
-    title: "【ACM教程】4-2子序列问题",
+    title: "【ACM教程】4.2子序列问题",
     pic: "/img/logo.jpg",
     summary: document.getElementsByName('summary')[0].content,
     url: "http://www.z16388.win/2017/03/07/【ACM教程】4-2子序列问题/index.html"
