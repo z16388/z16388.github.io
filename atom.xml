@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2017-03-07T12:34:49.000Z</updated>
+  <updated>2017-03-14T14:03:22.000Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -16,35 +16,72 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【ACM教程】4.2子序列问题</title>
-    <link href="http://www.z16388.win/2017/03/07/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%914-2%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/"/>
-    <id>http://www.z16388.win/2017/03/07/【ACM教程】4-2子序列问题/</id>
-    <published>2017-03-07T12:04:26.000Z</published>
-    <updated>2017-03-07T12:34:49.000Z</updated>
+    <title>【ACM教程】4.2动态规划初体验</title>
+    <link href="http://www.z16388.win/2017/03/14/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%914-2%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%9D%E4%BD%93%E9%AA%8C/"/>
+    <id>http://www.z16388.win/2017/03/14/【ACM教程】4-2动态规划初体验/</id>
+    <published>2017-03-14T12:42:34.000Z</published>
+    <updated>2017-03-14T14:03:22.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="第二节-子序列问题"><a href="#第二节-子序列问题" class="headerlink" title="第二节 子序列问题"></a>第二节 子序列问题</h1><p>&emsp;&emsp;在了解了动态规划的基本知识之后，我们来看一个比较简单的模型，子序列问题。这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。</p>
-<h2 id="模型抽象"><a href="#模型抽象" class="headerlink" title="模型抽象"></a>模型抽象</h2><p>&emsp;&emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：</p>
-<blockquote>
-<ul>
-<li>最长非降子序列问题：在一个无序序列a^1,a^2,…,a^n中，找到一个最长的子序列满足：</li>
-</ul>
-<ol>
-<li>&emsp;a^i&lt;=a^j&lt;=…&lt;=a^m</li>
-<li>&emsp;i&lt;j&lt;…&lt;m</li>
-</ol>
-<ul>
-<li>最长下降子序列问题：在一个无序序列a^1,a^2,…,a^n中，找到一个最长的子序列满足：</li>
-</ul>
-<ol>
-<li>a^i&gt;a^j&gt;…&gt;a^m</li>
-<li>i&gt;j&gt;…&gt;m</li>
-</ol>
-</blockquote>
+    <content type="html"><![CDATA[<h1 id="第二节-动态规划初体验"><a href="#第二节-动态规划初体验" class="headerlink" title="第二节 动态规划初体验"></a>第二节 动态规划初体验</h1><p>&emsp;&emsp;在完成了动态规划概念的理解之后，我们来拿一道简单的题目理解一下问题的解决过程。</p>
+<p>&emsp;&emsp;斐波那契数列F(n)。当n=1、2时，F(2)=F(1)=1;其他情况F(n)=F(n-1)+F(n-2)。我们发现，这是一个递归的过程，根据前面所学知识，不难写程序：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">F</span><span class="params">(<span class="keyword">int</span> n)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(n&lt;<span class="number">3</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> F(n<span class="number">-2</span>)+F(n<span class="number">-1</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,F(<span class="number">1</span>));</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">" %d"</span>,F(i));</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;但是，如果把这道题用在一道题目里，可能会造成超时。因为我们在每次运算中，都要把之前的所有情况都要再计算一遍，这会造成很多浪费。如果我们把每次运算的结果存放在数组里，那么在计算F(n)时，我们只需要在存放的结果中把需要的找出来，进行计算，在存进去。下面是改进的函数F：(假设n&lt;=1000)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 1010</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> A[N];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">F</span><span class="params">(<span class="keyword">int</span> n)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(n&lt;<span class="number">3</span>) <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    <span class="keyword">if</span>(A[n]) <span class="keyword">return</span> A[n];</div><div class="line">        <span class="keyword">else</span> <span class="keyword">return</span> A[n]=F(n<span class="number">-1</span>)+F(n<span class="number">-2</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">    <span class="built_in">memset</span>(A,<span class="number">0</span>,<span class="keyword">sizeof</span>(A));</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,F(<span class="number">1</span>));</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">" %d"</span>,F(i));</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;当状态转移方程太过于复杂的时候，我们可以使用打表的方法——把所有的可能计算一遍，存在数组里。根据输入直接给出结果，实现方法如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 1010</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> A[N];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">F</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    A[<span class="number">1</span>]=<span class="number">1</span>;</div><div class="line">    A[<span class="number">2</span>]=<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=<span class="number">1000</span>;i++) &#123;</div><div class="line">        A[i]=A[i<span class="number">-2</span>]+A[i<span class="number">-1</span>];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">    <span class="built_in">memset</span>(A,<span class="number">0</span>,<span class="keyword">sizeof</span>(A));</div><div class="line">    F();</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,A[<span class="number">1</span>]);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">" %d"</span>,A[i]);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这是动态规划中的枚举法，比较暴力。水题可以尝试使用这种方法去做，但是比赛的时候，oj系统会有防止打表的机制。因此，这种方法最好不要去使用。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;第二节-子序列问题&quot;&gt;&lt;a href=&quot;#第二节-子序列问题&quot; class=&quot;headerlink&quot; title=&quot;第二节 子序列问题&quot;&gt;&lt;/a&gt;第二节 子序列问题&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;在了解了动态规划的基本知识之后，我们来看一个比较简单的模型，
+      &lt;h1 id=&quot;第二节-动态规划初体验&quot;&gt;&lt;a href=&quot;#第二节-动态规划初体验&quot; class=&quot;headerlink&quot; title=&quot;第二节 动态规划初体验&quot;&gt;&lt;/a&gt;第二节 动态规划初体验&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;在完成了动态规划概念的理解之后，我们来拿一道
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="动态规划" scheme="http://www.z16388.win/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【ACM教程】4.3下降/非降子序列问题</title>
+    <link href="http://www.z16388.win/2017/03/07/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%914-3%E4%B8%8B%E9%99%8D:%E9%9D%9E%E9%99%8D%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/"/>
+    <id>http://www.z16388.win/2017/03/07/【ACM教程】4-3下降:非降子序列问题/</id>
+    <published>2017-03-07T12:04:26.000Z</published>
+    <updated>2017-03-14T12:41:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第三节-下降-非降子序列问题"><a href="#第三节-下降-非降子序列问题" class="headerlink" title="第三节 下降/非降子序列问题"></a>第三节 下降/非降子序列问题</h1><p>&emsp;&emsp;这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。</p>
+<h2 id="模型抽象"><a href="#模型抽象" class="headerlink" title="模型抽象"></a>模型抽象</h2><p>&emsp;&emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：</p>
+<blockquote>
+<ul>
+<li>最长非降子序列问题：在一个无序序列a[1],a[2],…,a[n]中，找到一个最长的子序列满足：</li>
+</ul>
+<ol>
+<li>&emsp;a[i]&lt;=a[j]&lt;=…&lt;=a[m]</li>
+<li>&emsp;i&lt;j&lt;…&lt;m</li>
+</ol>
+<ul>
+<li>最长下降子序列问题：在一个无序序列a[1],a[2],…,a[n]中，找到一个最长的子序列满足：</li>
+</ul>
+<ol>
+<li>a[i]&gt;a[j]&gt;…&gt;a[m]</li>
+<li>i&gt;j&gt;…&gt;m</li>
+</ol>
+</blockquote>
+<p>&emsp;&emsp;我们从动态规划的三要素入手，来分析这种问题是否能使用动态规划来解决：如果要找到一个长度为k的子序列，那么我们需要一个长度为k-1的满足条件的的序列，再判断第k个元素是否满足条件，这显然满足最优子结构。在考虑第i个元素时，只需要看前面的i-1个，满足无后效性。因此这类题目可以使用动态规划来解决。</p>
+<p>&emsp;&emsp;下面我们来做一道经典的题目：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=1257" target="_blank" rel="external">hdu1257：最少拦截系统</a></p>
+<p>&emsp;&emsp;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第三节-下降-非降子序列问题&quot;&gt;&lt;a href=&quot;#第三节-下降-非降子序列问题&quot; class=&quot;headerlink&quot; title=&quot;第三节 下降/非降子序列问题&quot;&gt;&lt;/a&gt;第三节 下降/非降子序列问题&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;这种题目在ACM竞赛
     
     </summary>
     
@@ -849,53 +886,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;求素数&quot;&gt;&lt;a href=&quot;#求素数&quot; class=&quot;headerlink&quot; title=&quot;求素数&quot;&gt;&lt;/a&gt;求素数&lt;/h3&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】2.4编程细节</title>
-    <link href="http://www.z16388.win/2016/10/30/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-4%E7%BC%96%E7%A8%8B%E7%BB%86%E8%8A%82/"/>
-    <id>http://www.z16388.win/2016/10/30/【ACM教程】2-4编程细节/</id>
-    <published>2016-10-30T14:39:21.000Z</published>
-    <updated>2017-03-07T12:08:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第四节-编程细节"><a href="#第四节-编程细节" class="headerlink" title="第四节 编程细节"></a>第四节 编程细节</h1><blockquote>
-<p>细节决定成败，态度决定一切。</p>
-</blockquote>
-<p>&emsp;&emsp;在我们程序编写的过程中，有一些细节我们需要注意，这对你以后的代码质量都会有很大的影响。下面，我会介绍一些常见的细节。</p>
-<h2 id="合理的缩进"><a href="#合理的缩进" class="headerlink" title="合理的缩进"></a>合理的缩进</h2><p>&emsp;&emsp;虽然编译器会忽略代码中一切空格和换行，但是一段乱奇葩早的缩进的代码真的是能逼死强迫症的。</p>
-<p>&emsp;&emsp;常见的缩进方式是使用Tab键，默认4个空格。相同等级的语句不缩进，次级语句需要缩进，比如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)</div><div class="line">	sum+=i;</div><div class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;在上面的代码中，我们看到循环体是累加计算，属于循环语句的次级语句，所以应当缩进。而输出是和循环同一等级的，所以要和for循环对齐。</p>
-<p>&emsp;&emsp;除此之外，大括号的缩进也很重要，这一点在下面会介绍。</p>
-<h2 id="统一的大括号"><a href="#统一的大括号" class="headerlink" title="统一的大括号"></a>统一的大括号</h2><p>&emsp;&emsp;大括号也是决定一个程序是否整齐的关键，我们常用以下两种方法：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> sum=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)</div><div class="line">	&#123;</div><div class="line">		sum+=i;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> sum=<span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++) &#123;</div><div class="line">			sum+=i;</div><div class="line">		&#125;</div><div class="line">		System.out.println(sum);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="不同类型数据之间的计算"><a href="#不同类型数据之间的计算" class="headerlink" title="不同类型数据之间的计算"></a>不同类型数据之间的计算</h2><p>&emsp;&emsp;这种情况经常出现在ACM的题目中，就比如hdu2002和hdu2009。如果是把int型数据赋值给double是没有问题的，但是如果是double数据给int，就会出现精度的损失，造成计算的失误。</p>
-<p>&emsp;&emsp;hdu2002中的分数4/3。如果直接在程序里这么写，程序会当成4整除3来计算，应当写成<code>4.0/3.0</code>。</p>
-<p>&emsp;&emsp;hdu2009题如果想要写成<code>m=sqrt(m)</code>的话，就要保证m的类型是double类型，否则在赋值时会损失精度。</p>
-<h2 id="程序的模块化"><a href="#程序的模块化" class="headerlink" title="程序的模块化"></a>程序的模块化</h2><p>&emsp;&emsp;模块化思想很重要，像C++和Java都是面向对象的编程语言，集成化程度很高。但是并不意味着我们写C就不要模块化。模块化的程序可读性高，便于修改。</p>
-<p>&emsp;&emsp;比如hdu2005，判断是否是闰年的题目。我在判断是否是闰年时，写了一个函数，功能是：如果是闰年返回1，否则返回0。</p>
-<p>&emsp;&emsp;当然不仅限于如此，假设某程序需要按照一个公式进行计算，但是后来我们突然想要改变计算过程，如果你把公式写在函数里，那么只需要修改函数就行了，避免了对主函数的修改。</p>
-<h2 id="关于数组"><a href="#关于数组" class="headerlink" title="关于数组"></a>关于数组</h2><p>&emsp;&emsp;关于数组有两点需要注意。</p>
-<p>&emsp;&emsp;首先是对下标的确定。我们知道，数组的下标和元素的序号是刚好相差1的。那么我们可以抛弃数组的第一个元素，只使用数组的第二个往后的元素，这样可以统一下标和元素序号，比如：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a[<span class="number">101</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++) &#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;再者，在申请数组大小的时候，我们可以多申请几个。有时候也可能要同时申请多组，这时候，推荐大家使用宏定义，比如：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 10010</span></div><div class="line"><span class="keyword">int</span> a[N],b[N],c[N];</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第四节-编程细节&quot;&gt;&lt;a href=&quot;#第四节-编程细节&quot; class=&quot;headerlink&quot; title=&quot;第四节 编程细节&quot;&gt;&lt;/a&gt;第四节 编程细节&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;细节决定成败，态度决定一切。&lt;/p&gt;
-&lt;/blockquote&gt;
-
     
     </summary>
     

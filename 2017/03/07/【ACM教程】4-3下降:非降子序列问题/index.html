@@ -3,44 +3,44 @@
 <head>
   <meta charset="utf-8">
   
-  <title>【游戏安利】噬神者 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+  <title>【ACM教程】4.3下降/非降子序列问题 | 崎径 其镜 | 求学道路上的行车记录仪</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
-  <meta name="keywords" content="心情,游戏,游戏安利,Steam">
-  <meta name="description" content="&amp;emsp;&amp;emsp;噬神者是我非常喜欢的游戏系列，它由日本万代南梦宫制作发行，初版在psp上，二代之后以及我要安利的狂怒解放和解放重生都是在PS4，PSV，Steam三平台都有的。
-&amp;emsp;&amp;emsp;要说玩，那玩的时间可不少，但是让我安利的话，我却不知道怎么说了。于是，我就问我的联机群里的小伙伴们，如果让他们安利，他们会怎么做。
+  <meta name="keywords" content="ACM,算法,ACM教程,动态规划">
+  <meta name="description" content="第三节 下降/非降子序列问题&amp;emsp;&amp;emsp;这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。
+模型抽象&amp;emsp;&amp;emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：
 
 
-乳摇 大枪 啪啪啪
+最长非降子序列问题：在一个无序序列a[1],a[2],…,a[n]中，找到一个最长的子序列满足：
 
-&amp;emsp;&amp;emsp;群里的月">
+
+&amp;ems">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【游戏安利】噬神者">
-<meta property="og:url" content="http://www.z16388.win/2016/09/10/【游戏安利】噬神者/index.html">
+<meta property="og:title" content="【ACM教程】4.3下降/非降子序列问题">
+<meta property="og:url" content="http://www.z16388.win/2017/03/07/【ACM教程】4-3下降:非降子序列问题/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;噬神者是我非常喜欢的游戏系列，它由日本万代南梦宫制作发行，初版在psp上，二代之后以及我要安利的狂怒解放和解放重生都是在PS4，PSV，Steam三平台都有的。
-&amp;emsp;&amp;emsp;要说玩，那玩的时间可不少，但是让我安利的话，我却不知道怎么说了。于是，我就问我的联机群里的小伙伴们，如果让他们安利，他们会怎么做。
+<meta property="og:description" content="第三节 下降/非降子序列问题&amp;emsp;&amp;emsp;这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。
+模型抽象&amp;emsp;&amp;emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：
 
 
-乳摇 大枪 啪啪啪
+最长非降子序列问题：在一个无序序列a[1],a[2],…,a[n]中，找到一个最长的子序列满足：
 
-&amp;emsp;&amp;emsp;群里的月">
-<meta property="og:image" content="http://oda2v68ht.bkt.clouddn.com/52d6887499d8d8a4954a9a04bd809ad9.jpg">
-<meta property="og:image" content="http://oda2v68ht.bkt.clouddn.com/u=3855970304,1491459108&fm=21&gp=0.jpg">
-<meta property="og:updated_time" content="2017-03-07T12:05:41.000Z">
+
+&amp;ems">
+<meta property="og:updated_time" content="2017-03-14T12:41:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【游戏安利】噬神者">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;噬神者是我非常喜欢的游戏系列，它由日本万代南梦宫制作发行，初版在psp上，二代之后以及我要安利的狂怒解放和解放重生都是在PS4，PSV，Steam三平台都有的。
-&amp;emsp;&amp;emsp;要说玩，那玩的时间可不少，但是让我安利的话，我却不知道怎么说了。于是，我就问我的联机群里的小伙伴们，如果让他们安利，他们会怎么做。
+<meta name="twitter:title" content="【ACM教程】4.3下降/非降子序列问题">
+<meta name="twitter:description" content="第三节 下降/非降子序列问题&amp;emsp;&amp;emsp;这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。
+模型抽象&amp;emsp;&amp;emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：
 
 
-乳摇 大枪 啪啪啪
+最长非降子序列问题：在一个无序序列a[1],a[2],…,a[n]中，找到一个最长的子序列满足：
 
-&amp;emsp;&amp;emsp;群里的月">
-<meta name="twitter:image" content="http://oda2v68ht.bkt.clouddn.com/52d6887499d8d8a4954a9a04bd809ad9.jpg">
+
+&amp;ems">
   
     <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
   
@@ -137,7 +137,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">【游戏安利】噬神者</div>
+        <div class="flex-col header-title ellipsis">【ACM教程】4.3下降/非降子序列问题</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -167,11 +167,11 @@
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">【游戏安利】噬神者</h1>
+    <h1 class="author">【ACM教程】4.3下降/非降子序列问题</h1>
     <h5 class="subtitle">
         
-            <time datetime="2016-09-10T00:56:37.000Z" itemprop="datePublished" class="page-time">
-  2016-09-10
+            <time datetime="2017-03-07T12:04:26.000Z" itemprop="datePublished" class="page-time">
+  2017-03-07
 </time>
 
 
@@ -181,11 +181,11 @@
 </header>
 
     <div class="container body-wrap">
-      <article id="post-【游戏安利】噬神者" 
+      <article id="post-【ACM教程】4-3下降:非降子序列问题" 
   class="article article-type-post" itemprop="blogPost">
     <div class="post-meta flex-row">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Steam/">Steam</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/心情/">心情</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游戏/">游戏</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游戏安利/">游戏安利</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM教程/">ACM教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动态规划/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </div>
     <div class="post-body">
@@ -232,7 +232,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第三节-下降-非降子序列问题"><span class="post-toc-text">第三节 下降/非降子序列问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模型抽象"><span class="post-toc-text">模型抽象</span></a></li></ol></li></ol>
             </nav>
             
         </aside>
@@ -240,32 +240,32 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>&emsp;&emsp;噬神者是我非常喜欢的游戏系列，它由日本万代南梦宫制作发行，初版在psp上，二代之后以及我要安利的狂怒解放和解放重生都是在PS4，PSV，Steam三平台都有的。</p>
-<p>&emsp;&emsp;要说玩，那玩的时间可不少，但是让我安利的话，我却不知道怎么说了。于是，我就问我的联机群里的小伙伴们，如果让他们安利，他们会怎么做。</p>
-<p><img src="http://oda2v68ht.bkt.clouddn.com/52d6887499d8d8a4954a9a04bd809ad9.jpg" alt="噬神者"></p>
+            <h1 id="第三节-下降-非降子序列问题"><a href="#第三节-下降-非降子序列问题" class="headerlink" title="第三节 下降/非降子序列问题"></a>第三节 下降/非降子序列问题</h1><p>&emsp;&emsp;这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。</p>
+<h2 id="模型抽象"><a href="#模型抽象" class="headerlink" title="模型抽象"></a>模型抽象</h2><p>&emsp;&emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：</p>
 <blockquote>
-<p>乳摇 大枪 啪啪啪</p>
+<ul>
+<li>最长非降子序列问题：在一个无序序列a[1],a[2],…,a[n]中，找到一个最长的子序列满足：</li>
+</ul>
+<ol>
+<li>&emsp;a[i]&lt;=a[j]&lt;=…&lt;=a[m]</li>
+<li>&emsp;i&lt;j&lt;…&lt;m</li>
+</ol>
+<ul>
+<li>最长下降子序列问题：在一个无序序列a[1],a[2],…,a[n]中，找到一个最长的子序列满足：</li>
+</ul>
+<ol>
+<li>a[i]&gt;a[j]&gt;…&gt;a[m]</li>
+<li>i&gt;j&gt;…&gt;m</li>
+</ol>
 </blockquote>
-<p>&emsp;&emsp;群里的月冷dalao是这么说的。</p>
-<p><img src="http://oda2v68ht.bkt.clouddn.com/u=3855970304,1491459108&amp;fm=21&amp;gp=0.jpg" alt="alisha"></p>
-<blockquote>
-<p>mh式的操作，精美的人设，未来风，武器多且酷炫，各种大触的子弹，alisa</p>
-</blockquote>
-<p>&emsp;&emsp;群里的英灵Archer是这么说的。</p>
-<p>&emsp;&emsp;嘛~这里顺便说一下，噬神者Steam联机群：</p>
-<blockquote>
-<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;533840872</p>
-</blockquote>
-<p>&emsp;&emsp;但是，其实让我来说的话，作为一个动漫风格，剧情很好的共斗游戏，和朋友在一起联机的体验是最好的。当劳累了一天，和朋友们在游戏里用子弹对♂轰时，仿佛一天的压力都没了。</p>
-<p>&emsp;&emsp;嘛~总之，我安利一个人也是马马虎虎的。拉他进群，下午就买游戏了。。。</p>
-<p>&emsp;&emsp;还是放一个宣传片吧，官方的安利还是更可靠点的呢2333。</p>
-<embed height="452" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://share.acg.tv/flash.swf" flashvars="aid=5574173&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">
-
-
+<p>&emsp;&emsp;我们从动态规划的三要素入手，来分析这种问题是否能使用动态规划来解决：如果要找到一个长度为k的子序列，那么我们需要一个长度为k-1的满足条件的的序列，再判断第k个元素是否满足条件，这显然满足最优子结构。在考虑第i个元素时，只需要看前面的i-1个，满足无后效性。因此这类题目可以使用动态规划来解决。</p>
+<p>&emsp;&emsp;下面我们来做一道经典的题目：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=1257" target="_blank" rel="external">hdu1257：最少拦截系统</a></p>
+<p>&emsp;&emsp;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
             <blockquote>
                 <p>
                 本文地址：
-                <a href="http://www.z16388.win/2016/09/10/【游戏安利】噬神者/" target="_blank" rel="external">http://www.z16388.win/2016/09/10/【游戏安利】噬神者/</a>
+                <a href="http://www.z16388.win/2017/03/07/【ACM教程】4-3下降:非降子序列问题/" target="_blank" rel="external">http://www.z16388.win/2017/03/07/【ACM教程】4-3下降:非降子序列问题/</a>
                 </p>
                 <footer><cite><a href="http://www.z16388.win">@崎径 其镜</a></cite></footer>
             </blockquote>
@@ -274,18 +274,18 @@
 <nav class="post-nav">
   
     <div class="waves-block waves-effect prev fl">
-      <a href="/2016/09/10/【ACM教程】3-2递归/" id="post-prev" class="post-nav-link">
+      <a href="/2017/03/14/【ACM教程】4-2动态规划初体验/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">【ACM教程】3.2递归</h4>
+        <h4 class="title">【ACM教程】4.2动态规划初体验</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next fr">
-      <a href="/2016/09/09/给Github-Pages绑定阿里云域名/" id="post-next" class="post-nav-link">
+      <a href="/2017/03/06/【ACM教程】4-1动态规划简介/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">给Github Pages绑定阿里云域名</h4>
+        <h4 class="title">【ACM教程】4.1动态规划简介</h4>
       </a>
     </div>
   
@@ -296,7 +296,7 @@
             
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="【游戏安利】噬神者" data-title="【游戏安利】噬神者" data-url="http://www.z16388.win/2016/09/10/【游戏安利】噬神者/index.html"></div>
+	<div class="ds-thread" data-thread-key="【ACM教程】4-3下降:非降子序列问题" data-title="【ACM教程】4.3下降/非降子序列问题" data-url="http://www.z16388.win/2017/03/07/【ACM教程】4-3下降:非降子序列问题/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -327,10 +327,10 @@
 
 <script>
 var BLOG_SHARE = {
-    title: "【游戏安利】噬神者",
+    title: "【ACM教程】4.3下降/非降子序列问题",
     pic: "/img/logo.jpg",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://www.z16388.win/2016/09/10/【游戏安利】噬神者/index.html"
+    url: "http://www.z16388.win/2017/03/07/【ACM教程】4-3下降:非降子序列问题/index.html"
 };
 </script>
 <div class="global-share" id="global-share">
