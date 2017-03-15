@@ -3,25 +3,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>【ACM教程】5.2图的存储方式 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+  <title>【ACM教程】5.3单源最短路径Dijkstra算法 | 崎径 其镜 | 求学道路上的行车记录仪</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
   <meta name="keywords" content="ACM,算法,ACM教程">
-  <meta name="description" content="第二节 图的存储方式链表&amp;emsp;&amp;emsp;我们在第三章对数据结构的简单了解中学习了，图和树可以使用链表来进行存储。参考第六节 数据结构基础（2）树、二叉树和图。虽然链表能够很方便地，在逻辑上对图进行定义和运算，但是我们知道，在比赛中我们的时间是有限的。如果花大量的时间去构建一个模型，然后针对这个模型的各种运算进行编写会耗费大量的时间。这个时候，我们就需要一个简单的数学模型，来处理这些数据。">
+  <meta name="description" content="第三节 单源最短路径Dijkstra算法&amp;emsp;&amp;emsp;最短路径的问题在生活中是十分常见的。不仅仅是表面上的路程计算，网络中的数据传输什么的都能用到最短路径算法。我们在求最短路问题时，常用两种算法。Dijkstra单源最短路径算法和全源最短路径Floyd算法。首先对Dijkstra算法进行学习。
+&amp;emsp;&amp;emsp;Dijkstra算法用于计算一个点到其他所有节点的最短路径，是比较有代">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【ACM教程】5.2图的存储方式">
-<meta property="og:url" content="http://www.z16388.win/2017/03/06/【ACM教程】5-2图的存储方式/index.html">
+<meta property="og:title" content="【ACM教程】5.3单源最短路径Dijkstra算法">
+<meta property="og:url" content="http://www.z16388.win/2017/03/15/【ACM教程】5-3单源最短路径Dijkstra算法/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content="第二节 图的存储方式链表&amp;emsp;&amp;emsp;我们在第三章对数据结构的简单了解中学习了，图和树可以使用链表来进行存储。参考第六节 数据结构基础（2）树、二叉树和图。虽然链表能够很方便地，在逻辑上对图进行定义和运算，但是我们知道，在比赛中我们的时间是有限的。如果花大量的时间去构建一个模型，然后针对这个模型的各种运算进行编写会耗费大量的时间。这个时候，我们就需要一个简单的数学模型，来处理这些数据。">
-<meta property="og:image" content="http://amuseum.cdstm.cn/AMuseum/math/images/c/7_brige_2.jpg">
-<meta property="og:updated_time" content="2017-03-15T09:17:05.000Z">
+<meta property="og:description" content="第三节 单源最短路径Dijkstra算法&amp;emsp;&amp;emsp;最短路径的问题在生活中是十分常见的。不仅仅是表面上的路程计算，网络中的数据传输什么的都能用到最短路径算法。我们在求最短路问题时，常用两种算法。Dijkstra单源最短路径算法和全源最短路径Floyd算法。首先对Dijkstra算法进行学习。
+&amp;emsp;&amp;emsp;Dijkstra算法用于计算一个点到其他所有节点的最短路径，是比较有代">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489579993939&di=ac25fd27b19e70f9a1efe09cb4f23412&imgtype=0&src=http%3A%2F%2Fimages.cnblogs.com%2Fcnblogs_com%2Fnigang%2F569181%2Fo_%25E5%259B%25BE.png">
+<meta property="og:updated_time" content="2017-03-15T09:49:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【ACM教程】5.2图的存储方式">
-<meta name="twitter:description" content="第二节 图的存储方式链表&amp;emsp;&amp;emsp;我们在第三章对数据结构的简单了解中学习了，图和树可以使用链表来进行存储。参考第六节 数据结构基础（2）树、二叉树和图。虽然链表能够很方便地，在逻辑上对图进行定义和运算，但是我们知道，在比赛中我们的时间是有限的。如果花大量的时间去构建一个模型，然后针对这个模型的各种运算进行编写会耗费大量的时间。这个时候，我们就需要一个简单的数学模型，来处理这些数据。">
-<meta name="twitter:image" content="http://amuseum.cdstm.cn/AMuseum/math/images/c/7_brige_2.jpg">
+<meta name="twitter:title" content="【ACM教程】5.3单源最短路径Dijkstra算法">
+<meta name="twitter:description" content="第三节 单源最短路径Dijkstra算法&amp;emsp;&amp;emsp;最短路径的问题在生活中是十分常见的。不仅仅是表面上的路程计算，网络中的数据传输什么的都能用到最短路径算法。我们在求最短路问题时，常用两种算法。Dijkstra单源最短路径算法和全源最短路径Floyd算法。首先对Dijkstra算法进行学习。
+&amp;emsp;&amp;emsp;Dijkstra算法用于计算一个点到其他所有节点的最短路径，是比较有代">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489579993939&di=ac25fd27b19e70f9a1efe09cb4f23412&imgtype=0&src=http%3A%2F%2Fimages.cnblogs.com%2Fcnblogs_com%2Fnigang%2F569181%2Fo_%25E5%259B%25BE.png">
   
     <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
   
@@ -118,7 +121,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">【ACM教程】5.2图的存储方式</div>
+        <div class="flex-col header-title ellipsis">【ACM教程】5.3单源最短路径Dijkstra算法</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -148,11 +151,11 @@
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">【ACM教程】5.2图的存储方式</h1>
+    <h1 class="author">【ACM教程】5.3单源最短路径Dijkstra算法</h1>
     <h5 class="subtitle">
         
-            <time datetime="2017-03-06T11:03:14.000Z" itemprop="datePublished" class="page-time">
-  2017-03-06
+            <time datetime="2017-03-15T08:46:18.000Z" itemprop="datePublished" class="page-time">
+  2017-03-15
 </time>
 
 
@@ -162,7 +165,7 @@
 </header>
 
     <div class="container body-wrap">
-      <article id="post-【ACM教程】5-2图的存储方式" 
+      <article id="post-【ACM教程】5-3单源最短路径Dijkstra算法" 
   class="article article-type-post" itemprop="blogPost">
     <div class="post-meta flex-row">
         
@@ -213,7 +216,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第二节-图的存储方式"><span class="post-toc-text">第二节 图的存储方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#链表"><span class="post-toc-text">链表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图的矩阵表示"><span class="post-toc-text">图的矩阵表示</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第三节-单源最短路径Dijkstra算法"><span class="post-toc-text">第三节 单源最短路径Dijkstra算法</span></a></li></ol>
             </nav>
             
         </aside>
@@ -221,63 +224,79 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="第二节-图的存储方式"><a href="#第二节-图的存储方式" class="headerlink" title="第二节 图的存储方式"></a>第二节 图的存储方式</h1><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p>&emsp;&emsp;我们在第三章对数据结构的简单了解中学习了，图和树可以使用链表来进行存储。参考<a href="http://www.z16388.win/2016/11/16/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-6%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89%E6%A0%91%E3%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E5%9B%BE/">第六节 数据结构基础（2）树、二叉树和图</a>。虽然链表能够很方便地，在逻辑上对图进行定义和运算，但是我们知道，在比赛中我们的时间是有限的。如果花大量的时间去构建一个模型，然后针对这个模型的各种运算进行编写会耗费大量的时间。这个时候，我们就需要一个简单的数学模型，来处理这些数据。</p>
-<h2 id="图的矩阵表示"><a href="#图的矩阵表示" class="headerlink" title="图的矩阵表示"></a>图的矩阵表示</h2><p>&emsp;&emsp;在数学上，我们经常用矩阵来表示一个图。我们知道，图是由它们的顶点和他们之间的邻接关系来唯一确定的。这个时候我们只需要两个矩阵，一个用来存放他们的定点，另一个来存放他们之间的关系。</p>
-<p>&emsp;&emsp;举个例子：在上一节中，我们接触到了一个非常经典的七桥问题的图。</p>
-<p><img src="http://amuseum.cdstm.cn/AMuseum/math/images/c/7_brige_2.jpg" alt=""></p>
-<p>&emsp;&emsp;图中的三个点我们分别命名为：</p>
-<blockquote>
-<p>A<br>B &emsp;&emsp;&emsp;D<br>C</p>
-</blockquote>
-<p>&emsp;&emsp;这时，我们可以用一个矩阵V来表示这个图中的点。<code>V={A,B,C,D}</code>那怎么来表示他们之间的联系呢？我们用另一个矩阵M，如果两个点之间是相连的，我们就让m^ij=m^ji=1。如果它们之间没有联系，则m^ij=m^ji=inf。那么，<br>M=</p>
+            <h1 id="第三节-单源最短路径Dijkstra算法"><a href="#第三节-单源最短路径Dijkstra算法" class="headerlink" title="第三节 单源最短路径Dijkstra算法"></a>第三节 单源最短路径Dijkstra算法</h1><p>&emsp;&emsp;最短路径的问题在生活中是十分常见的。不仅仅是表面上的路程计算，网络中的数据传输什么的都能用到最短路径算法。我们在求最短路问题时，常用两种算法。Dijkstra单源最短路径算法和全源最短路径Floyd算法。首先对Dijkstra算法进行学习。</p>
+<p>&emsp;&emsp;Dijkstra算法用于计算一个点到其他所有节点的最短路径，是比较有代表性的最短路径算法。数学的很多学科中，都会接触到。它的思路是：把所有的顶点分为两组，一组是已经知道最短路径的，然后从未知最短路径并与之相邻的顶点中选出一个最短的放进已知组里，直到将所有的点放入已知组，找到最短路。</p>
+<p>&emsp;&emsp;举个例子，以下图为例，求A到F的最短路。</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1489579993939&amp;di=ac25fd27b19e70f9a1efe09cb4f23412&amp;imgtype=0&amp;src=http%3A%2F%2Fimages.cnblogs.com%2Fcnblogs_com%2Fnigang%2F569181%2Fo_%25E5%259B%25BE.png" alt=""></p>
+<p>&emsp;&emsp;首先，已知点是A，然后我们去找和他相邻的，距离最短的点。这时我们看到C点距离A点是3，比B的6要短，所以我们将C点放入已知集合；然后看A、C相邻的点，最短的路径是C到B，所以把B点放入已知集合。就这样一直做下去，直到将所有点放入已知点集合为止。我们将上面的过程，记录在表格里。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">A</th>
-<th style="text-align:center">B</th>
-<th style="text-align:center">C</th>
-<th style="text-align:center">D</th>
+<th style="text-align:left">步骤</th>
+<th style="text-align:center">已知点集</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>E</th>
+<th>F</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td style="text-align:left">1</td>
 <td style="text-align:center">A</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">inf</td>
-<td style="text-align:center">1</td>
+<td>6</td>
+<td>3</td>
+<td>00</td>
+<td>00</td>
+<td>00</td>
 </tr>
 <tr>
-<td style="text-align:center">B</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:center">A、C</td>
+<td>2</td>
+<td></td>
+<td>6</td>
+<td>7</td>
+<td>00</td>
 </tr>
 <tr>
-<td style="text-align:center">C</td>
-<td style="text-align:center">inf</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
+<td style="text-align:left">3</td>
+<td style="text-align:center">A、C、B</td>
+<td></td>
+<td></td>
+<td>6</td>
+<td>7</td>
+<td>00</td>
 </tr>
 <tr>
-<td style="text-align:center">D</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
+<td style="text-align:left">4</td>
+<td style="text-align:center">A、C、B、D</td>
+<td></td>
+<td></td>
+<td></td>
+<td>7</td>
+<td>9</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:center">A、C、B、D、E</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>9</td>
 </tr>
 </tbody>
 </table>
-<p>&emsp;&emsp;如果这是个有向图，我们可以根据行和列来确定出发和到达的定点；如果这是个对路径长度有要求的图，就比如在计算最短路径的时候，我们可以将矩阵中的数据改为两个点之间的距离。</p>
-<p>&emsp;&emsp;在编程的时候，我们可以使用数组来存放这样的矩阵。既方便计算，也能够精确表示。在今后的学习中，我们大多数时候都会使用这种方法来表示和运算。</p>
+<p>&emsp;&emsp;通过上面的步骤，我们将A到F的最短路找到了：A-C-D-F。除此之外，A到所有点的最短路我们都能够找到。那么，下面我们考虑用程序来实现这个过程。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x0f0f0f0f <span class="comment">//用INF来代替正无穷（+OO）</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 1100</span></div><div class="line"><span class="keyword">int</span> low[N];  <span class="comment">//low[i]数组存放A号节点到已知集合中i号节点的最短距离</span></div><div class="line"><span class="keyword">int</span> vis[N];  <span class="comment">//vis[i] = 1表示i号节点已经在已知集合中，否则反之</span></div><div class="line"><span class="keyword">int</span> cost[N][N],n;<span class="comment">//cost[i][j]表示i节点到j节点的直接距离</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> start)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> edge,k;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;<span class="comment">//这里是要初始化low[]数组和vis[]数组</span></div><div class="line">	low[i] = cost[start][i];</div><div class="line">	vis[i] = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    vis[start] = <span class="number">1</span>;</div><div class="line">    low[start] = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)&#123;</div><div class="line">	edge = INF;<span class="comment">//edge是已知集合到未知集合的最短边</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j&lt;=n;j++)&#123;<span class="comment">//这里是要找到一条最短边:编号k,边长edge</span></div><div class="line">	    <span class="keyword">if</span>(vis[j]==<span class="number">0</span>&amp;&amp;edge&gt;low[j])&#123;</div><div class="line">		edge = low[j];</div><div class="line">		k = j;</div><div class="line">	    &#125; </div><div class="line">	&#125;</div><div class="line">	vis[k] = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j&lt;=n;j++)&#123;<span class="comment">//更新得到的新节点k号节点发出去的边</span></div><div class="line">	    <span class="keyword">if</span>(vis[j]==<span class="number">0</span>&amp;&amp;low[j] &gt; low[k] + cost[k][j])&#123;</div><div class="line">		low[j] = low[k] + cost[k][j];</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;上面是Dijkstra算法的C语言实现，大家可以将其作为模板记录下来，以后可以直接使用。</p>
 
             <blockquote>
                 <p>
                 本文地址：
-                <a href="http://www.z16388.win/2017/03/06/【ACM教程】5-2图的存储方式/" target="_blank" rel="external">http://www.z16388.win/2017/03/06/【ACM教程】5-2图的存储方式/</a>
+                <a href="http://www.z16388.win/2017/03/15/【ACM教程】5-3单源最短路径Dijkstra算法/" target="_blank" rel="external">http://www.z16388.win/2017/03/15/【ACM教程】5-3单源最短路径Dijkstra算法/</a>
                 </p>
                 <footer><cite><a href="http://www.z16388.win">@崎径 其镜</a></cite></footer>
             </blockquote>
@@ -285,19 +304,12 @@
             
 <nav class="post-nav">
   
-    <div class="waves-block waves-effect prev fl">
-      <a href="/2017/03/06/【ACM教程】4-1动态规划简介/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">【ACM教程】4.1动态规划简介</h4>
-      </a>
-    </div>
-  
 
   
     <div class="waves-block waves-effect next fr">
-      <a href="/2017/03/06/【ACM教程】5-1图论的基本概念/" id="post-next" class="post-nav-link">
+      <a href="/2017/03/14/【ACM教程】4-2动态规划初体验/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">【ACM教程】5.1图论的基本概念</h4>
+        <h4 class="title">【ACM教程】4.2动态规划初体验</h4>
       </a>
     </div>
   
@@ -308,7 +320,7 @@
             
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="【ACM教程】5-2图的存储方式" data-title="【ACM教程】5.2图的存储方式" data-url="http://www.z16388.win/2017/03/06/【ACM教程】5-2图的存储方式/index.html"></div>
+	<div class="ds-thread" data-thread-key="【ACM教程】5-3单源最短路径Dijkstra算法" data-title="【ACM教程】5.3单源最短路径Dijkstra算法" data-url="http://www.z16388.win/2017/03/15/【ACM教程】5-3单源最短路径Dijkstra算法/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -339,10 +351,10 @@
 
 <script>
 var BLOG_SHARE = {
-    title: "【ACM教程】5.2图的存储方式",
+    title: "【ACM教程】5.3单源最短路径Dijkstra算法",
     pic: "/img/logo.jpg",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://www.z16388.win/2017/03/06/【ACM教程】5-2图的存储方式/index.html"
+    url: "http://www.z16388.win/2017/03/15/【ACM教程】5-3单源最短路径Dijkstra算法/index.html"
 };
 </script>
 <div class="global-share" id="global-share">

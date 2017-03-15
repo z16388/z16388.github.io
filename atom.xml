@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2017-03-14T14:05:35.000Z</updated>
+  <updated>2017-03-15T09:49:55.000Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -14,6 +14,98 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【ACM教程】5.3单源最短路径Dijkstra算法</title>
+    <link href="http://www.z16388.win/2017/03/15/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-3%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84Dijkstra%E7%AE%97%E6%B3%95/"/>
+    <id>http://www.z16388.win/2017/03/15/【ACM教程】5-3单源最短路径Dijkstra算法/</id>
+    <published>2017-03-15T08:46:18.000Z</published>
+    <updated>2017-03-15T09:49:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第三节-单源最短路径Dijkstra算法"><a href="#第三节-单源最短路径Dijkstra算法" class="headerlink" title="第三节 单源最短路径Dijkstra算法"></a>第三节 单源最短路径Dijkstra算法</h1><p>&emsp;&emsp;最短路径的问题在生活中是十分常见的。不仅仅是表面上的路程计算，网络中的数据传输什么的都能用到最短路径算法。我们在求最短路问题时，常用两种算法。Dijkstra单源最短路径算法和全源最短路径Floyd算法。首先对Dijkstra算法进行学习。</p>
+<p>&emsp;&emsp;Dijkstra算法用于计算一个点到其他所有节点的最短路径，是比较有代表性的最短路径算法。数学的很多学科中，都会接触到。它的思路是：把所有的顶点分为两组，一组是已经知道最短路径的，然后从未知最短路径并与之相邻的顶点中选出一个最短的放进已知组里，直到将所有的点放入已知组，找到最短路。</p>
+<p>&emsp;&emsp;举个例子，以下图为例，求A到F的最短路。</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1489579993939&amp;di=ac25fd27b19e70f9a1efe09cb4f23412&amp;imgtype=0&amp;src=http%3A%2F%2Fimages.cnblogs.com%2Fcnblogs_com%2Fnigang%2F569181%2Fo_%25E5%259B%25BE.png" alt=""></p>
+<p>&emsp;&emsp;首先，已知点是A，然后我们去找和他相邻的，距离最短的点。这时我们看到C点距离A点是3，比B的6要短，所以我们将C点放入已知集合；然后看A、C相邻的点，最短的路径是C到B，所以把B点放入已知集合。就这样一直做下去，直到将所有点放入已知点集合为止。我们将上面的过程，记录在表格里。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:center">已知点集</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>E</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:center">A</td>
+<td>6</td>
+<td>3</td>
+<td>00</td>
+<td>00</td>
+<td>00</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:center">A、C</td>
+<td>2</td>
+<td></td>
+<td>6</td>
+<td>7</td>
+<td>00</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:center">A、C、B</td>
+<td></td>
+<td></td>
+<td>6</td>
+<td>7</td>
+<td>00</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:center">A、C、B、D</td>
+<td></td>
+<td></td>
+<td></td>
+<td>7</td>
+<td>9</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:center">A、C、B、D、E</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;&emsp;通过上面的步骤，我们将A到F的最短路找到了：A-C-D-F。除此之外，A到所有点的最短路我们都能够找到。那么，下面我们考虑用程序来实现这个过程。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x0f0f0f0f <span class="comment">//用INF来代替正无穷（+OO）</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 1100</span></div><div class="line"><span class="keyword">int</span> low[N];  <span class="comment">//low[i]数组存放A号节点到已知集合中i号节点的最短距离</span></div><div class="line"><span class="keyword">int</span> vis[N];  <span class="comment">//vis[i] = 1表示i号节点已经在已知集合中，否则反之</span></div><div class="line"><span class="keyword">int</span> cost[N][N],n;<span class="comment">//cost[i][j]表示i节点到j节点的直接距离</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> start)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> edge,k;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;<span class="comment">//这里是要初始化low[]数组和vis[]数组</span></div><div class="line">	low[i] = cost[start][i];</div><div class="line">	vis[i] = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    vis[start] = <span class="number">1</span>;</div><div class="line">    low[start] = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)&#123;</div><div class="line">	edge = INF;<span class="comment">//edge是已知集合到未知集合的最短边</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j&lt;=n;j++)&#123;<span class="comment">//这里是要找到一条最短边:编号k,边长edge</span></div><div class="line">	    <span class="keyword">if</span>(vis[j]==<span class="number">0</span>&amp;&amp;edge&gt;low[j])&#123;</div><div class="line">		edge = low[j];</div><div class="line">		k = j;</div><div class="line">	    &#125; </div><div class="line">	&#125;</div><div class="line">	vis[k] = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j&lt;=n;j++)&#123;<span class="comment">//更新得到的新节点k号节点发出去的边</span></div><div class="line">	    <span class="keyword">if</span>(vis[j]==<span class="number">0</span>&amp;&amp;low[j] &gt; low[k] + cost[k][j])&#123;</div><div class="line">		low[j] = low[k] + cost[k][j];</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;上面是Dijkstra算法的C语言实现，大家可以将其作为模板记录下来，以后可以直接使用。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第三节-单源最短路径Dijkstra算法&quot;&gt;&lt;a href=&quot;#第三节-单源最短路径Dijkstra算法&quot; class=&quot;headerlink&quot; title=&quot;第三节 单源最短路径Dijkstra算法&quot;&gt;&lt;/a&gt;第三节 单源最短路径Dijkstra算法&lt;/h1&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>【ACM教程】4.2动态规划初体验</title>
@@ -160,7 +252,7 @@
     <link href="http://www.z16388.win/2017/03/06/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-2%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/"/>
     <id>http://www.z16388.win/2017/03/06/【ACM教程】5-2图的存储方式/</id>
     <published>2017-03-06T11:03:14.000Z</published>
-    <updated>2017-03-07T12:11:29.000Z</updated>
+    <updated>2017-03-15T09:17:05.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第二节-图的存储方式"><a href="#第二节-图的存储方式" class="headerlink" title="第二节 图的存储方式"></a>第二节 图的存储方式</h1><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p>&emsp;&emsp;我们在第三章对数据结构的简单了解中学习了，图和树可以使用链表来进行存储。参考<a href="http://www.z16388.win/2016/11/16/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-6%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89%E6%A0%91%E3%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E5%9B%BE/">第六节 数据结构基础（2）树、二叉树和图</a>。虽然链表能够很方便地，在逻辑上对图进行定义和运算，但是我们知道，在比赛中我们的时间是有限的。如果花大量的时间去构建一个模型，然后针对这个模型的各种运算进行编写会耗费大量的时间。这个时候，我们就需要一个简单的数学模型，来处理这些数据。</p>
 <h2 id="图的矩阵表示"><a href="#图的矩阵表示" class="headerlink" title="图的矩阵表示"></a>图的矩阵表示</h2><p>&emsp;&emsp;在数学上，我们经常用矩阵来表示一个图。我们知道，图是由它们的顶点和他们之间的邻接关系来唯一确定的。这个时候我们只需要两个矩阵，一个用来存放他们的定点，另一个来存放他们之间的关系。</p>
@@ -170,7 +262,7 @@
 <blockquote>
 <p>A<br>B &emsp;&emsp;&emsp;D<br>C</p>
 </blockquote>
-<p>&emsp;&emsp;这时，我们可以用一个矩阵V来表示这个图中的点。<code>V={A,B,C,D}</code>那怎么来表示他们之间的联系呢？我们用另一个矩阵M，如果两个点之间是相连的，我们就让m^ij=m^ji=1。如果它们之间没有联系，则m^ij=m^ji=0。那么，<br>M=</p>
+<p>&emsp;&emsp;这时，我们可以用一个矩阵V来表示这个图中的点。<code>V={A,B,C,D}</code>那怎么来表示他们之间的联系呢？我们用另一个矩阵M，如果两个点之间是相连的，我们就让m^ij=m^ji=1。如果它们之间没有联系，则m^ij=m^ji=inf。那么，<br>M=</p>
 <table>
 <thead>
 <tr>
@@ -184,23 +276,23 @@
 <tbody>
 <tr>
 <td style="text-align:center">A</td>
-<td style="text-align:center">inf</td>
-<td style="text-align:center">1</td>
 <td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">inf</td>
 <td style="text-align:center">1</td>
 </tr>
 <tr>
 <td style="text-align:center">B</td>
 <td style="text-align:center">1</td>
-<td style="text-align:center">inf</td>
+<td style="text-align:center">0</td>
 <td style="text-align:center">1</td>
 <td style="text-align:center">1</td>
 </tr>
 <tr>
 <td style="text-align:center">C</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
 <td style="text-align:center">inf</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
 <td style="text-align:center">1</td>
 </tr>
 <tr>
@@ -208,7 +300,7 @@
 <td style="text-align:center">1</td>
 <td style="text-align:center">1</td>
 <td style="text-align:center">1</td>
-<td style="text-align:center">inf</td>
+<td style="text-align:center">0</td>
 </tr>
 </tbody>
 </table>
@@ -869,32 +961,6 @@
       <category term="心情" scheme="http://www.z16388.win/tags/%E5%BF%83%E6%83%85/"/>
     
       <category term="游戏" scheme="http://www.z16388.win/tags/%E6%B8%B8%E6%88%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ACM常用模版</title>
-    <link href="http://www.z16388.win/2016/10/30/ACM%E5%B8%B8%E7%94%A8%E6%A8%A1%E7%89%88/"/>
-    <id>http://www.z16388.win/2016/10/30/ACM常用模版/</id>
-    <published>2016-10-30T15:57:55.000Z</published>
-    <updated>2016-11-18T09:32:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="求素数"><a href="#求素数" class="headerlink" title="求素数"></a>求素数</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">su</span><span class="params">(<span class="keyword">int</span> b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=(<span class="keyword">int</span>)<span class="built_in">sqrt</span>(b);i++) &#123;</div><div class="line">        <span class="keyword">if</span>(b%i==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="最大公约数和最小公倍数"><a href="#最大公约数和最小公倍数" class="headerlink" title="最大公约数和最小公倍数"></a>最大公约数和最小公倍数</h3><p>欧几里得定力：两个整数的最大公约数等于其中较小的那个数和两数相除余数的最大公约数。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>  <span class="comment">//最大公约数</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(b==<span class="number">0</span>) <span class="keyword">return</span> a;</div><div class="line">	<span class="keyword">else</span> <span class="keyword">return</span> gcd(b,a%b);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>  <span class="comment">//最小公倍数</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">return</span> a/gcd(a,b)*b;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;求素数&quot;&gt;&lt;a href=&quot;#求素数&quot; class=&quot;headerlink&quot; title=&quot;求素数&quot;&gt;&lt;/a&gt;求素数&lt;/h3&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
