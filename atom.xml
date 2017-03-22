@@ -53,7 +53,7 @@
     <link href="http://www.z16388.win/2017/03/22/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-5%E6%95%B0%E5%AD%A6%E7%AE%80%E5%8D%95%E9%97%AE%E9%A2%98/"/>
     <id>http://www.z16388.win/2017/03/22/【ACM教程】2-5数学简单问题/</id>
     <published>2017-03-22T07:25:01.000Z</published>
-    <updated>2017-03-22T08:29:37.000Z</updated>
+    <updated>2017-03-22T10:44:37.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第五节-数学简单问题"><a href="#第五节-数学简单问题" class="headerlink" title="第五节 数学简单问题"></a>第五节 数学简单问题</h1><p>&emsp;&emsp;竞赛中的很多题目会考到数学相关的知识，在这一节，我们会挑出一些简单的问题集中讲解。</p>
 <h2 id="最大公约数-最小公倍数"><a href="#最大公约数-最小公倍数" class="headerlink" title="最大公约数/最小公倍数"></a>最大公约数/最小公倍数</h2><p>&emsp;&emsp;首先我们要介绍一个算法，欧几里德算法。欧几里得是著名的古希腊数学家，被称为“几何学之父”，代表作为《几何原本》。</p>
@@ -74,6 +74,10 @@
 <h2 id="快速幂取模"><a href="#快速幂取模" class="headerlink" title="快速幂取模"></a>快速幂取模</h2><p>&emsp;&emsp;公式：a*b%c=((a%c)*b)%c&emsp;&emsp;(a+b)%c=(a%c+b%c)%c</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">pow</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> ans=<span class="number">1</span>,temp=a%p;</div><div class="line">	<span class="keyword">while</span>(x) &#123;</div><div class="line">		<span class="keyword">if</span>(x&amp;<span class="number">1</span>) ans=((<span class="keyword">long</span> <span class="keyword">long</span>)ans*temp)%p;</div><div class="line">		temp=((<span class="keyword">long</span> <span class="keyword">long</span>)temp*temp)%p;</div><div class="line">		x&gt;&gt;=<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="十进制转换为x进制"><a href="#十进制转换为x进制" class="headerlink" title="十进制转换为x进制"></a>十进制转换为x进制</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">trans</span><span class="params">(<span class="keyword">int</span> num,<span class="keyword">int</span> base)</span> </span>&#123;</div><div class="line">	<span class="built_in">string</span> str;</div><div class="line">	<span class="keyword">while</span>(num&gt;<span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">if</span>(num%base&lt;<span class="number">10</span>) &#123;</div><div class="line">			str+=num%base+<span class="string">'0'</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> &#123;</div><div class="line">			str+=num%base<span class="number">-10</span>+<span class="string">'A'</span>;</div><div class="line">		&#125;</div><div class="line">		num=num/base;</div><div class="line">	&#125;</div><div class="line">	reverse(str.begin(),str.end());</div><div class="line">	<span class="keyword">return</span> str;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="常用的数学公式"><a href="#常用的数学公式" class="headerlink" title="常用的数学公式"></a>常用的数学公式</h2><p>等差数列求和公式：</p>
+<p>Sn=n*a1+n(n-1)d/2<br>Sn=n(a1+an)/2</p>
+<p>等比数列求和公式：</p>
+<p>Sn=a1(1-q^n)/(1-q)</p>
 ]]></content>
     
     <summary type="html">
@@ -314,7 +318,7 @@
     <link href="http://www.z16388.win/2017/03/15/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-3%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84Dijkstra%E7%AE%97%E6%B3%95/"/>
     <id>http://www.z16388.win/2017/03/15/【ACM教程】5-3单源最短路径Dijkstra算法/</id>
     <published>2017-03-15T08:46:18.000Z</published>
-    <updated>2017-03-17T03:09:05.000Z</updated>
+    <updated>2017-03-22T10:29:44.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第三节-单源最短路径Dijkstra算法"><a href="#第三节-单源最短路径Dijkstra算法" class="headerlink" title="第三节 单源最短路径Dijkstra算法"></a>第三节 单源最短路径Dijkstra算法</h1><p>&emsp;&emsp;最短路径的问题在生活中是十分常见的。不仅仅是表面上的路程计算，网络中的数据传输什么的都能用到最短路径算法。我们在求最短路问题时，常用两种算法。Dijkstra单源最短路径算法和全源最短路径Floyd算法。首先对Dijkstra算法进行学习。</p>
 <p>&emsp;&emsp;Dijkstra算法用于计算一个点到其他所有节点的最短路径，是比较有代表性的最短路径算法。数学的很多学科中，都会接触到。它的思路是：把所有的顶点分为两组，一组是已经知道最短路径的，然后从未知最短路径并与之相邻的顶点中选出一个最短的放进已知组里，直到将所有的点放入已知组，找到最短路。</p>
@@ -346,7 +350,7 @@
 <tr>
 <td style="text-align:left">2</td>
 <td style="text-align:center">A、C</td>
-<td>2</td>
+<td>5</td>
 <td></td>
 <td>6</td>
 <td>7</td>
