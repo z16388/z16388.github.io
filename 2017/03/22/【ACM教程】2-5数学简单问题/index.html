@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>【ACM教程】2.5数学简单问题 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="ACM,算法,ACM教程">
+  <meta name="description" content="第五节 数学简单问题&amp;emsp;&amp;emsp;竞赛中的很多题目会考到数学相关的知识，在这一节，我们会挑出一些简单的问题集中讲解。
+最大公约数/最小公倍数&amp;emsp;&amp;emsp;首先我们要介绍一个算法，欧几里德算法。欧几里得是著名的古希腊数学家，被称为“几何学之父”，代表作为《几何原本》。
+&amp;emsp;&amp;emsp;欧几里得算法又称辗转相除算法，定理如下：两个整数的最大公约数等于其中较小的那个数和两数相">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ACM教程】2.5数学简单问题">
+<meta property="og:url" content="http://www.z16388.win/2017/03/22/【ACM教程】2-5数学简单问题/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="第五节 数学简单问题&amp;emsp;&amp;emsp;竞赛中的很多题目会考到数学相关的知识，在这一节，我们会挑出一些简单的问题集中讲解。
+最大公约数/最小公倍数&amp;emsp;&amp;emsp;首先我们要介绍一个算法，欧几里德算法。欧几里得是著名的古希腊数学家，被称为“几何学之父”，代表作为《几何原本》。
+&amp;emsp;&amp;emsp;欧几里得算法又称辗转相除算法，定理如下：两个整数的最大公约数等于其中较小的那个数和两数相">
+<meta property="og:updated_time" content="2017-03-22T08:29:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【ACM教程】2.5数学简单问题">
+<meta name="twitter:description" content="第五节 数学简单问题&amp;emsp;&amp;emsp;竞赛中的很多题目会考到数学相关的知识，在这一节，我们会挑出一些简单的问题集中讲解。
+最大公约数/最小公倍数&amp;emsp;&amp;emsp;首先我们要介绍一个算法，欧几里德算法。欧几里得是著名的古希腊数学家，被称为“几何学之父”，代表作为《几何原本》。
+&amp;emsp;&amp;emsp;欧几里得算法又称辗转相除算法，定理如下：两个整数的最大公约数等于其中较小的那个数和两数相">
+  
+    <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/Favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu"  >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/logo.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">Anqi Zhao</h5>
+        <a href="mailto:z16388@outlook.com" title="z16388@outlook.com" class="mail">z16388@outlook.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              主页
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-table"></i>
+              动态
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              标签
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="http://www.z16388.win/2016/09/09/ACM教程/"  >
+              <i class="icon icon-lg icon-adn"></i>
+              ACM教程
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/int"  >
+              <i class="icon icon-lg icon-link"></i>
+              常用网址导航
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/Download"  >
+              <i class="icon icon-lg icon-cloud-download"></i>
+              下载资源
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/friend"  >
+              <i class="icon icon-lg icon-mars-double"></i>
+              友情链接
+            </a>
+          </li>
+      
+    </ul>
+    <footer class="footer">
+<!--  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>-->
+  <p>崎径 其镜 &copy; 2017<a href="/about" target="_blank">  关于我</a></p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【ACM教程】2.5数学简单问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		<a href="https://www.zhihu.com/people/zhao-an-qi-65-10" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-drupal"></i>
+		</a>
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">【ACM教程】2.5数学简单问题</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2017-03-22T07:25:01.000Z" itemprop="datePublished" class="page-time">
+  2017-03-22
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-【ACM教程】2-5数学简单问题" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM教程/">ACM教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第五节-数学简单问题"><span class="post-toc-text">第五节 数学简单问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最大公约数-最小公倍数"><span class="post-toc-text">最大公约数/最小公倍数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#判断素数"><span class="post-toc-text">判断素数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#排列组合打表"><span class="post-toc-text">排列组合打表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快速幂"><span class="post-toc-text">快速幂</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快速幂取模"><span class="post-toc-text">快速幂取模</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十进制转换为x进制"><span class="post-toc-text">十进制转换为x进制</span></a></li></ol></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="第五节-数学简单问题"><a href="#第五节-数学简单问题" class="headerlink" title="第五节 数学简单问题"></a>第五节 数学简单问题</h1><p>&emsp;&emsp;竞赛中的很多题目会考到数学相关的知识，在这一节，我们会挑出一些简单的问题集中讲解。</p>
+<h2 id="最大公约数-最小公倍数"><a href="#最大公约数-最小公倍数" class="headerlink" title="最大公约数/最小公倍数"></a>最大公约数/最小公倍数</h2><p>&emsp;&emsp;首先我们要介绍一个算法，欧几里德算法。欧几里得是著名的古希腊数学家，被称为“几何学之父”，代表作为《几何原本》。</p>
+<p>&emsp;&emsp;欧几里得算法又称辗转相除算法，定理如下：两个整数的最大公约数等于其中较小的那个数和两数相除余数的最大公约数。（最大公约数缩写为gcd）在这里就不作证明了，直接给出代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>  <span class="comment">//最大公约数</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(b==<span class="number">0</span>) <span class="keyword">return</span> a;</div><div class="line">	<span class="keyword">else</span> <span class="keyword">return</span> gcd(b,a%b);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>  <span class="comment">//最小公倍数</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">return</span> a/gcd(a,b)*b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="判断素数"><a href="#判断素数" class="headerlink" title="判断素数"></a>判断素数</h2><p>&emsp;&emsp;什么是素数呢？素数是大于等于2的，只有1和他本身能够整除他的数。要去判断一个数n是否是素数，只要从2到sqrt(n)依次判断即可，代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">su</span><span class="params">(<span class="keyword">int</span> b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=(<span class="keyword">int</span>)<span class="built_in">sqrt</span>(b);i++) &#123;</div><div class="line">        <span class="keyword">if</span>(b%i==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="排列组合打表"><a href="#排列组合打表" class="headerlink" title="排列组合打表"></a>排列组合打表</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> c[N][N];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">com</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">memset</span>(c,<span class="number">0</span>,<span class="keyword">sizeof</span>(c));</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++) &#123;</div><div class="line">		c[i][<span class="number">0</span>]=c[i][i]=<span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;i;j++) &#123;</div><div class="line">			c[i][j]=c[i<span class="number">-1</span>][j]+c[i<span class="number">-1</span>][j<span class="number">-1</span>];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h2><p>&emsp;&emsp;求a的b次幂，我们可以直接使用for循环去做。但是当b很大的时候，就会花费很多时间，这时候需要使用快速幂算法。</p>
+<p>&emsp;&emsp;下面我们就以求a^11为例，介绍一下快速幂算法。</p>
+<ol>
+<li>将11转化为二进制——1011</li>
+<li>分解：11=1*2^3+0*2^2+1*2^1+1*2^0</li>
+<li>将a^11转化为a^(2^3)*a^(2^1)*a^(2^0)</li>
+</ol>
+<p>&emsp;&emsp;代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Fast</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> tem=x,ans=<span class="number">1</span>;</div><div class="line">	<span class="keyword">while</span>(n) &#123;</div><div class="line">		<span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">1</span>) ans*=tem;</div><div class="line">		tem*=tem;</div><div class="line">		n&gt;&gt;=<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="快速幂取模"><a href="#快速幂取模" class="headerlink" title="快速幂取模"></a>快速幂取模</h2><p>&emsp;&emsp;公式：a*b%c=((a%c)*b)%c&emsp;&emsp;(a+b)%c=(a%c+b%c)%c</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">pow</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> ans=<span class="number">1</span>,temp=a%p;</div><div class="line">	<span class="keyword">while</span>(x) &#123;</div><div class="line">		<span class="keyword">if</span>(x&amp;<span class="number">1</span>) ans=((<span class="keyword">long</span> <span class="keyword">long</span>)ans*temp)%p;</div><div class="line">		temp=((<span class="keyword">long</span> <span class="keyword">long</span>)temp*temp)%p;</div><div class="line">		x&gt;&gt;=<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="十进制转换为x进制"><a href="#十进制转换为x进制" class="headerlink" title="十进制转换为x进制"></a>十进制转换为x进制</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">trans</span><span class="params">(<span class="keyword">int</span> num,<span class="keyword">int</span> base)</span> </span>&#123;</div><div class="line">	<span class="built_in">string</span> str;</div><div class="line">	<span class="keyword">while</span>(num&gt;<span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">if</span>(num%base&lt;<span class="number">10</span>) &#123;</div><div class="line">			str+=num%base+<span class="string">'0'</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> &#123;</div><div class="line">			str+=num%base<span class="number">-10</span>+<span class="string">'A'</span>;</div><div class="line">		&#125;</div><div class="line">		num=num/base;</div><div class="line">	&#125;</div><div class="line">	reverse(str.begin(),str.end());</div><div class="line">	<span class="keyword">return</span> str;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://www.z16388.win/2017/03/22/【ACM教程】2-5数学简单问题/" target="_blank" rel="external">http://www.z16388.win/2017/03/22/【ACM教程】2-5数学简单问题/</a>
+                </p>
+                <footer><cite><a href="http://www.z16388.win">@崎径 其镜</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2017/03/21/lanqiao6/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">第六届蓝桥杯C/C++省赛B组题目详解</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="【ACM教程】2-5数学简单问题" data-title="【ACM教程】2.5数学简单问题" data-url="http://www.z16388.win/2017/03/22/【ACM教程】2-5数学简单问题/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"z16388"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "【ACM教程】2.5数学简单问题",
+    pic: "/img/logo.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://www.z16388.win/2017/03/22/【ACM教程】2-5数学简单问题/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234"></script>
+
+
+
+
+
+</body>
+</html>
