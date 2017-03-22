@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2017-03-22T08:29:37.000Z</updated>
+  <updated>2017-03-22T08:47:33.000Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【ACM教程】3.8从全排列到深度优先搜索dfs算法</title>
+    <link href="http://www.z16388.win/2017/03/22/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-8%E4%BB%8E%E5%85%A8%E6%8E%92%E5%88%97%E5%88%B0%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2dfs%E7%AE%97%E6%B3%95/"/>
+    <id>http://www.z16388.win/2017/03/22/【ACM教程】3-8从全排列到深度优先搜索dfs算法/</id>
+    <published>2017-03-22T08:37:34.000Z</published>
+    <updated>2017-03-22T08:47:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第八节-从全排列到深度优先搜索算法"><a href="#第八节-从全排列到深度优先搜索算法" class="headerlink" title="第八节 从全排列到深度优先搜索算法"></a>第八节 从全排列到深度优先搜索算法</h1><h2 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h2><p>&emsp;&emsp;什么是全排列？就是一组数据所有可能的排列顺序。如果使用暴力枚举的方法，需要对每一个位置都进行一次循环，如果有n个数据则需要循环n次，而且还要加上对重复序列的判断。</p>
+<p>&emsp;&emsp;可喜的是，在STL中有两个函数可以帮我们实现字典序的全排列。他们分别是：<code>next_permutaion()</code><code>prev_permutation()</code>，参数是数据的开始和结束地址。举个例子，比如一个字符数组：a,b,c，它的下一个序列就是a,c,b。在处理全排列问题的时候，使用比较方便。这两个函数在算法头文件中。</p>
+<p>&emsp;&emsp;由于这两个函数是根据字典序来给出下一个全排列，如果想要得出所有的全排列，则需要首先对序列进行排序。</p>
+<p>&emsp;&emsp;蓝桥杯中很多题目可以使用这种方法来解决，以第七届蓝桥杯的第三题为例：</p>
+<blockquote>
+<p>　　B　　 DEF<br>A +  ——  +  ———   =  10<br>　　C　　 GHI<br>这个算式中A~I代表1~9的数字，不同的字母代表不同的数字。<br>比如：<br>6+8/3+952/714 就是一种解法，<br>5+3/1+972/486 是另一种解法。<br>这个算式一共有多少种解法？<br>注意：你提交应该是个整数，不要填写任何多余的内容或说明性文字。</p>
+</blockquote>
+<p>&emsp;&emsp;代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> a[<span class="number">10</span>];</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">int</span> sum[<span class="number">4</span>];</div><div class="line">    <span class="keyword">int</span> ans;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">9</span>;++i)&#123;</div><div class="line">        a[i]=i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ans=<span class="number">0</span>;</div><div class="line">    <span class="keyword">do</span>&#123;</div><div class="line">        sum[<span class="number">0</span>]=a[<span class="number">1</span>]*a[<span class="number">3</span>]*(a[<span class="number">7</span>]*<span class="number">100</span>+a[<span class="number">8</span>]*<span class="number">10</span>+a[<span class="number">9</span>]);</div><div class="line">        sum[<span class="number">1</span>]=a[<span class="number">2</span>]*(a[<span class="number">7</span>]*<span class="number">100</span>+a[<span class="number">8</span>]*<span class="number">10</span>+a[<span class="number">9</span>]);</div><div class="line">        sum[<span class="number">2</span>]=(a[<span class="number">4</span>]*<span class="number">100</span>+a[<span class="number">5</span>]*<span class="number">10</span>+a[<span class="number">6</span>])*a[<span class="number">3</span>];</div><div class="line">        sum[<span class="number">3</span>]=<span class="number">10</span>*a[<span class="number">3</span>]*(a[<span class="number">7</span>]*<span class="number">100</span>+a[<span class="number">8</span>]*<span class="number">10</span>+a[<span class="number">9</span>]);</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(sum[<span class="number">0</span>]+sum[<span class="number">1</span>]+sum[<span class="number">2</span>]==sum[<span class="number">3</span>])&#123;</div><div class="line">            ++ans;</div><div class="line">        &#125;</div><div class="line">    &#125;<span class="keyword">while</span>(next_permutation(a+<span class="number">1</span>,a+<span class="number">1</span>+<span class="number">9</span>));</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="深度优先搜索dfs算法"><a href="#深度优先搜索dfs算法" class="headerlink" title="深度优先搜索dfs算法"></a>深度优先搜索dfs算法</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第八节-从全排列到深度优先搜索算法&quot;&gt;&lt;a href=&quot;#第八节-从全排列到深度优先搜索算法&quot; class=&quot;headerlink&quot; title=&quot;第八节 从全排列到深度优先搜索算法&quot;&gt;&lt;/a&gt;第八节 从全排列到深度优先搜索算法&lt;/h1&gt;&lt;h2 id=&quot;全排列&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>【ACM教程】2.5数学简单问题</title>
@@ -625,7 +658,7 @@
     <link href="http://www.z16388.win/2017/02/21/lanqiao7/"/>
     <id>http://www.z16388.win/2017/02/21/lanqiao7/</id>
     <published>2017-02-21T11:36:29.000Z</published>
-    <updated>2017-03-21T11:30:57.000Z</updated>
+    <updated>2017-03-22T08:45:44.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="第一题-煤球数目"><a href="#第一题-煤球数目" class="headerlink" title="第一题 煤球数目"></a>第一题 煤球数目</h2><blockquote>
 <p>有一堆煤球，堆成三角棱锥形。具体：<br>第一层放1个，<br>第二层3个（排列成三角形），<br>第三层6个（排列成三角形），<br>第四层10个（排列成三角形），<br>….<br>如果一共有100层，共有多少个煤球？<br>请填表示煤球总数目的数字。<br>注意：你提交的应该是一个整数，不要填写任何多余的内容或说明性文字。</p>
@@ -644,7 +677,7 @@
 <p>&emsp;&emsp;最终结果为29。</p>
 <p>&emsp;&emsp;在做这种需要对大规模变量进行枚举的题目时（每年蓝桥杯都会出现几道类似的题目），大家应当注意尽量减少循环次数。就像上面的代码，有很多跳出循环的操作。这样会很快得出结果，否则的话可能会花费很多的宝贵时间。</p>
 <p>&emsp;&emsp;后来呢，我在网上看到了一种更加好的解法，学习了之后和大家分享一下。首先，原作者对这道题目的算式进行了通分，这样做的好处就是避免了数据类型的不同，使题目中只出现了int型一种。做法是在等式两边都乘以<code>C*GHI</code>这样每一项就都是整数了。</p>
-<p>&emsp;&emsp;第二步，我们引入了两个函数。这两个STL函数在做蓝桥杯这种需要暴力求解的问题时特别好用。这两个函数分别是<code>next_permutaion()</code><code>prev_permutation()</code>参数是数据的开始和结束地址。这两个函数是用于求下一个/上一个组合序列的。举个例子，比如一个字符数组：a,b,c，它的下一个序列就是a,c,b。在处理全排列问题的时候，使用比较方便。这两个函数在算法头文件中。下面是这道题的简便算法的代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> a[<span class="number">10</span>];</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">int</span> sum[<span class="number">4</span>];</div><div class="line">    <span class="keyword">int</span> ans;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">9</span>;++i)&#123;</div><div class="line">        a[i]=i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ans=<span class="number">0</span>;</div><div class="line">    <span class="keyword">do</span>&#123;</div><div class="line">        sum[<span class="number">0</span>]=a[<span class="number">1</span>]*a[<span class="number">3</span>]*(a[<span class="number">7</span>]*<span class="number">100</span>+a[<span class="number">8</span>]*<span class="number">10</span>+a[<span class="number">9</span>]);</div><div class="line">        sum[<span class="number">1</span>]=a[<span class="number">2</span>]*(a[<span class="number">7</span>]*<span class="number">100</span>+a[<span class="number">8</span>]*<span class="number">10</span>+a[<span class="number">9</span>]);</div><div class="line">        sum[<span class="number">2</span>]=(a[<span class="number">4</span>]*<span class="number">100</span>+a[<span class="number">5</span>]*<span class="number">10</span>+a[<span class="number">6</span>])*a[<span class="number">3</span>];</div><div class="line">        sum[<span class="number">3</span>]=<span class="number">10</span>*a[<span class="number">3</span>]*(a[<span class="number">7</span>]*<span class="number">100</span>+a[<span class="number">8</span>]*<span class="number">10</span>+a[<span class="number">9</span>]);</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(sum[<span class="number">0</span>]+sum[<span class="number">1</span>]+sum[<span class="number">2</span>]==sum[<span class="number">3</span>])&#123;</div><div class="line">            ++ans;</div><div class="line">        &#125;</div><div class="line">    &#125;<span class="keyword">while</span>(next_permutation(a+<span class="number">1</span>,a+<span class="number">1</span>+<span class="number">9</span>));</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;第二步，使用全排列函数。下面是这道题的简便算法的代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> a[<span class="number">10</span>];</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">int</span> sum[<span class="number">4</span>];</div><div class="line">    <span class="keyword">int</span> ans;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">9</span>;++i)&#123;</div><div class="line">        a[i]=i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ans=<span class="number">0</span>;</div><div class="line">    <span class="keyword">do</span>&#123;</div><div class="line">        sum[<span class="number">0</span>]=a[<span class="number">1</span>]*a[<span class="number">3</span>]*(a[<span class="number">7</span>]*<span class="number">100</span>+a[<span class="number">8</span>]*<span class="number">10</span>+a[<span class="number">9</span>]);</div><div class="line">        sum[<span class="number">1</span>]=a[<span class="number">2</span>]*(a[<span class="number">7</span>]*<span class="number">100</span>+a[<span class="number">8</span>]*<span class="number">10</span>+a[<span class="number">9</span>]);</div><div class="line">        sum[<span class="number">2</span>]=(a[<span class="number">4</span>]*<span class="number">100</span>+a[<span class="number">5</span>]*<span class="number">10</span>+a[<span class="number">6</span>])*a[<span class="number">3</span>];</div><div class="line">        sum[<span class="number">3</span>]=<span class="number">10</span>*a[<span class="number">3</span>]*(a[<span class="number">7</span>]*<span class="number">100</span>+a[<span class="number">8</span>]*<span class="number">10</span>+a[<span class="number">9</span>]);</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(sum[<span class="number">0</span>]+sum[<span class="number">1</span>]+sum[<span class="number">2</span>]==sum[<span class="number">3</span>])&#123;</div><div class="line">            ++ans;</div><div class="line">        &#125;</div><div class="line">    &#125;<span class="keyword">while</span>(next_permutation(a+<span class="number">1</span>,a+<span class="number">1</span>+<span class="number">9</span>));</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="第四题-快速排序"><a href="#第四题-快速排序" class="headerlink" title="第四题 快速排序"></a>第四题 快速排序</h2><blockquote>
 <p>排序在各种场合经常被用到。<br>快速排序是十分常用的高效率的算法。<br>其思想是：先选一个“标尺”，<br>用它把整个队列过一遍筛子，<br>以保证：其左边的元素都不大于它，其右边的元素都不小于它。<br>这样，排序问题就被分割为两个子区间。<br>再分别对子区间排序就可以了。<br>下面的代码是一种实现，请分析并填写划线部分缺少的代码。</p>
 </blockquote>
@@ -1093,45 +1126,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;第四节-数据结构基础（1）栈，队列和链表&quot;&gt;&lt;a href=&quot;#第四节-数据结构基础（1）栈，队列和链表&quot; class=&quot;headerlink&quot; title=&quot;第四节 数据结构基础（1）栈，队列和链表&quot;&gt;&lt;/a&gt;第四节 数据结构基础（1）栈，队列和链表&lt;/h1&gt;&lt;
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】3.3二分查找</title>
-    <link href="http://www.z16388.win/2016/11/09/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-3%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
-    <id>http://www.z16388.win/2016/11/09/【ACM教程】3-3二分查找/</id>
-    <published>2016-11-09T08:40:36.000Z</published>
-    <updated>2016-11-09T09:35:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第三节-二分查找"><a href="#第三节-二分查找" class="headerlink" title="第三节 二分查找"></a>第三节 二分查找</h1><p>&emsp;&emsp;这次我们要学习的，就是著名的高效的，并且应用非常广泛的二分查找算法，简称二分法（Binary Search）。二分查找的时间复杂度为O(lgn)，是优化程序的常用方法之一。在我们使用的java教科书中，经常会见到作者举的一个例子——猜数字。这个程序就是让你去猜测一个给定范围内的数字，当然，我们可以暴力一点，把所有可能的结果都掏出来试一试——枚举。但是真正在写程序的时候，这样效率可能会非常低，这个时候我们就需要使用二分法来去做这个游戏。</p>
-<p>&emsp;&emsp;我们可以这样去做：选择这个区间中间的数，大了，就把它当做新的区间的起点，继续做；小了就往左去找区间，以此类推，这就是我们在数学上学习过的二分法，那么，怎么能够在程序中实现呢？代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">bSearch</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> b,<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> mid;</div><div class="line">	<span class="keyword">if</span>(low&gt;high) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	mid=(low+high)/<span class="number">2</span>;</div><div class="line">	<span class="keyword">if</span>(b==a[mid]) <span class="keyword">return</span> mid;</div><div class="line">	<span class="keyword">if</span>(b&lt;a[mid]) <span class="keyword">return</span> bSearch(a,b,low,mid<span class="number">-1</span>);</div><div class="line">	<span class="keyword">else</span> <span class="keyword">return</span> bSearch(a,b,mid+<span class="number">1</span>,high);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;我们看代码中的函数使用了四个参数，其中需要注意的是，第一个参数不仅仅是一个普通的数组，而是一个经过排序的序列，所以应该对需要查找的数组进行排序再进行二分查找。需要注意的是，我们应当注意对相同数据的处理，就是说如果我们的序列中会出现相同的数据，它应当返回哪一个下标。</p>
-<p>&emsp;&emsp;这个函数的功能是查找一个数在数组中是否存在，如果存在返回它的下标；如果不存在，则返回-1。在C++的STL中，给我们提供了类似的函数<code>binary_search()</code>，它的功能是判断一个数是否在给定序列中存在，返回值类型为布尔型。它的三个参数分别为：</p>
-<blockquote>
-<p>binary_search(起始地址，终止地址，查找值);</p>
-</blockquote>
-<p>&emsp;&emsp;遗憾的是，上面的函数只能告诉我们这个值是否存在，并不能知道它的确切位置，这个时候，我们可以使用这两个函数：<code>lower_bound()</code>和<code>upper_bound()</code>。这两个函数是用来算出要查元素的上界和下界的，意思是说，对于序列中出现相同的元素的情况，这两个函数是可以解决的。但是，需要注意的是：</p>
-<blockquote>
-<p>返回值的类型是地址,不是下标；<br>如果元素出现一次，<code>lower_bounder()</code>返回这个元素的地址，<code>upper_bounder()</code>返回它后面一个元素的地址；<br>如果元素出现多次，<code>lower_bounder()</code>返回第一个元素的地址，<code>upper_bounder()</code>返回最后一个元素的后面一的元素的地址。</p>
-</blockquote>
-<p>&emsp;&emsp;返回值是地址怎么办，我们也可以想办法投机取巧。我们知道，一个数组的名同时是一个数组第一个元素的地址，那么拿得到的地址减去首地址，就刚好是这个元素在数组中的下标了：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lower_bounder(a,a+<span class="number">100</span>,shu)-a</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;除此之外，二分法还有非递归的写法，大家可以了解一下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">bSearch</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> b,<span class="keyword">int</span> n)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> low,high,mid;</div><div class="line">	low=<span class="number">0</span>;high=n<span class="number">-1</span>;</div><div class="line">	<span class="keyword">while</span>(low&lt;=high) &#123;</div><div class="line">		mid=(low+high)/<span class="number">2</span>;</div><div class="line">		<span class="keyword">if</span>(a[mid]==b) <span class="keyword">return</span> mid;</div><div class="line">		<span class="keyword">if</span>(a[mid]&lt;b) low=mid+<span class="number">1</span>;</div><div class="line">		<span class="keyword">else</span> high=mid<span class="number">-1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第三节-二分查找&quot;&gt;&lt;a href=&quot;#第三节-二分查找&quot; class=&quot;headerlink&quot; title=&quot;第三节 二分查找&quot;&gt;&lt;/a&gt;第三节 二分查找&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;这次我们要学习的，就是著名的高效的，并且应用非常广泛的二分查找算法，
     
     </summary>
     
