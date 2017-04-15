@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2017-03-30T11:02:07.000Z</updated>
+  <updated>2017-04-15T02:30:57.722Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -16,11 +16,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>VS调试时提示找不到msvcr80d.dll解决方案</title>
+    <link href="http://www.z16388.win/2017/04/15/vs1/"/>
+    <id>http://www.z16388.win/2017/04/15/vs1/</id>
+    <published>2017-04-15T02:18:53.000Z</published>
+    <updated>2017-04-15T02:30:57.722Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;在学校的很多课程中，需要使用到Visual Studio。在编写程序进行调试的时候，经常会出现报错“找不到msvcr80d.dll”的情况，让人很头疼。</p>
+<p>&emsp;&emsp;这个是由于调试类型和硬盘的格式造成的。在学校机房的环境里，可以进行一下的步骤解决问题：</p>
+<ol>
+<li>项目 -&gt; [项目名] 属性 -&gt; 配置属性 -&gt; 清单工具 -&gt; 常规 -&gt; 将“使用FAT解决办法”的属性设置为“是”。</li>
+<li>进行设置之后，保存，执行: 生成 -&gt; 重新生成解决方案</li>
+<li>重新调试</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;在学校的很多课程中，需要使用到Visual Studio。在编写程序进行调试的时候，经常会出现报错“找不到msvcr80d.dll”的情况，让人很头疼。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;这个是由于调试类型和硬盘的格式造成的。在学校机房的环境里，
+    
+    </summary>
+    
+    
+      <category term="Visual-Studio" scheme="http://www.z16388.win/tags/Visual-Studio/"/>
+    
+  </entry>
+  
+  <entry>
     <title>dfs专项练习</title>
     <link href="http://www.z16388.win/2017/03/30/dfs/"/>
     <id>http://www.z16388.win/2017/03/30/dfs/</id>
     <published>2017-03-30T10:52:27.000Z</published>
-    <updated>2017-03-30T11:02:07.000Z</updated>
+    <updated>2017-04-13T13:25:20.934Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://poj.org/problem?id=1664" target="_blank" rel="external">poj1664:放苹果</a></p>
 <p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1016" target="_blank" rel="external">hdu1016:素数环问题</a></p>
@@ -44,10 +72,10 @@
     <link href="http://www.z16388.win/2017/03/22/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-8%E4%BB%8E%E5%85%A8%E6%8E%92%E5%88%97%E5%88%B0%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2dfs%E7%AE%97%E6%B3%95/"/>
     <id>http://www.z16388.win/2017/03/22/【ACM教程】3-8从全排列到深度优先搜索dfs算法/</id>
     <published>2017-03-22T08:37:34.000Z</published>
-    <updated>2017-03-30T11:04:18.000Z</updated>
+    <updated>2017-04-13T13:25:15.901Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第八节-从全排列到深度优先搜索算法"><a href="#第八节-从全排列到深度优先搜索算法" class="headerlink" title="第八节 从全排列到深度优先搜索算法"></a>第八节 从全排列到深度优先搜索算法</h1><h2 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h2><p>&emsp;&emsp;什么是全排列？就是一组数据所有可能的排列顺序。如果使用暴力枚举的方法，需要对每一个位置都进行一次循环，如果有n个数据则需要循环n次，而且还要加上对重复序列的判断。</p>
-<p>&emsp;&emsp;可喜的是，在STL中有两个函数可以帮我们实现字典序的全排列。他们分别是：<code>next_permutaion()</code><code>prev_permutation()</code>，参数是数据的开始和结束地址。举个例子，比如一个字符数组：a,b,c，它的下一个序列就是a,c,b。在处理全排列问题的时候，使用比较方便。这两个函数在算法头文件中。</p>
+<p>&emsp;&emsp;可喜的是，在STL中有两个函数可以帮我们实现字典序的全排列。他们分别是：<code>next_permutation()</code><code>prev_permutation()</code>，参数是数据的开始和结束地址。举个例子，比如一个字符数组：a,b,c，它的下一个序列就是a,c,b。在处理全排列问题的时候，使用比较方便。这两个函数在算法头文件中。</p>
 <p>&emsp;&emsp;由于这两个函数是根据字典序来给出下一个全排列，如果想要得出所有的全排列，则需要首先对序列进行排序。</p>
 <p>&emsp;&emsp;蓝桥杯中很多题目可以使用这种方法来解决，以第七届蓝桥杯的第三题为例：</p>
 <blockquote>
@@ -105,7 +133,7 @@
     <link href="http://www.z16388.win/2017/03/22/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-5%E6%95%B0%E5%AD%A6%E7%AE%80%E5%8D%95%E9%97%AE%E9%A2%98/"/>
     <id>http://www.z16388.win/2017/03/22/【ACM教程】2-5数学简单问题/</id>
     <published>2017-03-22T07:25:01.000Z</published>
-    <updated>2017-03-22T10:44:37.000Z</updated>
+    <updated>2017-04-13T13:25:15.893Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第五节-数学简单问题"><a href="#第五节-数学简单问题" class="headerlink" title="第五节 数学简单问题"></a>第五节 数学简单问题</h1><p>&emsp;&emsp;竞赛中的很多题目会考到数学相关的知识，在这一节，我们会挑出一些简单的问题集中讲解。</p>
 <h2 id="最大公约数-最小公倍数"><a href="#最大公约数-最小公倍数" class="headerlink" title="最大公约数/最小公倍数"></a>最大公约数/最小公倍数</h2><p>&emsp;&emsp;首先我们要介绍一个算法，欧几里德算法。欧几里得是著名的古希腊数学家，被称为“几何学之父”，代表作为《几何原本》。</p>
@@ -152,7 +180,7 @@
     <link href="http://www.z16388.win/2017/03/21/lanqiao6/"/>
     <id>http://www.z16388.win/2017/03/21/lanqiao6/</id>
     <published>2017-03-21T11:57:34.000Z</published>
-    <updated>2017-03-29T06:33:47.000Z</updated>
+    <updated>2017-04-13T13:25:15.864Z</updated>
     
     <content type="html"><![CDATA[<h2 id="第一题-奖券数目"><a href="#第一题-奖券数目" class="headerlink" title="第一题 奖券数目"></a>第一题 奖券数目</h2><blockquote>
 <p>有些人很迷信数字，比如带“4”的数字，认为和“死”谐音，就觉得不吉利。<br>虽然这些说法纯属无稽之谈，但有时还要迎合大众的需求。某抽奖活动的奖券号码是5位数（10000-99999），要求其中不要出现带“4”的号码，主办单位请你计算一下，如果任何两张奖券不重号，最多可发出奖券多少张。<br>请提交该数字（一个整数），不要写任何多余的内容或说明性文字。</p>
@@ -225,7 +253,7 @@
     <link href="http://www.z16388.win/2017/03/18/GJB5369%E8%80%83%E7%82%B9%E7%AC%94%E8%AE%B0/"/>
     <id>http://www.z16388.win/2017/03/18/GJB5369考点笔记/</id>
     <published>2017-03-18T02:35:42.000Z</published>
-    <updated>2017-03-18T03:53:57.000Z</updated>
+    <updated>2017-04-13T13:25:20.920Z</updated>
     
     <content type="html"><![CDATA[<h1 id="启用规则"><a href="#启用规则" class="headerlink" title="启用规则"></a>启用规则</h1><ol>
 <li>禁止使用嵌套的注释</li>
@@ -377,7 +405,7 @@
     <link href="http://www.z16388.win/2017/03/15/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-3%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84Dijkstra%E7%AE%97%E6%B3%95/"/>
     <id>http://www.z16388.win/2017/03/15/【ACM教程】5-3单源最短路径Dijkstra算法/</id>
     <published>2017-03-15T08:46:18.000Z</published>
-    <updated>2017-03-22T10:29:44.000Z</updated>
+    <updated>2017-04-13T13:25:15.931Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第三节-单源最短路径Dijkstra算法"><a href="#第三节-单源最短路径Dijkstra算法" class="headerlink" title="第三节 单源最短路径Dijkstra算法"></a>第三节 单源最短路径Dijkstra算法</h1><p>&emsp;&emsp;最短路径的问题在生活中是十分常见的。不仅仅是表面上的路程计算，网络中的数据传输什么的都能用到最短路径算法。我们在求最短路问题时，常用两种算法。Dijkstra单源最短路径算法和全源最短路径Floyd算法。首先对Dijkstra算法进行学习。</p>
 <p>&emsp;&emsp;Dijkstra算法用于计算一个点到其他所有节点的最短路径，是比较有代表性的最短路径算法。数学的很多学科中，都会接触到。它的思路是：把所有的顶点分为两组，一组是已经知道最短路径的，然后从未知最短路径并与之相邻的顶点中选出一个最短的放进已知组里，直到将所有的点放入已知组，找到最短路。</p>
@@ -470,7 +498,7 @@
     <link href="http://www.z16388.win/2017/03/14/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%914-2%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%88%9D%E4%BD%93%E9%AA%8C/"/>
     <id>http://www.z16388.win/2017/03/14/【ACM教程】4-2动态规划初体验/</id>
     <published>2017-03-14T12:42:34.000Z</published>
-    <updated>2017-03-14T14:05:35.000Z</updated>
+    <updated>2017-04-13T13:25:15.916Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第二节-动态规划初体验"><a href="#第二节-动态规划初体验" class="headerlink" title="第二节 动态规划初体验"></a>第二节 动态规划初体验</h1><p>&emsp;&emsp;在完成了动态规划概念的理解之后，我们来拿一道简单的题目理解一下问题的解决过程。</p>
 <p>&emsp;&emsp;斐波那契数列F(n)。当n=1、2时，F(2)=F(1)=1;其他情况F(n)=F(n-1)+F(n-2)。我们发现，这是一个递归的过程，根据前面所学知识，不难写程序：</p>
@@ -501,10 +529,10 @@
   
   <entry>
     <title>【ACM教程】4.3下降/非降子序列问题</title>
-    <link href="http://www.z16388.win/2017/03/07/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%914-3%E4%B8%8B%E9%99%8D:%E9%9D%9E%E9%99%8D%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/"/>
-    <id>http://www.z16388.win/2017/03/07/【ACM教程】4-3下降:非降子序列问题/</id>
+    <link href="http://www.z16388.win/2017/03/07/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%914-3%E4%B8%8B%E9%99%8D%EF%80%A2%E9%9D%9E%E9%99%8D%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/"/>
+    <id>http://www.z16388.win/2017/03/07/【ACM教程】4-3下降非降子序列问题/</id>
     <published>2017-03-07T12:04:26.000Z</published>
-    <updated>2017-03-14T12:41:42.000Z</updated>
+    <updated>2017-04-13T13:25:15.922Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第三节-下降-非降子序列问题"><a href="#第三节-下降-非降子序列问题" class="headerlink" title="第三节 下降/非降子序列问题"></a>第三节 下降/非降子序列问题</h1><p>&emsp;&emsp;这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。</p>
 <h2 id="模型抽象"><a href="#模型抽象" class="headerlink" title="模型抽象"></a>模型抽象</h2><p>&emsp;&emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：</p>
@@ -551,7 +579,7 @@
     <link href="http://www.z16388.win/2017/03/06/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%914-1%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%80%E4%BB%8B/"/>
     <id>http://www.z16388.win/2017/03/06/【ACM教程】4-1动态规划简介/</id>
     <published>2017-03-06T12:05:18.000Z</published>
-    <updated>2017-03-07T12:10:44.000Z</updated>
+    <updated>2017-04-13T13:25:15.909Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第一节-动态规划简介"><a href="#第一节-动态规划简介" class="headerlink" title="第一节 动态规划简介"></a>第一节 动态规划简介</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>&emsp;&emsp;动态规划（DP）是运筹学的一个分支，是求解决策过程最优化的数学方法。它将多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解。在现实生活中，我们经常会使用到动态规划。例如求最短路径、库存管理、排序、装载等问题，用动态规划方法比用其他方法更加简便。</p>
 <p>&emsp;&emsp;动态规划主要用于求解以时间划分阶段的动态过程问题。但是在一些与时间无关的问题中，我们可以人为地引入时间因素，把它视为多阶段决策过程，也可以使用动态规划来求解。</p>
@@ -610,7 +638,7 @@
     <link href="http://www.z16388.win/2017/03/06/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-2%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/"/>
     <id>http://www.z16388.win/2017/03/06/【ACM教程】5-2图的存储方式/</id>
     <published>2017-03-06T11:03:14.000Z</published>
-    <updated>2017-03-15T09:17:05.000Z</updated>
+    <updated>2017-04-13T13:25:15.930Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第二节-图的存储方式"><a href="#第二节-图的存储方式" class="headerlink" title="第二节 图的存储方式"></a>第二节 图的存储方式</h1><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p>&emsp;&emsp;我们在第三章对数据结构的简单了解中学习了，图和树可以使用链表来进行存储。参考<a href="http://www.z16388.win/2016/11/16/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-6%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89%E6%A0%91%E3%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E5%9B%BE/">第六节 数据结构基础（2）树、二叉树和图</a>。虽然链表能够很方便地，在逻辑上对图进行定义和运算，但是我们知道，在比赛中我们的时间是有限的。如果花大量的时间去构建一个模型，然后针对这个模型的各种运算进行编写会耗费大量的时间。这个时候，我们就需要一个简单的数学模型，来处理这些数据。</p>
 <h2 id="图的矩阵表示"><a href="#图的矩阵表示" class="headerlink" title="图的矩阵表示"></a>图的矩阵表示</h2><p>&emsp;&emsp;在数学上，我们经常用矩阵来表示一个图。我们知道，图是由它们的顶点和他们之间的邻接关系来唯一确定的。这个时候我们只需要两个矩阵，一个用来存放他们的定点，另一个来存放他们之间的关系。</p>
@@ -686,7 +714,7 @@
     <link href="http://www.z16388.win/2017/03/06/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-1%E5%9B%BE%E8%AE%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
     <id>http://www.z16388.win/2017/03/06/【ACM教程】5-1图论的基本概念/</id>
     <published>2017-03-06T10:25:05.000Z</published>
-    <updated>2017-03-07T12:11:11.000Z</updated>
+    <updated>2017-04-13T13:25:15.929Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第一节-图论的基本概念"><a href="#第一节-图论的基本概念" class="headerlink" title="第一节 图论的基本概念"></a>第一节 图论的基本概念</h1><p>&emsp;&emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。</p>
 <h2 id="图论的历史"><a href="#图论的历史" class="headerlink" title="图论的历史"></a>图论的历史</h2><p>&emsp;&emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名的一个数学问题，即哥尼斯堡七桥问题，从而使他成为了图论的创始人。</p>
@@ -721,7 +749,7 @@
     <link href="http://www.z16388.win/2017/02/21/lanqiao7/"/>
     <id>http://www.z16388.win/2017/02/21/lanqiao7/</id>
     <published>2017-02-21T11:36:29.000Z</published>
-    <updated>2017-03-24T09:39:37.000Z</updated>
+    <updated>2017-04-13T13:25:15.869Z</updated>
     
     <content type="html"><![CDATA[<h2 id="第一题-煤球数目"><a href="#第一题-煤球数目" class="headerlink" title="第一题 煤球数目"></a>第一题 煤球数目</h2><blockquote>
 <p>有一堆煤球，堆成三角棱锥形。具体：<br>第一层放1个，<br>第二层3个（排列成三角形），<br>第三层6个（排列成三角形），<br>第四层10个（排列成三角形），<br>….<br>如果一共有100层，共有多少个煤球？<br>请填表示煤球总数目的数字。<br>注意：你提交的应该是一个整数，不要填写任何多余的内容或说明性文字。</p>
@@ -803,7 +831,7 @@
     <link href="http://www.z16388.win/2017/01/22/VPS%E7%AC%94%E8%AE%B0/"/>
     <id>http://www.z16388.win/2017/01/22/VPS笔记/</id>
     <published>2017-01-22T13:28:47.000Z</published>
-    <updated>2017-01-22T17:44:04.000Z</updated>
+    <updated>2017-04-13T13:25:15.880Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;登录：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh root@ip</div></pre></td></tr></table></figure>
@@ -839,7 +867,7 @@
     <link href="http://www.z16388.win/2017/01/18/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-7%E6%8E%92%E5%BA%8F%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://www.z16388.win/2017/01/18/【ACM教程】3-7排序（一）/</id>
     <published>2017-01-18T03:25:23.000Z</published>
-    <updated>2017-03-07T12:09:56.000Z</updated>
+    <updated>2017-04-13T13:25:15.900Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第七节-排序（一）"><a href="#第七节-排序（一）" class="headerlink" title="第七节 排序（一）"></a>第七节 排序（一）</h1><p>&emsp;&emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数据进行排序的时候，我们可能需要花费很多的时间和资源。因此，优化排序算法是我们在优化程序中的一个重要步骤。在我们前面的学习中，我们已经接触到了C++的STL中<code>sort()</code>函数。那么，在无法使用STL的情况或者是需要一些特殊的要求的排序，我们就需要对排序算法进行手撸。因此，掌握各种常见的排序方法极为重要。接下来，我们将会从冒泡排序开始，系统地对常见的排序算法进行练习。</p>
 <h2 id="冒泡排序（Bubble-Sort）"><a href="#冒泡排序（Bubble-Sort）" class="headerlink" title="冒泡排序（Bubble Sort）"></a>冒泡排序（Bubble Sort）</h2><p>&emsp;&emsp;我们早在学习C语言的时候，就已经接触到这种排序方法了，是一种非常简便的排序方法。我们依次比较相邻的两个元素，以达到排序的目的。冒泡排序的运作方式如下：</p>
@@ -894,7 +922,7 @@
     <link href="http://www.z16388.win/2017/01/01/2017/"/>
     <id>http://www.z16388.win/2017/01/01/2017/</id>
     <published>2016-12-31T16:16:10.000Z</published>
-    <updated>2016-12-31T16:21:09.000Z</updated>
+    <updated>2017-04-13T13:25:20.963Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;2016已经成为了过去式，新的一年已经来临。过去的一年里，无论有多少收获，2017，我们都会遇到一个新的自己。祝大家在新的一年里，能够距离自己的目标更进一步，保持自己的信心，继续前进。无论结果如何，这都会是我们人生中最精彩的一年——今年。</p>
 <p>&emsp;&emsp;2017，要实训，要考研，要学习日语，要加强算法的练习，完善ACM的教程，要增进刀塔的技术…</p>
@@ -918,7 +946,7 @@
     <link href="http://www.z16388.win/2016/11/16/hdu1326-hdu2088/"/>
     <id>http://www.z16388.win/2016/11/16/hdu1326-hdu2088/</id>
     <published>2016-11-16T12:06:16.000Z</published>
-    <updated>2016-11-16T13:00:43.000Z</updated>
+    <updated>2017-04-13T13:25:20.911Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;这两道是同一道题，只是区别在输出格式。</p>
 <p>&emsp;&emsp;算出需要移动的方块个数（相差平均数的总个数）即可，需要注意的是每两个输出之间有一个空行。</p>
@@ -938,9 +966,9 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
     
   </entry>
   
@@ -949,7 +977,7 @@
     <link href="http://www.z16388.win/2016/11/16/hdu1720/"/>
     <id>http://www.z16388.win/2016/11/16/hdu1720/</id>
     <published>2016-11-16T11:32:29.000Z</published>
-    <updated>2016-11-16T11:34:26.000Z</updated>
+    <updated>2017-04-13T13:25:20.904Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;这是一道简单的输入输出问题，把输入当做十六进制，计算和并按照十进制输出即可。</p>
 <p>&emsp;&emsp;以下是C和C++两种做法：</p>
@@ -965,9 +993,9 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
     
   </entry>
   
@@ -976,7 +1004,7 @@
     <link href="http://www.z16388.win/2016/11/16/Steps/"/>
     <id>http://www.z16388.win/2016/11/16/Steps/</id>
     <published>2016-11-16T11:06:30.000Z</published>
-    <updated>2016-11-17T06:24:47.000Z</updated>
+    <updated>2017-04-13T13:25:20.828Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;hdu里的题目，题目量大，种类多，很多人用，同时也不方便找对应难度的试题。只知道水题都在11页，那么其他的题目都该怎么刷呢。</p>
 <p>&emsp;&emsp;其实hdu有一个比较隐蔽的功能叫做ACM Steps，按照难度将题目随机分配出来的，难度相近，全部做完才能进入下一关，比较适合练习。</p>
@@ -1009,7 +1037,7 @@
     <link href="http://www.z16388.win/2016/11/16/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-6%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89%E6%A0%91%E3%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E5%9B%BE/"/>
     <id>http://www.z16388.win/2016/11/16/【ACM教程】3-6数据结构基础（2）树、二叉树和图/</id>
     <published>2016-11-16T06:49:28.000Z</published>
-    <updated>2017-03-07T12:09:44.000Z</updated>
+    <updated>2017-04-13T13:25:15.899Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第六节-数据结构基础（2）树、二叉树和图"><a href="#第六节-数据结构基础（2）树、二叉树和图" class="headerlink" title="第六节 数据结构基础（2）树、二叉树和图"></a>第六节 数据结构基础（2）树、二叉树和图</h1><p>&emsp;&emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。</p>
 <h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>&emsp;&emsp;树形结构是一类非常重要的非线性数据结构，其中以树和二叉树最为常用。树结构在客观世界中广泛存在，比如我们日常生活中常见的组织结构图：<br><img src="http://www.wxtgcl.com/images/organization.jpg" alt=""></p>
@@ -1073,62 +1101,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;第六节-数据结构基础（2）树、二叉树和图&quot;&gt;&lt;a href=&quot;#第六节-数据结构基础（2）树、二叉树和图&quot; class=&quot;headerlink&quot; title=&quot;第六节 数据结构基础（2）树、二叉树和图&quot;&gt;&lt;/a&gt;第六节 数据结构基础（2）树、二叉树和图&lt;/h1&gt;&lt;
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】3.5常用C++容器vector,set和map</title>
-    <link href="http://www.z16388.win/2016/11/13/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-5%E5%B8%B8%E7%94%A8C++%E5%AE%B9%E5%99%A8vector,set%E5%92%8Cmap/"/>
-    <id>http://www.z16388.win/2016/11/13/【ACM教程】3-5常用C++容器vector,set和map/</id>
-    <published>2016-11-13T11:44:37.000Z</published>
-    <updated>2017-03-07T12:09:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第五节-常用C-容器vector，set和map"><a href="#第五节-常用C-容器vector，set和map" class="headerlink" title="第五节 常用C++容器vector，set和map"></a>第五节 常用C++容器vector，set和map</h1><p>&emsp;&emsp;上一节我们介绍了一些简单的数据结构，大家只要理解概念就可以了，为下面的概念和模型打下基础。这一节，我们讲一讲C++中一些常用的容器。就像之前的list，stack一样，能给我们写程序带来很大的帮助。</p>
-<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><p>&emsp;&emsp;动态数组（vector）是比较常用的容器之一，它的用法和数组类似，但是大小不确定。在我们对它的值进行更改的时候，它的大小也会变化。它的声明方法和数组类似：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;push_back()可以在结尾添加元素：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">v.push_back(<span class="number">1</span>);</div><div class="line">v.push_back(<span class="number">2</span>);</div><div class="line">v.push_back(<span class="number">3</span>);</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;vector可以和数组一样通过下标来访问。下标也是从0开始的：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(<span class="string">"%d %d %d\n"</span>,v[<span class="number">0</span>],v[<span class="number">1</span>],v[<span class="number">2</span>]);</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;<code>v.begin()</code>和<code>v.end()</code>返回的是两个指针，分别指向vector的第一个元素和最后一个元素。</p>
-<p>&emsp;&emsp;和我们之前讲过的list一样，vector也可以使用迭代器：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</div><div class="line">    <span class="keyword">for</span>(it=v.begin();it!=v.end();it++)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>,*it);</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;我们来做一道练习题吧，<a href="http://acm.hdu.edu.cn/showproblem.php?pid=2561" target="_blank" rel="external">hdu2561</a>，思路很简单，我们用vector来存放数据，sort()排序之后输出。在输出完一组数据之后，我们应该使用clear()来清空容器。AC代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> c,n,t;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;c);</div><div class="line">    <span class="keyword">while</span>(c--)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">        <span class="keyword">while</span>(n--)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</div><div class="line">            v.push_back(t);</div><div class="line">        &#125;</div><div class="line">        sort(v.begin(),v.end());</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,v[<span class="number">1</span>]);</div><div class="line">        v.clear();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;除此之外，还有一些常用的函数：</p>
-<blockquote>
-<p>front()  back()   返回首尾元素的引用。<br>empty() 是否为空<br>size() 元素的个数<br>pop_back() 删除容器中最后一个元素<br>clear() 删除所有元素<br>erase(iterator it) 删除迭代器指向的的元素</p>
-</blockquote>
-<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><p>&emsp;&emsp;set被称为集合类，存放的元素会按照大小自动排序，但是不能有重复的元素。如果想要存放重复的元素，应该使用multiset。</p>
-<p>&emsp;&emsp;声明、初始化和迭代器等：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; set01;</div><div class="line">    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</div><div class="line">    set01.insert(<span class="number">3</span>);</div><div class="line">    set01.insert(<span class="number">1</span>);</div><div class="line">    set01.insert(<span class="number">1</span>);</div><div class="line">    <span class="keyword">for</span>(it01=<span class="built_in">set</span>.begin();it!=<span class="built_in">set</span>.end();it++)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>,*it);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;正如它的名字，在处理集合之类的问题的时候我们可以使用。可以看这道题：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=1412" target="_blank" rel="external">hdu1412</a>。同一个set存储连个数据，不仅实现了相同元素的排除还排好了序。在输出一组结果之后，应该使用clear()来清空容器。下面是AC代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i,n,m,t;</div><div class="line">    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; st;</div><div class="line">    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m)!=EOF)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n+m;i++)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</div><div class="line">            st.insert(t);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(it=st.begin();it!=st.end();)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d"</span>,*it);</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%c"</span>,(++it)==st.end()?<span class="string">'\n'</span>:<span class="string">' '</span>);</div><div class="line">        &#125;</div><div class="line">        st.clear();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>empty() 是否为空<br>size() 元素的个数<br>erase(iterator it) 删除迭代器指向的的元素</p>
-</blockquote>
-<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>&emsp;&emsp;map称为映射，元素成对出现。<key,value>，前面的称为关键字，后面是关键字对应的值。映射中的元素会按照key的大小自动排序。map是单映射，key和value是一对一的关系。如果想要实现多映射就要使用multimap。</key,value></p>
-<p>&emsp;&emsp;声明、初始化</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="built_in">string</span>&gt; map01;</div><div class="line">    pair&lt;<span class="keyword">int</span>,<span class="built_in">string</span>&gt;p1(<span class="number">1</span>,<span class="string">"这是1"</span>);</div><div class="line">    pair&lt;<span class="keyword">int</span>,<span class="built_in">string</span>&gt;p2(<span class="number">2</span>,<span class="string">"这是2"</span>);</div><div class="line">    pair&lt;<span class="keyword">int</span>,<span class="built_in">string</span>&gt;p3(<span class="number">3</span>,<span class="string">"这是3"</span>);</div><div class="line">    map01.insert(p1);</div><div class="line">    map01.insert(p2);</div><div class="line">    map01.insert(p3);</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;除此之外，我们还可以使用赋值的方法来进行初始化，但是仅限于单映射。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">map01[<span class="number">5</span>]=<span class="number">25</span>;</div><div class="line">map01[<span class="number">3</span>]=<span class="number">9</span>;</div><div class="line">map01[<span class="number">4</span>]=<span class="number">16</span>;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;<code>begin()</code>和<code>end()</code>返回的是两个指针，分别指向map的第一个元素和最后一个元素。如果需要访问映射中的元素，需要使用迭代器：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; map01;</div><div class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;::iterator it01;</div><div class="line">    map01[<span class="number">5</span>]=<span class="number">25</span>;</div><div class="line">    map01[<span class="number">3</span>]=<span class="number">9</span>;</div><div class="line">    map01[<span class="number">3</span>]=<span class="number">10</span>;</div><div class="line">    <span class="keyword">for</span>(it01=map01.begin();it01!=map01.end();it01++)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"Key:%d Value:%d\n"</span>,(*it01).first(*it01).second);</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;下面做一道练习题：(hdu2550)[<a href="http://acm.hdu.edu.cn/showproblem.php?pid=2550" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=2550</a>]</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; mp;</div><div class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;::iterator it;</div><div class="line">    <span class="keyword">int</span> t,n,key,value,i,j;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</div><div class="line">    <span class="keyword">while</span>(t--)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">        <span class="keyword">while</span>(n--)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;key,&amp;value);</div><div class="line">            mp[key]=value;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(it=mp.begin();it!=mp.end();it++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;(*it).second;i++)</div><div class="line">            &#123;</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"&gt;+"</span>);</div><div class="line">                <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;(*it).first<span class="number">-2</span>;j++)</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"-"</span>);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"+&gt;\n"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">        &#125;</div><div class="line">        mp.clear();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第五节-常用C-容器vector，set和map&quot;&gt;&lt;a href=&quot;#第五节-常用C-容器vector，set和map&quot; class=&quot;headerlink&quot; title=&quot;第五节 常用C++容器vector，set和map&quot;&gt;&lt;/a&gt;第五节 常用C++容器ve
     
     </summary>
     

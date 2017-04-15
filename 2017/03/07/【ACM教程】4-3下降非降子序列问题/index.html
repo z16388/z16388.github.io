@@ -3,26 +3,44 @@
 <head>
   <meta charset="utf-8">
   
-  <title>R语言二三事 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+  <title>【ACM教程】4.3下降/非降子序列问题 | 崎径 其镜 | 求学道路上的行车记录仪</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
-  <meta name="keywords" content="R">
-  <meta name="description" content="&amp;emsp;&amp;emsp;上午上完第一节课之后，想要到图书馆寻找几本算法相关的书籍未果，偶然发现了两本不错的书。一本是《Python语言程序设计》，另一本就是《R语言初学指南》了。
-&amp;emsp;&amp;emsp;早些时候我就有关注过R了，听说是一个最近很火的数据分析语言，具有强大的数据分析功能，在各领域都有所使用。这也算是第一次接触，还没回到寝室就迫不及待地打开翻了两页，顿时整个人都不好了——我看到了一堆">
+  <meta name="keywords" content="ACM,算法,ACM教程,动态规划">
+  <meta name="description" content="第三节 下降/非降子序列问题&amp;emsp;&amp;emsp;这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。
+模型抽象&amp;emsp;&amp;emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：
+
+
+最长非降子序列问题：在一个无序序列a[1],a[2],…,a[n]中，找到一个最长的子序列满足：
+
+
+&amp;ems">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R语言二三事">
-<meta property="og:url" content="http://www.z16388.win/2016/11/04/R语言二三事/index.html">
+<meta property="og:title" content="【ACM教程】4.3下降/非降子序列问题">
+<meta property="og:url" content="http://www.z16388.win/2017/03/07/【ACM教程】4-3下降非降子序列问题/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;上午上完第一节课之后，想要到图书馆寻找几本算法相关的书籍未果，偶然发现了两本不错的书。一本是《Python语言程序设计》，另一本就是《R语言初学指南》了。
-&amp;emsp;&amp;emsp;早些时候我就有关注过R了，听说是一个最近很火的数据分析语言，具有强大的数据分析功能，在各领域都有所使用。这也算是第一次接触，还没回到寝室就迫不及待地打开翻了两页，顿时整个人都不好了——我看到了一堆">
-<meta property="og:updated_time" content="2017-04-13T13:25:20.828Z">
+<meta property="og:description" content="第三节 下降/非降子序列问题&amp;emsp;&amp;emsp;这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。
+模型抽象&amp;emsp;&amp;emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：
+
+
+最长非降子序列问题：在一个无序序列a[1],a[2],…,a[n]中，找到一个最长的子序列满足：
+
+
+&amp;ems">
+<meta property="og:updated_time" content="2017-04-13T13:25:15.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R语言二三事">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;上午上完第一节课之后，想要到图书馆寻找几本算法相关的书籍未果，偶然发现了两本不错的书。一本是《Python语言程序设计》，另一本就是《R语言初学指南》了。
-&amp;emsp;&amp;emsp;早些时候我就有关注过R了，听说是一个最近很火的数据分析语言，具有强大的数据分析功能，在各领域都有所使用。这也算是第一次接触，还没回到寝室就迫不及待地打开翻了两页，顿时整个人都不好了——我看到了一堆">
+<meta name="twitter:title" content="【ACM教程】4.3下降/非降子序列问题">
+<meta name="twitter:description" content="第三节 下降/非降子序列问题&amp;emsp;&amp;emsp;这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。
+模型抽象&amp;emsp;&amp;emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：
+
+
+最长非降子序列问题：在一个无序序列a[1],a[2],…,a[n]中，找到一个最长的子序列满足：
+
+
+&amp;ems">
   
     <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
   
@@ -119,7 +137,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">R语言二三事</div>
+        <div class="flex-col header-title ellipsis">【ACM教程】4.3下降/非降子序列问题</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -149,11 +167,11 @@
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">R语言二三事</h1>
+    <h1 class="author">【ACM教程】4.3下降/非降子序列问题</h1>
     <h5 class="subtitle">
         
-            <time datetime="2016-11-04T09:18:34.000Z" itemprop="datePublished" class="page-time">
-  2016-11-04
+            <time datetime="2017-03-07T12:04:26.000Z" itemprop="datePublished" class="page-time">
+  2017-03-07
 </time>
 
 
@@ -163,11 +181,11 @@
 </header>
 
     <div class="container body-wrap">
-      <article id="post-R语言二三事" 
+      <article id="post-【ACM教程】4-3下降非降子序列问题" 
   class="article article-type-post" itemprop="blogPost">
     <div class="post-meta flex-row">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM教程/">ACM教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动态规划/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </div>
     <div class="post-body">
@@ -214,7 +232,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第三节-下降-非降子序列问题"><span class="post-toc-text">第三节 下降/非降子序列问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模型抽象"><span class="post-toc-text">模型抽象</span></a></li></ol></li></ol>
             </nav>
             
         </aside>
@@ -222,34 +240,32 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>&emsp;&emsp;上午上完第一节课之后，想要到图书馆寻找几本算法相关的书籍未果，偶然发现了两本不错的书。一本是《Python语言程序设计》，另一本就是《R语言初学指南》了。</p>
-<p>&emsp;&emsp;早些时候我就有关注过R了，听说是一个最近很火的数据分析语言，具有强大的数据分析功能，在各领域都有所使用。这也算是第一次接触，还没回到寝室就迫不及待地打开翻了两页，顿时整个人都不好了——我看到了一堆讨厌极了的矩阵。。。</p>
-<p>&emsp;&emsp;回到寝室，从序开始看，发现这是一本很浅显的书，内容的话还涉及一些行业上的实例，比如说在第三节就有一个金融数学上的例子，刚好我们才学过的一些东西都用上了。</p>
-<p>&emsp;&emsp;下载好，给win和mac都安装好，摸索使用了一下，发现这真是一个非常好的数学工具。比起MATLAB臃肿的安装包，R的基础包只有不到100mb，而且足够初学者的使用，这一点我非常欣赏。虽然UI不是很理想，但是功能强大不就好了吗。</p>
-<p>&emsp;&emsp;基本的语法和Python有着一定的相似之处，使用起来和MATLAB也很类似。总之，希望能够学下去吧。下面总结一下今天学到的R常用的基础语法：</p>
-<hr>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="number">5</span>+<span class="number">7</span></div><div class="line">[<span class="number">1</span>] <span class="number">12</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;和Python类似，可以直接实现两个数的运算。常用的运算除了加减乘除之外，还有乘方，例：<code>e^2</code></p>
-<hr>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; sally=<span class="number">5</span>+<span class="number">7</span></div><div class="line">&gt; ralph=<span class="number">4</span>-<span class="number">2</span></div><div class="line">&gt; sally-ralph</div><div class="line">[<span class="number">1</span>] <span class="number">10</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;可以将数据存放在变量中进行运算。</p>
-<hr>
-<p>&emsp;&emsp;赋值有两种方法，较老的版本使用箭头来进行赋值，现在和其他语言类似，都可以使用一个等号表示赋值，这两种方法是等价的：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; a=a+<span class="number">1</span></div><div class="line">&gt; a&lt;-a+<span class="number">1</span></div></pre></td></tr></table></figure>
-<hr>
-<p>向量：</p>
-<p>&emsp;&emsp;向量是数学中一个相当常用的概念，在R里当然是必不可少的。我们可以通过下面的方法来创建一个向量：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; x=c(<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>)</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;向量可以进行加减乘除乘方等运算。除此之外，还有一种特殊的向量，用来表示一个连续的序列，例如：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; j=<span class="number">0</span>:<span class="number">5</span></div><div class="line">&gt; j</div><div class="line">[<span class="number">1</span>] <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;冒号申请的连续序列可能在后面的过程中经常使用，比如在绘图时，可能需要很多的坐标，这时候使用这种向量会极大地方便我们的绘图工作。</p>
-<hr>
-<p>学习ing</p>
-
+            <h1 id="第三节-下降-非降子序列问题"><a href="#第三节-下降-非降子序列问题" class="headerlink" title="第三节 下降/非降子序列问题"></a>第三节 下降/非降子序列问题</h1><p>&emsp;&emsp;这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。</p>
+<h2 id="模型抽象"><a href="#模型抽象" class="headerlink" title="模型抽象"></a>模型抽象</h2><p>&emsp;&emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：</p>
+<blockquote>
+<ul>
+<li>最长非降子序列问题：在一个无序序列a[1],a[2],…,a[n]中，找到一个最长的子序列满足：</li>
+</ul>
+<ol>
+<li>&emsp;a[i]&lt;=a[j]&lt;=…&lt;=a[m]</li>
+<li>&emsp;i&lt;j&lt;…&lt;m</li>
+</ol>
+<ul>
+<li>最长下降子序列问题：在一个无序序列a[1],a[2],…,a[n]中，找到一个最长的子序列满足：</li>
+</ul>
+<ol>
+<li>a[i]&gt;a[j]&gt;…&gt;a[m]</li>
+<li>i&gt;j&gt;…&gt;m</li>
+</ol>
+</blockquote>
+<p>&emsp;&emsp;我们从动态规划的三要素入手，来分析这种问题是否能使用动态规划来解决：如果要找到一个长度为k的子序列，那么我们需要一个长度为k-1的满足条件的的序列，再判断第k个元素是否满足条件，这显然满足最优子结构。在考虑第i个元素时，只需要看前面的i-1个，满足无后效性。因此这类题目可以使用动态规划来解决。</p>
+<p>&emsp;&emsp;下面我们来做一道经典的题目：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=1257" target="_blank" rel="external">hdu1257：最少拦截系统</a></p>
+<p>&emsp;&emsp;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
             <blockquote>
                 <p>
                 本文地址：
-                <a href="http://www.z16388.win/2016/11/04/R语言二三事/" target="_blank" rel="external">http://www.z16388.win/2016/11/04/R语言二三事/</a>
+                <a href="http://www.z16388.win/2017/03/07/【ACM教程】4-3下降非降子序列问题/" target="_blank" rel="external">http://www.z16388.win/2017/03/07/【ACM教程】4-3下降非降子序列问题/</a>
                 </p>
                 <footer><cite><a href="http://www.z16388.win">@崎径 其镜</a></cite></footer>
             </blockquote>
@@ -258,18 +274,18 @@
 <nav class="post-nav">
   
     <div class="waves-block waves-effect prev fl">
-      <a href="/2016/11/09/【ACM教程】3-3二分查找/" id="post-prev" class="post-nav-link">
+      <a href="/2017/03/14/【ACM教程】4-2动态规划初体验/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">【ACM教程】3.3二分查找</h4>
+        <h4 class="title">【ACM教程】4.2动态规划初体验</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next fr">
-      <a href="/2016/11/02/【ACM教程】3-1枚举/" id="post-next" class="post-nav-link">
+      <a href="/2017/03/06/【ACM教程】4-1动态规划简介/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">【ACM教程】3-1枚举</h4>
+        <h4 class="title">【ACM教程】4.1动态规划简介</h4>
       </a>
     </div>
   
@@ -280,7 +296,7 @@
             
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="R语言二三事" data-title="R语言二三事" data-url="http://www.z16388.win/2016/11/04/R语言二三事/index.html"></div>
+	<div class="ds-thread" data-thread-key="【ACM教程】4-3下降非降子序列问题" data-title="【ACM教程】4.3下降/非降子序列问题" data-url="http://www.z16388.win/2017/03/07/【ACM教程】4-3下降非降子序列问题/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -311,10 +327,10 @@
 
 <script>
 var BLOG_SHARE = {
-    title: "R语言二三事",
+    title: "【ACM教程】4.3下降/非降子序列问题",
     pic: "/img/logo.jpg",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://www.z16388.win/2016/11/04/R语言二三事/index.html"
+    url: "http://www.z16388.win/2017/03/07/【ACM教程】4-3下降非降子序列问题/index.html"
 };
 </script>
 <div class="global-share" id="global-share">

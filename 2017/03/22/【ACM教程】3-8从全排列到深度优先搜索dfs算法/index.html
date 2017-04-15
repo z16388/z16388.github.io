@@ -11,21 +11,21 @@
   
   <meta name="keywords" content="ACM,算法,ACM教程">
   <meta name="description" content="第八节 从全排列到深度优先搜索算法全排列&amp;emsp;&amp;emsp;什么是全排列？就是一组数据所有可能的排列顺序。如果使用暴力枚举的方法，需要对每一个位置都进行一次循环，如果有n个数据则需要循环n次，而且还要加上对重复序列的判断。
-&amp;emsp;&amp;emsp;可喜的是，在STL中有两个函数可以帮我们实现字典序的全排列。他们分别是：next_permutaion()prev_permutation()，参数">
+&amp;emsp;&amp;emsp;可喜的是，在STL中有两个函数可以帮我们实现字典序的全排列。他们分别是：next_permutation()prev_permutation()，参">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【ACM教程】3.8从全排列到深度优先搜索dfs算法">
 <meta property="og:url" content="http://www.z16388.win/2017/03/22/【ACM教程】3-8从全排列到深度优先搜索dfs算法/index.html">
 <meta property="og:site_name" content="崎径 其镜">
 <meta property="og:description" content="第八节 从全排列到深度优先搜索算法全排列&amp;emsp;&amp;emsp;什么是全排列？就是一组数据所有可能的排列顺序。如果使用暴力枚举的方法，需要对每一个位置都进行一次循环，如果有n个数据则需要循环n次，而且还要加上对重复序列的判断。
-&amp;emsp;&amp;emsp;可喜的是，在STL中有两个函数可以帮我们实现字典序的全排列。他们分别是：next_permutaion()prev_permutation()，参数">
+&amp;emsp;&amp;emsp;可喜的是，在STL中有两个函数可以帮我们实现字典序的全排列。他们分别是：next_permutation()prev_permutation()，参">
 <meta property="og:image" content="http://oda2v68ht.bkt.clouddn.com/1.jpg">
 <meta property="og:image" content="http://oda2v68ht.bkt.clouddn.com/2.jpg">
 <meta property="og:image" content="http://oda2v68ht.bkt.clouddn.com/3.jpg">
-<meta property="og:updated_time" content="2017-03-30T11:04:18.000Z">
+<meta property="og:updated_time" content="2017-04-13T13:25:15.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【ACM教程】3.8从全排列到深度优先搜索dfs算法">
 <meta name="twitter:description" content="第八节 从全排列到深度优先搜索算法全排列&amp;emsp;&amp;emsp;什么是全排列？就是一组数据所有可能的排列顺序。如果使用暴力枚举的方法，需要对每一个位置都进行一次循环，如果有n个数据则需要循环n次，而且还要加上对重复序列的判断。
-&amp;emsp;&amp;emsp;可喜的是，在STL中有两个函数可以帮我们实现字典序的全排列。他们分别是：next_permutaion()prev_permutation()，参数">
+&amp;emsp;&amp;emsp;可喜的是，在STL中有两个函数可以帮我们实现字典序的全排列。他们分别是：next_permutation()prev_permutation()，参">
 <meta name="twitter:image" content="http://oda2v68ht.bkt.clouddn.com/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
@@ -227,7 +227,7 @@
 
             <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="第八节-从全排列到深度优先搜索算法"><a href="#第八节-从全排列到深度优先搜索算法" class="headerlink" title="第八节 从全排列到深度优先搜索算法"></a>第八节 从全排列到深度优先搜索算法</h1><h2 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h2><p>&emsp;&emsp;什么是全排列？就是一组数据所有可能的排列顺序。如果使用暴力枚举的方法，需要对每一个位置都进行一次循环，如果有n个数据则需要循环n次，而且还要加上对重复序列的判断。</p>
-<p>&emsp;&emsp;可喜的是，在STL中有两个函数可以帮我们实现字典序的全排列。他们分别是：<code>next_permutaion()</code><code>prev_permutation()</code>，参数是数据的开始和结束地址。举个例子，比如一个字符数组：a,b,c，它的下一个序列就是a,c,b。在处理全排列问题的时候，使用比较方便。这两个函数在算法头文件中。</p>
+<p>&emsp;&emsp;可喜的是，在STL中有两个函数可以帮我们实现字典序的全排列。他们分别是：<code>next_permutation()</code><code>prev_permutation()</code>，参数是数据的开始和结束地址。举个例子，比如一个字符数组：a,b,c，它的下一个序列就是a,c,b。在处理全排列问题的时候，使用比较方便。这两个函数在算法头文件中。</p>
 <p>&emsp;&emsp;由于这两个函数是根据字典序来给出下一个全排列，如果想要得出所有的全排列，则需要首先对序列进行排序。</p>
 <p>&emsp;&emsp;蓝桥杯中很多题目可以使用这种方法来解决，以第七届蓝桥杯的第三题为例：</p>
 <blockquote>
