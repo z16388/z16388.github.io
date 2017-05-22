@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2017-04-15T02:30:57.722Z</updated>
+  <updated>2017-05-22T10:42:40.359Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -14,6 +14,115 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数学模型中的Huntington除数法</title>
+    <link href="http://www.z16388.win/2017/05/19/Huntington/"/>
+    <id>http://www.z16388.win/2017/05/19/Huntington/</id>
+    <published>2017-05-19T14:36:44.000Z</published>
+    <updated>2017-05-22T10:42:40.359Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>本篇博客请结合《数学模型（第四版）》，姜启源版教材第八章第四节内容阅读。</p>
+</blockquote>
+<p>&emsp;&emsp;在处理席位分析问题时，常使用Huntington除数法来进行处理。在书中279~281的学习中，我们了解到了怎样去比较一个分配结果的不公平度，以及一个较惯例分配法更加公平的“Q值法”。那么，下面我将介绍一种处理这类问题的通用方法，Huntington除数法。</p>
+<p>&emsp;&emsp;Edward Vermilye Huntington(1874~1952)，1922年获得哈佛大学博士学位。20世纪20年代，他对这个问题做了具体的研究，提出了一系列的席位分配方法。之前介绍过的“Q值法”，也作为其中的一种情况，包含在内。</p>
+<p>&emsp;&emsp;假设共有<code>m</code>方分配<code>N</code>个席位，第<code>i</code>方的人数记为<code>pi</code>,<code>ni</code>表示第<code>i</code>方分配的席位数，且均为非负整数。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Huntington除数法</th>
+<th style="text-align:center">除数&emsp;d(n)</th>
+<th style="text-align:center">不公平度的度量指标(假定pi/ni&gt;pj/nj)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">最大除数法(GD)</td>
+<td style="text-align:center">n+1</td>
+<td style="text-align:center">(nj-pi)/pj-ni</td>
+</tr>
+<tr>
+<td style="text-align:center">主要分数法(MF)</td>
+<td style="text-align:center">n+1/2</td>
+<td style="text-align:center">(nj/pj)-(ni-pi)</td>
+</tr>
+<tr>
+<td style="text-align:center">相等比例法(EP)</td>
+<td style="text-align:center">sqrt(n(n+1))</td>
+<td style="text-align:center">(njpi)/(nipj)-1</td>
+</tr>
+<tr>
+<td style="text-align:center">调和平均法(HM)</td>
+<td style="text-align:center">2n(n+1)/(2n+1)</td>
+<td style="text-align:center">pi/ni-pj/nj</td>
+</tr>
+<tr>
+<td style="text-align:center">最小除数法(SD)</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">nj-nipj/pi</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;&emsp;下面是这个方法的思路：首先，我们对每一方都分配一个席位，然后利用选定的衡量指标，计算出每一方的不公平度。给最大的那一组，分配一个席位，然后继续计算，直到将所有席位分配完毕。一般情况下，在使用Huntington除数法时，通常在各方自动分得1席的基础上在做分配，除非在各方人数悬殊且席位数较少的时候。</p>
+<p>&emsp;&emsp;由于在计算的过程中，采用了每增加1席计算一次的方式，因此不会出现席位悖论和人口悖论。</p>
+<p>&emsp;&emsp;下面是C语言写的Huntington算法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> w;</div><div class="line">FILE *fin=fopen(<span class="string">"in.txt"</span>,<span class="string">"r"</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">dn</span><span class="params">(<span class="keyword">int</span> n)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">switch</span>(w)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">case</span> <span class="number">1</span>:<span class="keyword">return</span> n+<span class="number">1.0</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">2</span>:<span class="keyword">return</span> n+<span class="number">0.5</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">3</span>:<span class="keyword">return</span> <span class="built_in">sqrt</span>(n*(n+<span class="number">1.0</span>));</div><div class="line">        <span class="keyword">case</span> <span class="number">4</span>:<span class="keyword">return</span> <span class="number">2</span>*n*(n+<span class="number">1.0</span>)/(<span class="number">2</span>*n+<span class="number">1</span>);</div><div class="line">        <span class="keyword">case</span> <span class="number">5</span>:<span class="keyword">return</span> n;</div><div class="line">        <span class="keyword">default</span>:<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Huntington</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> s,flag=<span class="number">0</span>,bh=<span class="number">1</span>;</div><div class="line">    <span class="keyword">double</span> p[<span class="number">6</span>],pd[<span class="number">6</span>];</div><div class="line">    <span class="keyword">int</span> n[<span class="number">6</span>];</div><div class="line">    <span class="keyword">double</span> max_pd;</div><div class="line">    <span class="built_in">fscanf</span>(fin,<span class="string">"%d"</span>,&amp;s);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">fscanf</span>(fin,<span class="string">"%lf"</span>,&amp;p[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)</div><div class="line">    &#123;</div><div class="line">        n[i]=<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">while</span>(n[<span class="number">1</span>]+n[<span class="number">2</span>]+n[<span class="number">3</span>]+n[<span class="number">4</span>]+n[<span class="number">5</span>]!=s)</div><div class="line">    &#123;</div><div class="line">        flag=<span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)</div><div class="line">        &#123;</div><div class="line">            pd[i] = p[i]/dn(n[i]);</div><div class="line">        &#125;</div><div class="line">        max_pd = p[<span class="number">1</span>]/dn(n[<span class="number">1</span>]);</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=<span class="number">5</span>;i++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span>(pd[i]&gt;max_pd)</div><div class="line">            &#123;</div><div class="line">                flag = i,max_pd = pd[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        n[flag]++;</div><div class="line"></div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"第"</span>&lt;&lt;bh++&lt;&lt;<span class="string">"次："</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)</div><div class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"p/di="</span>&lt;&lt;pd[i]&lt;&lt;<span class="string">"  n="</span>&lt;&lt;n[i]&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"--------------------"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">printList</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"#请选择需要模拟的权重函数#"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"1.最大除数法(GD)"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"2.主要分数法(MF)"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"3.相等比例法(EP)"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"4.调和平均法(HM)"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"5.最小除数法(SD)"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"--------------------"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"退出请输入0"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">select</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    printList();</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;w) &#123;</div><div class="line">        <span class="keyword">switch</span> (w)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">case</span> <span class="number">1</span>:<span class="keyword">case</span> <span class="number">2</span>:<span class="keyword">case</span> <span class="number">3</span>:<span class="keyword">case</span> <span class="number">4</span>:<span class="keyword">case</span> <span class="number">5</span>:</div><div class="line">                Huntington();</div><div class="line">                select();</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">0</span>:fclose(fin);<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="built_in">cout</span>&lt;&lt;<span class="string">"输入错误，请重新输入"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">                <span class="built_in">cout</span>&lt;&lt;<span class="string">"--------------------"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">                select();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    select();</div><div class="line">    fclose(fin);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;GD法偏向于人数多的组，SD法偏向于人数少的组。Huntington推荐偏向适中的EP法，也就是“Q值法”，该方法在1930年后一直在被美国国会众议员席位分配中采用。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本篇博客请结合《数学模型（第四版）》，姜启源版教材第八章第四节内容阅读。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;在处理席位分析问题时，常使用Huntington除数法来进行处理。在书中279~281的学习中，我们了解到了
+    
+    </summary>
+    
+    
+      <category term="数学" scheme="http://www.z16388.win/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="数学模型" scheme="http://www.z16388.win/tags/%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>考研统计</title>
+    <link href="http://www.z16388.win/2017/04/15/yan/"/>
+    <id>http://www.z16388.win/2017/04/15/yan/</id>
+    <published>2017-04-15T13:53:12.000Z</published>
+    <updated>2017-05-19T14:35:28.886Z</updated>
+    
+    <content type="html"><![CDATA[<p>数学：</p>
+<ol>
+<li>18张宇龙腾面授基础班视频（17.4.14~17.4.19）[5星，强烈推荐]&emsp;&emsp;<a href="http://www.bilibili.com/video/av8808189/" target="_blank" rel="external">http://www.bilibili.com/video/av8808189/</a></li>
+<li>《张宇高数18讲》(17.4.14~)配新东方17基础视频[5星，强烈推荐]</li>
+<li>《张宇线代9讲》(17.5.15~)配新东方17基础视频[5星，强烈推荐]</li>
+</ol>
+<p>英语：</p>
+<ol>
+<li>恋恋有词视频配书（17.4.15~）[5星]</li>
+</ol>
+<p>政治：</p>
+<ol>
+<li>徐之明2018政治导学两节课（17.4.15）[3星]&emsp;&emsp;<a href="http://pan.baidu.com/s/1c2w2qB2" target="_blank" rel="external">http://pan.baidu.com/s/1c2w2qB2</a></li>
+</ol>
+<p>专业课：</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;数学：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;18张宇龙腾面授基础班视频（17.4.14~17.4.19）[5星，强烈推荐]&amp;emsp;&amp;emsp;&lt;a href=&quot;http://www.bilibili.com/video/av8808189/&quot; target=&quot;_blank&quot; re
+    
+    </summary>
+    
+    
+      <category term="考研" scheme="http://www.z16388.win/tags/%E8%80%83%E7%A0%94/"/>
+    
+  </entry>
   
   <entry>
     <title>VS调试时提示找不到msvcr80d.dll解决方案</title>
@@ -996,120 +1105,6 @@
       <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
     
       <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ACM Steps</title>
-    <link href="http://www.z16388.win/2016/11/16/Steps/"/>
-    <id>http://www.z16388.win/2016/11/16/Steps/</id>
-    <published>2016-11-16T11:06:30.000Z</published>
-    <updated>2017-04-13T13:25:20.828Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;hdu里的题目，题目量大，种类多，很多人用，同时也不方便找对应难度的试题。只知道水题都在11页，那么其他的题目都该怎么刷呢。</p>
-<p>&emsp;&emsp;其实hdu有一个比较隐蔽的功能叫做ACM Steps，按照难度将题目随机分配出来的，难度相近，全部做完才能进入下一关，比较适合练习。</p>
-<p>链接：<a href="http://acm.hdu.edu.cn/game" target="_blank" rel="external">http://acm.hdu.edu.cn/game</a>(需要登录)</p>
-<p>第一章：</p>
-<ul>
-<li>A+B</li>
-<li>输入输出，快速幂，排序，ascii问题</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;hdu里的题目，题目量大，种类多，很多人用，同时也不方便找对应难度的试题。只知道水题都在11页，那么其他的题目都该怎么刷呢。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;其实hdu有一个比较隐蔽的功能叫做ACM Steps，按照难度将题目随机分配出来的，难
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】3.6数据结构基础（2）树、二叉树和图</title>
-    <link href="http://www.z16388.win/2016/11/16/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-6%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89%E6%A0%91%E3%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E5%9B%BE/"/>
-    <id>http://www.z16388.win/2016/11/16/【ACM教程】3-6数据结构基础（2）树、二叉树和图/</id>
-    <published>2016-11-16T06:49:28.000Z</published>
-    <updated>2017-04-13T13:25:15.899Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第六节-数据结构基础（2）树、二叉树和图"><a href="#第六节-数据结构基础（2）树、二叉树和图" class="headerlink" title="第六节 数据结构基础（2）树、二叉树和图"></a>第六节 数据结构基础（2）树、二叉树和图</h1><p>&emsp;&emsp;我们之前讲了数据结构中的几个线性结构，链表、栈还有队列。那么如果想要一个能表示多个元素之间关系的数据结构，就要使用我们的树形结构和图了。在ACM和蓝桥杯的比赛中，有关树和图的题目是百分百出现的。</p>
-<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>&emsp;&emsp;树形结构是一类非常重要的非线性数据结构，其中以树和二叉树最为常用。树结构在客观世界中广泛存在，比如我们日常生活中常见的组织结构图：<br><img src="http://www.wxtgcl.com/images/organization.jpg" alt=""></p>
-<p>&emsp;&emsp;树是n个结点的有限集合，在任意一棵非空的树中：</p>
-<ul>
-<li>有且仅有一个特定的，称为根（Root）的结点</li>
-<li>当n&gt;1时，其余结点可分别为m（m&gt;0）个互不相交的有限集合T1,T2,…,Tm，其中每一个集合本身又是一棵树，并且称为根的子树</li>
-</ul>
-<p>&emsp;&emsp;以上就是一棵树的定义。</p>
-<p>&emsp;&emsp;结点的子树称为它的“孩子”，相应地，该节点称为“双亲”。同一个双亲的孩子称为“兄弟”。孩子的数量称为“度”。</p>
-<p>&emsp;&emsp;规定根为第一层，它的孩子为第二层，以此类推。树中最大的层数称为树的深度或高度。</p>
-<p>&emsp;&emsp;森林：m（m&gt;0）课互不相交的树的集合。</p>
-<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="emsp-emsp-二叉树的定义和性质"><a href="#emsp-emsp-二叉树的定义和性质" class="headerlink" title="&emsp;&emsp;二叉树的定义和性质"></a>&emsp;&emsp;二叉树的定义和性质</h3><p>&emsp;&emsp;在讨论一般树的存储结构及操作之前，我们首先研究一种名为二叉树的抽象数据结构类型。</p>
-<p>&emsp;&emsp;二叉树是另一种树形结构，它的特点是每个结点至多只有两棵子树（即二叉树中不存在度大于2的结点）。并且，二叉树的子树左右之分，其次序不能任意颠倒。</p>
-<p><img src="http://7xospc.com1.z0.glb.clouddn.com/6-5-5.jpg" alt=""></p>
-<p>&emsp;&emsp;下面是二叉树的一些性质：</p>
-<ul>
-<li>在二叉树的第i层上至多有2^(i-1)个结点（i&gt;=1）；可以使用数学归纳法来证明</li>
-<li>深度为k的二叉树至多有2^k-1个结点（k&gt;=1）；由第一个性质推导</li>
-<li>对任何一棵二叉树T，若其终端结点数为n0，度为2的结点数为n2，则n0=n2+1。</li>
-<li>…</li>
-</ul>
-<h3 id="emsp-emsp-二叉树的存储结构"><a href="#emsp-emsp-二叉树的存储结构" class="headerlink" title="&emsp;&emsp;二叉树的存储结构"></a>&emsp;&emsp;二叉树的存储结构</h3><p>&emsp;&emsp;二叉树的概念和性质不是我们研究的主要问题，我们来看一下二叉树的存储结构。二叉树可以使用顺序存储结构和链式存储结构，这里我们先讲一下顺序存储结构。</p>
-<p>&emsp;&emsp;我们规定，用一组地址连续的存储单元，自上而下、自左至右存储完全二叉树上的结点元素，即将完全二叉树上编号为i的结点元素存放在一维数组下表为i（i-1）的分量中。对于一般的二叉树，则应该将其每个节点与完全二叉树相对照，存放在一维数组中。其中0表示不存在此结点。（想想我们之前讲过的memset函数）</p>
-<p>&emsp;&emsp;链式存储可以使用拥有两个指针域或者三个指针域的链表来表示，这里要看我们对这个二叉树的操作需求。如果需要返回访问根节点，则需要三个指针域。结合下面的内容，理解一下。</p>
-<blockquote>
-<p>&emsp;&emsp;lchild&emsp;&emsp;data&emsp;&emsp;rchild<br>&emsp;&emsp;lchild&emsp;&emsp;data&emsp;&emsp;parent&emsp;&emsp;rchild</p>
-</blockquote>
-<h3 id="emsp-emsp-二叉树的遍历和线索二叉树"><a href="#emsp-emsp-二叉树的遍历和线索二叉树" class="headerlink" title="&emsp;&emsp;二叉树的遍历和线索二叉树"></a>&emsp;&emsp;二叉树的遍历和线索二叉树</h3><p>&emsp;&emsp;在二叉树的一些应用中，我们常常要求在树种查找具有某种特征的结点，或者对树中全部结点做统一处理，我们就要对二叉树进行遍历。遍历就是按照某条搜索路径巡访树中的每个节点，就比如我们要输出的时候。对于一个线性结构，比如说数组，我们进行遍历就很方便，但是二叉树就比较复杂了。下面我们介绍三种操作方法：</p>
-<p>先序遍历：</p>
-<ul>
-<li>访问根节点</li>
-<li>先序遍历左子树</li>
-<li>先序遍历右子树</li>
-</ul>
-<p>中序遍历：</p>
-<ul>
-<li>中序遍历左子树</li>
-<li>访问根节点</li>
-<li>中序遍历右子树</li>
-</ul>
-<p>后序遍历：</p>
-<ul>
-<li>后序遍历左子树</li>
-<li>后序遍历右子树</li>
-<li>访问根节点</li>
-</ul>
-<p>&emsp;&emsp;我们知道，二叉树的遍历是以一定的规则将其排列成一个线性结构，但是当以二叉链表作为存储结构时，我们只能找到结点的左右孩子信息，而不能找到结点在任一序列中的前驱和后继。这种信息只有在动态的过程中才能够得到。那么想要保存的话，我们需要在每个节点上再加两个指针域用来存放结点的前驱和后继的信息。</p>
-<blockquote>
-<p>&emsp;&emsp;lchild&emsp;&emsp;LTag&emsp;&emsp;data&emsp;&emsp;RTag&emsp;&emsp;rchild</p>
-</blockquote>
-<p>&emsp;&emsp;以这种结点结构构成的二叉链表作为二叉树的存储结构，叫做线索二叉链表，对某种次序遍历使其变成线索二叉树的过程叫做线索化。</p>
-<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><h3 id="emsp-emsp-图的定义"><a href="#emsp-emsp-图的定义" class="headerlink" title="&emsp;&emsp;图的定义"></a>&emsp;&emsp;图的定义</h3><p>&emsp;&emsp;图是较线性表和树更为复杂的数据结构。在图结构中，结点之间的关系是任意的——图中任意两个元素都有可能相关。图中的数据元素称为定点（Vertex），VR是表示两个点之间的关系的集合,<v,w>是VR中的元素，表示的是从v到w的的一条弧（Arc）。v为初始点（弧尾），w为终端点（弧头），此时的图称为有向图。如果对任意的<v,w>都有<w,v>，则用无序队（v,w）来代替这个有序对，表示v和w之间的一条边，此时的图为无向图。</w,v></v,w></v,w></p>
-<p><img src="http://img.my.csdn.net/uploads/201212/27/1356610270_4985.png" alt=""></p>
-<p>&emsp;&emsp;有关图的问题还有很多，在数学上，我们专门有一门研究图的学科，叫做图论，这也将是接下来我们的研究对象。在今后的学习中，我们可能会接触到以下内容：</p>
-<h3 id="emsp-emsp-图的存储方法"><a href="#emsp-emsp-图的存储方法" class="headerlink" title="&emsp;&emsp;图的存储方法"></a>&emsp;&emsp;图的存储方法</h3><h3 id="emsp-emsp-图的遍历"><a href="#emsp-emsp-图的遍历" class="headerlink" title="&emsp;&emsp;图的遍历"></a>&emsp;&emsp;图的遍历</h3><h4 id="emsp-emsp-emsp-emsp-深度优先搜索（dfs）"><a href="#emsp-emsp-emsp-emsp-深度优先搜索（dfs）" class="headerlink" title="&emsp;&emsp;&emsp;&emsp;深度优先搜索（dfs）"></a>&emsp;&emsp;&emsp;&emsp;深度优先搜索（dfs）</h4><h4 id="emsp-emsp-emsp-emsp-广度优先搜索（bfs）"><a href="#emsp-emsp-emsp-emsp-广度优先搜索（bfs）" class="headerlink" title="&emsp;&emsp;&emsp;&emsp;广度优先搜索（bfs）"></a>&emsp;&emsp;&emsp;&emsp;广度优先搜索（bfs）</h4><h3 id="emsp-emsp-图的连通性"><a href="#emsp-emsp-图的连通性" class="headerlink" title="&emsp;&emsp;图的连通性"></a>&emsp;&emsp;图的连通性</h3><p>&emsp;&emsp;克鲁斯卡尔算法</p>
-<h3 id="emsp-emsp-最短路径"><a href="#emsp-emsp-最短路径" class="headerlink" title="&emsp;&emsp;最短路径"></a>&emsp;&emsp;最短路径</h3><h4 id="emsp-emsp-emsp-emsp-单源最短路径"><a href="#emsp-emsp-emsp-emsp-单源最短路径" class="headerlink" title="&emsp;&emsp;&emsp;&emsp;单源最短路径"></a>&emsp;&emsp;&emsp;&emsp;单源最短路径</h4><p>&emsp;&emsp;迪杰斯特拉算法</p>
-<h4 id="emsp-emsp-emsp-emsp-多源最短路径"><a href="#emsp-emsp-emsp-emsp-多源最短路径" class="headerlink" title="&emsp;&emsp;&emsp;&emsp;多源最短路径"></a>&emsp;&emsp;&emsp;&emsp;多源最短路径</h4><p>&emsp;&emsp;普里姆算法</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第六节-数据结构基础（2）树、二叉树和图&quot;&gt;&lt;a href=&quot;#第六节-数据结构基础（2）树、二叉树和图&quot; class=&quot;headerlink&quot; title=&quot;第六节 数据结构基础（2）树、二叉树和图&quot;&gt;&lt;/a&gt;第六节 数据结构基础（2）树、二叉树和图&lt;/h1&gt;&lt;
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.win/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.win/tags/ACM%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
