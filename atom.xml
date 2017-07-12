@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.win/"/>
-  <updated>2017-05-22T10:42:40.359Z</updated>
+  <updated>2017-07-12T15:19:21.598Z</updated>
   <id>http://www.z16388.win/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>QT笔记-基础篇</title>
+    <link href="http://www.z16388.win/2017/07/12/qt/"/>
+    <id>http://www.z16388.win/2017/07/12/qt/</id>
+    <published>2017-07-12T07:46:28.000Z</published>
+    <updated>2017-07-12T15:19:21.598Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h1><h3 id="修改某个控件显示的文字（优先级比属性高）"><a href="#修改某个控件显示的文字（优先级比属性高）" class="headerlink" title="修改某个控件显示的文字（优先级比属性高）"></a>修改某个控件显示的文字（优先级比属性高）</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ui-&gt;pushButton-&gt;setText(tr(<span class="string">"新的"</span>));</div><div class="line"><span class="comment">//在软件中应避免直接出现中文字符串，应该使用tr()函数包含</span></div><div class="line"><span class="comment">//这段代码如果用于控件的初始化，应当写在构造函数中</span></div></pre></td></tr></table></figure>
+<h3 id="弹出警告对话框"><a href="#弹出警告对话框" class="headerlink" title="弹出警告对话框"></a>弹出警告对话框</h3><blockquote>
+<blockquote>
+<p>需要使用头文件<code>QMessageBox</code></p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">QMessageBox::warning(<span class="keyword">this</span>, tr(<span class="string">"警告！"</span>),</div><div class="line">                   tr(<span class="string">"用户名或密码错误！"</span>),</div><div class="line">                   QMessageBox::Yes);</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;从上面的例子我们可以看出这个函数的参数分别为：父窗口、对话框标题、对话框的显示内容、对话框中的按钮。也就是说，上面这段代码实现的是弹出一个提示密码输入错误的，带有一个Yes按钮的警告对话框。</p>
+<h3 id="登陆窗口的创建步骤"><a href="#登陆窗口的创建步骤" class="headerlink" title="登陆窗口的创建步骤"></a>登陆窗口的创建步骤</h3><ol>
+<li>在项目视图中，右键-&gt;添加文件-&gt;QT-&gt;QT设计师界面类</li>
+<li>在创建好的登陆窗口中新建一个按钮，切换成“控件和槽编辑模式”，拖动按钮，放开鼠标后，会弹出配置连接对话框。将pushButton的clicked()信号和LoginDlg的accept()槽关联起来。<em>其中，accept()槽的功能是：将对话框关闭并返回QDialog::Accepted标识。</em></li>
+<li>修改main函数：<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"mainwindow.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QApplication&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"logindlg.h"</span>                      <span class="comment">// 增加登陆窗口的头文件</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</div><div class="line">    MainWindow w;</div><div class="line">    LoginDlg dlg;                          <span class="comment">// 声明</span></div><div class="line">    <span class="keyword">if</span>(dlg.exec() == QDialog::Accepted)    <span class="comment">// 利用Accepted返回值判断按钮是否被按下</span></div><div class="line">    &#123;</div><div class="line">        w.show();                          <span class="comment">// 如果被按下，显示主窗口</span></div><div class="line">        <span class="keyword">return</span> a.exec();                   <span class="comment">// 程序一直执行，直到主窗口关闭</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;                         <span class="comment">// 如果没有被按下，则不会进入主窗口，整个程序结束运行</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;在上面的代码中，我们首先创建了LoginDlg类的对象dlg，然后让dlg运行，即执行<code>exec()</code>函数，然后判断它的返回值。如果用户按下了按钮，那么返回值应该是Accepted，这个时候就会显示主窗口，并正常执行程序；否则，结束程序。</p>
+<p>&emsp;&emsp;另外，在平时写程序的时候，我们需要控制Accepted返回值，可以使用<code>accept()</code>函数。以点击登陆按钮直接进入为例：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> LoginDialog::on_loginBtn_clicked()</div><div class="line">&#123;</div><div class="line">    accept();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="密码输入框"><a href="#密码输入框" class="headerlink" title="密码输入框"></a>密码输入框</h3><p>&emsp;&emsp;首先，新建一个文本条。然后在这个文本条所在的窗口的构造函数中将它的EchoMode属性更改为密码条就行了。例子如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ui-&gt;pswEdit-&gt;setEchoMode(QLineEdit::Password);</div></pre></td></tr></table></figure></p>
+<h3 id="创建新窗口之后、原窗口不消失的窗口"><a href="#创建新窗口之后、原窗口不消失的窗口" class="headerlink" title="创建新窗口之后、原窗口不消失的窗口"></a>创建新窗口之后、原窗口不消失的窗口</h3><ol>
+<li>对一个按钮右键-&gt;”转到槽”；</li>
+<li>选择“clicked()”信号，确定，然后自动转到当前窗口代码编辑模式中的<code>on_pushButton_clicked()</code>函数处；</li>
+<li>补充函数体：（需要添加头文件<code>#include <qdialog.h></qdialog.h></code>）<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> MainWindow::on_pushButton_clicked()</div><div class="line">&#123;</div><div class="line">   QDialog *dlg = <span class="keyword">new</span> QDialog(<span class="keyword">this</span>);</div><div class="line">   dlg-&gt;show();  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;在上面的代码中实现了创建一个对话框对象，然后让它显示出来，创建时指定的this参数表明这个对话框的父窗口是MainWindow。</p>
+<p>&emsp;&emsp;这种方法，会让我们每按一次按钮，都会生成一个新的对话框。但是在这个过程中，不会造成内存泄漏或者是内存耗尽，这得益于QT的对象机制，保证了不会造成内存泄漏，而且不需要使用delete语句。</p>
+<p>&emsp;&emsp;在日常使用的过程中，我们可以在<code>mainwindow.h</code>文件中先定义一个对话框对象，并在构造函数中进行创建，再在这里使用。</p>
+<h3 id="创建一个退出按钮"><a href="#创建一个退出按钮" class="headerlink" title="创建一个退出按钮"></a>创建一个退出按钮</h3><ol>
+<li>单击设计模式下方的信号和槽编辑器（Signals &amp; Slots Editor）中的绿色加法号添加关联；</li>
+<li>发送者为按钮，信号为<code>clicked()</code>，接受者为当前窗口，操为<code>close()</code>。</li>
+</ol>
+<h1 id="QT-Creator常用命令"><a href="#QT-Creator常用命令" class="headerlink" title="QT Creator常用命令"></a>QT Creator常用命令</h1><p>Ctrl+滚轮：控制字体大小</p>
+<p>Ctrl+1~6：切换左侧边栏，如常用的Ctrl+2(编辑)、Ctrl+3(设计)</p>
+<p>Ctrl+R：编译</p>
+<p>F3：控件编辑模式</p>
+<p>F4：信号和槽编辑模式</p>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="http://www.kuqin.com/qtdocument/index.html" target="_blank" rel="external">API和文档</a></p>
+<p><a href="http://www.qter.org/portal.php?mod=list&amp;catid=6&amp;page=1" target="_blank" rel="external">QT开源社区 教程目录</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;基础部分&quot;&gt;&lt;a href=&quot;#基础部分&quot; class=&quot;headerlink&quot; title=&quot;基础部分&quot;&gt;&lt;/a&gt;基础部分&lt;/h1&gt;&lt;h3 id=&quot;修改某个控件显示的文字（优先级比属性高）&quot;&gt;&lt;a href=&quot;#修改某个控件显示的文字（优先级比属性高）&quot; cla
+    
+    </summary>
+    
+    
+      <category term="QT" scheme="http://www.z16388.win/tags/QT/"/>
+    
+  </entry>
   
   <entry>
     <title>数学模型中的Huntington除数法</title>
@@ -92,30 +149,26 @@
     <link href="http://www.z16388.win/2017/04/15/yan/"/>
     <id>http://www.z16388.win/2017/04/15/yan/</id>
     <published>2017-04-15T13:53:12.000Z</published>
-    <updated>2017-05-19T14:35:28.886Z</updated>
+    <updated>2017-07-09T15:37:02.943Z</updated>
     
-    <content type="html"><![CDATA[<p>数学：</p>
-<ol>
-<li>18张宇龙腾面授基础班视频（17.4.14~17.4.19）[5星，强烈推荐]&emsp;&emsp;<a href="http://www.bilibili.com/video/av8808189/" target="_blank" rel="external">http://www.bilibili.com/video/av8808189/</a></li>
-<li>《张宇高数18讲》(17.4.14~)配新东方17基础视频[5星，强烈推荐]</li>
-<li>《张宇线代9讲》(17.5.15~)配新东方17基础视频[5星，强烈推荐]</li>
-</ol>
-<p>英语：</p>
-<ol>
-<li>恋恋有词视频配书（17.4.15~）[5星]</li>
-</ol>
-<p>政治：</p>
-<ol>
-<li>徐之明2018政治导学两节课（17.4.15）[3星]&emsp;&emsp;<a href="http://pan.baidu.com/s/1c2w2qB2" target="_blank" rel="external">http://pan.baidu.com/s/1c2w2qB2</a></li>
-</ol>
-<p>专业课：</p>
+    <content type="html"><![CDATA[<p>4~5月</p>
+<p>&emsp;&emsp;摸鱼、仁王、ff14</p>
+<p>6月</p>
+<p>&emsp;&emsp;各种复习考试</p>
+<p>7月</p>
+<p>&emsp;&emsp;数学一轮复习：张宇高数概率、李永乐线代</p>
+<p>&emsp;&emsp;英语单词（背多分）</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;数学：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;18张宇龙腾面授基础班视频（17.4.14~17.4.19）[5星，强烈推荐]&amp;emsp;&amp;emsp;&lt;a href=&quot;http://www.bilibili.com/video/av8808189/&quot; target=&quot;_blank&quot; re
+      &lt;p&gt;4~5月&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;摸鱼、仁王、ff14&lt;/p&gt;
+&lt;p&gt;6月&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;各种复习考试&lt;/p&gt;
+&lt;p&gt;7月&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;数学一轮复习：张宇高数概率、李永乐线代&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;ems
     
     </summary>
     
@@ -1071,33 +1124,6 @@
       &lt;p&gt;&amp;emsp;&amp;emsp;这两道是同一道题，只是区别在输出格式。&lt;/p&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;算出需要移动的方块个数（相差平均数的总个数）即可，需要注意的是每两个输出之间有一个空行。&lt;/p&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;2088就比较套路，最后一组输出没有空行。&lt;
-    
-    </summary>
-    
-    
-      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
-    
-      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hdu1720 A+B Coming</title>
-    <link href="http://www.z16388.win/2016/11/16/hdu1720/"/>
-    <id>http://www.z16388.win/2016/11/16/hdu1720/</id>
-    <published>2016-11-16T11:32:29.000Z</published>
-    <updated>2017-04-13T13:25:20.904Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;这是一道简单的输入输出问题，把输入当做十六进制，计算和并按照十进制输出即可。</p>
-<p>&emsp;&emsp;以下是C和C++两种做法：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a,b;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%x%x"</span>,&amp;a,&amp;b)!=EOF) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span>  </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">int</span> a,b;  </div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;hex&gt;&gt;a&gt;&gt;b)  </div><div class="line">    &#123;  </div><div class="line">        <span class="built_in">cout</span>&lt;&lt;a+b&lt;&lt;<span class="built_in">endl</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;这是一道简单的输入输出问题，把输入当做十六进制，计算和并按照十进制输出即可。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;以下是C和C++两种做法：&lt;/p&gt;
-&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas
     
     </summary>
     
