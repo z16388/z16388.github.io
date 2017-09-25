@@ -146,47 +146,6 @@
   </entry>
   
   <entry>
-    <title>考研统计</title>
-    <link href="http://www.z16388.win/2017/04/15/yan/"/>
-    <id>http://www.z16388.win/2017/04/15/yan/</id>
-    <published>2017-04-15T13:53:12.000Z</published>
-    <updated>2017-08-31T16:04:43.969Z</updated>
-    
-    <content type="html"><![CDATA[<p>4~5月</p>
-<p>&emsp;&emsp;摸鱼、仁王、ff14</p>
-<p>6月</p>
-<p>&emsp;&emsp;各种复习考试</p>
-<hr>
-<p>暑假</p>
-<p>&emsp;&emsp;课设、咸鱼、创世战车</p>
-<p>&emsp;&emsp;7月30日，高数一轮复习：张宇高数基础班视频配张宇高数18讲</p>
-<p>&emsp;&emsp;7月30日~8月2日，线代一轮复习：汤家凤线代视频，配张宇线代9讲</p>
-<p>&emsp;&emsp;8月23日~8月30日，概率一轮复习：汤家凤视频</p>
-<hr>
-<p>最后的四个月！加油！</p>
-<hr>
-<p>&emsp;&emsp;9月1日~，COA一轮复习：教材</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;4~5月&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;摸鱼、仁王、ff14&lt;/p&gt;
-&lt;p&gt;6月&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;各种复习考试&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;暑假&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;课设、咸鱼、创世战车&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;7月
-    
-    </summary>
-    
-    
-      <category term="考研" scheme="http://www.z16388.win/tags/%E8%80%83%E7%A0%94/"/>
-    
-  </entry>
-  
-  <entry>
     <title>VS调试时提示找不到msvcr80d.dll解决方案</title>
     <link href="http://www.z16388.win/2017/04/15/vs1/"/>
     <id>http://www.z16388.win/2017/04/15/vs1/</id>
@@ -1133,6 +1092,33 @@
       &lt;p&gt;&amp;emsp;&amp;emsp;这两道是同一道题，只是区别在输出格式。&lt;/p&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;算出需要移动的方块个数（相差平均数的总个数）即可，需要注意的是每两个输出之间有一个空行。&lt;/p&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;2088就比较套路，最后一组输出没有空行。&lt;
+    
+    </summary>
+    
+    
+      <category term="hdu" scheme="http://www.z16388.win/tags/hdu/"/>
+    
+      <category term="ACM" scheme="http://www.z16388.win/tags/ACM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hdu1720 A+B Coming</title>
+    <link href="http://www.z16388.win/2016/11/16/hdu1720/"/>
+    <id>http://www.z16388.win/2016/11/16/hdu1720/</id>
+    <published>2016-11-16T11:32:29.000Z</published>
+    <updated>2017-04-13T13:25:20.904Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;这是一道简单的输入输出问题，把输入当做十六进制，计算和并按照十进制输出即可。</p>
+<p>&emsp;&emsp;以下是C和C++两种做法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a,b;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%x%x"</span>,&amp;a,&amp;b)!=EOF) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span>  </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">int</span> a,b;  </div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;hex&gt;&gt;a&gt;&gt;b)  </div><div class="line">    &#123;  </div><div class="line">        <span class="built_in">cout</span>&lt;&lt;a+b&lt;&lt;<span class="built_in">endl</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;这是一道简单的输入输出问题，把输入当做十六进制，计算和并按照十进制输出即可。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;以下是C和C++两种做法：&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas
     
     </summary>
     
