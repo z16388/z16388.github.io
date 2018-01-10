@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2017-07-12T15:26:41.905Z</updated>
+  <updated>2018-01-10T13:53:00.870Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>免备案的URL跳转</title>
+    <link href="http://www.z16388.top/2018/01/10/urlchange/"/>
+    <id>http://www.z16388.top/2018/01/10/urlchange/</id>
+    <published>2018-01-10T13:47:18.000Z</published>
+    <updated>2018-01-10T13:53:00.870Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;由于.win域名的不稳定，无法备案，无法被搜索引擎收录等问题，我将博客的域名换为同样廉价的.top域名。然而Github Pages只支持一个域名的绑定，这就使我之前的域名变得无法使用。但是我通过各种渠道去宣传，使用这个域名已经很久了，更换起来也比较麻烦。因此，只能维持.win域名，明进行显示的跳转。</p>
+<p>&emsp;&emsp;万网的URL跳转功能有两个条件，一是必须是万网的域名，二是域名要进行备案。Github Pages无法进行备案，因此不能直接使用万网的解析。</p>
+<p>&emsp;&emsp;经过测试，米发的跳转功能最方便。<a href="https://www.mfpad.com/" target="_blank" rel="external">https://www.mfpad.com/</a></p>
+<p>&emsp;&emsp;注册账号，添加域名，然后将域名解析到米发分配的CNAME即可。当然，@和www都要进行一次记录。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;由于.win域名的不稳定，无法备案，无法被搜索引擎收录等问题，我将博客的域名换为同样廉价的.top域名。然而Github Pages只支持一个域名的绑定，这就使我之前的域名变得无法使用。但是我通过各种渠道去宣传，使用这个域名已经很久了，更换起来也比较
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://www.z16388.top/tags/hexo/"/>
+    
+      <category term="域名" scheme="http://www.z16388.top/tags/%E5%9F%9F%E5%90%8D/"/>
+    
+  </entry>
   
   <entry>
     <title>QT笔记-基础篇</title>
@@ -1098,33 +1124,6 @@
       &lt;p&gt;&amp;emsp;&amp;emsp;这两道是同一道题，只是区别在输出格式。&lt;/p&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;算出需要移动的方块个数（相差平均数的总个数）即可，需要注意的是每两个输出之间有一个空行。&lt;/p&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;2088就比较套路，最后一组输出没有空行。&lt;
-    
-    </summary>
-    
-    
-      <category term="hdu" scheme="http://www.z16388.top/tags/hdu/"/>
-    
-      <category term="ACM" scheme="http://www.z16388.top/tags/ACM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hdu1720 A+B Coming</title>
-    <link href="http://www.z16388.top/2016/11/16/hdu1720/"/>
-    <id>http://www.z16388.top/2016/11/16/hdu1720/</id>
-    <published>2016-11-16T11:32:29.000Z</published>
-    <updated>2017-04-13T13:25:20.904Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;这是一道简单的输入输出问题，把输入当做十六进制，计算和并按照十进制输出即可。</p>
-<p>&emsp;&emsp;以下是C和C++两种做法：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a,b;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%x%x"</span>,&amp;a,&amp;b)!=EOF) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span>  </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">int</span> a,b;  </div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;hex&gt;&gt;a&gt;&gt;b)  </div><div class="line">    &#123;  </div><div class="line">        <span class="built_in">cout</span>&lt;&lt;a+b&lt;&lt;<span class="built_in">endl</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;这是一道简单的输入输出问题，把输入当做十六进制，计算和并按照十进制输出即可。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;以下是C和C++两种做法：&lt;/p&gt;
-&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas
     
     </summary>
     
