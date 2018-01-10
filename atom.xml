@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-01-10T13:53:00.870Z</updated>
+  <updated>2018-01-10T14:26:26.871Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>评论系统Valine的使用</title>
+    <link href="http://www.z16388.top/2018/01/10/valine/"/>
+    <id>http://www.z16388.top/2018/01/10/valine/</id>
+    <published>2018-01-10T14:02:29.000Z</published>
+    <updated>2018-01-10T14:26:26.871Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>&emsp;&emsp;Valine是一款基于Leancloud的快速、简洁且高效的无后端评论系统。</p>
+</blockquote>
+<p>&emsp;&emsp;由于某些原因，博客的一些评论系统被查水表了。忙于考研的原因，一直没有更新评论系统。今天给博客更新了一下主题，也使用了新的评论系统。</p>
+<p>&emsp;&emsp;进入<a href="https://leancloud.cn" target="_blank" rel="external">https://leancloud.cn</a>，点击免费试用，注册账号。根据Valine创建好应用，配置好各种参数即可使用。</p>
+<p>&emsp;&emsp;值得一提的是，头像参数最好设置为<code>‘’<code>，信息参数最好设置为用户名与邮箱。</code></code></p>
+<p>&emsp;&emsp;头像信息在<a href="https://cn.gravatar.com/" target="_blank" rel="external">https://cn.gravatar.com/</a>进行设置。</p>
+<blockquote>
+<p>Gravatar是一图像跟随著您到访过的网站，当您在博客中留言或发表文章，它将会出现在您的名称旁。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;Valine是一款基于Leancloud的快速、简洁且高效的无后端评论系统。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;由于某些原因，博客的一些评论系统被查水表了。忙于考研的原因，一直没有更新评论系统
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://www.z16388.top/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>免备案的URL跳转</title>
@@ -1100,37 +1133,6 @@
     
     
       <category term="心情" scheme="http://www.z16388.top/tags/%E5%BF%83%E6%83%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hdu1326,hdu2088</title>
-    <link href="http://www.z16388.top/2016/11/16/hdu1326-hdu2088/"/>
-    <id>http://www.z16388.top/2016/11/16/hdu1326-hdu2088/</id>
-    <published>2016-11-16T12:06:16.000Z</published>
-    <updated>2017-04-13T13:25:20.911Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;这两道是同一道题，只是区别在输出格式。</p>
-<p>&emsp;&emsp;算出需要移动的方块个数（相差平均数的总个数）即可，需要注意的是每两个输出之间有一个空行。</p>
-<p>&emsp;&emsp;2088就比较套路，最后一组输出没有空行。</p>
-<p>hdu1326</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 55</span></div><div class="line"><span class="keyword">int</span> a[N];</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n,flag=<span class="number">0</span>,ave,sum;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)&amp;&amp;n) &#123;</div><div class="line">        ave=<span class="number">0</span>,sum=<span class="number">0</span>;</div><div class="line">        <span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">            ave+=a[i];</div><div class="line">        &#125;</div><div class="line">        ave/=n;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="keyword">if</span>(a[i]&lt;ave) &#123;</div><div class="line">                sum+=ave-a[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"Set #%d\n"</span>,++flag);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"The minimum number of moves is %d.\n\n"</span>,sum);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>hdu 2088</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 55</span></div><div class="line"><span class="keyword">int</span> a[N];</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n,ave,sum,flag=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)&amp;&amp;n) &#123;</div><div class="line">        ave=<span class="number">0</span>,sum=<span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span>(flag++) <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">        <span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">            ave+=a[i];</div><div class="line">        &#125;</div><div class="line">        ave/=n;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</div><div class="line">            <span class="keyword">if</span>(a[i]&lt;ave) &#123;</div><div class="line">                sum+=ave-a[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,sum);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;这两道是同一道题，只是区别在输出格式。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;算出需要移动的方块个数（相差平均数的总个数）即可，需要注意的是每两个输出之间有一个空行。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;2088就比较套路，最后一组输出没有空行。&lt;
-    
-    </summary>
-    
-    
-      <category term="hdu" scheme="http://www.z16388.top/tags/hdu/"/>
-    
-      <category term="ACM" scheme="http://www.z16388.top/tags/ACM/"/>
     
   </entry>
   
