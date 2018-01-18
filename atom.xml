@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-01-10T14:26:26.871Z</updated>
+  <updated>2018-01-17T05:06:03.245Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -16,11 +16,179 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Markdown编辑器Smark</title>
+    <link href="http://www.z16388.top/2018/01/17/smark/"/>
+    <id>http://www.z16388.top/2018/01/17/smark/</id>
+    <published>2018-01-17T04:54:11.000Z</published>
+    <updated>2018-01-17T05:06:03.245Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;寒假到了，毕设也做完了，回到家之后我就更换了电脑，重做了系统。经过了漫长的系统更新以及某个臃肿的IDE的安装之后，到家第二天的中午终于能够使用我的老笔记本电脑了。在开始C#学习的时候，想要开一个博客文章记录一下学习的内容的时候。发现在安装之前使用过的MarkdownPad的时候，出现了异常，研究半天也没有研究好，只得去寻找其他的Markdown编辑器。</p>
+<p>&emsp;&emsp;我找到了一款名为Smark的编辑器。这是一个开源的编辑器，虽然三年没有更新，但是作为一款Markdown文本编辑器它还是很中规中矩的。</p>
+<p>&emsp;&emsp;首先是安装部分。原项目的地址在<a href="https://gitee.com/elerao/Smark" target="_blank" rel="external">https://gitee.com/elerao/Smark</a>相关的一些介绍可以查看项目的具体信息。文中出现的链接部分失效，相关的下载内容有雷锋转移到了<a href="http://pan.baidu.com/s/1pJnrX5x" target="_blank" rel="external">http://pan.baidu.com/s/1pJnrX5x</a>。</p>
+<p>&emsp;&emsp;我在解压后直接就能使用，不同平台和其他异常情况参见原项目的内容介绍，下面将一些使用的注意事项。</p>
+<ol>
+<li><p>默认情况下，编辑栏在右侧，习惯之后反而觉得很方便。</p>
+</li>
+<li><p>没有实时渲染的功能，只能够渲染已经保存的内容。其实这个我觉得应该是一个优势，因为我经常会有写东西写一半忘了保存的时候，这个小缺陷能够随时提醒你要进行保存。没有保存的行在编辑器中会有灰色的背景标记，比较明显。</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;寒假到了，毕设也做完了，回到家之后我就更换了电脑，重做了系统。经过了漫长的系统更新以及某个臃肿的IDE的安装之后，到家第二天的中午终于能够使用我的老笔记本电脑了。在开始C#学习的时候，想要开一个博客文章记录一下学习的内容的时候。发现在安装之前使用过的
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://www.z16388.top/tags/hexo/"/>
+    
+      <category term="markdown" scheme="http://www.z16388.top/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#语言规范</title>
+    <link href="http://www.z16388.top/2018/01/17/csharp/"/>
+    <id>http://www.z16388.top/2018/01/17/csharp/</id>
+    <published>2018-01-17T04:36:29.000Z</published>
+    <updated>2018-01-17T14:49:13.317Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;本来是打算看视频学习C#的，后来发现效率太低，也有很多的错误，所以就去找到了位于VS根目录的官方文档。官方文档的位置在：<code>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC#\Specifications\2052</code>。文件名是：<code>CSharp Language Specification</code>。</p>
+<p>&emsp;&emsp;拿到文档，第一句话就觉得槽点很多233</p>
+<blockquote>
+<p>C#（读作“See Sharp”）是一种简洁、现代、面向对象且类型安全的编程语言。C# 起源于 C 语言家族，因此，对于 C、C++ 和 Java 程序员，可以很快熟悉这种新的语言。</p>
+</blockquote>
+<p>&emsp;&emsp;下面对一些概念上和功能上，需要注意的东西进行记录，方便以后的学习。</p>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World!"></a>Hello World!</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">using System;</div><div class="line">class Hello</div><div class="line">&#123;</div><div class="line">    static void Main() &#123;</div><div class="line">        Console.WriteLine(&quot;Hello, World&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这是一个C#的Hello World程序。原文档相关内容为：</p>
+<blockquote>
+<p>&emsp;&emsp;“Hello, World”程序的开头是一个 using 指令，它引用了 System 命名空间。命名空间提供了一种分层的方式来组织 C# 程序和库。命名空间中包含有类型及其他命名空间 — 例如，System 命名空间包含若干类型（如此程序中引用的 Console 类）以及若干其他命名空间（如 IO 和 Collections）。如果使用 using 指令引用了某一给定命名空间，就可以通过非限定方式使用作为该命名空间成员的类型。正是由于使用了 using 指令，该程序才可以采用 Console.WriteLine 这一简化形式代替 System.Console.WriteLine。<br>&emsp;&emsp;“Hello, World”程序中声明的 Hello 类只有一个成员，即名为 Main 的方法。Main 方法是使用 static 修饰符声明的。实例方法可以使用关键字 this 来引用特定的封闭对象实例，而静态方法的操作不需要引用特定对象。按照惯例，名为 Main 的静态方法将作为程序的入口点。<br>&emsp;&emsp;该程序的输出由 System 命名空间中的 Console 类的 WriteLine 方法产生。此类由 .NET Framework 类库提供，默认情况下，Microsoft C# 编译器自动引用该类库。注意，C# 语言本身没有单独的运行库。事实上，.NET Framework 就是 C# 运行库。</p>
+</blockquote>
+<p>需要注意的是，如果需要在输出结果时，程序进行暂停，需要加上这一句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Console.ReadKey();                  //实现输出的停留</div></pre></td></tr></table></figure>
+<h2 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random random = new Random();</div><div class="line">int r = random.Next(0,100);  //取从0开始的100个数，也就是0~99，常用于百分比</div></pre></td></tr></table></figure>
+<h1 id="数据类型相关"><a href="#数据类型相关" class="headerlink" title="数据类型相关"></a>数据类型相关</h1><h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">类型名</th>
+<th style="text-align:center">字节数</th>
+<th style="text-align:center">有效范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">sbyte</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">-128~127</td>
+</tr>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0~255</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">-32768~32767</td>
+</tr>
+<tr>
+<td style="text-align:center">ushort</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0~65535</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">-21亿~21亿</td>
+</tr>
+<tr>
+<td style="text-align:center">uint</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0~42亿</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">-9223372万亿~923372万亿</td>
+</tr>
+<tr>
+<td style="text-align:center">ulong</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">0~18446744万亿</td>
+</tr>
+</tbody>
+</table>
+<h2 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">类型名</th>
+<th style="text-align:center">有效范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">1.5*10^-45~3.4*10^38</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">5.0*10^-324~1.7*10^308</td>
+</tr>
+<tr>
+<td style="text-align:center">decimal</td>
+<td style="text-align:center">1.0*10^-28~7.9*10^28</td>
+</tr>
+</tbody>
+</table>
+<h2 id="文本与布尔型"><a href="#文本与布尔型" class="headerlink" title="文本与布尔型"></a>文本与布尔型</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">类型名</th>
+<th style="text-align:center">允许的值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">一个Unicode字符，2字节</td>
+</tr>
+<tr>
+<td style="text-align:center">bool</td>
+<td style="text-align:center">布尔值</td>
+</tr>
+<tr>
+<td style="text-align:center">string</td>
+<td style="text-align:center">字符串</td>
+</tr>
+</tbody>
+</table>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li>禁止使用未初始化的变量。<blockquote>
+<p>int a;</p>
+</blockquote>
+</li>
+</ol>
+<p>&emsp;&emsp;这样直接使用会报错，需要进行赋初值或者在程序中给出其值。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;本来是打算看视频学习C#的，后来发现效率太低，也有很多的错误，所以就去找到了位于VS根目录的官方文档。官方文档的位置在：&lt;code&gt;C:\Program Files (x86)\Microsoft Visual Studio\2017\Communi
+    
+    </summary>
+    
+    
+      <category term="C#" scheme="http://www.z16388.top/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>评论系统Valine的使用</title>
     <link href="http://www.z16388.top/2018/01/10/valine/"/>
     <id>http://www.z16388.top/2018/01/10/valine/</id>
     <published>2018-01-10T14:02:29.000Z</published>
-    <updated>2018-01-10T14:26:26.871Z</updated>
+    <updated>2018-01-10T14:26:26.872Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>&emsp;&emsp;Valine是一款基于Leancloud的快速、简洁且高效的无后端评论系统。</p>
@@ -53,7 +221,7 @@
     <link href="http://www.z16388.top/2018/01/10/urlchange/"/>
     <id>http://www.z16388.top/2018/01/10/urlchange/</id>
     <published>2018-01-10T13:47:18.000Z</published>
-    <updated>2018-01-11T03:40:41.462Z</updated>
+    <updated>2018-01-11T03:40:41.463Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;由于.win域名的不稳定，无法备案，无法被搜索引擎收录等问题，我将博客的域名换为同样廉价的.top域名。然而Github Pages只支持一个域名的绑定，这就使我之前的域名变得无法使用。但是我通过各种渠道去宣传，使用这个域名已经很久了，更换起来也比较麻烦。因此，只能维持.win域名，明进行显式的域名转发。</p>
 <p>&emsp;&emsp;万网的域名转发转功能有两个条件，一是必须是万网的域名，二是域名要进行备案。Github Pages无法进行备案，因此不能直接使用万网的解析。</p>
@@ -79,7 +247,7 @@
     <link href="http://www.z16388.top/2017/07/12/qt/"/>
     <id>http://www.z16388.top/2017/07/12/qt/</id>
     <published>2017-07-12T07:46:28.000Z</published>
-    <updated>2017-07-12T15:26:41.905Z</updated>
+    <updated>2017-07-12T15:26:41.906Z</updated>
     
     <content type="html"><![CDATA[<h1 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h1><h3 id="修改某个控件显示的文字（优先级比属性高）"><a href="#修改某个控件显示的文字（优先级比属性高）" class="headerlink" title="修改某个控件显示的文字（优先级比属性高）"></a>修改某个控件显示的文字（优先级比属性高）</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ui-&gt;pushButton-&gt;setText(tr(<span class="string">"新的"</span>));</div><div class="line"><span class="comment">//在软件中应避免直接出现中文字符串，应该使用tr()函数包含</span></div><div class="line"><span class="comment">//这段代码如果用于控件的初始化，应当写在构造函数中</span></div></pre></td></tr></table></figure>
 <h3 id="弹出警告对话框"><a href="#弹出警告对话框" class="headerlink" title="弹出警告对话框"></a>弹出警告对话框</h3><blockquote>
@@ -237,7 +405,7 @@
     <link href="http://www.z16388.top/2017/03/30/dfs/"/>
     <id>http://www.z16388.top/2017/03/30/dfs/</id>
     <published>2017-03-30T10:52:27.000Z</published>
-    <updated>2018-01-10T13:39:57.470Z</updated>
+    <updated>2018-01-10T13:39:57.471Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://poj.org/problem?id=1664" target="_blank" rel="external">poj1664:放苹果</a></p>
 <p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1016" target="_blank" rel="external">hdu1016:素数环问题</a></p>
@@ -267,7 +435,7 @@
     <link href="http://www.z16388.top/2017/03/22/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-8%E4%BB%8E%E5%85%A8%E6%8E%92%E5%88%97%E5%88%B0%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2dfs%E7%AE%97%E6%B3%95/"/>
     <id>http://www.z16388.top/2017/03/22/【ACM教程】3-8从全排列到深度优先搜索dfs算法/</id>
     <published>2017-03-22T08:37:34.000Z</published>
-    <updated>2018-01-10T12:18:33.064Z</updated>
+    <updated>2018-01-10T12:18:33.065Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第八节-从全排列到深度优先搜索算法"><a href="#第八节-从全排列到深度优先搜索算法" class="headerlink" title="第八节 从全排列到深度优先搜索算法"></a>第八节 从全排列到深度优先搜索算法</h1><h2 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h2><p>&emsp;&emsp;什么是全排列？就是一组数据所有可能的排列顺序。如果使用暴力枚举的方法，需要对每一个位置都进行一次循环，如果有n个数据则需要循环n次，而且还要加上对重复序列的判断。</p>
 <p>&emsp;&emsp;可喜的是，在STL中有两个函数可以帮我们实现字典序的全排列。他们分别是：<code>next_permutation()</code><code>prev_permutation()</code>，参数是数据的开始和结束地址。举个例子，比如一个字符数组：a,b,c，它的下一个序列就是a,c,b。在处理全排列问题的时候，使用比较方便。这两个函数在算法头文件中。</p>
@@ -328,7 +496,7 @@
     <link href="http://www.z16388.top/2017/03/22/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-5%E6%95%B0%E5%AD%A6%E7%AE%80%E5%8D%95%E9%97%AE%E9%A2%98/"/>
     <id>http://www.z16388.top/2017/03/22/【ACM教程】2-5数学简单问题/</id>
     <published>2017-03-22T07:25:01.000Z</published>
-    <updated>2017-04-13T13:25:15.893Z</updated>
+    <updated>2017-04-13T13:25:15.894Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第五节-数学简单问题"><a href="#第五节-数学简单问题" class="headerlink" title="第五节 数学简单问题"></a>第五节 数学简单问题</h1><p>&emsp;&emsp;竞赛中的很多题目会考到数学相关的知识，在这一节，我们会挑出一些简单的问题集中讲解。</p>
 <h2 id="最大公约数-最小公倍数"><a href="#最大公约数-最小公倍数" class="headerlink" title="最大公约数/最小公倍数"></a>最大公约数/最小公倍数</h2><p>&emsp;&emsp;首先我们要介绍一个算法，欧几里德算法。欧几里得是著名的古希腊数学家，被称为“几何学之父”，代表作为《几何原本》。</p>
@@ -448,7 +616,7 @@
     <link href="http://www.z16388.top/2017/03/18/GJB5369%E8%80%83%E7%82%B9%E7%AC%94%E8%AE%B0/"/>
     <id>http://www.z16388.top/2017/03/18/GJB5369考点笔记/</id>
     <published>2017-03-18T02:35:42.000Z</published>
-    <updated>2017-04-13T13:25:20.920Z</updated>
+    <updated>2017-04-13T13:25:20.921Z</updated>
     
     <content type="html"><![CDATA[<h1 id="启用规则"><a href="#启用规则" class="headerlink" title="启用规则"></a>启用规则</h1><ol>
 <li>禁止使用嵌套的注释</li>
@@ -833,7 +1001,7 @@
     <link href="http://www.z16388.top/2017/03/06/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-2%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/"/>
     <id>http://www.z16388.top/2017/03/06/【ACM教程】5-2图的存储方式/</id>
     <published>2017-03-06T11:03:14.000Z</published>
-    <updated>2018-01-10T12:38:55.730Z</updated>
+    <updated>2018-01-10T12:38:55.731Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第二节-图的存储方式"><a href="#第二节-图的存储方式" class="headerlink" title="第二节 图的存储方式"></a>第二节 图的存储方式</h1><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p>&emsp;&emsp;我们在第三章对数据结构的简单了解中学习了，图和树可以使用链表来进行存储。参考<a href="http://www.z16388.top/2016/11/16/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-6%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89%E6%A0%91%E3%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E5%9B%BE/">第六节 数据结构基础（2）树、二叉树和图</a>。虽然链表能够很方便地，在逻辑上对图进行定义和运算，但是我们知道，在比赛中我们的时间是有限的。如果花大量的时间去构建一个模型，然后针对这个模型的各种运算进行编写会耗费大量的时间。这个时候，我们就需要一个简单的数学模型，来处理这些数据。</p>
 <h2 id="图的矩阵表示"><a href="#图的矩阵表示" class="headerlink" title="图的矩阵表示"></a>图的矩阵表示</h2><p>&emsp;&emsp;在数学上，我们经常用矩阵来表示一个图。我们知道，图是由它们的顶点和他们之间的邻接关系来唯一确定的。这个时候我们只需要两个矩阵，一个用来存放他们的定点，另一个来存放他们之间的关系。</p>
@@ -909,7 +1077,7 @@
     <link href="http://www.z16388.top/2017/03/06/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-1%E5%9B%BE%E8%AE%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
     <id>http://www.z16388.top/2017/03/06/【ACM教程】5-1图论的基本概念/</id>
     <published>2017-03-06T10:25:05.000Z</published>
-    <updated>2017-04-13T13:25:15.929Z</updated>
+    <updated>2017-04-13T13:25:15.930Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第一节-图论的基本概念"><a href="#第一节-图论的基本概念" class="headerlink" title="第一节 图论的基本概念"></a>第一节 图论的基本概念</h1><p>&emsp;&emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。</p>
 <h2 id="图论的历史"><a href="#图论的历史" class="headerlink" title="图论的历史"></a>图论的历史</h2><p>&emsp;&emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名的一个数学问题，即哥尼斯堡七桥问题，从而使他成为了图论的创始人。</p>
@@ -944,7 +1112,7 @@
     <link href="http://www.z16388.top/2017/02/21/lanqiao7/"/>
     <id>http://www.z16388.top/2017/02/21/lanqiao7/</id>
     <published>2017-02-21T11:36:29.000Z</published>
-    <updated>2017-04-13T13:25:15.869Z</updated>
+    <updated>2017-04-13T13:25:15.870Z</updated>
     
     <content type="html"><![CDATA[<h2 id="第一题-煤球数目"><a href="#第一题-煤球数目" class="headerlink" title="第一题 煤球数目"></a>第一题 煤球数目</h2><blockquote>
 <p>有一堆煤球，堆成三角棱锥形。具体：<br>第一层放1个，<br>第二层3个（排列成三角形），<br>第三层6个（排列成三角形），<br>第四层10个（排列成三角形），<br>….<br>如果一共有100层，共有多少个煤球？<br>请填表示煤球总数目的数字。<br>注意：你提交的应该是一个整数，不要填写任何多余的内容或说明性文字。</p>
@@ -1026,7 +1194,7 @@
     <link href="http://www.z16388.top/2017/01/22/VPS%E7%AC%94%E8%AE%B0/"/>
     <id>http://www.z16388.top/2017/01/22/VPS笔记/</id>
     <published>2017-01-22T13:28:47.000Z</published>
-    <updated>2017-04-13T13:25:15.880Z</updated>
+    <updated>2017-04-13T13:25:15.881Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;登录：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh root@ip</div></pre></td></tr></table></figure>
@@ -1054,85 +1222,6 @@
     
     
       <category term="VPS" scheme="http://www.z16388.top/tags/VPS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】3.7排序（一）</title>
-    <link href="http://www.z16388.top/2017/01/18/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-7%E6%8E%92%E5%BA%8F%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://www.z16388.top/2017/01/18/【ACM教程】3-7排序（一）/</id>
-    <published>2017-01-18T03:25:23.000Z</published>
-    <updated>2017-04-13T13:25:15.900Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第七节-排序（一）"><a href="#第七节-排序（一）" class="headerlink" title="第七节 排序（一）"></a>第七节 排序（一）</h1><p>&emsp;&emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数据进行排序的时候，我们可能需要花费很多的时间和资源。因此，优化排序算法是我们在优化程序中的一个重要步骤。在我们前面的学习中，我们已经接触到了C++的STL中<code>sort()</code>函数。那么，在无法使用STL的情况或者是需要一些特殊的要求的排序，我们就需要对排序算法进行手撸。因此，掌握各种常见的排序方法极为重要。接下来，我们将会从冒泡排序开始，系统地对常见的排序算法进行练习。</p>
-<h2 id="冒泡排序（Bubble-Sort）"><a href="#冒泡排序（Bubble-Sort）" class="headerlink" title="冒泡排序（Bubble Sort）"></a>冒泡排序（Bubble Sort）</h2><p>&emsp;&emsp;我们早在学习C语言的时候，就已经接触到这种排序方法了，是一种非常简便的排序方法。我们依次比较相邻的两个元素，以达到排序的目的。冒泡排序的运作方式如下：</p>
-<blockquote>
-<p>重复走访所要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们相互交换<br>如果这个数列一共有<code>n</code>个元素，我们需要进行<code>n-1</code>组比较，每一组需要进行<code>n-i</code>次比较</p>
-</blockquote>
-<p>&emsp;&emsp;下面是冒泡排序的C语言代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a[<span class="number">15</span>];</div><div class="line">    <span class="keyword">int</span> n=<span class="number">10</span>,i,j,t;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</div><div class="line">        a[i]=<span class="number">10</span>-i;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;n;i++)</div><div class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n-i;j++) <span class="comment">//这里可以记作i+j=n;</span></div><div class="line">        sif(a[j]&gt;a[j+<span class="number">1</span>]) &#123;</div><div class="line">                t=a[j];</div><div class="line">                a[j]=a[j+<span class="number">1</span>];</div><div class="line">                a[j+<span class="number">1</span>]=t;</div><div class="line">            &#125;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>,a[i]);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;冒泡排序是一种常用的排序方法，但是它的时间复杂度为<code>O(n^2)</code>，在做题时不推荐使用。</p>
-<h2 id="快速排序（Quick-Sort）"><a href="#快速排序（Quick-Sort）" class="headerlink" title="快速排序（Quick Sort）"></a>快速排序（Quick Sort）</h2><p>&emsp;&emsp;快速排序是对冒泡排序的一种改进，它的基本思想和冒泡排序类似：</p>
-<blockquote>
-<p>通过一趟排序将序列分成两部分<br>保证左侧部分的数据都比右侧的小<br>再分别对两侧进行排序</p>
-</blockquote>
-<p>&emsp;&emsp;快速排序是排序算法中的优等生，它的时间复杂度为<code>O(logn)</code>，但是要到达了最不理想的状态，也就是针对一个完全反序的数列进行排序。这个时候，它就变成了冒泡排序，时间复杂度为<code>O(n^2)</code>。在去年的蓝桥杯比赛中，就成为了一道代码填空题，题目是这样的：</p>
-<blockquote>
-<p>排序在各种场合经常被用到。</p>
-<p>快速排序是十分常用的高效率的算法。</p>
-<p>其思想是：先选一个“标尺”，</p>
-<p>用它把整个队列过一遍筛子，</p>
-<p>以保证：其左边的元素都不大于它，其右边的元素都不小于它。</p>
-<p>这样，排序问题就被分割为两个子区间。</p>
-<p>再分别对子区间排序就可以了。</p>
-<p>下面的代码是一种实现，请分析并填写划线部分缺少的代码。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> t = a[i];</div><div class="line">    a[i] = a[j];</div><div class="line">    a[j] = t;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i = p;</div><div class="line">    <span class="keyword">int</span> j = r + <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> x = a[p];</div><div class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</div><div class="line">        <span class="keyword">while</span>(i&lt;r &amp;&amp; a[++i]&lt;x);</div><div class="line">        <span class="keyword">while</span>(a[--j]&gt;x);</div><div class="line">        <span class="keyword">if</span>(i&gt;=j) <span class="keyword">break</span>;</div><div class="line">        swap(a,i,j);</div><div class="line">    &#125;</div><div class="line"><span class="number">______________________</span>;</div><div class="line"></div><div class="line"><span class="keyword">return</span> j;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">quicksort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(p&lt;r)&#123;</div><div class="line">    <span class="keyword">int</span> q = partition(a,p,r);</div><div class="line">    quicksort(a,p,q<span class="number">-1</span>);</div><div class="line">    quicksort(a,q+<span class="number">1</span>,r);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">5</span>,<span class="number">13</span>,<span class="number">6</span>,<span class="number">24</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">19</span>,<span class="number">27</span>,<span class="number">6</span>,<span class="number">12</span>,<span class="number">1</span>,<span class="number">17</span>&#125;;</div><div class="line">    <span class="keyword">int</span> N = <span class="number">12</span>;</div><div class="line">    quicksort(a, <span class="number">0</span>, N<span class="number">-1</span>);</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++) <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"/n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：只填写缺少的内容，不要书写任何题面已有代码或说明性文字。</p>
-</blockquote>
-<p>&emsp;&emsp;这里的答案是<code>swap(a,p,j)</code>，我们就以上面的例子来简单地描述一下快速排序。首先我们看，这个程序中有四个函数，<code>swap()</code>函数实现的是值交换，<code>main()</code>是声明了一个数组，然后对他进行快速排序然后打印出来，我们就不多说了。现在我们来看一下<code>quicksort</code>这个函数。这个函数就是用来实现我们在前面描述过的“分别对两个子区间进行快速排序”这个过程，也比较简单。比较让人头疼就是要我们填空的这个<code>partition()</code>函数。</p>
-<p>&emsp;&emsp;下面就让我们来回忆一下快速排序的方法。快速排序就是找一个标尺（一般是一段序列的第一个），比他大的放在他左边，比他小的放在他右边。那么程序上是怎么实现的呢？</p>
-<p>&emsp;&emsp;我们需要在程序中定义两个指针，分别从序列的两端出发，左侧的指针向右寻找比标尺大的数据，右侧的指针向左寻找比标尺小的数据，但是在实现上，有两种方法。第一种：先从右侧出发，找到第一个比标尺小的数据，将其和标尺交换位置。然后从左侧出发，找到第一个比标尺大的数据，交换位置，直到两标尺相遇。但是这种方法会频繁地使用赋值操作，那么还有一种改进思路：我们让标尺在a[0]的位置不动，将a[1]作为左侧指针的出发点。两指针分别从左右出发，找到相应的数据之后对两个数据交换位置，直到两个指针相遇。之后再把标尺放在正确的位置上，完成排序。而这个正确的位置呢，就是两指针相遇的位置。</p>
-<p>&emsp;&emsp;在<code>partition()</code>函数中，有三个参数，第一个参数i,j,x。i作为low指针，j作为high指针，而x即是标尺。我们看在函数中，i初始化为标尺的位置后，在下面的while循环里，使用的是++i。这就保证了标尺是不移动的，也就是说这个程序使用的是第二种思路。仔细阅读代码，我们可以发现，函数中缺少的正是最后一步——将标尺移动到正确的位置。所以需要补填的代码是<code>swap(a,p,j)</code>。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第七节-排序（一）&quot;&gt;&lt;a href=&quot;#第七节-排序（一）&quot; class=&quot;headerlink&quot; title=&quot;第七节 排序（一）&quot;&gt;&lt;/a&gt;第七节 排序（一）&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.top/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.top/tags/ACM%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2017新年祝福</title>
-    <link href="http://www.z16388.top/2017/01/01/2017/"/>
-    <id>http://www.z16388.top/2017/01/01/2017/</id>
-    <published>2016-12-31T16:16:10.000Z</published>
-    <updated>2017-04-13T13:25:20.963Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;2016已经成为了过去式，新的一年已经来临。过去的一年里，无论有多少收获，2017，我们都会遇到一个新的自己。祝大家在新的一年里，能够距离自己的目标更进一步，保持自己的信心，继续前进。无论结果如何，这都会是我们人生中最精彩的一年——今年。</p>
-<p>&emsp;&emsp;2017，要实训，要考研，要学习日语，要加强算法的练习，完善ACM的教程，要增进刀塔的技术…</p>
-<p>&emsp;&emsp;我们笑着送走2016，2017，也会是快乐的一年。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;2016已经成为了过去式，新的一年已经来临。过去的一年里，无论有多少收获，2017，我们都会遇到一个新的自己。祝大家在新的一年里，能够距离自己的目标更进一步，保持自己的信心，继续前进。无论结果如何，这都会是我们人生中最精彩的一年——今年。&lt;/p&gt;
-&lt;
-    
-    </summary>
-    
-    
-      <category term="心情" scheme="http://www.z16388.top/tags/%E5%BF%83%E6%83%85/"/>
     
   </entry>
   
