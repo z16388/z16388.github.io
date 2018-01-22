@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-01-17T05:06:03.245Z</updated>
+  <updated>2018-01-22T09:22:12.024Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用C#脚本</title>
+    <link href="http://www.z16388.top/2018/01/22/unitcs/"/>
+    <id>http://www.z16388.top/2018/01/22/unitcs/</id>
+    <published>2018-01-22T09:03:13.000Z</published>
+    <updated>2018-01-22T09:22:12.024Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="刚体"><a href="#刚体" class="headerlink" title="刚体"></a>刚体</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">rd = GetComponent&lt;Rigidbody&gt;();    //获取当前刚体</div><div class="line">rd.AddForce(new Vector3(1, 0, 0));    //使用向量控制刚体移动，向量的数值表示作用力的大小</div><div class="line">public int force = 5;</div><div class="line">rd.AddForce(new Vector3(h, 0, v) * force);    //可以将向量乘以一个整数来改变作用力的大小</div><div class="line">float h = Input.GetAxis(&quot;Horizontal&quot;);    //获得键盘按键的横向移动数据。A返回1，D返回-1。</div><div class="line">float v = Input.GetAxis(&quot;Vertical&quot;);    //获得键盘按键的纵向移动数据。W返回1，S返回-1。</div></pre></td></tr></table></figure>
+<p>程序范例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class Player : MonoBehaviour &#123;</div><div class="line"></div><div class="line">    private Rigidbody rd;</div><div class="line"></div><div class="line">    public int force = 5;</div><div class="line"></div><div class="line">	// Use this for initialization</div><div class="line">	void Start () &#123;</div><div class="line">        rd = GetComponent&lt;Rigidbody&gt;();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	// Update is called once per frame</div><div class="line">	void Update () &#123;</div><div class="line">        float h = Input.GetAxis(&quot;Horizontal&quot;);</div><div class="line">        float v = Input.GetAxis(&quot;Vertical&quot;);</div><div class="line">        rd.AddForce(new Vector3(h, 0, v) * force);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;刚体&quot;&gt;&lt;a href=&quot;#刚体&quot; class=&quot;headerlink&quot; title=&quot;刚体&quot;&gt;&lt;/a&gt;刚体&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div c
+    
+    </summary>
+    
+    
+      <category term="C#" scheme="http://www.z16388.top/tags/C/"/>
+    
+      <category term="Unity" scheme="http://www.z16388.top/tags/Unity/"/>
+    
+  </entry>
   
   <entry>
     <title>Markdown编辑器Smark</title>
@@ -1086,61 +1110,6 @@
     
     
       <category term="VPS" scheme="http://www.z16388.top/tags/VPS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】3.7排序（一）</title>
-    <link href="http://www.z16388.top/2017/01/18/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-7%E6%8E%92%E5%BA%8F%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://www.z16388.top/2017/01/18/【ACM教程】3-7排序（一）/</id>
-    <published>2017-01-18T03:25:23.000Z</published>
-    <updated>2017-04-13T13:25:15.901Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第七节-排序（一）"><a href="#第七节-排序（一）" class="headerlink" title="第七节 排序（一）"></a>第七节 排序（一）</h1><p>&emsp;&emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数据进行排序的时候，我们可能需要花费很多的时间和资源。因此，优化排序算法是我们在优化程序中的一个重要步骤。在我们前面的学习中，我们已经接触到了C++的STL中<code>sort()</code>函数。那么，在无法使用STL的情况或者是需要一些特殊的要求的排序，我们就需要对排序算法进行手撸。因此，掌握各种常见的排序方法极为重要。接下来，我们将会从冒泡排序开始，系统地对常见的排序算法进行练习。</p>
-<h2 id="冒泡排序（Bubble-Sort）"><a href="#冒泡排序（Bubble-Sort）" class="headerlink" title="冒泡排序（Bubble Sort）"></a>冒泡排序（Bubble Sort）</h2><p>&emsp;&emsp;我们早在学习C语言的时候，就已经接触到这种排序方法了，是一种非常简便的排序方法。我们依次比较相邻的两个元素，以达到排序的目的。冒泡排序的运作方式如下：</p>
-<blockquote>
-<p>重复走访所要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们相互交换<br>如果这个数列一共有<code>n</code>个元素，我们需要进行<code>n-1</code>组比较，每一组需要进行<code>n-i</code>次比较</p>
-</blockquote>
-<p>&emsp;&emsp;下面是冒泡排序的C语言代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a[<span class="number">15</span>];</div><div class="line">    <span class="keyword">int</span> n=<span class="number">10</span>,i,j,t;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</div><div class="line">        a[i]=<span class="number">10</span>-i;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;n;i++)</div><div class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n-i;j++) <span class="comment">//这里可以记作i+j=n;</span></div><div class="line">        sif(a[j]&gt;a[j+<span class="number">1</span>]) &#123;</div><div class="line">                t=a[j];</div><div class="line">                a[j]=a[j+<span class="number">1</span>];</div><div class="line">                a[j+<span class="number">1</span>]=t;</div><div class="line">            &#125;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>,a[i]);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;冒泡排序是一种常用的排序方法，但是它的时间复杂度为<code>O(n^2)</code>，在做题时不推荐使用。</p>
-<h2 id="快速排序（Quick-Sort）"><a href="#快速排序（Quick-Sort）" class="headerlink" title="快速排序（Quick Sort）"></a>快速排序（Quick Sort）</h2><p>&emsp;&emsp;快速排序是对冒泡排序的一种改进，它的基本思想和冒泡排序类似：</p>
-<blockquote>
-<p>通过一趟排序将序列分成两部分<br>保证左侧部分的数据都比右侧的小<br>再分别对两侧进行排序</p>
-</blockquote>
-<p>&emsp;&emsp;快速排序是排序算法中的优等生，它的时间复杂度为<code>O(logn)</code>，但是要到达了最不理想的状态，也就是针对一个完全反序的数列进行排序。这个时候，它就变成了冒泡排序，时间复杂度为<code>O(n^2)</code>。在去年的蓝桥杯比赛中，就成为了一道代码填空题，题目是这样的：</p>
-<blockquote>
-<p>排序在各种场合经常被用到。</p>
-<p>快速排序是十分常用的高效率的算法。</p>
-<p>其思想是：先选一个“标尺”，</p>
-<p>用它把整个队列过一遍筛子，</p>
-<p>以保证：其左边的元素都不大于它，其右边的元素都不小于它。</p>
-<p>这样，排序问题就被分割为两个子区间。</p>
-<p>再分别对子区间排序就可以了。</p>
-<p>下面的代码是一种实现，请分析并填写划线部分缺少的代码。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> t = a[i];</div><div class="line">    a[i] = a[j];</div><div class="line">    a[j] = t;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i = p;</div><div class="line">    <span class="keyword">int</span> j = r + <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> x = a[p];</div><div class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</div><div class="line">        <span class="keyword">while</span>(i&lt;r &amp;&amp; a[++i]&lt;x);</div><div class="line">        <span class="keyword">while</span>(a[--j]&gt;x);</div><div class="line">        <span class="keyword">if</span>(i&gt;=j) <span class="keyword">break</span>;</div><div class="line">        swap(a,i,j);</div><div class="line">    &#125;</div><div class="line"><span class="number">______________________</span>;</div><div class="line"></div><div class="line"><span class="keyword">return</span> j;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">quicksort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(p&lt;r)&#123;</div><div class="line">    <span class="keyword">int</span> q = partition(a,p,r);</div><div class="line">    quicksort(a,p,q<span class="number">-1</span>);</div><div class="line">    quicksort(a,q+<span class="number">1</span>,r);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">5</span>,<span class="number">13</span>,<span class="number">6</span>,<span class="number">24</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">19</span>,<span class="number">27</span>,<span class="number">6</span>,<span class="number">12</span>,<span class="number">1</span>,<span class="number">17</span>&#125;;</div><div class="line">    <span class="keyword">int</span> N = <span class="number">12</span>;</div><div class="line">    quicksort(a, <span class="number">0</span>, N<span class="number">-1</span>);</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++) <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"/n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：只填写缺少的内容，不要书写任何题面已有代码或说明性文字。</p>
-</blockquote>
-<p>&emsp;&emsp;这里的答案是<code>swap(a,p,j)</code>，我们就以上面的例子来简单地描述一下快速排序。首先我们看，这个程序中有四个函数，<code>swap()</code>函数实现的是值交换，<code>main()</code>是声明了一个数组，然后对他进行快速排序然后打印出来，我们就不多说了。现在我们来看一下<code>quicksort</code>这个函数。这个函数就是用来实现我们在前面描述过的“分别对两个子区间进行快速排序”这个过程，也比较简单。比较让人头疼就是要我们填空的这个<code>partition()</code>函数。</p>
-<p>&emsp;&emsp;下面就让我们来回忆一下快速排序的方法。快速排序就是找一个标尺（一般是一段序列的第一个），比他大的放在他左边，比他小的放在他右边。那么程序上是怎么实现的呢？</p>
-<p>&emsp;&emsp;我们需要在程序中定义两个指针，分别从序列的两端出发，左侧的指针向右寻找比标尺大的数据，右侧的指针向左寻找比标尺小的数据，但是在实现上，有两种方法。第一种：先从右侧出发，找到第一个比标尺小的数据，将其和标尺交换位置。然后从左侧出发，找到第一个比标尺大的数据，交换位置，直到两标尺相遇。但是这种方法会频繁地使用赋值操作，那么还有一种改进思路：我们让标尺在a[0]的位置不动，将a[1]作为左侧指针的出发点。两指针分别从左右出发，找到相应的数据之后对两个数据交换位置，直到两个指针相遇。之后再把标尺放在正确的位置上，完成排序。而这个正确的位置呢，就是两指针相遇的位置。</p>
-<p>&emsp;&emsp;在<code>partition()</code>函数中，有三个参数，第一个参数i,j,x。i作为low指针，j作为high指针，而x即是标尺。我们看在函数中，i初始化为标尺的位置后，在下面的while循环里，使用的是++i。这就保证了标尺是不移动的，也就是说这个程序使用的是第二种思路。仔细阅读代码，我们可以发现，函数中缺少的正是最后一步——将标尺移动到正确的位置。所以需要补填的代码是<code>swap(a,p,j)</code>。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第七节-排序（一）&quot;&gt;&lt;a href=&quot;#第七节-排序（一）&quot; class=&quot;headerlink&quot; title=&quot;第七节 排序（一）&quot;&gt;&lt;/a&gt;第七节 排序（一）&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;我们在写程序的时候，经常需要去进行排序这种操作。在面对大量数
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.top/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.top/tags/ACM%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
