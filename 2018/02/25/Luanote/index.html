@@ -34,7 +34,7 @@
 环境安装与使用安装环境&amp;emsp;&amp;emsp;在Windows环境下，使用SciTE来运行Lua程序。
 &amp;emsp;&amp;emsp;项目GitHub地址：https://github.com/rjpcomputing/luaforwindows/releases
 &amp;emsp;&amp;">
-<meta property="og:updated_time" content="2018-02-25T03:43:03.377Z">
+<meta property="og:updated_time" content="2018-02-26T12:54:45.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lua学习笔记">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;学习资料地址：http://www.runoob.com/lua/lua-tutorial.html
@@ -190,7 +190,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#环境安装与使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">环境安装与使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装环境"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">安装环境</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开始编程"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">开始编程</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#环境安装与使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">环境安装与使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装环境"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">安装环境</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开始编程"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">开始编程</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基础知识"><span class="post-toc-number">2.</span> <span class="post-toc-text">基础知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注释"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">注释</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入输出"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">输入输出</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据类型与变量"><span class="post-toc-number">3.</span> <span class="post-toc-text">数据类型与变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变量"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据类型"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">数据类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#nil（空）"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">nil（空）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#boolean（布尔）"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">boolean（布尔）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#number（数字）"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">number（数字）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#string（字符串）"><span class="post-toc-number">3.2.4.</span> <span class="post-toc-text">string（字符串）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#table（表）"><span class="post-toc-number">3.2.5.</span> <span class="post-toc-text">table（表）</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -222,7 +222,81 @@
 <p>&emsp;&emsp;需要注意的是，交互式编程状态下不能使用lua命令，会出现下面的错误，这一点我也是犯了好多次：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stdin:1: &apos;=&apos; expected near &apos;hello&apos;</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;还有一点很气的是，教程中也没有提到怎样退出lua环境。需要输入<code>os.exit()</code>退出。所以说，学习还是要多谷歌。</p>
-<p># </p>
+<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>&emsp;&emsp;单行注释:</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;多行注释：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--[[</span></div><div class="line">XXX</div><div class="line">XXX</div><div class="line">]]<span class="comment">--</span></div></pre></td></tr></table></figure>
+<h2 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"hello world!"</span>)</div></pre></td></tr></table></figure>
+<h1 id="数据类型与变量"><a href="#数据类型与变量" class="headerlink" title="数据类型与变量"></a>数据类型与变量</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>&emsp;&emsp;标识符区分大小写，以一个字母或下划线开头，后面加上若干个字母，下划线，数字组成。</p>
+<p>&emsp;&emsp;默认情况下，变量是全局变量。全局变量不需要声明，直接赋值即创建了这个全局变量。如果访问了一个没有创建的变量，会返回一个nil。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">print</span>(b)</div><div class="line"><span class="keyword">nil</span></div><div class="line">&gt; b=<span class="number">10</span></div><div class="line">&gt; <span class="built_in">print</span>(b)</div><div class="line"><span class="number">10</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;想要删除一个变量，直接赋值nil即可。</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>&emsp;&emsp;以下是常见的集中变量类型。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">nil</td>
+<td style="text-align:center">无效值，没有赋值的变量都会返回nil</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">布尔</td>
+</tr>
+<tr>
+<td style="text-align:center">number</td>
+<td style="text-align:center">双精度浮点型</td>
+</tr>
+<tr>
+<td style="text-align:center">string</td>
+<td style="text-align:center">字符串，用单引号或双引号括起来</td>
+</tr>
+<tr>
+<td style="text-align:center">function</td>
+<td style="text-align:center">由C或Lua编写的函数</td>
+</tr>
+<tr>
+<td style="text-align:center">userdata</td>
+<td style="text-align:center">*表示任意存储在变量中的C数据结构</td>
+</tr>
+<tr>
+<td style="text-align:center">thread</td>
+<td style="text-align:center">*表示执行的独立线路，用于执行协同程序</td>
+</tr>
+<tr>
+<td style="text-align:center">table</td>
+<td style="text-align:center">*Lua 中的表（table）其实是一个”关联数组”（associative arrays），数组的索引可以是数字或者是字符串。在 Lua 里，table 的创建是通过”构造表达式”来完成，最简单构造表达式是{}，用来创建一个空表。</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;&emsp;可以使用type函数测试给定变量或常量的类型：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="string">"Hello world"</span>))      <span class="comment">--&gt; string</span></div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="number">10.4</span>*<span class="number">3</span>))             <span class="comment">--&gt; number</span></div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">print</span>))              <span class="comment">--&gt; function</span></div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">type</span>))               <span class="comment">--&gt; function</span></div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="keyword">true</span>))               <span class="comment">--&gt; boolean</span></div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="keyword">nil</span>))                <span class="comment">--&gt; nil</span></div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">type</span>(X)))            <span class="comment">--&gt; string</span></div></pre></td></tr></table></figure>
+<h3 id="nil（空）"><a href="#nil（空）" class="headerlink" title="nil（空）"></a>nil（空）</h3><p>&emsp;&emsp;nil类型表示没有任何有效值，只有一个值，nil。打印一个没有赋值的变量会输出nil。对于全局变量和table变量，nil可以起到删除的作用。全局变量或者 table表里的变量赋一个nil值，等同于将他们删除。</p>
+<p>&emsp;&emsp;nil在比较时，需要使用双引号括起来。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">type</span>(X)</div><div class="line"><span class="keyword">nil</span></div><div class="line">&gt; <span class="built_in">type</span>(X)==<span class="keyword">nil</span></div><div class="line"><span class="keyword">false</span></div><div class="line">&gt; <span class="built_in">type</span>(X)==<span class="string">"nil"</span></div><div class="line"><span class="keyword">true</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<h3 id="boolean（布尔）"><a href="#boolean（布尔）" class="headerlink" title="boolean（布尔）"></a>boolean（布尔）</h3><p>&emsp;&emsp;Lua的布尔值与其他语言有一个显著的区别，它将false和nil看作假，其他的值，包括0，都为真。长时间使用其他编程语言的人可能会很难反应过来。</p>
+<p>&emsp;&emsp;除此之外，在进行逻辑判断时也和其他语言有很多不同。进行或运算时，0 or false的值就为0；若进行且群算，0 and false的返回值就为fales。这里是为了方便三目运算符的使用而进行的设定。</p>
+<h3 id="number（数字）"><a href="#number（数字）" class="headerlink" title="number（数字）"></a>number（数字）</h3><p>&emsp;&emsp;Lua默认只有一种number类型，即双精度浮点型。</p>
+<h3 id="string（字符串）"><a href="#string（字符串）" class="headerlink" title="string（字符串）"></a>string（字符串）</h3><p>&emsp;&emsp;字符串由一对单引号或者双引号括起来。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">string1 = <span class="string">"this is string1"</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;也可以使用两个方括号“[[]]”来表示一块字符串。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">html = <span class="string">[[</span></div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;a href="http://www.runoob.com/"&gt;菜鸟教程&lt;/a&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line">]]</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;对字符串进行算术运算时，会尝试将其转换成为一个数字。如果不成功，会报错：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">print</span>(<span class="string">"2"</span> + <span class="number">6</span>)</div><div class="line"><span class="number">8.0</span></div><div class="line">&gt; <span class="built_in">print</span>(<span class="string">"2"</span> + <span class="string">"6"</span>)</div><div class="line"><span class="number">8.0</span></div><div class="line">&gt; <span class="built_in">print</span>(<span class="string">"error"</span> + <span class="number">1</span>)</div><div class="line">stdin:<span class="number">1</span>: attempt to perform arithmetic on a <span class="built_in">string</span> value</div><div class="line">stack traceback:</div><div class="line">    stdin:<span class="number">1</span>: <span class="keyword">in</span> main chunk</div><div class="line">    [C]: <span class="keyword">in</span> ?</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;可以使用两点<code>..</code>来连接两个字符串：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">print</span>(<span class="string">"a"</span> .. <span class="string">'b'</span>)</div><div class="line">ab</div><div class="line">&gt; <span class="built_in">print</span>(<span class="number">157</span> .. <span class="number">428</span>)</div><div class="line"><span class="number">157428</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;可以使用<code>#</code>来计算字符串的长度：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; len = <span class="string">"www.z16388.top"</span></div><div class="line">&gt; <span class="built_in">print</span>(#len)</div><div class="line"><span class="number">14</span></div><div class="line">&gt; <span class="built_in">print</span>(#<span class="string">"www.z16388.top"</span>)</div><div class="line"><span class="number">14</span></div></pre></td></tr></table></figure>
+<h3 id="table（表）"><a href="#table（表）" class="headerlink" title="table（表）"></a>table（表）</h3><p>&emsp;&emsp;表是一个关联数组，可以创建空表，也可以在创建的时候初始化：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> tbl1 = &#123;&#125;</div><div class="line"><span class="keyword">local</span> tbl2 = &#123;<span class="string">"apple"</span>, <span class="string">"pear"</span>, <span class="string">"orange"</span>, <span class="string">"grape"</span>&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;数组的索引可以是数字或者字符串：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a[key] = <span class="number">22</span></div><div class="line">a[<span class="number">2</span>] = <span class="number">11</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;</p>
 
         </div>
 
@@ -230,7 +304,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-02-25T03:43:03.377Z" itemprop="dateUpdated">2018-02-25 11:43:03</time>
+    最后更新时间：<time datetime="2018-02-26T12:54:45.380Z" itemprop="dateUpdated">2018-02-26 20:54:45</time>
 </span><br>
 
 
