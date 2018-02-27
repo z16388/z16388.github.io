@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-02-26T12:54:45.380Z</updated>
+  <updated>2018-02-27T03:06:43.444Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.z16388.top/2018/02/25/Luanote/"/>
     <id>http://www.z16388.top/2018/02/25/Luanote/</id>
     <published>2018-02-25T03:32:12.000Z</published>
-    <updated>2018-02-26T12:54:45.380Z</updated>
+    <updated>2018-02-27T03:06:43.444Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;学习资料地址：<a href="http://www.runoob.com/lua/lua-tutorial.html" target="_blank" rel="external">http://www.runoob.com/lua/lua-tutorial.html</a></p>
 <h1 id="环境安装与使用"><a href="#环境安装与使用" class="headerlink" title="环境安装与使用"></a>环境安装与使用</h1><h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p>&emsp;&emsp;在Windows环境下，使用SciTE来运行Lua程序。</p>
@@ -105,7 +105,15 @@
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> tbl1 = &#123;&#125;</div><div class="line"><span class="keyword">local</span> tbl2 = &#123;<span class="string">"apple"</span>, <span class="string">"pear"</span>, <span class="string">"orange"</span>, <span class="string">"grape"</span>&#125;</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;数组的索引可以是数字或者字符串：</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a[key] = <span class="number">22</span></div><div class="line">a[<span class="number">2</span>] = <span class="number">11</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;</p>
+<p>&emsp;&emsp;需要注意的是，与其他语言不同，Lua默认初始索引是从1开始的！！！！</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> tbl = &#123;<span class="string">"apple"</span>, <span class="string">"pear"</span>, <span class="string">"orange"</span>, <span class="string">"grape"</span>&#125;</div><div class="line"><span class="keyword">for</span> key, val <span class="keyword">in</span> <span class="built_in">pairs</span>(tbl) <span class="keyword">do</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"Key"</span>, key)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;程序的运行结果是：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Key    <span class="number">1</span></div><div class="line">Key    <span class="number">2</span></div><div class="line">Key    <span class="number">3</span></div><div class="line">Key    <span class="number">4</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;最后，table不会固定长度,没有被赋值的部分，返回值都为nil。如果直接使用for循环进行遍历，循环会在遇到nil值时终止，可能无法实现对整个数组的遍历。（如果其中有空值的话）具体的解决方法在table部分给出。</p>
+<h3 id="function（函数）"><a href="#function（函数）" class="headerlink" title="function（函数）"></a>function（函数）</h3><p>&emsp;&emsp;在Lua中，函数被看作第一类值，函数可以存在变量里。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial1</span><span class="params">(n)</span></span></div><div class="line">    <span class="keyword">if</span> n == <span class="number">0</span> <span class="keyword">then</span></div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> n * factorial1(n - <span class="number">1</span>)</div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="built_in">print</span>(factorial1(<span class="number">5</span>))</div><div class="line">factorial2 = factorial1</div><div class="line"><span class="built_in">print</span>(factorial2(<span class="number">5</span>))</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;可以以匿名函数的方式，通过参数传递。函数之所以有名字，就是为了方便进行调用。而只使用一次的函数，则可以不起名字，也就是匿名函数。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">testFun</span><span class="params">(tab,fun)</span></span></div><div class="line">    <span class="keyword">for</span> k ,v <span class="keyword">in</span> <span class="built_in">pairs</span>(tab) <span class="keyword">do</span></div><div class="line">        <span class="built_in">print</span>(fun(k,v));</div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"></div><div class="line">tab=&#123;key1=<span class="string">"val1"</span>,key2=<span class="string">"val2"</span>&#125;</div><div class="line">testFun(tab,</div><div class="line"><span class="function"><span class="keyword">function</span><span class="params">(key,val)</span></span><span class="comment">--匿名函数</span></div><div class="line">    <span class="keyword">return</span> key..<span class="string">"="</span>..val</div><div class="line"><span class="keyword">end</span></div><div class="line">);</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
