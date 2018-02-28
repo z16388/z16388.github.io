@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-02-28T14:10:08.783Z</updated>
+  <updated>2018-02-28T14:18:01.242Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.z16388.top/2018/02/25/Luanote/"/>
     <id>http://www.z16388.top/2018/02/25/Luanote/</id>
     <published>2018-02-25T03:32:12.000Z</published>
-    <updated>2018-02-28T14:10:08.783Z</updated>
+    <updated>2018-02-28T14:18:01.242Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;学习资料地址：<a href="http://www.runoob.com/lua/lua-tutorial.html" target="_blank" rel="external">http://www.runoob.com/lua/lua-tutorial.html</a></p>
 <h1 id="环境安装与使用"><a href="#环境安装与使用" class="headerlink" title="环境安装与使用"></a>环境安装与使用</h1><h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p>&emsp;&emsp;在Windows环境下，使用SciTE来运行Lua程序。</p>
@@ -253,7 +253,8 @@
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">tab1 = &#123;<span class="string">"1"</span>,<span class="string">"2"</span>&#125;</div><div class="line"><span class="built_in">print</span>(<span class="string">"tab1长度"</span>..#tab1)</div><div class="line">tab2 = &#123;key1=<span class="string">"1"</span>,<span class="string">"2"</span>&#125;</div><div class="line"><span class="built_in">print</span>(<span class="string">"tab2长度"</span>..#tab2)</div><div class="line">tab3 = &#123;&#125;</div><div class="line">tab3[<span class="number">1</span>]=<span class="string">"1"</span></div><div class="line">tab3[<span class="number">2</span>]=<span class="string">"2"</span></div><div class="line">tab3[<span class="number">4</span>]=<span class="string">"4"</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"tab3长度"</span>..#tab3)</div><div class="line"></div><div class="line">tab1长度<span class="number">2</span></div><div class="line">tab2长度<span class="number">1</span></div><div class="line">tab3长度<span class="number">4</span></div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;但是当下表的值，<strong>大小相差超过1的时候，就会停止计算</strong>。</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">tab3=&#123;&#125;</div><div class="line">tab3[<span class="number">1</span>]=<span class="string">"1"</span></div><div class="line">tab3[<span class="number">2</span>]=<span class="string">"2"</span></div><div class="line">tab3[<span class="number">5</span>]=<span class="string">"5"</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"tab3的长度"</span>,#tab3)</div><div class="line"></div><div class="line">tab3的长度    <span class="number">2</span></div></pre></td></tr></table></figure>
-<h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p>&emsp;&emsp;在原口诀的基础上，字符串连接运算符的优先级在算数运算符和关系运算符之间。</p>
+<h2 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h2><p>&emsp;&emsp;在原口诀的基础上，字符串连接运算符的优先级在算数运算符和关系运算符之间。</p>
+<p>#</p>
 ]]></content>
     
     <summary type="html">
