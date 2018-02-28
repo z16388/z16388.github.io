@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-02-27T03:06:43.444Z</updated>
+  <updated>2018-02-27T09:54:35.575Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.z16388.top/2018/02/25/Luanote/"/>
     <id>http://www.z16388.top/2018/02/25/Luanote/</id>
     <published>2018-02-25T03:32:12.000Z</published>
-    <updated>2018-02-27T03:06:43.444Z</updated>
+    <updated>2018-02-27T09:54:35.575Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;学习资料地址：<a href="http://www.runoob.com/lua/lua-tutorial.html" target="_blank" rel="external">http://www.runoob.com/lua/lua-tutorial.html</a></p>
 <h1 id="环境安装与使用"><a href="#环境安装与使用" class="headerlink" title="环境安装与使用"></a>环境安装与使用</h1><h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p>&emsp;&emsp;在Windows环境下，使用SciTE来运行Lua程序。</p>
@@ -36,11 +36,28 @@
 <p>&emsp;&emsp;多行注释：</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--[[</span></div><div class="line">XXX</div><div class="line">XXX</div><div class="line">]]<span class="comment">--</span></div></pre></td></tr></table></figure>
 <h2 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"hello world!"</span>)</div></pre></td></tr></table></figure>
-<h1 id="数据类型与变量"><a href="#数据类型与变量" class="headerlink" title="数据类型与变量"></a>数据类型与变量</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>&emsp;&emsp;标识符区分大小写，以一个字母或下划线开头，后面加上若干个字母，下划线，数字组成。</p>
-<p>&emsp;&emsp;默认情况下，变量是全局变量。全局变量不需要声明，直接赋值即创建了这个全局变量。如果访问了一个没有创建的变量，会返回一个nil。</p>
+<h1 id="数据类型与变量"><a href="#数据类型与变量" class="headerlink" title="数据类型与变量"></a>数据类型与变量</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>&emsp;&emsp;Lua有三种变量类型：全局变量，局部变量和表中的域。默认情况下，变量都是全局变量，函数里面没有做特殊声明的变量也都是全局变量。全局变量不需要声明，直接赋值即创建了这个全局变量。如果访问了一个没有创建的变量，会返回一个nil。同样，如果想要删除一个变量，直接赋值nil即可。</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">print</span>(b)</div><div class="line"><span class="keyword">nil</span></div><div class="line">&gt; b=<span class="number">10</span></div><div class="line">&gt; <span class="built_in">print</span>(b)</div><div class="line"><span class="number">10</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;想要删除一个变量，直接赋值nil即可。</p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>&emsp;&emsp;以下是常见的集中变量类型。</p>
+<p>&emsp;&emsp;如果想要一个局部变量，需要使用<code>local</code>显式声明：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> b = <span class="number">5</span></div></pre></td></tr></table></figure>
+<h3 id="赋值语句"><a href="#赋值语句" class="headerlink" title="赋值语句"></a>赋值语句</h3><p>&emsp;&emsp;赋值时改变一个变量的值和改变表域的最基本方法。同大多数编程语言类似，Lua使用从右到左的赋值方式。除此之外，还能够实现多个变量同时赋值：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a, b = <span class="number">10</span>, <span class="number">2</span>*x</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;上面的语句在功能上，等同于：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = <span class="number">10</span></div><div class="line">b = <span class="number">2</span>*x</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;在对多个变量进行赋值时，Lua采用的计算方式时先计算右侧的值，再进行赋值的操作。所以再Lua中，实现两个变量值的交换只需要一行代码：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x, y = y, x</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;除此之外，当变量的个数和数值的个数不一致时，Lua会遵循这个策略：</p>
+<ol>
+<li>当 变量个数 &gt; 值的个数 时，右侧没有指定值的变量赋值为nil</li>
+<li>当 变量个数 &lt; 值的个数 时，右侧多余的值会被忽略掉。</li>
+</ol>
+<p>&emsp;&emsp;所以比较容易出现的错误是，在对多个变量进行相同赋值时：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a, b, c = <span class="number">0</span></div><div class="line"><span class="built_in">print</span>(a,b,c)             <span class="comment">--&gt; 0   nil   nil</span></div><div class="line">a, b, c = <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span></div><div class="line"><span class="built_in">print</span>(a,b,c)             <span class="comment">--&gt; 0   0   0</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;多赋值语句，除了用在上面的值交换的过程中之外，还常用于记录函数的多个返回值。Lua中，函数可以有多个返回值。如果想要将函数<code>f()</code>的两个返回值存放到全局变量<code>a</code>和<code>b</code>中去，可以使用下面的语句：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a, b = f()</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;上面的语句，实现了将函数的第一个返回值给a，第二个给b。</p>
+<p>&emsp;&emsp;虽然Lua定义全局变量比较方便，但是应当尽可能地使用局部变量。因为局部变量的访问时间要比全局变量更快，同时也避免了变量命名的冲突。</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>&emsp;&emsp;以下是常见的集中变量类型。</p>
 <table>
 <thead>
 <tr>
@@ -109,6 +126,8 @@
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> tbl = &#123;<span class="string">"apple"</span>, <span class="string">"pear"</span>, <span class="string">"orange"</span>, <span class="string">"grape"</span>&#125;</div><div class="line"><span class="keyword">for</span> key, val <span class="keyword">in</span> <span class="built_in">pairs</span>(tbl) <span class="keyword">do</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"Key"</span>, key)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;程序的运行结果是：</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Key    <span class="number">1</span></div><div class="line">Key    <span class="number">2</span></div><div class="line">Key    <span class="number">3</span></div><div class="line">Key    <span class="number">4</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;对table的索引除了使用国际惯例<code>[]</code>之外，还可以使用<code>.</code>进行操作。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; site = &#123;&#125;</div><div class="line">&gt; site[<span class="string">"key"</span>] = <span class="string">"www.z16388.top"</span></div><div class="line">&gt; <span class="built_in">print</span>(site[<span class="string">"key"</span>])</div><div class="line">www.z16388.top</div><div class="line">&gt; <span class="built_in">print</span>(site.key)</div><div class="line">www.z16388.top</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;最后，table不会固定长度,没有被赋值的部分，返回值都为nil。如果直接使用for循环进行遍历，循环会在遇到nil值时终止，可能无法实现对整个数组的遍历。（如果其中有空值的话）具体的解决方法在table部分给出。</p>
 <h3 id="function（函数）"><a href="#function（函数）" class="headerlink" title="function（函数）"></a>function（函数）</h3><p>&emsp;&emsp;在Lua中，函数被看作第一类值，函数可以存在变量里。</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial1</span><span class="params">(n)</span></span></div><div class="line">    <span class="keyword">if</span> n == <span class="number">0</span> <span class="keyword">then</span></div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> n * factorial1(n - <span class="number">1</span>)</div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="built_in">print</span>(factorial1(<span class="number">5</span>))</div><div class="line">factorial2 = factorial1</div><div class="line"><span class="built_in">print</span>(factorial2(<span class="number">5</span>))</div></pre></td></tr></table></figure>
