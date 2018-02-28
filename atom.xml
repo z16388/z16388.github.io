@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-02-28T08:40:10.819Z</updated>
+  <updated>2018-02-28T09:35:45.944Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.z16388.top/2018/02/25/Luanote/"/>
     <id>http://www.z16388.top/2018/02/25/Luanote/</id>
     <published>2018-02-25T03:32:12.000Z</published>
-    <updated>2018-02-28T08:40:10.819Z</updated>
+    <updated>2018-02-28T09:35:45.944Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;学习资料地址：<a href="http://www.runoob.com/lua/lua-tutorial.html" target="_blank" rel="external">http://www.runoob.com/lua/lua-tutorial.html</a></p>
 <h1 id="环境安装与使用"><a href="#环境安装与使用" class="headerlink" title="环境安装与使用"></a>环境安装与使用</h1><h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p>&emsp;&emsp;在Windows环境下，使用SciTE来运行Lua程序。</p>
@@ -140,7 +140,16 @@
 <p>&emsp;&emsp;<code>exp1</code>为初值，<code>exp2</code>为终值，<code>exp3</code>为步长。若<code>exp3</code>不指定，值默认为1。需要注意的是，表达式中三个参数的值都会在循环开始前一次性求值，以后不再进行求值。</p>
 <h4 id="泛型for循环"><a href="#泛型for循环" class="headerlink" title="泛型for循环"></a>泛型for循环</h4><p>&emsp;&emsp;泛型for循环，通过一个迭代器来遍历所有的值，与C++类似。</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i,v <span class="keyword">in</span> <span class="built_in">ipairs</span>(a) </div><div class="line">    <span class="keyword">do</span> <span class="built_in">print</span>(v) </div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;其中，<code>i</code>是索引，<code>v</code>是索引对应的元素的值，ipairs是Lua提供的一个迭代器函数，用来迭代数组。它的参数<code>a</code>就是数组名。</p>
+<p>&emsp;&emsp;其中，<code>i</code>是索引，<code>v</code>是索引对应的元素的值，ipairs是Lua提供的一个迭代器函数，用来迭代数组。它的参数<code>a</code>就是数组名。下面是一个对数组进行泛型for循环输出的例子。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">days = &#123;<span class="string">"Suanday"</span>,<span class="string">"Monday"</span>,<span class="string">"Tuesday"</span>,<span class="string">"Wednesday"</span>,<span class="string">"Thursday"</span>,<span class="string">"Friday"</span>,<span class="string">"Saturday"</span>&#125;  </div><div class="line"><span class="keyword">for</span> i,v <span class="keyword">in</span> <span class="built_in">ipairs</span>(days) <span class="keyword">do</span>  </div><div class="line">    <span class="built_in">print</span>(v) </div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h3 id="repeat-…-until循环"><a href="#repeat-…-until循环" class="headerlink" title="repeat … until循环"></a>repeat … until循环</h3><p>&emsp;&emsp;即do … while，重复执行循环体到循环条件为真时。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">repeat</span></div><div class="line">   statements</div><div class="line"><span class="keyword">until</span>( condition )</div></pre></td></tr></table></figure>
+<h3 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h3><p>&emsp;&emsp;Lua支持break语句。</p>
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><p>&emsp;&emsp;if语句的格式：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(布尔表达式)</div><div class="line"><span class="keyword">then</span></div><div class="line">   <span class="comment">--[ 在布尔表达式为 true 时执行的语句 --]</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;if … else 语句格式：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(布尔表达式)</div><div class="line"><span class="keyword">then</span></div><div class="line">   <span class="comment">--[ 布尔表达式为 true 时执行该语句块 --]</span></div><div class="line"><span class="keyword">else</span></div><div class="line">   <span class="comment">--[ 布尔表达式为 false 时执行该语句块 --]</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;需要注意的是，Lua中0也为真值，只有false和nil为假。</p>
 ]]></content>
     
     <summary type="html">
