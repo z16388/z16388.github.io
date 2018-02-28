@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-02-28T11:20:47.380Z</updated>
+  <updated>2018-02-28T12:59:31.044Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.z16388.top/2018/02/25/Luanote/"/>
     <id>http://www.z16388.top/2018/02/25/Luanote/</id>
     <published>2018-02-25T03:32:12.000Z</published>
-    <updated>2018-02-28T11:20:47.380Z</updated>
+    <updated>2018-02-28T12:59:31.044Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;学习资料地址：<a href="http://www.runoob.com/lua/lua-tutorial.html" target="_blank" rel="external">http://www.runoob.com/lua/lua-tutorial.html</a></p>
 <h1 id="环境安装与使用"><a href="#环境安装与使用" class="headerlink" title="环境安装与使用"></a>环境安装与使用</h1><h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p>&emsp;&emsp;在Windows环境下，使用SciTE来运行Lua程序。</p>
@@ -111,9 +111,10 @@
 <h3 id="string（字符串）"><a href="#string（字符串）" class="headerlink" title="string（字符串）"></a>string（字符串）</h3><p>&emsp;&emsp;字符串由一对单引号或者双引号括起来。</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">string1 = <span class="string">"this is string1"</span></div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;也可以使用两个方括号<code>[[]]</code>来表示一块字符串。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">html = <span class="string">[[</span></div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;a href="http://www.runoob.com/"&gt;菜鸟教程&lt;/a&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line">]]</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;对字符串进行算术运算时，会尝试将其转换成为一个数字。如果不成功，会报错：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">print</span>(<span class="string">"2"</span> + <span class="number">6</span>)</div><div class="line"><span class="number">8.0</span></div><div class="line">&gt; <span class="built_in">print</span>(<span class="string">"2"</span> + <span class="string">"6"</span>)</div><div class="line"><span class="number">8.0</span></div><div class="line">&gt; <span class="built_in">print</span>(<span class="string">"error"</span> + <span class="number">1</span>)</div><div class="line">stdin:<span class="number">1</span>: attempt to perform arithmetic on a <span class="built_in">string</span> value</div><div class="line">stack traceback:</div><div class="line">    stdin:<span class="number">1</span>: <span class="keyword">in</span> main chunk</div><div class="line">    [C]: <span class="keyword">in</span> ?</div></pre></td></tr></table></figure>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">html = <span class="string">[[</span></div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;a href="http://www.z16388.com/"&gt;崎径 其镜&lt;/a&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line">]]</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;运行时，Lua会自动在string和number之间进行格式转换。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"10"</span>+ <span class="number">1</span>)     <span class="comment">--&gt; 11</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"10 + 1"</span>)  <span class="comment">--&gt; 10 + 1</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"hello"</span>+ <span class="number">1</span>)    <span class="comment">-- 报错 (无法转换 "hello")</span></div><div class="line"><span class="built_in">print</span>(<span class="number">10</span> .. <span class="number">20</span>) <span class="comment">--&gt; 1020</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;在一个数字后写<code>..</code>时应该<strong>加空格，防止被错误解释</strong>。</p>
 <p>&emsp;&emsp;可以使用两点<code>..</code>来连接两个字符串：</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">print</span>(<span class="string">"a"</span> .. <span class="string">'b'</span>)</div><div class="line">ab</div><div class="line">&gt; <span class="built_in">print</span>(<span class="number">157</span> .. <span class="number">428</span>)</div><div class="line"><span class="number">157428</span></div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;可以使用<code>#</code>来计算字符串的长度：</p>
@@ -169,6 +170,85 @@
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">average</span><span class="params">(...)</span></span></div><div class="line">   result = <span class="number">0</span></div><div class="line">   <span class="keyword">local</span> arg=&#123;...&#125;</div><div class="line">   <span class="keyword">for</span> i,v <span class="keyword">in</span> <span class="built_in">ipairs</span>(arg) <span class="keyword">do</span></div><div class="line">      result = result + v</div><div class="line">   <span class="keyword">end</span></div><div class="line">   <span class="built_in">print</span>(<span class="string">"总共传入 "</span> .. #arg .. <span class="string">" 个数"</span>)</div><div class="line">   <span class="keyword">return</span> result/#arg</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"平均值为"</span>,average(<span class="number">10</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>))</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;在新的版本里，<code>#</code>不能用于返回数组元素的个数了，而是需要使用：</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">select</span>(<span class="string">"#"</span>,...)</div></pre></td></tr></table></figure>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><p>&emsp;&emsp;常用的算术运算符与其他语言类似。需要注意的是，Lua里没有整数，所以如果想要取整操作，必须要进行取整操作：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x = <span class="built_in">math</span>.ceil(x)</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;需要注意的是，这里的取整仍然是向上取整。也就是说，无论小数部分有多小，取整的结果都是要比原数的整数部分大1。</p>
+<p>&emsp;&emsp;除此之外，常用的操作应该还有数据精度的控制：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span>.format(<span class="string">"%.2f"</span>,dt)</div></pre></td></tr></table></figure>
+<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">==</td>
+<td style="text-align:center">等于</td>
+</tr>
+<tr>
+<td style="text-align:center">~=</td>
+<td style="text-align:center">不等</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;=</td>
+<td style="text-align:center">大于等于</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;=</td>
+<td style="text-align:center">小于等于</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center">大于</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">小于</td>
+</tr>
+</tbody>
+</table>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">and</td>
+<td style="text-align:center">与</td>
+</tr>
+<tr>
+<td style="text-align:center">or</td>
+<td style="text-align:center">或</td>
+</tr>
+<tr>
+<td style="text-align:center">not</td>
+<td style="text-align:center">非</td>
+</tr>
+</tbody>
+</table>
+<h2 id="其他运算符"><a href="#其他运算符" class="headerlink" title="其他运算符"></a>其他运算符</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">..</td>
+<td style="text-align:center">连结两个字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">#</td>
+<td style="text-align:center">返回字符串或表的长度</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
     
     <summary type="html">
