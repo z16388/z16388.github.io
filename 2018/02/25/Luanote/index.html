@@ -34,7 +34,7 @@
 环境安装与使用安装环境&amp;emsp;&amp;emsp;在Windows环境下，使用SciTE来运行Lua程序。
 &amp;emsp;&amp;emsp;项目GitHub地址：https://github.com/rjpcomputing/luaforwindows/releases
 &amp;emsp;&amp;">
-<meta property="og:updated_time" content="2018-03-01T11:38:09.800Z">
+<meta property="og:updated_time" content="2018-03-01T16:00:52.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lua学习笔记">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;学习资料地址：http://www.runoob.com/lua/lua-tutorial.html
@@ -474,39 +474,27 @@
 <td style="text-align:center">全部转为小写字母</td>
 </tr>
 <tr>
+<td style="text-align:center">len(str)</td>
+<td style="text-align:center">计算长度</td>
+</tr>
+<tr>
 <td style="text-align:center">gsub(str,str1,str2,num)</td>
 <td style="text-align:center">将str中的str1，替换为str2，替换num个，num可以省略</td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center">find(str,str1,[init, [end]])</td>
+<td style="text-align:center">在str中搜索str1，返回其位置。如果不存在返回nil。第三个参数为索引</td>
 </tr>
 </tbody>
 </table>
+<p>&emsp;&emsp;字符串翻转</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">string</span>.reverse(<span class="string">"Lua"</span>)</div><div class="line">auL</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;字符串格式化，和C的输出类似</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">string</span>.format(<span class="string">"the value is:%d"</span>,<span class="number">4</span>)</div><div class="line">the value is:<span class="number">4</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;<code>char()</code>函数，将整数按照ASCII码转换成对应的符号；<code>byte(str,num)</code>将第num个字幕转换为ASCII码，默认是第一个。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">string</span>.char(<span class="number">97</span>,<span class="number">98</span>,<span class="number">99</span>,<span class="number">100</span>)</div><div class="line">abcd</div><div class="line">&gt; <span class="built_in">string</span>.byte(<span class="string">"ABCD"</span>,<span class="number">4</span>)</div><div class="line"><span class="number">68</span></div><div class="line">&gt; <span class="built_in">string</span>.byte(<span class="string">"ABCD"</span>)</div><div class="line"><span class="number">65</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;<code>rep(string,n)</code>将字符串复制n次。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">string</span>.rep(<span class="string">"abcd"</span>,<span class="number">2</span>)</div><div class="line">abcdabcd</div></pre></td></tr></table></figure>
 
         </div>
 
@@ -514,7 +502,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-03-01T11:38:09.800Z" itemprop="dateUpdated">2018-03-01 19:38:09</time>
+    最后更新时间：<time datetime="2018-03-01T16:00:52.421Z" itemprop="dateUpdated">2018-03-02 00:00:52</time>
 </span><br>
 
 

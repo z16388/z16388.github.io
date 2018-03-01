@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-03-01T11:38:09.800Z</updated>
+  <updated>2018-03-01T16:00:52.421Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.z16388.top/2018/02/25/Luanote/"/>
     <id>http://www.z16388.top/2018/02/25/Luanote/</id>
     <published>2018-02-25T03:32:12.000Z</published>
-    <updated>2018-03-01T11:38:09.800Z</updated>
+    <updated>2018-03-01T16:00:52.421Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;学习资料地址：<a href="http://www.runoob.com/lua/lua-tutorial.html" target="_blank" rel="external">http://www.runoob.com/lua/lua-tutorial.html</a></p>
 <h1 id="环境安装与使用"><a href="#环境安装与使用" class="headerlink" title="环境安装与使用"></a>环境安装与使用</h1><h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p>&emsp;&emsp;在Windows环境下，使用SciTE来运行Lua程序。</p>
@@ -283,39 +283,27 @@
 <td style="text-align:center">全部转为小写字母</td>
 </tr>
 <tr>
+<td style="text-align:center">len(str)</td>
+<td style="text-align:center">计算长度</td>
+</tr>
+<tr>
 <td style="text-align:center">gsub(str,str1,str2,num)</td>
 <td style="text-align:center">将str中的str1，替换为str2，替换num个，num可以省略</td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center">find(str,str1,[init, [end]])</td>
+<td style="text-align:center">在str中搜索str1，返回其位置。如果不存在返回nil。第三个参数为索引</td>
 </tr>
 </tbody>
 </table>
+<p>&emsp;&emsp;字符串翻转</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">string</span>.reverse(<span class="string">"Lua"</span>)</div><div class="line">auL</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;字符串格式化，和C的输出类似</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">string</span>.format(<span class="string">"the value is:%d"</span>,<span class="number">4</span>)</div><div class="line">the value is:<span class="number">4</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;<code>char()</code>函数，将整数按照ASCII码转换成对应的符号；<code>byte(str,num)</code>将第num个字幕转换为ASCII码，默认是第一个。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">string</span>.char(<span class="number">97</span>,<span class="number">98</span>,<span class="number">99</span>,<span class="number">100</span>)</div><div class="line">abcd</div><div class="line">&gt; <span class="built_in">string</span>.byte(<span class="string">"ABCD"</span>,<span class="number">4</span>)</div><div class="line"><span class="number">68</span></div><div class="line">&gt; <span class="built_in">string</span>.byte(<span class="string">"ABCD"</span>)</div><div class="line"><span class="number">65</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;<code>rep(string,n)</code>将字符串复制n次。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">string</span>.rep(<span class="string">"abcd"</span>,<span class="number">2</span>)</div><div class="line">abcdabcd</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
