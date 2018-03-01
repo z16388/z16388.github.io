@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-02-28T14:26:23.723Z</updated>
+  <updated>2018-03-01T11:38:09.800Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.z16388.top/2018/02/25/Luanote/"/>
     <id>http://www.z16388.top/2018/02/25/Luanote/</id>
     <published>2018-02-25T03:32:12.000Z</published>
-    <updated>2018-02-28T14:26:23.723Z</updated>
+    <updated>2018-03-01T11:38:09.800Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;学习资料地址：<a href="http://www.runoob.com/lua/lua-tutorial.html" target="_blank" rel="external">http://www.runoob.com/lua/lua-tutorial.html</a></p>
 <h1 id="环境安装与使用"><a href="#环境安装与使用" class="headerlink" title="环境安装与使用"></a>环境安装与使用</h1><h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p>&emsp;&emsp;在Windows环境下，使用SciTE来运行Lua程序。</p>
@@ -260,6 +260,62 @@
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> <span class="built_in">ipairs</span>(tbtest) <span class="keyword">do</span>      </div><div class="line">    XXX  </div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;第三种，必须存在1这个key，而且是从1开始依次加一的顺序，找到一个不是1的就不再进行遍历。</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i=<span class="number">1</span>, #(tbtest) <span class="keyword">do</span>      </div><div class="line">    XXX  </div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="形式"><a href="#形式" class="headerlink" title="形式"></a>形式</h2><p>&emsp;&emsp;共有三种类型</p>
+<ol>
+<li>单引号括起来</li>
+<li>双引号括起来</li>
+<li><code>[[]]</code>括起来</li>
+</ol>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">uper(str)</td>
+<td style="text-align:center">全部转为大写字母</td>
+</tr>
+<tr>
+<td style="text-align:center">lower(str)</td>
+<td style="text-align:center">全部转为小写字母</td>
+</tr>
+<tr>
+<td style="text-align:center">gsub(str,str1,str2,num)</td>
+<td style="text-align:center">将str中的str1，替换为str2，替换num个，num可以省略</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
 ]]></content>
     
     <summary type="html">
