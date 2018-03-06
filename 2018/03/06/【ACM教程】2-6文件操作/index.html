@@ -12,32 +12,32 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="http://www.z16388.top/2016/11/16/hdu1720/">
+    <link rel="canonical" href="http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/">
     
     
-    <title>hdu1720 A+B Coming | 崎径 其镜 | 求学道路上的行车记录仪</title>
+    <title>【ACM教程】2.6 文件操作 | 崎径 其镜 | 求学道路上的行车记录仪</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="ACM,hdu">
-    <meta name="description" content="&amp;emsp;&amp;emsp;这是一道简单的输入输出问题，把输入当做十六进制，计算和并按照十进制输出即可。
-&amp;emsp;&amp;emsp;以下是C和C++两种做法：
-1234567891011#include&amp;lt;cstdio&amp;gt;#include&amp;lt;iostream&amp;gt;using namespace std;int main()&amp;#123;    int a,b;    while(scanf(">
+    <meta name="keywords" content="ACM,算法,ACM教程,动态规划">
+    <meta name="description" content="第六节 文件操作&amp;emsp;&amp;emsp;在算法类竞赛的过程中，还需要我们掌握文件操作。
+&amp;emsp;&amp;emsp;在去年的蓝桥杯省赛中，第一道题需要处理大量的数据。如果每次都要进行大量的数据输入操作，会花费很多时间。这个时候，把数据存放到文本文档中去，再使用文件操作读取数据，进行计算，能够节省大量的时间。
+&amp;emsp;&amp;emsp;除此之外，在调试程序时，也可以将测试数据保存在文件中读取，可以省去每次">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hdu1720 A+B Coming">
-<meta property="og:url" content="http://www.z16388.top/2016/11/16/hdu1720/index.html">
+<meta property="og:title" content="【ACM教程】2.6 文件操作">
+<meta property="og:url" content="http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;这是一道简单的输入输出问题，把输入当做十六进制，计算和并按照十进制输出即可。
-&amp;emsp;&amp;emsp;以下是C和C++两种做法：
-1234567891011#include&amp;lt;cstdio&amp;gt;#include&amp;lt;iostream&amp;gt;using namespace std;int main()&amp;#123;    int a,b;    while(scanf(">
-<meta property="og:updated_time" content="2017-04-13T13:25:20.904Z">
+<meta property="og:description" content="第六节 文件操作&amp;emsp;&amp;emsp;在算法类竞赛的过程中，还需要我们掌握文件操作。
+&amp;emsp;&amp;emsp;在去年的蓝桥杯省赛中，第一道题需要处理大量的数据。如果每次都要进行大量的数据输入操作，会花费很多时间。这个时候，把数据存放到文本文档中去，再使用文件操作读取数据，进行计算，能够节省大量的时间。
+&amp;emsp;&amp;emsp;除此之外，在调试程序时，也可以将测试数据保存在文件中读取，可以省去每次">
+<meta property="og:updated_time" content="2018-03-06T14:45:33.520Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hdu1720 A+B Coming">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;这是一道简单的输入输出问题，把输入当做十六进制，计算和并按照十进制输出即可。
-&amp;emsp;&amp;emsp;以下是C和C++两种做法：
-1234567891011#include&amp;lt;cstdio&amp;gt;#include&amp;lt;iostream&amp;gt;using namespace std;int main()&amp;#123;    int a,b;    while(scanf(">
+<meta name="twitter:title" content="【ACM教程】2.6 文件操作">
+<meta name="twitter:description" content="第六节 文件操作&amp;emsp;&amp;emsp;在算法类竞赛的过程中，还需要我们掌握文件操作。
+&amp;emsp;&amp;emsp;在去年的蓝桥杯省赛中，第一道题需要处理大量的数据。如果每次都要进行大量的数据输入操作，会花费很多时间。这个时候，把数据存放到文本文档中去，再使用文件操作读取数据，进行计算，能够节省大量的时间。
+&amp;emsp;&amp;emsp;除此之外，在调试程序时，也可以将测试数据保存在文件中读取，可以省去每次">
     
         <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
     
@@ -132,7 +132,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">hdu1720 A+B Coming</div>
+        <div class="flex-col header-title ellipsis">【ACM教程】2.6 文件操作</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -164,11 +164,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">hdu1720 A+B Coming</h1>
+        <h1 class="title">【ACM教程】2.6 文件操作</h1>
         <h5 class="subtitle">
             
-                <time datetime="2016-11-16T11:32:29.000Z" itemprop="datePublished" class="page-time">
-  2016-11-16
+                <time datetime="2018-03-06T05:57:13.000Z" itemprop="datePublished" class="page-time">
+  2018-03-06
 </time>
 
 
@@ -184,13 +184,20 @@
 
 <div class="container body-wrap">
     
-<article id="post-hdu1720"
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第六节-文件操作"><span class="post-toc-number">1.</span> <span class="post-toc-text">第六节 文件操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C语言文件操作"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">C语言文件操作</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-【ACM教程】2-6文件操作"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">hdu1720 A+B Coming</h1>
+        <h1 class="post-card-title">【ACM教程】2.6 文件操作</h1>
         <div class="post-meta">
-            <time class="post-time" title="2016-11-16 19:32:29" datetime="2016-11-16T11:32:29.000Z"  itemprop="datePublished">2016-11-16</time>
+            <time class="post-time" title="2018-03-06 13:57:13" datetime="2018-03-06T05:57:13.000Z"  itemprop="datePublished">2018-03-06</time>
 
             
 
@@ -203,17 +210,29 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>&emsp;&emsp;这是一道简单的输入输出问题，把输入当做十六进制，计算和并按照十进制输出即可。</p>
-<p>&emsp;&emsp;以下是C和C++两种做法：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a,b;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%x%x"</span>,&amp;a,&amp;b)!=EOF) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span>  </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">int</span> a,b;  </div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;hex&gt;&gt;a&gt;&gt;b)  </div><div class="line">    &#123;  </div><div class="line">        <span class="built_in">cout</span>&lt;&lt;a+b&lt;&lt;<span class="built_in">endl</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h1 id="第六节-文件操作"><a href="#第六节-文件操作" class="headerlink" title="第六节 文件操作"></a>第六节 文件操作</h1><p>&emsp;&emsp;在算法类竞赛的过程中，还需要我们掌握文件操作。</p>
+<p>&emsp;&emsp;在去年的蓝桥杯省赛中，第一道题需要处理大量的数据。如果每次都要进行大量的数据输入操作，会花费很多时间。这个时候，把数据存放到文本文档中去，再使用文件操作读取数据，进行计算，能够节省大量的时间。</p>
+<p>&emsp;&emsp;除此之外，在调试程序时，也可以将测试数据保存在文件中读取，可以省去每次编译时，数据输入的时间。</p>
+<h2 id="C语言文件操作"><a href="#C语言文件操作" class="headerlink" title="C语言文件操作"></a>C语言文件操作</h2><p>&emsp;&emsp;C语言使用文件指针来进行文件的读写。</p>
+<p>&emsp;&emsp;首先是创建文件指针：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FILE *fin;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这里的FILE一定要大写，用于存放文件的变量一定是指针类型。</p>
+<p>&emsp;&emsp;接下来要对文件指针初始化：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fin = fopen(<span class="string">"xx.txt"</span>,<span class="string">"w"</span>);</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这里的fopen()函数拥有两个参数，一个是用于读写的用户名，另一个就是读写的参数，这个参数由以下几种字母组成：</p>
+<blockquote>
+<p>r(read): 只读<br>w(write): 只写<br>a(append): 追加<br>t(text): 文本文件，可省略不写<br>b(binary): 二进制文件<br>+: 读和写</p>
+</blockquote>
+<p>&emsp;&emsp;我们通常使用w创建输出和输出两个文档，然后将输入文档改为r即可。</p>
+<p>&emsp;&emsp;下面是一个简单的A+B问题的文件操作实现。</p>
+
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-04-13T13:25:20.904Z" itemprop="dateUpdated">2017-04-13 21:25:20</time>
+    最后更新时间：<time datetime="2018-03-06T14:45:33.520Z" itemprop="dateUpdated">2018-03-06 22:45:33</time>
 </span><br>
 
 
@@ -238,7 +257,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hdu/">hdu</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM教程/">ACM教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动态规划/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
 
             
@@ -248,7 +267,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2016/11/16/hdu1720/&title=《hdu1720 A+B Coming》 — 崎径 其镜&pic=http://www.z16388.top/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/&title=《【ACM教程】2.6 文件操作》 — 崎径 其镜&pic=http://www.z16388.top/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -258,22 +277,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2016/11/16/hdu1720/&title=《hdu1720 A+B Coming》 — 崎径 其镜&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/&title=《【ACM教程】2.6 文件操作》 — 崎径 其镜&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2016/11/16/hdu1720/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hdu1720 A+B Coming》 — 崎径 其镜&url=http://www.z16388.top/2016/11/16/hdu1720/&via=http://www.z16388.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【ACM教程】2.6 文件操作》 — 崎径 其镜&url=http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/&via=http://www.z16388.top" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2016/11/16/hdu1720/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -293,21 +312,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2016/11/16/hdu1326-hdu2088/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">hdu1326,hdu2088</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2016/11/16/Steps/" id="post-next" class="post-nav-link">
+      <a href="/2018/02/25/Luanote/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">ACM Steps</h4>
+        <h4 class="title">Lua学习笔记</h4>
       </a>
     </div>
   
@@ -425,7 +437,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2016/11/16/hdu1720/&title=《hdu1720 A+B Coming》 — 崎径 其镜&pic=http://www.z16388.top/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/&title=《【ACM教程】2.6 文件操作》 — 崎径 其镜&pic=http://www.z16388.top/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -435,22 +447,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2016/11/16/hdu1720/&title=《hdu1720 A+B Coming》 — 崎径 其镜&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/&title=《【ACM教程】2.6 文件操作》 — 崎径 其镜&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2016/11/16/hdu1720/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hdu1720 A+B Coming》 — 崎径 其镜&url=http://www.z16388.top/2016/11/16/hdu1720/&via=http://www.z16388.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【ACM教程】2.6 文件操作》 — 崎径 其镜&url=http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/&via=http://www.z16388.top" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2016/11/16/hdu1720/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -461,7 +473,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/2016/11/16/hdu1720/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/" alt="微信分享二维码">
 </div>
 
 
