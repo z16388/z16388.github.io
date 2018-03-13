@@ -50,12 +50,12 @@
     <link href="http://www.z16388.top/2018/03/06/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-6%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"/>
     <id>http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/</id>
     <published>2018-03-06T05:57:13.000Z</published>
-    <updated>2018-03-13T08:45:03.983Z</updated>
+    <updated>2018-03-13T08:47:12.521Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第六节-文件操作"><a href="#第六节-文件操作" class="headerlink" title="第六节 文件操作"></a>第六节 文件操作</h1><p>&emsp;&emsp;在算法类竞赛的过程中，还需要我们掌握文件操作。</p>
 <p>&emsp;&emsp;在去年的蓝桥杯省赛中，第一道题需要处理大量的数据。如果每次都要进行大量的数据输入操作，会花费很多时间。这个时候，把数据存放到文本文档中去，再使用文件操作读取数据，进行计算，能够节省大量的时间。</p>
 <p>&emsp;&emsp;除此之外，在调试程序时，也可以将测试数据保存在文件中读取，可以省去每次编译时，数据输入的时间。</p>
-<h2 id="C语言文件操作"><a href="#C语言文件操作" class="headerlink" title="C语言文件操作"></a>C语言文件操作</h2><p>&emsp;&emsp;C语言使用文件指针来进行文件的读写。</p>
+<p>&emsp;&emsp;C语言使用文件指针来进行文件的读写。</p>
 <p>&emsp;&emsp;首先是创建文件指针：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FILE *fin;</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;这里的FILE一定要大写，用于存放文件的变量一定是指针类型。</p>
