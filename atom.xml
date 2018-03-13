@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-03-07T15:05:57.085Z</updated>
+  <updated>2018-03-13T06:23:24.039Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>系统导引修改</title>
+    <link href="http://www.z16388.top/2018/03/13/daoyin/"/>
+    <id>http://www.z16388.top/2018/03/13/daoyin/</id>
+    <published>2018-03-13T06:11:43.000Z</published>
+    <updated>2018-03-13T06:23:24.039Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;寒假的时候给电脑换了个系统，出现了原系统导引没有删除的问题。因为是不同的系统，所以还是比较容易能够分辨的。</p>
+<blockquote>
+<p>右键“此电脑”-&gt;属性-&gt;高级系统设置-&gt;高级-&gt;启动和故障恢复-&gt;设置-&gt;默认操作系统</p>
+</blockquote>
+<p>&emsp;&emsp;在这里可以根据需求进行更改，修改多系统选择时间，还是默认进入哪一个。但是Win10的兼容性不是很好，我的外置声卡驱动，还有音频编辑软件都无法正常安装与使用，我便在开学时换回了win8.1。但是问题出现了，两个win8.1难以分辨，而且留着一个没用的导引也十分没有必要。下面就是删除多余导引的方法。（不需要其他软件）</p>
+<blockquote>
+<p>运行命令提示符（管理员权限）<br>输入命令<code>easybcd</code>查看导引<br>当前的导引会标记为<code>current</code>，并且会有系统盘的路径信息，复制想要删除的导引的标识符，就是用大括号括起来的一长串。<br>执行<code>bcdedit /delete {标识符}</code>完成删除</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;寒假的时候给电脑换了个系统，出现了原系统导引没有删除的问题。因为是不同的系统，所以还是比较容易能够分辨的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;右键“此电脑”-&amp;gt;属性-&amp;gt;高级系统设置-&amp;gt;高级-&amp;gt;启动和故障恢复-&amp;gt;设置
+    
+    </summary>
+    
+    
+      <category term="系统" scheme="http://www.z16388.top/tags/%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>【ACM教程】2.6 文件操作</title>
@@ -1294,41 +1324,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;第二节-图的存储方式&quot;&gt;&lt;a href=&quot;#第二节-图的存储方式&quot; class=&quot;headerlink&quot; title=&quot;第二节 图的存储方式&quot;&gt;&lt;/a&gt;第二节 图的存储方式&lt;/h1&gt;&lt;h2 id=&quot;链表&quot;&gt;&lt;a href=&quot;#链表&quot; class=&quot;headerli
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.top/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.top/tags/ACM%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】5.1图论的基本概念</title>
-    <link href="http://www.z16388.top/2017/03/06/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-1%E5%9B%BE%E8%AE%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
-    <id>http://www.z16388.top/2017/03/06/【ACM教程】5-1图论的基本概念/</id>
-    <published>2017-03-06T10:25:05.000Z</published>
-    <updated>2017-04-13T13:25:15.930Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第一节-图论的基本概念"><a href="#第一节-图论的基本概念" class="headerlink" title="第一节 图论的基本概念"></a>第一节 图论的基本概念</h1><p>&emsp;&emsp;在前面的学习中，我们简单地接触到了树、图等图论知识的基础概念，在这一章中，我们将对图论做系统的研究。图论相关的知识是ACM中比较重要的一部分，在日常的软件设计中，也较为常用。</p>
-<h2 id="图论的历史"><a href="#图论的历史" class="headerlink" title="图论的历史"></a>图论的历史</h2><p>&emsp;&emsp;图论是一门应用十分广泛、内容非常丰富的数学学科，也是近几十年来较为活跃的数学分支之一。它的起源很早，瑞士数学家欧拉在1736年解决了当时颇为有名的一个数学问题，即哥尼斯堡七桥问题，从而使他成为了图论的创始人。</p>
-<p>&emsp;&emsp;七桥问题呢，就是在一个城市的中间，有一条河，河中有两个小岛。在两岸和小岛之间呢，有七座桥。我们需要找到一个路径，使得我们从这四块陆地的其中一个开始，通过每一座桥，并恰好回到起点。</p>
-<p><img src="http://img.my.csdn.net/uploads/201303/16/1363441203_6349.jpg" alt=""></p>
-<p>&emsp;&emsp;欧拉为了解决七桥问题，将这个问题转化为了一个数学问题。他认为这种走法是否存在，与岛的形状、大小、以及桥的长短等因素都没有关系，重要的是陆地之间是否有桥联通。因此他用点表示陆地，线表示陆地间的桥梁，就得出了七桥问题的示意图。欧拉在1736年证明了这个路径是不存在的，并进行了进一步的推广得出了一个判别法则—，用于判别给定一个图是否可以走遍。</p>
-<p><img src="http://amuseum.cdstm.cn/AMuseum/math/images/c/7_brige_2.jpg" alt=""></p>
-<p>&emsp;&emsp;除此之外，我们在高中曾经学习过基尔霍夫电压定律。基尔霍夫在1847年运用图论解决了电路理论中求解联立方程组问题，并引入了“树”的概念，可惜在当时并没有受到重视。1857年，凯莱在研究饱和碳氢化合物时，发现了一族重要的图，称其为树，并利用树来计算其同分异构体的数目。</p>
-<p>&emsp;&emsp;20世纪后，图论的应用渗透到了其他的很多领域，在计算机网络、博弈论等方面起到了重要的作用。它是组合数学的一个分支，和数值分析、拓扑学等有着密切的联系。比如对于基础的图论来说，它不需要有高深复杂的数学工具，只需要一些集合、二元关系与线性代数知识，结合一般的逻辑推理来解决问题。</p>
-<h2 id="图论简介"><a href="#图论简介" class="headerlink" title="图论简介"></a>图论简介</h2><p>&emsp;&emsp;这里我们讨论的图论并不是几何学上的图形，而是客观世界中，某些具体事物间相互联系的一个数学抽象。用点来表示事物，用边来表示关系。这种由定点及连接这些点的所有边组成的就是我们图论中的图。其中的点我们称为顶点，线称之为边。当边具有方向性时，图是有向图。（否则为无向图）</p>
-<p>&emsp;&emsp;图在研究现实问题时会经常使用到，比如在地图上找到一条能够最快到达目的地的线路。这都是我们今后将要学习的内容。</p>
-<p>&emsp;&emsp;从一个顶点出发，如果存在一个路径，能够回到该顶点，我们称之为圈。没有圈的连通图称为树，树是特殊的图。在解决问题时，我们有时候需要将图转化为它的“生成树”再对问题进行处理。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第一节-图论的基本概念&quot;&gt;&lt;a href=&quot;#第一节-图论的基本概念&quot; class=&quot;headerlink&quot; title=&quot;第一节 图论的基本概念&quot;&gt;&lt;/a&gt;第一节 图论的基本概念&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;在前面的学习中，我们简单地接触到了树、图等图
     
     </summary>
     
