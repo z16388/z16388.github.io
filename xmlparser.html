@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65402820"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://www.z16388.top/xmlparser.html">
+    
+    
+    <title>XML解释器的实现 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="XML,面试">
+    <meta name="description" content="引言&amp;emsp;&amp;emsp;拿到题目的第一时间是有点慌的。虽然知道怎么去写，一来这两天是满课，时间比较少，再者我也是好久没有进行过类似的编码了，可能会有些生疏。题目内容如下：
+
+XML分析实现一个xml的解析器通过文件流读取资源进行逐字符判断实现对XML的解析最终结果保存在一个多层的树状数据结构中如map或Dictionary中XML样例：
+
+123456789101112131415161718">
+<meta name="keywords">
+<meta property="og:type" content="website">
+<meta property="og:title" content="XML解释器的实现">
+<meta property="og:url" content="http://www.z16388.top/xmlparser.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="引言&amp;emsp;&amp;emsp;拿到题目的第一时间是有点慌的。虽然知道怎么去写，一来这两天是满课，时间比较少，再者我也是好久没有进行过类似的编码了，可能会有些生疏。题目内容如下：
+
+XML分析实现一个xml的解析器通过文件流读取资源进行逐字符判断实现对XML的解析最终结果保存在一个多层的树状数据结构中如map或Dictionary中XML样例：
+
+123456789101112131415161718">
+<meta property="og:updated_time" content="2018-03-20T05:57:49.256Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XML解释器的实现">
+<meta name="twitter:description" content="引言&amp;emsp;&amp;emsp;拿到题目的第一时间是有点慌的。虽然知道怎么去写，一来这两天是满课，时间比较少，再者我也是好久没有进行过类似的编码了，可能会有些生疏。题目内容如下：
+
+XML分析实现一个xml的解析器通过文件流读取资源进行逐字符判断实现对XML的解析最终结果保存在一个多层的树状数据结构中如map或Dictionary中XML样例：
+
+123456789101112131415161718">
+    
+        <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/Favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.1">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brands/brand1.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Anqi Zhao</h5>
+          <a href="mailto:z16388@outlook.com" title="z16388@outlook.com" class="mail">z16388@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-table"></i>
+                动态
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.z16388.top/2016/09/09/ACM教程/"  >
+                <i class="icon icon-lg icon-adn"></i>
+                ACM教程
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/int"  >
+                <i class="icon icon-lg icon-link"></i>
+                常用网址导航
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/Download"  >
+                <i class="icon icon-lg icon-cloud-download"></i>
+                下载资源
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friend"  >
+                <i class="icon icon-lg icon-mars-double"></i>
+                友情链接
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">XML解释器的实现</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://psnine.com/psnid/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-gamepad"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header page-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">XML解释器的实现</h1>
+        <h5 class="subtitle">
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    <article class="page-article fade" itemprop="blogPage">
+        <div class="post-content page-content" id="page-content" itemprop="pageContent">
+            <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>&emsp;&emsp;拿到题目的第一时间是有点慌的。虽然知道怎么去写，一来这两天是满课，时间比较少，再者我也是好久没有进行过类似的编码了，可能会有些生疏。题目内容如下：</p>
+<blockquote>
+<p>XML分析<br>实现一个xml的解析器<br>通过文件流读取资源进行逐字符判断实现对XML的解析<br>最终结果保存在一个多层的树状数据结构中如map或Dictionary中<br>XML样例：</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">node1</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>字符串<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">type</span>&gt;</span>string<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dec</span>&gt;</span>字符数组管理类<span class="tag">&lt;/<span class="name">dec</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span>这是一个需要被解析的XML方案<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">node1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">node2</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>结构体<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">type</span>&gt;</span>struct<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dec</span>&gt;</span>自定义结构体<span class="tag">&lt;/<span class="name">dec</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">node1</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">name</span>&gt;</span>字符串<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">  			<span class="tag">&lt;<span class="name">type</span>&gt;</span>string<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">  			<span class="tag">&lt;<span class="name">dec</span>&gt;</span>字符数组管理类<span class="tag">&lt;/<span class="name">dec</span>&gt;</span></div><div class="line">  			<span class="tag">&lt;<span class="name">body</span>&gt;</span>这是一个深层次的字符串<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">node1</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">node2</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>要求</p>
+<ol>
+<li>不能用语言自带的xml解析库或者第三方库使用文件流对资源进行读取</li>
+<li>代码规范易懂</li>
+<li>保存为控制台项目</li>
+</ol>
+</blockquote>
+<p>&emsp;&emsp;题目要求实现一个XML解析器，通过文件流逐字读取实现对XML的解析，最终结果保存在一个多层的树状数据结构中。</p>
+<p>&emsp;&emsp;在此之前我是接触过XML的。之前做过安卓和QT，他们都是使用来XML写布局的，所以对大致的状况有所了解。从题目中所给的样例来看，处理嵌套的标签是不可避免的。但是，可以看到标签只是单纯的标签，内部并没有属性。本来想问一下面试官是否要实现对属性的解析，但是又看了以下题目的要求。使用map即可，既然不用自建数据结构，那么肯定不需要处理属性了。之所以使用map，是因为我在ACM的比赛中使用过这个结构。刚好C++的STL标准模板库中有这个功能，不需要我们对这个数据结构进行单独实现。确定好了编码内容，下面对程序的结构进行设计。</p>
+<h1 id="结构设计"><a href="#结构设计" class="headerlink" title="结构设计"></a>结构设计</h1><p>&emsp;&emsp;要实现对XML的解析，这个程序要分成以下3个步骤：</p>
+<ol>
+<li>文件读取</li>
+<li>内容检查</li>
+<li>在控制台中显示</li>
+</ol>
+<p>&emsp;&emsp;文件读取部分较为简单。</p>
+<p>&emsp;&emsp;内容检查。这道题中要处理的内容为XML的标签和标签中的信息。对于标签，需要保证<code>&lt;</code>和<code>&gt;</code>是成对出现的。虽然XML中，标签分为单标签和成对的双标签，但是这里不考虑标签内部的属性，只考虑标签和内容，因此只考虑双标签的情况。</p>
+<p>&emsp;&emsp;到这里，整个程序的思路就已经出来了：逐字读取，读取到<code>&lt;</code>时，把后面的内容存作为一个字符串进行压栈。然后遇到成对的另一个标签时，就是<code>&lt;/</code>开头的内容，对标签进行验证。如果存在栈顶的标签和这个标签不同，那么说明这个标签中没有存储内容，看栈里有几个元素，就说明它是第几级标签，直接作为标签输出；如果是相同的，说明这是这个XML文件树形结构的一个叶子结点。将它的标签，以及中间的内容存放在一个map的数组中。继续往后读取，直到遇到它的上一级标签，输出所有存放的内容，栈中存放的上级标签出栈。</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h2><p>&emsp;&emsp;这是解决问题的第一步。但是在这里，我花了好多的时间。各种编译器和语言都进行了尝试，最后还是使用了平时常用的语言和IDE。</p>
+<p>&emsp;&emsp;因为文件操作是平时写程序不太使用的操作。在比赛中也只是作为数据的输入输出，是比较简单的类型。其实这也应该是熟练掌握的技能，应该归咎于自己平时缺少学习。言归正传，我使用的语言是C++，IDE是Code::Blocks，这个是ACM的比赛环境，我写C的时候一直是使用这个。</p>
+<p>&emsp;&emsp;查阅相关资料后，遇到的第一个问题就是在编译的时候，提示这是C++11的特性，编译时需要进行特殊的参数设定。</p>
+<blockquote>
+<p>mingw32-g++.exe -std=c++11  -c</p>
+</blockquote>
+<p>&emsp;&emsp;进行编译设置之后，又出现了第二个问题，文本编码格式问题。默认在处理文本的时候都是ANSI格式。所以读取文件之后，会出现乱码。于是我从网上找到了处理UTF-8编码的C++程序，代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">UTF8ToGB</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* str)</span></span></div><div class="line">&#123;</div><div class="line">     <span class="built_in">string</span> result;</div><div class="line">     WCHAR *strSrc;</div><div class="line">     LPSTR szRes;</div><div class="line"></div><div class="line">     <span class="comment">//获得临时变量的大小</span></div><div class="line">     <span class="keyword">int</span> i = MultiByteToWideChar(CP_UTF8, <span class="number">0</span>, str, <span class="number">-1</span>, <span class="literal">NULL</span>, <span class="number">0</span>);</div><div class="line">     strSrc = <span class="keyword">new</span> WCHAR[i+<span class="number">1</span>];</div><div class="line">     MultiByteToWideChar(CP_UTF8, <span class="number">0</span>, str, <span class="number">-1</span>, strSrc, i);</div><div class="line"></div><div class="line">     <span class="comment">//获得临时变量的大小</span></div><div class="line">     i = WideCharToMultiByte(CP_ACP, <span class="number">0</span>, strSrc, <span class="number">-1</span>, <span class="literal">NULL</span>, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</div><div class="line">     szRes = <span class="keyword">new</span> CHAR[i+<span class="number">1</span>];</div><div class="line">     WideCharToMultiByte(CP_ACP, <span class="number">0</span>, strSrc, <span class="number">-1</span>, szRes, i, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</div><div class="line"></div><div class="line">     result = szRes;</div><div class="line">     <span class="keyword">delete</span> []strSrc;</div><div class="line">     <span class="keyword">delete</span> []szRes;</div><div class="line"></div><div class="line">     <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;进行了输入输出测试，读取文件，输出到控制台，没有任何问题。</p>
+<p>&emsp;&emsp;接下来是选择存放XML的数据结构，这里使用了C++STL里的队列。结束存放之后，对队头进行出列，然后行数减一。这里是避免处理XML的第一行内容的笨方法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">fileReader</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    ifstream fileIn;</div><div class="line">    fileIn.open(<span class="string">"in.xml"</span>);</div><div class="line">    <span class="built_in">string</span> line;</div><div class="line">    <span class="keyword">char</span> txt[<span class="number">100</span>];</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(fileIn)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">while</span>(!fileIn.eof())</div><div class="line">        &#123;</div><div class="line">            fileIn.getline(txt, <span class="number">100</span>);</div><div class="line">            line = UTF8ToGB(txt);</div><div class="line">            xmlQueue.push(line);</div><div class="line">            lineNum ++;</div><div class="line">        &#125;</div><div class="line">        lineNum--;</div><div class="line">        xmlQueue.pop();  <span class="comment">//忽略第一行</span></div><div class="line">    &#125;</div><div class="line">    fileIn.close();</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line"></div><div class="line">    fileReader();</div><div class="line">    <span class="keyword">while</span>(lineNum--)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; xmlQueue.front() &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        xmlQueue.pop();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;至此，完成了整个XML文件的读取工作和测试。</p>
+<h2 id="内容检查"><a href="#内容检查" class="headerlink" title="内容检查"></a>内容检查</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> java.util.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Parser</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line">		LabelMessage tempStruct;</div><div class="line">		String tempStr;</div><div class="line">		Queue&lt;String&gt; xmlQueue = <span class="keyword">new</span> LinkedList&lt;String&gt;();        <span class="comment">//输出队列</span></div><div class="line">		HashMap&lt;String, LabelMessage&gt; xmlMap = <span class="keyword">new</span> HashMap();                     </div><div class="line">		</div><div class="line">		xmlQueue.offer(<span class="string">"A"</span>);</div><div class="line">		tempStruct = <span class="keyword">new</span> LabelMessage(<span class="number">1</span>,<span class="keyword">true</span>,<span class="string">"ABC"</span>);</div><div class="line">		xmlMap.put(<span class="string">"A"</span>,tempStruct);</div><div class="line">		</div><div class="line">		tempStr = xmlQueue.poll();</div><div class="line">		tempStruct = xmlMap.get(tempStr);</div><div class="line">		System.out.println(tempStruct.getConStr());</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        </div>
+
+        
+        <div class="card page-about-me flex-row">
+            <a href="/" class="avatar waves-effect waves-circle waves-light"><img src="/img/logo.jpg"></a>
+            <div class="content flex-col">
+                <p><strong>Anqi Zhao</strong></p>
+                <p><em>求学道路上的行车记录仪</em></p>
+                <p>梦想依在，人生正当年</p>
+            </div>
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/xmlparser.html&title=《XML解释器的实现》 — 崎径 其镜&pic=http://www.z16388.top/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/xmlparser.html&title=《XML解释器的实现》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/xmlparser.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《XML解释器的实现》 — 崎径 其镜&url=http://www.z16388.top/xmlparser.html&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/xmlparser.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+        
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "etRSqNOcMILcVs1M6AUeU6yG-gzGzoHsz",
+            appKey: "kcmkjlCM6bDnVREmI5bqDQEH",
+            avatar: "",
+            placeholder: "在这里输入回复内容,头像可以到https://cn.gravatar.com/进行设置",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+    </article>
+    
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Anqi Zhao &copy; 2016 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/xmlparser.html&title=《XML解释器的实现》 — 崎径 其镜&pic=http://www.z16388.top/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/xmlparser.html&title=《XML解释器的实现》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/xmlparser.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《XML解释器的实现》 — 崎径 其镜&url=http://www.z16388.top/xmlparser.html&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/xmlparser.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/xmlparser.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.1"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.1" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
