@@ -19,7 +19,7 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="http://www.z16388.top/2018/01/22/blackhistory/unitcs/">
+    <link rel="canonical" href="http://www.z16388.top/blackhistory/unitcs.html">
     
     
     <title>常用C#脚本 | 崎径 其镜 | 求学道路上的行车记录仪</title>
@@ -30,9 +30,10 @@
     
     <meta name="keywords" content="C#,Unity">
     <meta name="description" content="基础篇刚体和移动控制123456rd = GetComponent&amp;lt;Rigidbody&amp;gt;();    //获取当前刚体rd.AddForce(new Vector3(1, 0, 0));    //使用向量控制刚体移动，向量的数值表示作用力的大小public int force = 5;rd.AddForce(new Vector3(h, 0, v) * force);    //可以">
-<meta property="og:type" content="article">
+<meta name="keywords">
+<meta property="og:type" content="website">
 <meta property="og:title" content="常用C#脚本">
-<meta property="og:url" content="http://www.z16388.top/2018/01/22/blackhistory/unitcs/index.html">
+<meta property="og:url" content="http://www.z16388.top/blackhistory/unitcs.html">
 <meta property="og:site_name" content="崎径 其镜">
 <meta property="og:description" content="基础篇刚体和移动控制123456rd = GetComponent&amp;lt;Rigidbody&amp;gt;();    //获取当前刚体rd.AddForce(new Vector3(1, 0, 0));    //使用向量控制刚体移动，向量的数值表示作用力的大小public int force = 5;rd.AddForce(new Vector3(h, 0, v) * force);    //可以">
 <meta property="og:updated_time" content="2018-01-28T10:17:44.945Z">
@@ -162,17 +163,11 @@
         
     </div>
 </header>
-<header class="content-header post-header">
+<header class="content-header page-header">
 
     <div class="container fade-scale">
         <h1 class="title">常用C#脚本</h1>
         <h5 class="subtitle">
-            
-                <time datetime="2018-01-22T09:03:13.000Z" itemprop="datePublished" class="page-time">
-  2018-01-22
-</time>
-
-
             
         </h5>
     </div>
@@ -184,33 +179,8 @@
 
 
 <div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基础篇"><span class="post-toc-number">1.</span> <span class="post-toc-text">基础篇</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#刚体和移动控制"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">刚体和移动控制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#相机跟随"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">相机跟随</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
-    
-<article id="post-blackhistory/unitcs"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">常用C#脚本</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-01-22 17:03:13" datetime="2018-01-22T09:03:13.000Z"  itemprop="datePublished">2018-01-22</time>
-
-            
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
+    <article class="page-article fade" itemprop="blogPage">
+        <div class="post-content page-content" id="page-content" itemprop="pageContent">
             <h1 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h1><h2 id="刚体和移动控制"><a href="#刚体和移动控制" class="headerlink" title="刚体和移动控制"></a>刚体和移动控制</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">rd = GetComponent&lt;Rigidbody&gt;();    <span class="comment">//获取当前刚体</span></div><div class="line">rd.AddForce(<span class="keyword">new</span> Vector3(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>));    <span class="comment">//使用向量控制刚体移动，向量的数值表示作用力的大小</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">int</span> force = <span class="number">5</span>;</div><div class="line">rd.AddForce(<span class="keyword">new</span> Vector3(h, <span class="number">0</span>, v) * force);    <span class="comment">//可以将向量乘以一个整数来改变作用力的大小</span></div><div class="line"><span class="keyword">float</span> h = Input.GetAxis(<span class="string">"Horizontal"</span>);    <span class="comment">//获得键盘按键的横向移动数据。A返回1，D返回-1。</span></div><div class="line"><span class="keyword">float</span> v = Input.GetAxis(<span class="string">"Vertical"</span>);    <span class="comment">//获得键盘按键的纵向移动数据。W返回1，S返回-1。</span></div></pre></td></tr></table></figure>
 <p>程序范例</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Player</span> : <span class="title">MonoBehaviour</span> &#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Rigidbody rd;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> force = <span class="number">5</span>;</div><div class="line"></div><div class="line">	<span class="comment">// Use this for initialization</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Start</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        rd = GetComponent&lt;Rigidbody&gt;();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">// Update is called once per frame</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Update</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">float</span> h = Input.GetAxis(<span class="string">"Horizontal"</span>);</div><div class="line">        <span class="keyword">float</span> v = Input.GetAxis(<span class="string">"Vertical"</span>);</div><div class="line">        rd.AddForce(<span class="keyword">new</span> Vector3(h, <span class="number">0</span>, v) * force);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -218,37 +188,14 @@
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> System.Collections;</div><div class="line"><span class="keyword">using</span> System.Collections.Generic;</div><div class="line"><span class="keyword">using</span> UnityEngine;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">FollowTarget</span> : <span class="title">MonoBehaviour</span> &#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> Transform playerTransForm;    <span class="comment">//存放想要跟随的目标组件</span></div><div class="line"></div><div class="line">    <span class="keyword">private</span> Vector3 offset;    <span class="comment">//向量，用于存放坐标的偏移量</span></div><div class="line"></div><div class="line">	<span class="comment">// Use this for initialization</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Start</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">//transform中存放了当前组件的信息，position属性存放的是位置坐标</span></div><div class="line">        offset = transform.position - playerTransForm.position;    <span class="comment">//计算偏移量</span></div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">// Update is called once per frame</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Update</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        transform.position = playerTransForm.position + offset;</div><div class="line">        <span class="comment">//可以对位置坐标进行赋值达到修改位置的目的</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
         </div>
 
-        <blockquote class="post-copyright">
-    <div class="content">
         
-<span class="post-time">
-    最后更新时间：<time datetime="2018-01-28T10:17:44.945Z" itemprop="dateUpdated">2018-01-28 18:17:44</time>
-</span><br>
-
-
-        
-        梦想依在 人生正当年
-        
-    </div>
-    <footer>
-        <a href="http://www.z16388.top">
-            <img src="/img/logo.jpg" alt="Anqi Zhao">
-            Anqi Zhao
-        </a>
-    </footer>
-</blockquote>
-
-        
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li></ul>
-
+        <div class="card page-about-me flex-row">
+            <a href="/" class="avatar waves-effect waves-circle waves-light"><img src="/img/logo.jpg"></a>
+            <div class="content flex-col">
+                <p><strong>Anqi Zhao</strong></p>
+                <p><em>求学道路上的行车记录仪</em></p>
+                <p>梦想依在，人生正当年</p>
+            </div>
 
             
 <div class="page-share-wrap">
@@ -257,7 +204,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2018/01/22/blackhistory/unitcs/&title=《常用C#脚本》 — 崎径 其镜&pic=http://www.z16388.top/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/blackhistory/unitcs.html&title=《常用C#脚本》 — 崎径 其镜&pic=http://www.z16388.top/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -267,22 +214,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2018/01/22/blackhistory/unitcs/&title=《常用C#脚本》 — 崎径 其镜&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/blackhistory/unitcs.html&title=《常用C#脚本》 — 崎径 其镜&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2018/01/22/blackhistory/unitcs/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/blackhistory/unitcs.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《常用C#脚本》 — 崎径 其镜&url=http://www.z16388.top/2018/01/22/blackhistory/unitcs/&via=http://www.z16388.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《常用C#脚本》 — 崎径 其镜&url=http://www.z16388.top/blackhistory/unitcs.html&via=http://www.z16388.top" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2018/01/22/blackhistory/unitcs/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/blackhistory/unitcs.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -299,32 +246,16 @@
 
 
         </div>
-    </div>
+        
 
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/02/25/Luanote/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Lua学习笔记</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/01/17/smark/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Markdown编辑器Smark</h4>
-      </a>
-    </div>
-  
-</nav>
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
 
 
 
-    
+        
 
 
 
@@ -363,8 +294,8 @@
 
 
 
-</article>
-
+    </article>
+    
 <div id="reward" class="page-modal reward-lay">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <h3 class="reward-title">
@@ -390,7 +321,6 @@
         
     </div>
 </div>
-
 
 
 </div>
@@ -434,7 +364,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2018/01/22/blackhistory/unitcs/&title=《常用C#脚本》 — 崎径 其镜&pic=http://www.z16388.top/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/blackhistory/unitcs.html&title=《常用C#脚本》 — 崎径 其镜&pic=http://www.z16388.top/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -444,22 +374,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2018/01/22/blackhistory/unitcs/&title=《常用C#脚本》 — 崎径 其镜&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/blackhistory/unitcs.html&title=《常用C#脚本》 — 崎径 其镜&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2018/01/22/blackhistory/unitcs/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/blackhistory/unitcs.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《常用C#脚本》 — 崎径 其镜&url=http://www.z16388.top/2018/01/22/blackhistory/unitcs/&via=http://www.z16388.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《常用C#脚本》 — 崎径 其镜&url=http://www.z16388.top/blackhistory/unitcs.html&via=http://www.z16388.top" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2018/01/22/blackhistory/unitcs/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/blackhistory/unitcs.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -470,7 +400,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/2018/01/22/blackhistory/unitcs/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/blackhistory/unitcs.html" alt="微信分享二维码">
 </div>
 
 
