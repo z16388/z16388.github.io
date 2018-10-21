@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-10-21T07:29:23.865Z</updated>
+  <updated>2018-10-21T07:32:22.662Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.z16388.top/2018/10/21/cmdapk/"/>
     <id>http://www.z16388.top/2018/10/21/cmdapk/</id>
     <published>2018-10-21T06:24:25.000Z</published>
-    <updated>2018-10-21T07:29:23.865Z</updated>
+    <updated>2018-10-21T07:32:22.662Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>&emsp;&emsp;在前一段时间的工作中，我得到了一个新的任务，写一个命令行工具，修改apk中的某个文件，再进行重新打包。这个过程实际上十分简单：首先，apk文件就是一个zip文件，但是在安装的时候安卓系统会校验签名，因此我们需要对重新打包的apk进行签名。下面是实现这个工具的重难点和具体思路：</p>
 <h2 id="命令行数组"><a href="#命令行数组" class="headerlink" title="命令行数组"></a>命令行数组</h2><p>&emsp;&emsp;如果想要生成一批apk，他们中需要修改的位置都是相同的，只有写入的文本不同。那么，第一时间我们会想到字符串数组。但是在命令行中是没有数组的，有的文章采用本地文件逐行读取的方法，但我们也可以使用下面的方法来对数组进行模拟:</p>
@@ -34,7 +34,7 @@
 <p>&emsp;&emsp;这里的命令是将指定apk解压到指定的目录中，-o是不提示覆盖，-d是指定路径。</p>
 <h2 id="关于apk签名"><a href="#关于apk签名" class="headerlink" title="关于apk签名"></a>关于apk签名</h2><p>&emsp;&emsp;我们可以通过下面的方法对apk的签名进行查看：解压出位于<code>META-INF</code>位置下的CERT.RSA文件，使用命令查看:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -printcert -file [file path]</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;想要对apk重新签名，需要删除apk中原先的签名文件。有博客说删掉两个文件就行，但是会出现错误。<code>jarsigner: java.lang.SecurityException:SHA1 digest error for META-INF/CERT.RSA根据stack overflow上某个老哥给的答案：<a href="https://stackoverflow.com/questions/37513084/jarsigner-java-lang-securityexceptionsha1-digest-error-for-meta-inf-cert-rsa-a" target="_blank" rel="external">https://stackoverflow.com/questions/37513084/jarsigner-java-lang-securityexceptionsha1-digest-error-for-meta-inf-cert-rsa-a</a>我们需要删除整个META-INF文件进行</code></p>
+<p>&emsp;&emsp;想要对apk重新签名，需要删除apk中原先的签名文件。有博客说删掉两个文件就行，但是会出现错误。<code>jarsigner: java.lang.SecurityException:SHA1 digest error for META-INF/CERT.RSA</code>根据stack overflow上某个老哥给的答案：<a href="https://stackoverflow.com/questions/37513084/jarsigner-java-lang-securityexceptionsha1-digest-error-for-meta-inf-cert-rsa-a" target="_blank" rel="external">https://stackoverflow.com/questions/37513084/jarsigner-java-lang-securityexceptionsha1-digest-error-for-meta-inf-cert-rsa-a</a>我们需要删除整个META-INF文件进行</p>
 <p>&emsp;&emsp;apk的重新签名需要项目的证书文件，后缀名为：<code>.keystores</code>，命令为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jarsigner -verbose -keystore [keystore path] -signedjar [out apk name].apk [current apk name].apk [alias name] -storepass [password]</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;这里需要填写的参数分别是证书文件的路径、签名后apk名及路径、签名前apk名及路径，别名，密码。</p>
