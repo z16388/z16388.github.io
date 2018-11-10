@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-11-10T12:04:52.050Z</updated>
+  <updated>2018-11-10T12:34:02.951Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.z16388.top/2018/11/10/anysdk/"/>
     <id>http://www.z16388.top/2018/11/10/anysdk/</id>
     <published>2018-11-10T11:46:31.000Z</published>
-    <updated>2018-11-10T12:04:52.050Z</updated>
+    <updated>2018-11-10T12:34:02.951Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;在接入Anysdk的时候，我选择了Java的框架。虽然使用Unity版本的会更加方便，直接拖进去就完成了安装步骤，但是不利于控制项目dex文件的大小，不得不进行分包。但是官方提供的是Eclipse的版本，如果想要更好的使用，我们必须把这些东西生成为aar。</p>
 <p>&emsp;&emsp;首先，在Android Studio的工程中新建一个library，给的文件拷贝到相应的目录下。需要注意的是，res需要拷贝到src/main/res里。</p>
@@ -28,6 +28,7 @@
 <p>&emsp;&emsp;在buildTypes同级的地方，增加这些代码：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sourceSets &#123;</div><div class="line">    main &#123;</div><div class="line">        jniLibs.srcDirs = ['libs']</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;这里指定了，“在libs目录下寻找so文件”。配置好之后，按照anysdk的文档写好java代码，配好manifest，就可以生成anysdk的aar了。</p>
+<p>$$ f(x,y,z) = 3y^2z \left( 3+\frac{7x+5}{1+y^2} \right) $$</p>
 ]]></content>
     
     <summary type="html">
