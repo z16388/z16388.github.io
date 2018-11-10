@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-10-21T07:32:22.662Z</updated>
+  <updated>2018-11-10T10:16:30.012Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于新版(28, 9.0)Android的坑</title>
+    <link href="http://www.z16388.top/2018/11/10/androidversionkeng/"/>
+    <id>http://www.z16388.top/2018/11/10/androidversionkeng/</id>
+    <published>2018-11-10T09:34:38.000Z</published>
+    <updated>2018-11-10T10:16:30.012Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Android-9-0"><a href="#Android-9-0" class="headerlink" title="Android 9.0"></a>Android 9.0</h1><p>&emsp;&emsp;前几天出包就出现了一个非常痛心的事情。发现使用刚发售的，搭载安卓9.0系统的手机无法进行热更的。这就很难受了。各种去查，发现是在10月31日晚上，SDK突然更新了，增加了新的版本28，也就是安卓9.0。</p>
+<p>&emsp;&emsp;Unity和安卓9.0的矛盾是，网络相关的东西会受到影响。目前知道的还有Unity的后台统计也是无法使用的，当时清了整个后台，一天多都是白白的，一个Bug都没有，难受。</p>
+<p>&emsp;&emsp;解决方法就是到sdk目录中把28给删了，最高版本使用27。然后打出的包解包看一下manifest，确认版本是27，以防止不兼容安卓9.0。这个在传到谷歌商店中构建版本时也是可以确认的。</p>
+<h1 id="Android-9-0-1"><a href="#Android-9-0-1" class="headerlink" title="Android 9.0"></a>Android 9.0</h1><p>&emsp;&emsp;在接某第三方sdk的时候遇到了另一个问题，发现他们的sdk在8.0的系统里无法使用。logcat之后发现是他们使用了一个无法在全屏模式下使用的属性。这其实是一个8.0.0版本的bug，在8.1版本中得到了修复，我也用手边的诺基亚7升级了系统，验证了这一点。</p>
+<p>&emsp;&emsp;然后他们在第二天就更新了sdk版本，可喜可贺，可喜可贺~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Android-9-0&quot;&gt;&lt;a href=&quot;#Android-9-0&quot; class=&quot;headerlink&quot; title=&quot;Android 9.0&quot;&gt;&lt;/a&gt;Android 9.0&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;前几天出包就出现了一个非常痛心的事情。发现使
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://www.z16388.top/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>命令行修改apk工具</title>
@@ -1355,53 +1380,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;第二节-动态规划初体验&quot;&gt;&lt;a href=&quot;#第二节-动态规划初体验&quot; class=&quot;headerlink&quot; title=&quot;第二节 动态规划初体验&quot;&gt;&lt;/a&gt;第二节 动态规划初体验&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;在完成了动态规划概念的理解之后，我们来拿一道
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.top/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.top/tags/ACM%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="动态规划" scheme="http://www.z16388.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】4.3下降非降子序列问题</title>
-    <link href="http://www.z16388.top/2017/03/07/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%914-3%E4%B8%8B%E9%99%8D%E9%9D%9E%E9%99%8D%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/"/>
-    <id>http://www.z16388.top/2017/03/07/【ACM教程】4-3下降非降子序列问题/</id>
-    <published>2017-03-07T12:04:26.000Z</published>
-    <updated>2018-01-10T12:41:32.669Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第三节-下降-非降子序列问题"><a href="#第三节-下降-非降子序列问题" class="headerlink" title="第三节 下降/非降子序列问题"></a>第三节 下降/非降子序列问题</h1><p>&emsp;&emsp;这种题目在ACM竞赛中，通常作为“水题”出现。但是水题不水，不了解动态规划的还是AC不了这种类型。我们将会在这一节中，学习解决这种类型题。</p>
-<h2 id="模型抽象"><a href="#模型抽象" class="headerlink" title="模型抽象"></a>模型抽象</h2><p>&emsp;&emsp;子序列问题分为下降子序列问题和非降子序列问题，解决方法类似：</p>
-<blockquote>
-<ul>
-<li>最长非降子序列问题：在一个无序序列a[1],a[2],…,a[n]中，找到一个最长的子序列满足：</li>
-</ul>
-<ol>
-<li>&emsp;a[i]&lt;=a[j]&lt;=…&lt;=a[m]</li>
-<li>&emsp;i&lt;j&lt;…&lt;m</li>
-</ol>
-<ul>
-<li>最长下降子序列问题：在一个无序序列a[1],a[2],…,a[n]中，找到一个最长的子序列满足：</li>
-</ul>
-<ol>
-<li>a[i]&gt;a[j]&gt;…&gt;a[m]</li>
-<li>i&gt;j&gt;…&gt;m</li>
-</ol>
-</blockquote>
-<p>&emsp;&emsp;我们从动态规划的三要素入手，来分析这种问题是否能使用动态规划来解决：如果要找到一个长度为k的子序列，那么我们需要一个长度为k-1的满足条件的的序列，再判断第k个元素是否满足条件，这显然满足最优子结构。在考虑第i个元素时，只需要看前面的i-1个，满足无后效性。因此这类题目可以使用动态规划来解决。</p>
-<p>&emsp;&emsp;下面我们来做一道经典的题目：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=1257" target="_blank" rel="external">hdu1257：最少拦截系统</a></p>
-<p>&emsp;&emsp;</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第三节-下降-非降子序列问题&quot;&gt;&lt;a href=&quot;#第三节-下降-非降子序列问题&quot; class=&quot;headerlink&quot; title=&quot;第三节 下降/非降子序列问题&quot;&gt;&lt;/a&gt;第三节 下降/非降子序列问题&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;这种题目在ACM竞赛
     
     </summary>
     
