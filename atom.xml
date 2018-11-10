@@ -50,7 +50,7 @@
     <link href="http://www.z16388.top/2018/11/10/android-d/"/>
     <id>http://www.z16388.top/2018/11/10/android-d/</id>
     <published>2018-11-10T10:32:08.000Z</published>
-    <updated>2018-11-10T11:43:27.614Z</updated>
+    <updated>2018-11-10T12:12:42.811Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;这几周，一直在倒腾安卓apk相关的东西，前面那一篇<a href="http://z16388.github.io/2018/10/21/cmdapk" target="_blank" rel="external">命令行修改apk工具</a>就是倒腾的一个中间产物。但是命令行工具还是有它的局限性，随着作死的幅度越来越大已经无法满足我的需求了，便改用python来实现这个工具。大家可以参考这个项目来进行修改<a href="https://github.com/z16388/cs_game_lib" target="_blank" rel="external">https://github.com/z16388/cs_game_lib</a>。后面还有一些扩展的代码没有暂时加入到项目中，打算完善之后提交上去。这篇还会继续更新，可以参考后面的代码结合项目达到你的目的。</p>
 <h2 id="关于Apk"><a href="#关于Apk" class="headerlink" title="关于Apk"></a>关于Apk</h2><p>&emsp;&emsp;apk就是一个zip，可以直接解压进行修改，这也是我前一篇中修改apk的方式。但是它不是普通的zip，需要一个签名，否则无法进行安装。但是如果直接进行解压，它里面会有一些二进制化的东西，不方便修改。这时候，我们可以使用apktool进行解包，这样得到的都是文本化的内容了。除此之外，解包比解压能得到更多的res信息，而且不需要我们手动删除签名文件夹。</p>
@@ -80,7 +80,9 @@
 <p>&emsp;&emsp;需要注意的是，keystore文件是使用eclipse生成的签名文件，算，如果你的应用是使用Android Studio生成的签名，那将是jks文件。(这可是个不错的番号啊…)</p>
 <p>&emsp;&emsp;生成jks文件：在Build菜单中，找到Generate Signed Apk选项，在弹出的窗口中选择Create new，填写相关内容，即可创建签名文件。</p>
 <p>&emsp;&emsp;如果非要使用keystore，可以使用keytool进行转换，jks文件经过p12文件中转可以转换成keystore文件，代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">keytool -importkeystore -srckeystore xxx.jks -srcstoretype JKS -deststoretype PKCS12 -destkeystore xxx.p12</div><div class="line">keytool -v -importkeystore -srckeystore xxx.p12 -srcstoretype PKCS12 -destkeystore xxx.keystore -deststoretype JKS</div></pre></td></tr></table></figure>]]></content>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">keytool -importkeystore -srckeystore xxx.jks -srcstoretype JKS -deststoretype PKCS12 -destkeystore xxx.p12</div><div class="line">keytool -v -importkeystore -srckeystore xxx.p12 -srcstoretype PKCS12 -destkeystore xxx.keystore -deststoretype JKS</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;除此之外，还可以使用keytool直接生成keystore签名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -genkeypair -alias serverkey -keypass 111111 -storepass 111111 -dname &quot;C=CN,ST=GD,L=SZ,O=vihoo,OU=dev,CN=vihoo.com&quot; -keyalg RSA -keysize 2048 -validity 3650 -keystore server.keystore</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     

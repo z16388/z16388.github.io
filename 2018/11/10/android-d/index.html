@@ -35,7 +35,7 @@
 <meta property="og:url" content="http://www.z16388.top/2018/11/10/android-d/index.html">
 <meta property="og:site_name" content="崎径 其镜">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;这几周，一直在倒腾安卓apk相关的东西，前面那一篇命令行修改apk工具就是倒腾的一个中间产物。但是命令行工具还是有它的局限性，随着作死的幅度越来越大已经无法满足我的需求了，便改用python来实现这个工具。大家可以参考这个项目来进行修改https://github.com/z16388/cs_game_lib。后面还有一些扩展的代码没有暂时加入到项目中，打算完善之后提交上去">
-<meta property="og:updated_time" content="2018-11-10T11:43:27.614Z">
+<meta property="og:updated_time" content="2018-11-10T12:12:42.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android逆向笔记">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;这几周，一直在倒腾安卓apk相关的东西，前面那一篇命令行修改apk工具就是倒腾的一个中间产物。但是命令行工具还是有它的局限性，随着作死的幅度越来越大已经无法满足我的需求了，便改用python来实现这个工具。大家可以参考这个项目来进行修改https://github.com/z16388/cs_game_lib。后面还有一些扩展的代码没有暂时加入到项目中，打算完善之后提交上去">
@@ -240,13 +240,15 @@
 <p>&emsp;&emsp;生成jks文件：在Build菜单中，找到Generate Signed Apk选项，在弹出的窗口中选择Create new，填写相关内容，即可创建签名文件。</p>
 <p>&emsp;&emsp;如果非要使用keystore，可以使用keytool进行转换，jks文件经过p12文件中转可以转换成keystore文件，代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">keytool -importkeystore -srckeystore xxx.jks -srcstoretype JKS -deststoretype PKCS12 -destkeystore xxx.p12</div><div class="line">keytool -v -importkeystore -srckeystore xxx.p12 -srcstoretype PKCS12 -destkeystore xxx.keystore -deststoretype JKS</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;除此之外，还可以使用keytool直接生成keystore签名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -genkeypair -alias serverkey -keypass 111111 -storepass 111111 -dname &quot;C=CN,ST=GD,L=SZ,O=vihoo,OU=dev,CN=vihoo.com&quot; -keyalg RSA -keysize 2048 -validity 3650 -keystore server.keystore</div></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-11-10T11:43:27.614Z" itemprop="dateUpdated">2018-11-10 19:43:27</time>
+    最后更新时间：<time datetime="2018-11-10T12:12:42.811Z" itemprop="dateUpdated">2018-11-10 20:12:42</time>
 </span><br>
 
 
