@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65402820"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://www.z16388.top/2018/11/10/android-d/">
+    
+    
+    <title>Android逆向笔记 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python,Android">
+    <meta name="description" content="&amp;emsp;&amp;emsp;这几周，一直在倒腾安卓apk相关的东西，前面那一篇命令行修改apk工具就是倒腾的一个中间产物。但是命令行工具还是有它的局限性，随着作死的幅度越来越大已经无法满足我的需求了，便改用python来实现这个工具。大家可以参考这个项目来进行修改https://github.com/z16388/cs_game_lib。后面还有一些扩展的代码没有暂时加入到项目中，打算完善之后提交上去">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android逆向笔记">
+<meta property="og:url" content="http://www.z16388.top/2018/11/10/android-d/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;这几周，一直在倒腾安卓apk相关的东西，前面那一篇命令行修改apk工具就是倒腾的一个中间产物。但是命令行工具还是有它的局限性，随着作死的幅度越来越大已经无法满足我的需求了，便改用python来实现这个工具。大家可以参考这个项目来进行修改https://github.com/z16388/cs_game_lib。后面还有一些扩展的代码没有暂时加入到项目中，打算完善之后提交上去">
+<meta property="og:updated_time" content="2018-11-10T11:26:08.318Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android逆向笔记">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;这几周，一直在倒腾安卓apk相关的东西，前面那一篇命令行修改apk工具就是倒腾的一个中间产物。但是命令行工具还是有它的局限性，随着作死的幅度越来越大已经无法满足我的需求了，便改用python来实现这个工具。大家可以参考这个项目来进行修改https://github.com/z16388/cs_game_lib。后面还有一些扩展的代码没有暂时加入到项目中，打算完善之后提交上去">
+    
+        <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/Favicon1.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.1">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brands/brand2.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo1.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Anqi Zhao</h5>
+          <a href="mailto:z16388@outlook.com" title="z16388@outlook.com" class="mail">z16388@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-table"></i>
+                动态
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.z16388.top/2016/09/09/ACM教程/"  >
+                <i class="icon icon-lg icon-adn"></i>
+                ACM教程
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/int"  >
+                <i class="icon icon-lg icon-link"></i>
+                常用网址导航
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/Download"  >
+                <i class="icon icon-lg icon-cloud-download"></i>
+                下载资源
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friend"  >
+                <i class="icon icon-lg icon-mars-double"></i>
+                友情链接
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android逆向笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://psnine.com/psnid/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-gamepad"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android逆向笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-10T10:32:08.000Z" itemprop="datePublished" class="page-time">
+  2018-11-10
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于Apk"><span class="post-toc-number">1.</span> <span class="post-toc-text">关于Apk</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Apktool"><span class="post-toc-number">2.</span> <span class="post-toc-text">Apktool</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#APK解包后的结构"><span class="post-toc-number">3.</span> <span class="post-toc-text">APK解包后的结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于签名"><span class="post-toc-number">4.</span> <span class="post-toc-text">关于签名</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android-d"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android逆向笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-10 18:32:08" datetime="2018-11-10T10:32:08.000Z"  itemprop="datePublished">2018-11-10</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>&emsp;&emsp;这几周，一直在倒腾安卓apk相关的东西，前面那一篇<a href="http://z16388.github.io/2018/10/21/cmdapk" target="_blank" rel="external">命令行修改apk工具</a>就是倒腾的一个中间产物。但是命令行工具还是有它的局限性，随着作死的幅度越来越大已经无法满足我的需求了，便改用python来实现这个工具。大家可以参考这个项目来进行修改<a href="https://github.com/z16388/cs_game_lib" target="_blank" rel="external">https://github.com/z16388/cs_game_lib</a>。后面还有一些扩展的代码没有暂时加入到项目中，打算完善之后提交上去。这篇还会继续更新，可以参考后面的代码结合项目达到你的目的。</p>
+<h2 id="关于Apk"><a href="#关于Apk" class="headerlink" title="关于Apk"></a>关于Apk</h2><p>&emsp;&emsp;apk就是一个zip，可以直接解压进行修改，这也是我前一篇中修改apk的方式。但是它不是普通的zip，需要一个签名，否则无法进行安装。但是如果直接进行解压，它里面会有一些二进制化的东西，不方便修改。这时候，我们可以使用apktool进行解包，这样得到的都是文本化的内容了。除此之外，解包比解压能得到更多的res信息，而且不需要我们手动删除签名文件夹。</p>
+<h2 id="Apktool"><a href="#Apktool" class="headerlink" title="Apktool"></a>Apktool</h2><p>&emsp;&emsp;Apktool是一个jar文件，官网是<a href="https://ibotpeaches.github.io/Apktool/" target="_blank" rel="external">https://ibotpeaches.github.io/Apktool/</a>。可以参考它的文档进行使用，但是会发现，命令行会变得很奇怪，而且是开了一个新的窗口，我们后面命令行的代码不会顺利执行，就很难受。后来发现，它的命令其实是执行同目录下的一个bat脚本文件，而且是加了参数的。所以，在使用apktool时候，我比较推荐直接调用jar,以解包为例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar -Duser.language=zh_cn -Dfile.encoding=UTF-8 apktool.jar d [file name] -o [decode path]</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;我们常用的命令其实就是解包和打包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apktool d xxx.apk</div><div class="line">apktool b xxx</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;打包之后，是没有META-INF文件夹的，可以直接签名。关于签名相关的内容可以参考：<a href="http://z16388.github.io/2018/10/21/cmdapk" target="_blank" rel="external">命令行修改apk工具</a>。</p>
+<h2 id="APK解包后的结构"><a href="#APK解包后的结构" class="headerlink" title="APK解包后的结构"></a>APK解包后的结构</h2><p>&emsp;&emsp;解包后的APK目录是会变的，但是基础的会有下面这些。</p>
+<ul>
+<li>assest</li>
+<li>lib</li>
+<li>original</li>
+<li>res</li>
+<li>smali</li>
+<li>unknown</li>
+</ul>
+<p>&emsp;&emsp;除此之外，还有文本化的manifest文件。</p>
+<p>&emsp;&emsp;想要修改app安装后的名称，可以去res/values/strings.xml。</p>
+<p>&emsp;&emsp;想要修改权限可以直接修改manifest文件。</p>
+<p>&emsp;&emsp;但是想要修改包名就不是那么简单的事情了，需要反编译smali文件成java，修改目录和包名在反编译回去。这个骚操作还是在计划中，暂时没有实现。</p>
+<p>&emsp;&emsp;需要注意的是，如果使用Python原生的xml库区修改安卓的xml的时候，会改变xml文件的名空间。原先满页的android名空间变成了奇怪的ag0。这个问题我还在寻找解决方案。如果完成了，那么关于权限和应用名的修改就可以实现自动化了。</p>
+<p>&emsp;&emsp;解包的代码如下，可以替换上面github项目中的解压代码。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding=utf-8</span></div><div class="line"> </div><div class="line"><span class="keyword">import</span> os,os.path</div><div class="line"><span class="keyword">from</span> shutil <span class="keyword">import</span> rmtree</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">decode_apk</span><span class="params">(filename, decode_folder)</span>:</span></div><div class="line">    <span class="keyword">if</span> os.path.exists(decode_folder):</div><div class="line">        rmtree(decode_folder)</div><div class="line">        <span class="keyword">print</span> <span class="string">"删除已存在的文件夹"</span>+decode_folder</div><div class="line">    <span class="keyword">print</span> <span class="string">"开始解包"</span>+filename+<span class="string">"-&gt;"</span>+decode_folder</div><div class="line">    apktool_command = <span class="string">"java -jar -Duser.language=zh_cn -Dfile.encoding=UTF8 apktool.jar d "</span> + filename + <span class="string">" -o "</span> + decode_folder</div><div class="line">    os.system(apktool_command)</div><div class="line">    <span class="keyword">print</span> <span class="string">"解包成功"</span>+filename+<span class="string">"-&gt;"</span>+decode_folder</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_apk</span><span class="params">(folder, apk_out)</span>:</span></div><div class="line">    <span class="keyword">if</span> os.access(apk_out,os.R_OK):</div><div class="line">        <span class="keyword">print</span> <span class="string">"删除已存在的"</span>+apk_out</div><div class="line">        os.remove(apk_out)</div><div class="line">    <span class="keyword">print</span> <span class="string">"打包中"</span>+apk_out</div><div class="line">    apktool_command = <span class="string">"java -jar -Duser.language=zh_cn -Dfile.encoding=UTF8 apktool.jar b "</span> + folder + <span class="string">" -o "</span> + apk_out</div><div class="line">    os.system(apktool_command)</div><div class="line">    <span class="keyword">print</span> <span class="string">"打包成功"</span>+apk_out</div></pre></td></tr></table></figure>
+<h2 id="关于签名"><a href="#关于签名" class="headerlink" title="关于签名"></a>关于签名</h2><p>&emsp;&emsp;打包后签名的方法，在这一篇里已经提到了<a href="http://z16388.github.io/2018/10/21/cmdapk" target="_blank" rel="external">命令行修改apk工具</a>。</p>
+<p>&emsp;&emsp;需要注意的是，keystore文件是使用eclipse生成的签名文件，算，如果你的应用是使用Android Studio生成的签名，那将是jks文件。</p>
+<p>&emsp;&emsp;生成jks文件：在Build菜单中，找到Generate Signed Apk选项，在弹出的窗口中选择Create new，填写相关内容，即可创建签名文件。</p>
+<p>&emsp;&emsp;如果非要使用keystore，可以使用keytool进行转换，jks文件经过p12文件中转可以转换成keystore文件，代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">keytool -importkeystore -srckeystore xxx.jks -srcstoretype JKS -deststoretype PKCS12 -destkeystore xxx.p12</div><div class="line">keytool -v -importkeystore -srckeystore xxx.p12 -srcstoretype PKCS12 -destkeystore xxx.keystore -deststoretype JKS</div></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-10T11:26:08.318Z" itemprop="dateUpdated">2018-11-10 19:26:08</time>
+</span><br>
+
+
+        
+        梦想依在 人生正当年
+        
+    </div>
+    <footer>
+        <a href="http://www.z16388.top">
+            <img src="/img/logo1.png" alt="Anqi Zhao">
+            Anqi Zhao
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2018/11/10/android-d/&title=《Android逆向笔记》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2018/11/10/android-d/&title=《Android逆向笔记》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2018/11/10/android-d/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android逆向笔记》 — 崎径 其镜&url=http://www.z16388.top/2018/11/10/android-d/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2018/11/10/android-d/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/10/androidversionkeng/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">关于新版(28, 9.0)Android的坑</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "etRSqNOcMILcVs1M6AUeU6yG-gzGzoHsz",
+            appKey: "kcmkjlCM6bDnVREmI5bqDQEH",
+            avatar: "",
+            placeholder: "在这里输入回复内容,头像可以到https://cn.gravatar.com/进行设置",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Anqi Zhao &copy; 2016 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2018/11/10/android-d/&title=《Android逆向笔记》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2018/11/10/android-d/&title=《Android逆向笔记》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2018/11/10/android-d/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android逆向笔记》 — 崎径 其镜&url=http://www.z16388.top/2018/11/10/android-d/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2018/11/10/android-d/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/2018/11/10/android-d/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.1"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.1" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
