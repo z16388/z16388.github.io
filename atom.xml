@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-11-10T11:26:08.318Z</updated>
+  <updated>2018-11-10T12:04:52.050Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -16,11 +16,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>生成Java版Anysdk的aar</title>
+    <link href="http://www.z16388.top/2018/11/10/anysdk/"/>
+    <id>http://www.z16388.top/2018/11/10/anysdk/</id>
+    <published>2018-11-10T11:46:31.000Z</published>
+    <updated>2018-11-10T12:04:52.050Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;在接入Anysdk的时候，我选择了Java的框架。虽然使用Unity版本的会更加方便，直接拖进去就完成了安装步骤，但是不利于控制项目dex文件的大小，不得不进行分包。但是官方提供的是Eclipse的版本，如果想要更好的使用，我们必须把这些东西生成为aar。</p>
+<p>&emsp;&emsp;首先，在Android Studio的工程中新建一个library，给的文件拷贝到相应的目录下。需要注意的是，res需要拷贝到src/main/res里。</p>
+<p>&emsp;&emsp;如果直接打包的话，我们会发现lib下的armeabi-v7a没有参与打包，缺了so文件怎么能行。这时候，需要在library下的build.gradle中进行配置。</p>
+<p>&emsp;&emsp;在buildTypes同级的地方，增加这些代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sourceSets &#123;</div><div class="line">    main &#123;</div><div class="line">        jniLibs.srcDirs = ['libs']</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这里指定了，“在libs目录下寻找so文件”。配置好之后，按照anysdk的文档写好java代码，配好manifest，就可以生成anysdk的aar了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;在接入Anysdk的时候，我选择了Java的框架。虽然使用Unity版本的会更加方便，直接拖进去就完成了安装步骤，但是不利于控制项目dex文件的大小，不得不进行分包。但是官方提供的是Eclipse的版本，如果想要更好的使用，我们必须把这些东西生成为a
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://www.z16388.top/tags/Android/"/>
+    
+      <category term="Anysdk" scheme="http://www.z16388.top/tags/Anysdk/"/>
+    
+      <category term="Unity" scheme="http://www.z16388.top/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android逆向笔记</title>
     <link href="http://www.z16388.top/2018/11/10/android-d/"/>
     <id>http://www.z16388.top/2018/11/10/android-d/</id>
     <published>2018-11-10T10:32:08.000Z</published>
-    <updated>2018-11-10T11:26:08.318Z</updated>
+    <updated>2018-11-10T11:43:27.614Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;这几周，一直在倒腾安卓apk相关的东西，前面那一篇<a href="http://z16388.github.io/2018/10/21/cmdapk" target="_blank" rel="external">命令行修改apk工具</a>就是倒腾的一个中间产物。但是命令行工具还是有它的局限性，随着作死的幅度越来越大已经无法满足我的需求了，便改用python来实现这个工具。大家可以参考这个项目来进行修改<a href="https://github.com/z16388/cs_game_lib" target="_blank" rel="external">https://github.com/z16388/cs_game_lib</a>。后面还有一些扩展的代码没有暂时加入到项目中，打算完善之后提交上去。这篇还会继续更新，可以参考后面的代码结合项目达到你的目的。</p>
 <h2 id="关于Apk"><a href="#关于Apk" class="headerlink" title="关于Apk"></a>关于Apk</h2><p>&emsp;&emsp;apk就是一个zip，可以直接解压进行修改，这也是我前一篇中修改apk的方式。但是它不是普通的zip，需要一个签名，否则无法进行安装。但是如果直接进行解压，它里面会有一些二进制化的东西，不方便修改。这时候，我们可以使用apktool进行解包，这样得到的都是文本化的内容了。除此之外，解包比解压能得到更多的res信息，而且不需要我们手动删除签名文件夹。</p>
@@ -29,7 +59,7 @@
 <p>&emsp;&emsp;我们常用的命令其实就是解包和打包：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apktool d xxx.apk</div><div class="line">apktool b xxx</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;打包之后，是没有META-INF文件夹的，可以直接签名。关于签名相关的内容可以参考：<a href="http://z16388.github.io/2018/10/21/cmdapk" target="_blank" rel="external">命令行修改apk工具</a>。</p>
-<h2 id="APK解包后的结构"><a href="#APK解包后的结构" class="headerlink" title="APK解包后的结构"></a>APK解包后的结构</h2><p>&emsp;&emsp;解包后的APK目录是会变的，但是基础的会有下面这些。</p>
+<h2 id="APK解包后的结构"><a href="#APK解包后的结构" class="headerlink" title="APK解包后的结构"></a>APK解包后的结构</h2><p>&emsp;&emsp;解包后的APK目录是会变的，如果进行了打包，那么回在该目录下生成一个build目录。但是基础的会有下面这些：</p>
 <ul>
 <li>assest</li>
 <li>lib</li>
@@ -39,14 +69,15 @@
 <li>unknown</li>
 </ul>
 <p>&emsp;&emsp;除此之外，还有文本化的manifest文件。</p>
-<p>&emsp;&emsp;想要修改app安装后的名称，可以去res/values/strings.xml。</p>
+<p>&emsp;&emsp;想要修改app安装后的名称，可以去res/values/strings.xml，找到app_ame的字段进行修改。</p>
 <p>&emsp;&emsp;想要修改权限可以直接修改manifest文件。</p>
 <p>&emsp;&emsp;但是想要修改包名就不是那么简单的事情了，需要反编译smali文件成java，修改目录和包名在反编译回去。这个骚操作还是在计划中，暂时没有实现。</p>
 <p>&emsp;&emsp;需要注意的是，如果使用Python原生的xml库区修改安卓的xml的时候，会改变xml文件的名空间。原先满页的android名空间变成了奇怪的ag0。这个问题我还在寻找解决方案。如果完成了，那么关于权限和应用名的修改就可以实现自动化了。</p>
 <p>&emsp;&emsp;解包的代码如下，可以替换上面github项目中的解压代码。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding=utf-8</span></div><div class="line"> </div><div class="line"><span class="keyword">import</span> os,os.path</div><div class="line"><span class="keyword">from</span> shutil <span class="keyword">import</span> rmtree</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">decode_apk</span><span class="params">(filename, decode_folder)</span>:</span></div><div class="line">    <span class="keyword">if</span> os.path.exists(decode_folder):</div><div class="line">        rmtree(decode_folder)</div><div class="line">        <span class="keyword">print</span> <span class="string">"删除已存在的文件夹"</span>+decode_folder</div><div class="line">    <span class="keyword">print</span> <span class="string">"开始解包"</span>+filename+<span class="string">"-&gt;"</span>+decode_folder</div><div class="line">    apktool_command = <span class="string">"java -jar -Duser.language=zh_cn -Dfile.encoding=UTF8 apktool.jar d "</span> + filename + <span class="string">" -o "</span> + decode_folder</div><div class="line">    os.system(apktool_command)</div><div class="line">    <span class="keyword">print</span> <span class="string">"解包成功"</span>+filename+<span class="string">"-&gt;"</span>+decode_folder</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_apk</span><span class="params">(folder, apk_out)</span>:</span></div><div class="line">    <span class="keyword">if</span> os.access(apk_out,os.R_OK):</div><div class="line">        <span class="keyword">print</span> <span class="string">"删除已存在的"</span>+apk_out</div><div class="line">        os.remove(apk_out)</div><div class="line">    <span class="keyword">print</span> <span class="string">"打包中"</span>+apk_out</div><div class="line">    apktool_command = <span class="string">"java -jar -Duser.language=zh_cn -Dfile.encoding=UTF8 apktool.jar b "</span> + folder + <span class="string">" -o "</span> + apk_out</div><div class="line">    os.system(apktool_command)</div><div class="line">    <span class="keyword">print</span> <span class="string">"打包成功"</span>+apk_out</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;脚本需要和apktool.jar在同一目录下，否则命令中需要指定路径。</p>
 <h2 id="关于签名"><a href="#关于签名" class="headerlink" title="关于签名"></a>关于签名</h2><p>&emsp;&emsp;打包后签名的方法，在这一篇里已经提到了<a href="http://z16388.github.io/2018/10/21/cmdapk" target="_blank" rel="external">命令行修改apk工具</a>。</p>
-<p>&emsp;&emsp;需要注意的是，keystore文件是使用eclipse生成的签名文件，算，如果你的应用是使用Android Studio生成的签名，那将是jks文件。</p>
+<p>&emsp;&emsp;需要注意的是，keystore文件是使用eclipse生成的签名文件，算，如果你的应用是使用Android Studio生成的签名，那将是jks文件。(这可是个不错的番号啊…)</p>
 <p>&emsp;&emsp;生成jks文件：在Build菜单中，找到Generate Signed Apk选项，在弹出的窗口中选择Create new，填写相关内容，即可创建签名文件。</p>
 <p>&emsp;&emsp;如果非要使用keystore，可以使用keytool进行转换，jks文件经过p12文件中转可以转换成keystore文件，代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">keytool -importkeystore -srckeystore xxx.jks -srcstoretype JKS -deststoretype PKCS12 -destkeystore xxx.p12</div><div class="line">keytool -v -importkeystore -srckeystore xxx.p12 -srcstoretype PKCS12 -destkeystore xxx.keystore -deststoretype JKS</div></pre></td></tr></table></figure>]]></content>
@@ -1313,99 +1344,6 @@
       <category term="GJB5369" scheme="http://www.z16388.top/tags/GJB5369/"/>
     
       <category term="软件测试" scheme="http://www.z16388.top/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】5.3单源最短路径Dijkstra算法</title>
-    <link href="http://www.z16388.top/2017/03/15/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-3%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84Dijkstra%E7%AE%97%E6%B3%95/"/>
-    <id>http://www.z16388.top/2017/03/15/【ACM教程】5-3单源最短路径Dijkstra算法/</id>
-    <published>2017-03-15T08:46:18.000Z</published>
-    <updated>2017-04-13T13:25:15.931Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第三节-单源最短路径Dijkstra算法"><a href="#第三节-单源最短路径Dijkstra算法" class="headerlink" title="第三节 单源最短路径Dijkstra算法"></a>第三节 单源最短路径Dijkstra算法</h1><p>&emsp;&emsp;最短路径的问题在生活中是十分常见的。不仅仅是表面上的路程计算，网络中的数据传输什么的都能用到最短路径算法。我们在求最短路问题时，常用两种算法。Dijkstra单源最短路径算法和全源最短路径Floyd算法。首先对Dijkstra算法进行学习。</p>
-<p>&emsp;&emsp;Dijkstra算法用于计算一个点到其他所有节点的最短路径，是比较有代表性的最短路径算法。数学的很多学科中，都会接触到。它的思路是：把所有的顶点分为两组，一组是已经知道最短路径的，然后从未知最短路径并与之相邻的顶点中选出一个最短的放进已知组里，直到将所有的点放入已知组，找到最短路。</p>
-<p>&emsp;&emsp;举个例子，以下图为例，求A到F的最短路。</p>
-<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1489579993939&amp;di=ac25fd27b19e70f9a1efe09cb4f23412&amp;imgtype=0&amp;src=http%3A%2F%2Fimages.cnblogs.com%2Fcnblogs_com%2Fnigang%2F569181%2Fo_%25E5%259B%25BE.png" alt=""></p>
-<p>&emsp;&emsp;首先，已知点是A，然后我们去找和他相邻的，距离最短的点。这时我们看到C点距离A点是3，比B的6要短，所以我们将C点放入已知集合；然后看A、C相邻的点，最短的路径是C到B，所以把B点放入已知集合。就这样一直做下去，直到将所有点放入已知点集合为止。我们将上面的过程，记录在表格里。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">步骤</th>
-<th style="text-align:center">已知点集</th>
-<th>B</th>
-<th>C</th>
-<th>D</th>
-<th>E</th>
-<th>F</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">1</td>
-<td style="text-align:center">A</td>
-<td>6</td>
-<td>3</td>
-<td>00</td>
-<td>00</td>
-<td>00</td>
-</tr>
-<tr>
-<td style="text-align:left">2</td>
-<td style="text-align:center">A、C</td>
-<td>5</td>
-<td></td>
-<td>6</td>
-<td>7</td>
-<td>00</td>
-</tr>
-<tr>
-<td style="text-align:left">3</td>
-<td style="text-align:center">A、C、B</td>
-<td></td>
-<td></td>
-<td>6</td>
-<td>7</td>
-<td>00</td>
-</tr>
-<tr>
-<td style="text-align:left">4</td>
-<td style="text-align:center">A、C、B、D</td>
-<td></td>
-<td></td>
-<td></td>
-<td>7</td>
-<td>9</td>
-</tr>
-<tr>
-<td style="text-align:left">5</td>
-<td style="text-align:center">A、C、B、D、E</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>9</td>
-</tr>
-</tbody>
-</table>
-<p>&emsp;&emsp;通过上面的步骤，我们将A到F的最短路找到了：A-C-D-F。除此之外，A到所有点的最短路我们都能够找到。那么，下面我们考虑用程序来实现这个过程。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x0f0f0f0f <span class="comment">//用INF来代替正无穷（+OO）</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 1100</span></div><div class="line"><span class="keyword">int</span> low[N];  <span class="comment">//low[i]数组存放A号节点到已知集合中i号节点的最短距离</span></div><div class="line"><span class="keyword">int</span> vis[N];  <span class="comment">//vis[i] = 1表示i号节点已经在已知集合中，否则反之</span></div><div class="line"><span class="keyword">int</span> cost[N][N],n;<span class="comment">//cost[i][j]表示i节点到j节点的直接距离</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> start)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> edge,k;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;<span class="comment">//这里是要初始化low[]数组和vis[]数组</span></div><div class="line">	low[i] = cost[start][i];</div><div class="line">	vis[i] = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    vis[start] = <span class="number">1</span>;</div><div class="line">    low[start] = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)&#123;</div><div class="line">	edge = INF;<span class="comment">//edge是已知集合到未知集合的最短边</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j&lt;=n;j++)&#123;<span class="comment">//这里是要找到一条最短边:编号k,边长edge</span></div><div class="line">	    <span class="keyword">if</span>(vis[j]==<span class="number">0</span>&amp;&amp;edge&gt;low[j])&#123;</div><div class="line">		edge = low[j];</div><div class="line">		k = j;</div><div class="line">	    &#125; </div><div class="line">	&#125;</div><div class="line">	vis[k] = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j&lt;=n;j++)&#123;<span class="comment">//更新得到的新节点k号节点发出去的边</span></div><div class="line">	    <span class="keyword">if</span>(vis[j]==<span class="number">0</span>&amp;&amp;low[j] &gt; low[k] + cost[k][j])&#123;</div><div class="line">		low[j] = low[k] + cost[k][j];</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;上面是Dijkstra算法的C语言实现，大家可以将其作为模板记录下来，以后可以直接使用。我们就以上图为例，练习一下Dijkstra算法的使用。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x0f0f0f0f</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 1100</span></div><div class="line"><span class="keyword">int</span> low[N];</div><div class="line"><span class="keyword">int</span> vis[N];</div><div class="line"><span class="keyword">int</span> cost[N][N],n;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> start)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> edge,k;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">	low[i] = cost[start][i];</div><div class="line">	vis[i] = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    vis[start] = <span class="number">1</span>;</div><div class="line">    low[start] = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)&#123;</div><div class="line">	edge = INF;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j&lt;=n;j++)&#123;</div><div class="line">	    <span class="keyword">if</span>(vis[j]==<span class="number">0</span>&amp;&amp;edge&gt;low[j])&#123;</div><div class="line">		edge = low[j];</div><div class="line">		k = j;</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">	vis[k] = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j&lt;=n;j++)&#123;</div><div class="line">	    <span class="keyword">if</span>(vis[j]==<span class="number">0</span>&amp;&amp;low[j] &gt; low[k] + cost[k][j])&#123;</div><div class="line">		low[j] = low[k] + cost[k][j];</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">memset</span>(cost,INF,<span class="keyword">sizeof</span>(cost));</div><div class="line">    n=<span class="number">6</span>;</div><div class="line">    cost[<span class="number">1</span>][<span class="number">2</span>]=<span class="number">6</span>,cost[<span class="number">1</span>][<span class="number">3</span>]=<span class="number">3</span>;</div><div class="line">    cost[<span class="number">2</span>][<span class="number">3</span>]=<span class="number">2</span>,cost[<span class="number">2</span>][<span class="number">4</span>]=<span class="number">5</span>;</div><div class="line">    cost[<span class="number">3</span>][<span class="number">4</span>]=<span class="number">3</span>,cost[<span class="number">3</span>][<span class="number">5</span>]=<span class="number">4</span>;</div><div class="line">    cost[<span class="number">4</span>][<span class="number">5</span>]=<span class="number">2</span>,cost[<span class="number">4</span>][<span class="number">6</span>]=<span class="number">3</span>;</div><div class="line">    cost[<span class="number">5</span>][<span class="number">6</span>]=<span class="number">5</span>;</div><div class="line">    Dijkstra(<span class="number">1</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,low[n]);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第三节-单源最短路径Dijkstra算法&quot;&gt;&lt;a href=&quot;#第三节-单源最短路径Dijkstra算法&quot; class=&quot;headerlink&quot; title=&quot;第三节 单源最短路径Dijkstra算法&quot;&gt;&lt;/a&gt;第三节 单源最短路径Dijkstra算法&lt;/h1&gt;&lt;
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.top/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.top/tags/ACM%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   

@@ -35,7 +35,7 @@
 <meta property="og:url" content="http://www.z16388.top/2018/11/10/android-d/index.html">
 <meta property="og:site_name" content="崎径 其镜">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;这几周，一直在倒腾安卓apk相关的东西，前面那一篇命令行修改apk工具就是倒腾的一个中间产物。但是命令行工具还是有它的局限性，随着作死的幅度越来越大已经无法满足我的需求了，便改用python来实现这个工具。大家可以参考这个项目来进行修改https://github.com/z16388/cs_game_lib。后面还有一些扩展的代码没有暂时加入到项目中，打算完善之后提交上去">
-<meta property="og:updated_time" content="2018-11-10T11:26:08.318Z">
+<meta property="og:updated_time" content="2018-11-10T11:43:27.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android逆向笔记">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;这几周，一直在倒腾安卓apk相关的东西，前面那一篇命令行修改apk工具就是倒腾的一个中间产物。但是命令行工具还是有它的局限性，随着作死的幅度越来越大已经无法满足我的需求了，便改用python来实现这个工具。大家可以参考这个项目来进行修改https://github.com/z16388/cs_game_lib。后面还有一些扩展的代码没有暂时加入到项目中，打算完善之后提交上去">
@@ -218,7 +218,7 @@
 <p>&emsp;&emsp;我们常用的命令其实就是解包和打包：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apktool d xxx.apk</div><div class="line">apktool b xxx</div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;打包之后，是没有META-INF文件夹的，可以直接签名。关于签名相关的内容可以参考：<a href="http://z16388.github.io/2018/10/21/cmdapk" target="_blank" rel="external">命令行修改apk工具</a>。</p>
-<h2 id="APK解包后的结构"><a href="#APK解包后的结构" class="headerlink" title="APK解包后的结构"></a>APK解包后的结构</h2><p>&emsp;&emsp;解包后的APK目录是会变的，但是基础的会有下面这些。</p>
+<h2 id="APK解包后的结构"><a href="#APK解包后的结构" class="headerlink" title="APK解包后的结构"></a>APK解包后的结构</h2><p>&emsp;&emsp;解包后的APK目录是会变的，如果进行了打包，那么回在该目录下生成一个build目录。但是基础的会有下面这些：</p>
 <ul>
 <li>assest</li>
 <li>lib</li>
@@ -228,14 +228,15 @@
 <li>unknown</li>
 </ul>
 <p>&emsp;&emsp;除此之外，还有文本化的manifest文件。</p>
-<p>&emsp;&emsp;想要修改app安装后的名称，可以去res/values/strings.xml。</p>
+<p>&emsp;&emsp;想要修改app安装后的名称，可以去res/values/strings.xml，找到app_ame的字段进行修改。</p>
 <p>&emsp;&emsp;想要修改权限可以直接修改manifest文件。</p>
 <p>&emsp;&emsp;但是想要修改包名就不是那么简单的事情了，需要反编译smali文件成java，修改目录和包名在反编译回去。这个骚操作还是在计划中，暂时没有实现。</p>
 <p>&emsp;&emsp;需要注意的是，如果使用Python原生的xml库区修改安卓的xml的时候，会改变xml文件的名空间。原先满页的android名空间变成了奇怪的ag0。这个问题我还在寻找解决方案。如果完成了，那么关于权限和应用名的修改就可以实现自动化了。</p>
 <p>&emsp;&emsp;解包的代码如下，可以替换上面github项目中的解压代码。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding=utf-8</span></div><div class="line"> </div><div class="line"><span class="keyword">import</span> os,os.path</div><div class="line"><span class="keyword">from</span> shutil <span class="keyword">import</span> rmtree</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">decode_apk</span><span class="params">(filename, decode_folder)</span>:</span></div><div class="line">    <span class="keyword">if</span> os.path.exists(decode_folder):</div><div class="line">        rmtree(decode_folder)</div><div class="line">        <span class="keyword">print</span> <span class="string">"删除已存在的文件夹"</span>+decode_folder</div><div class="line">    <span class="keyword">print</span> <span class="string">"开始解包"</span>+filename+<span class="string">"-&gt;"</span>+decode_folder</div><div class="line">    apktool_command = <span class="string">"java -jar -Duser.language=zh_cn -Dfile.encoding=UTF8 apktool.jar d "</span> + filename + <span class="string">" -o "</span> + decode_folder</div><div class="line">    os.system(apktool_command)</div><div class="line">    <span class="keyword">print</span> <span class="string">"解包成功"</span>+filename+<span class="string">"-&gt;"</span>+decode_folder</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_apk</span><span class="params">(folder, apk_out)</span>:</span></div><div class="line">    <span class="keyword">if</span> os.access(apk_out,os.R_OK):</div><div class="line">        <span class="keyword">print</span> <span class="string">"删除已存在的"</span>+apk_out</div><div class="line">        os.remove(apk_out)</div><div class="line">    <span class="keyword">print</span> <span class="string">"打包中"</span>+apk_out</div><div class="line">    apktool_command = <span class="string">"java -jar -Duser.language=zh_cn -Dfile.encoding=UTF8 apktool.jar b "</span> + folder + <span class="string">" -o "</span> + apk_out</div><div class="line">    os.system(apktool_command)</div><div class="line">    <span class="keyword">print</span> <span class="string">"打包成功"</span>+apk_out</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;脚本需要和apktool.jar在同一目录下，否则命令中需要指定路径。</p>
 <h2 id="关于签名"><a href="#关于签名" class="headerlink" title="关于签名"></a>关于签名</h2><p>&emsp;&emsp;打包后签名的方法，在这一篇里已经提到了<a href="http://z16388.github.io/2018/10/21/cmdapk" target="_blank" rel="external">命令行修改apk工具</a>。</p>
-<p>&emsp;&emsp;需要注意的是，keystore文件是使用eclipse生成的签名文件，算，如果你的应用是使用Android Studio生成的签名，那将是jks文件。</p>
+<p>&emsp;&emsp;需要注意的是，keystore文件是使用eclipse生成的签名文件，算，如果你的应用是使用Android Studio生成的签名，那将是jks文件。(这可是个不错的番号啊…)</p>
 <p>&emsp;&emsp;生成jks文件：在Build菜单中，找到Generate Signed Apk选项，在弹出的窗口中选择Create new，填写相关内容，即可创建签名文件。</p>
 <p>&emsp;&emsp;如果非要使用keystore，可以使用keytool进行转换，jks文件经过p12文件中转可以转换成keystore文件，代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">keytool -importkeystore -srckeystore xxx.jks -srcstoretype JKS -deststoretype PKCS12 -destkeystore xxx.p12</div><div class="line">keytool -v -importkeystore -srckeystore xxx.p12 -srcstoretype PKCS12 -destkeystore xxx.keystore -deststoretype JKS</div></pre></td></tr></table></figure>
@@ -245,7 +246,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-11-10T11:26:08.318Z" itemprop="dateUpdated">2018-11-10 19:26:08</time>
+    最后更新时间：<time datetime="2018-11-10T11:43:27.614Z" itemprop="dateUpdated">2018-11-10 19:43:27</time>
 </span><br>
 
 
@@ -325,7 +326,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/11/10/anysdk/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">生成Java版Anysdk的aar</h4>
+      </a>
+    </div>
   
 
   
