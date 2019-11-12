@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65402820"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://www.z16388.top/2019/11/12/most_wechat/">
+    
+    
+    <title>某微信爬虫工具多开方案 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="微信,爬虫">
+    <meta name="description" content="之前因为需求找到了这个超级好用的微信爬虫工具https://github.com/striver-ing/wechat-spider，目前已经开源。工具可以很方便地实现爬取微信文章，获取点赞、评论等功能。需要注意的是，目前微信已经针对文章历史接口做了调整：PC版限制了爬取的次数，访问间隔应该控制在8分钟以上，移动端则是在两个月前直接干掉了这个功能。文章评论则没有改变。
+因此，这个工具目前最好的使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="某微信爬虫工具多开方案">
+<meta property="og:url" content="http://www.z16388.top/2019/11/12/most_wechat/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="之前因为需求找到了这个超级好用的微信爬虫工具https://github.com/striver-ing/wechat-spider，目前已经开源。工具可以很方便地实现爬取微信文章，获取点赞、评论等功能。需要注意的是，目前微信已经针对文章历史接口做了调整：PC版限制了爬取的次数，访问间隔应该控制在8分钟以上，移动端则是在两个月前直接干掉了这个功能。文章评论则没有改变。
+因此，这个工具目前最好的使用">
+<meta property="og:image" content="https://raw.githubusercontent.com/z16388/blog_pic/master/15735574693277.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/z16388/blog_pic/master/15735574693607.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/z16388/blog_pic/master/15735574693777.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/z16388/blog_pic/master/15735574694007.png">
+<meta property="og:updated_time" content="2019-11-12T13:23:21.402Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="某微信爬虫工具多开方案">
+<meta name="twitter:description" content="之前因为需求找到了这个超级好用的微信爬虫工具https://github.com/striver-ing/wechat-spider，目前已经开源。工具可以很方便地实现爬取微信文章，获取点赞、评论等功能。需要注意的是，目前微信已经针对文章历史接口做了调整：PC版限制了爬取的次数，访问间隔应该控制在8分钟以上，移动端则是在两个月前直接干掉了这个功能。文章评论则没有改变。
+因此，这个工具目前最好的使用">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/z16388/blog_pic/master/15735574693277.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/Favicon1.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.1">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brands/brand2.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo1.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Anqi Zhao</h5>
+          <a href="mailto:z16388@outlook.com" title="z16388@outlook.com" class="mail">z16388@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-table"></i>
+                动态
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.z16388.top/2016/09/09/ACM教程/"  >
+                <i class="icon icon-lg icon-adn"></i>
+                ACM教程
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/int"  >
+                <i class="icon icon-lg icon-link"></i>
+                常用网址导航
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/Download"  >
+                <i class="icon icon-lg icon-cloud-download"></i>
+                下载资源
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friend"  >
+                <i class="icon icon-lg icon-mars-double"></i>
+                友情链接
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">某微信爬虫工具多开方案</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://psnine.com/psnid/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-gamepad"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">某微信爬虫工具多开方案</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-12T13:15:53.000Z" itemprop="datePublished" class="page-time">
+  2019-11-12
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#微信的多开"><span class="post-toc-number">1.</span> <span class="post-toc-text">微信的多开</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#局部代理"><span class="post-toc-number">2.</span> <span class="post-toc-text">局部代理</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-most_wechat"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">某微信爬虫工具多开方案</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-12 21:15:53" datetime="2019-11-12T13:15:53.000Z"  itemprop="datePublished">2019-11-12</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>之前因为需求找到了这个超级好用的微信爬虫工具<a href="https://github.com/striver-ing/wechat-spider" target="_blank" rel="external">https://github.com/striver-ing/wechat-spider</a>，目前已经开源。工具可以很方便地实现爬取微信文章，获取点赞、评论等功能。需要注意的是，目前微信已经针对文章历史接口做了调整：PC版限制了爬取的次数，访问间隔应该控制在8分钟以上，移动端则是在两个月前直接干掉了这个功能。文章评论则没有改变。</p>
+<p>因此，这个工具目前最好的使用方式就是多开，分别爬不同的文章，再单开一个用来爬需要爬的评论。</p>
+<p>工具的具体使用方法在原工程中都有提到，这里就不再赘述了。</p>
+<p>在工具的使用方法中，我们知道，作者是使用全局代理，将所有的https消息都强制走了本机的8080端口，然后通过Python的mitmproxy来截取消息内容来实现的这个工具。那么，我可以使用局部代理，将制定的微信客户端，走制定端口，即可实现工具的多开。</p>
+<p>有了这个思路，那么我们就只需要解决两个问题：</p>
+<ol>
+<li>微信的多开</li>
+<li>多个微信走多个局部代理</li>
+</ol>
+<p>这里先说一下，我们无法使用微信PC客户端自带的代理功能。因为一旦这个功能开启，微信的所有链接都将进行加密，你得到的只会是一个格式如：<code><a href="https://xxx.xxx.xx.xx/mmtls/xxxxxx" target="_blank" rel="external">https://xxx.xxx.xx.xx/mmtls/xxxxxx</a></code>的加密链接。</p>
+<h1 id="微信的多开"><a href="#微信的多开" class="headerlink" title="微信的多开"></a>微信的多开</h1><p>微信多开的实现比较简单，直接使用bat脚本打开多个微信即可。需要注意的是，要以管理员模式运行。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@<span class="built_in">echo</span> off</div><div class="line">start /d <span class="string">"C:\Program Files (x86)\Tencent\WeChat\" WeChat.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChat\<span class="string">" WeChat.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChat\<span class="string">" WeChat.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChat\<span class="string">" WeChat.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChat\<span class="string">" WeChat.exe</span></div><div class="line">exit</div></pre></td></tr></table></figure>
+<p>这样虽然可以打开多个微信，但是在设置局部代理时，工具无法区相同路径下的相同可执行文件。因此，我们需要把微信客户端拷贝多份，以应对后面的步骤。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@<span class="built_in">echo</span> off</div><div class="line">start /d <span class="string">"C:\Program Files (x86)\Tencent\WeChat\" WeChat.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChatb\<span class="string">" WeChatb.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChatc\<span class="string">" WeChatc.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChatd\<span class="string">" WeChatd.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChate\<span class="string">" WeChate.exe</span></div><div class="line">exit</div></pre></td></tr></table></figure>
+<p>需要注意的是，这样配置之后的脚本将不一定百分百执行成功，可能只打开一个客户端。一般第二次即可执行成功。</p>
+<h1 id="局部代理"><a href="#局部代理" class="headerlink" title="局部代理"></a>局部代理</h1><p>这里，我使用了Proxifier工具，进行局部代理。这个工具很容易获取，x度上很容易就可以获取到免费破解汉化的版本。</p>
+<p>安装之后，我们开始配置工作。</p>
+<blockquote>
+<p>1.配置文件-&gt;代理服务器  这里地址填本机127.0.0.1，端口填你想要转发的端口，比如8080，8081，协议类型是HTTPS。你想开多少，就填多少个。</p>
+<p><img src="https://raw.githubusercontent.com/z16388/blog_pic/master/15735574693277.png" alt="图1"><br><img src="https://raw.githubusercontent.com/z16388/blog_pic/master/15735574693607.png" alt="图2"></p>
+<p>2.配置文件-&gt;代理规则    这里我们把默认的全局代理给关闭，双击条目，将“是否有效”取消勾选即可。然后添加微信的代理规则，点击添加，名称随意，应用程序浏览到微信的exe文件，目标主机清空，端口清空，然后在最下方的动作中选择你上一步配置的一个端口。那么这个路径下的客户端执行时，便会代理到这个端口下了。</p>
+<p><img src="https://raw.githubusercontent.com/z16388/blog_pic/master/15735574693777.png" alt="图3"><br><img src="https://raw.githubusercontent.com/z16388/blog_pic/master/15735574694007.png" alt="图4"></p>
+</blockquote>
+<p>微信多开之后，我们会发现多开的这几个的微信的进程名是一样的，无法进行区分。这时候可以在任务管理器中使用切换到、最小化等功能确定哪个窗口是哪个进程，转到本地文件来确定他是哪个目录下的。在开多个的时候，一定要注意区分，以防登错账号，影响爬取。</p>
+<p>爬虫的配置文件中，我们最好使用不同的mysql数据库，以免产影响。当然，如果你修改了原工具的代码，那就另当别论了。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-11-12T13:23:21.402Z" itemprop="dateUpdated">2019-11-12 21:23:21</time>
+</span><br>
+
+
+        
+        梦想依在 人生正当年
+        
+    </div>
+    <footer>
+        <a href="http://www.z16388.top">
+            <img src="/img/logo1.png" alt="Anqi Zhao">
+            Anqi Zhao
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信/">微信</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2019/11/12/most_wechat/&title=《某微信爬虫工具多开方案》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2019/11/12/most_wechat/&title=《某微信爬虫工具多开方案》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2019/11/12/most_wechat/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《某微信爬虫工具多开方案》 — 崎径 其镜&url=http://www.z16388.top/2019/11/12/most_wechat/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2019/11/12/most_wechat/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/10/anysdk/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">生成Java版Anysdk的aar</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "etRSqNOcMILcVs1M6AUeU6yG-gzGzoHsz",
+            appKey: "kcmkjlCM6bDnVREmI5bqDQEH",
+            avatar: "",
+            placeholder: "在这里输入回复内容,头像可以到https://cn.gravatar.com/进行设置",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Anqi Zhao &copy; 2016 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2019/11/12/most_wechat/&title=《某微信爬虫工具多开方案》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2019/11/12/most_wechat/&title=《某微信爬虫工具多开方案》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2019/11/12/most_wechat/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《某微信爬虫工具多开方案》 — 崎径 其镜&url=http://www.z16388.top/2019/11/12/most_wechat/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2019/11/12/most_wechat/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/2019/11/12/most_wechat/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.1"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.1" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

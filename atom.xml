@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2018-11-10T12:35:18.277Z</updated>
+  <updated>2019-11-12T13:23:21.402Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -14,6 +14,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>某微信爬虫工具多开方案</title>
+    <link href="http://www.z16388.top/2019/11/12/most_wechat/"/>
+    <id>http://www.z16388.top/2019/11/12/most_wechat/</id>
+    <published>2019-11-12T13:15:53.000Z</published>
+    <updated>2019-11-12T13:23:21.402Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前因为需求找到了这个超级好用的微信爬虫工具<a href="https://github.com/striver-ing/wechat-spider" target="_blank" rel="external">https://github.com/striver-ing/wechat-spider</a>，目前已经开源。工具可以很方便地实现爬取微信文章，获取点赞、评论等功能。需要注意的是，目前微信已经针对文章历史接口做了调整：PC版限制了爬取的次数，访问间隔应该控制在8分钟以上，移动端则是在两个月前直接干掉了这个功能。文章评论则没有改变。</p>
+<p>因此，这个工具目前最好的使用方式就是多开，分别爬不同的文章，再单开一个用来爬需要爬的评论。</p>
+<p>工具的具体使用方法在原工程中都有提到，这里就不再赘述了。</p>
+<p>在工具的使用方法中，我们知道，作者是使用全局代理，将所有的https消息都强制走了本机的8080端口，然后通过Python的mitmproxy来截取消息内容来实现的这个工具。那么，我可以使用局部代理，将制定的微信客户端，走制定端口，即可实现工具的多开。</p>
+<p>有了这个思路，那么我们就只需要解决两个问题：</p>
+<ol>
+<li>微信的多开</li>
+<li>多个微信走多个局部代理</li>
+</ol>
+<p>这里先说一下，我们无法使用微信PC客户端自带的代理功能。因为一旦这个功能开启，微信的所有链接都将进行加密，你得到的只会是一个格式如：<code><a href="https://xxx.xxx.xx.xx/mmtls/xxxxxx" target="_blank" rel="external">https://xxx.xxx.xx.xx/mmtls/xxxxxx</a></code>的加密链接。</p>
+<h1 id="微信的多开"><a href="#微信的多开" class="headerlink" title="微信的多开"></a>微信的多开</h1><p>微信多开的实现比较简单，直接使用bat脚本打开多个微信即可。需要注意的是，要以管理员模式运行。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@<span class="built_in">echo</span> off</div><div class="line">start /d <span class="string">"C:\Program Files (x86)\Tencent\WeChat\" WeChat.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChat\<span class="string">" WeChat.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChat\<span class="string">" WeChat.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChat\<span class="string">" WeChat.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChat\<span class="string">" WeChat.exe</span></div><div class="line">exit</div></pre></td></tr></table></figure>
+<p>这样虽然可以打开多个微信，但是在设置局部代理时，工具无法区相同路径下的相同可执行文件。因此，我们需要把微信客户端拷贝多份，以应对后面的步骤。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@<span class="built_in">echo</span> off</div><div class="line">start /d <span class="string">"C:\Program Files (x86)\Tencent\WeChat\" WeChat.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChatb\<span class="string">" WeChatb.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChatc\<span class="string">" WeChatc.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChatd\<span class="string">" WeChatd.exe</span></div><div class="line">start /d "C:\Program Files (x86)\Tencent\WeChate\<span class="string">" WeChate.exe</span></div><div class="line">exit</div></pre></td></tr></table></figure>
+<p>需要注意的是，这样配置之后的脚本将不一定百分百执行成功，可能只打开一个客户端。一般第二次即可执行成功。</p>
+<h1 id="局部代理"><a href="#局部代理" class="headerlink" title="局部代理"></a>局部代理</h1><p>这里，我使用了Proxifier工具，进行局部代理。这个工具很容易获取，x度上很容易就可以获取到免费破解汉化的版本。</p>
+<p>安装之后，我们开始配置工作。</p>
+<blockquote>
+<p>1.配置文件-&gt;代理服务器  这里地址填本机127.0.0.1，端口填你想要转发的端口，比如8080，8081，协议类型是HTTPS。你想开多少，就填多少个。</p>
+<p><img src="https://raw.githubusercontent.com/z16388/blog_pic/master/15735574693277.png" alt="图1"><br><img src="https://raw.githubusercontent.com/z16388/blog_pic/master/15735574693607.png" alt="图2"></p>
+<p>2.配置文件-&gt;代理规则    这里我们把默认的全局代理给关闭，双击条目，将“是否有效”取消勾选即可。然后添加微信的代理规则，点击添加，名称随意，应用程序浏览到微信的exe文件，目标主机清空，端口清空，然后在最下方的动作中选择你上一步配置的一个端口。那么这个路径下的客户端执行时，便会代理到这个端口下了。</p>
+<p><img src="https://raw.githubusercontent.com/z16388/blog_pic/master/15735574693777.png" alt="图3"><br><img src="https://raw.githubusercontent.com/z16388/blog_pic/master/15735574694007.png" alt="图4"></p>
+</blockquote>
+<p>微信多开之后，我们会发现多开的这几个的微信的进程名是一样的，无法进行区分。这时候可以在任务管理器中使用切换到、最小化等功能确定哪个窗口是哪个进程，转到本地文件来确定他是哪个目录下的。在开多个的时候，一定要注意区分，以防登错账号，影响爬取。</p>
+<p>爬虫的配置文件中，我们最好使用不同的mysql数据库，以免产影响。当然，如果你修改了原工具的代码，那就另当别论了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前因为需求找到了这个超级好用的微信爬虫工具&lt;a href=&quot;https://github.com/striver-ing/wechat-spider&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/striver-in
+    
+    </summary>
+    
+    
+      <category term="微信" scheme="http://www.z16388.top/tags/%E5%BE%AE%E4%BF%A1/"/>
+    
+      <category term="爬虫" scheme="http://www.z16388.top/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>生成Java版Anysdk的aar</title>
@@ -1194,158 +1241,6 @@
     
     
       <category term="蓝桥杯" scheme="http://www.z16388.top/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GJB5369考点笔记</title>
-    <link href="http://www.z16388.top/2017/03/18/GJB5369%E8%80%83%E7%82%B9%E7%AC%94%E8%AE%B0/"/>
-    <id>http://www.z16388.top/2017/03/18/GJB5369考点笔记/</id>
-    <published>2017-03-18T02:35:42.000Z</published>
-    <updated>2017-04-13T13:25:20.921Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="启用规则"><a href="#启用规则" class="headerlink" title="启用规则"></a>启用规则</h1><ol>
-<li>禁止使用嵌套的注释</li>
-<li>建议不适用单行的注释“//”</li>
-<li>禁止使用不适合的循环变量类型（循环变量类型应为int）</li>
-<li>循环变量必须是局部声明的</li>
-<li>谨慎使用无限循环语句</li>
-<li>避免在循环中使用break语句</li>
-<li>谨慎使用无法控制的循环条件</li>
-<li>禁止对指针变量使用强制类型转换赋值</li>
-<li>谨慎使用其他类型变量给指针赋值</li>
-<li>避免使用不必要的类型转换</li>
-<li>枚举元素的初始化必须完整</li>
-<li>结构体变量初始化的类型必须一致</li>
-<li>结构体变量初始化的嵌套结构必须与定义的相一致</li>
-<li>变量使用前必须被赋过值</li>
-<li>禁止对实数类型的量做是否相等的比较</li>
-<li>禁止逻辑判别的表达式不是逻辑表达式</li>
-<li>switch语句中的表达式禁止是逻辑表达式</li>
-<li>建议逻辑表达式采用显式的表达</li>
-<li>禁止枚举类型中的元素名与已有的变量名同名</li>
-<li>禁止局部变量与全局变量同名</li>
-<li>禁止形参名与全局变量名同名</li>
-<li>禁止形参名与类型或标识符同名</li>
-<li>禁止在内部块中重定义已有的变量名</li>
-<li>禁止复杂表达式中使用volatile类型的变量</li>
-<li>在源程序中谨慎使用非标准字符</li>
-<li>禁止使用预处理操作符#和##</li>
-<li>过程名禁止被重用</li>
-<li>禁止过程或函数中的参数表为空</li>
-<li>禁止在同一个宏中使用多个#或##</li>
-<li>禁止定义不像函数的宏</li>
-<li>禁止在宏中包含不允许的项</li>
-<li>禁止重新定义保留字</li>
-<li>字符型变量必须明确定义是有符号还是无符号</li>
-<li>禁止对一个名字重新定义</li>
-<li>用typedef自定义的类型禁止被重定义</li>
-<li>禁止在同一个文件中有#if而没有#endif</li>
-<li>禁止数组没有边界限定</li>
-<li>标号名禁止被重用</li>
-<li>禁止在#include&lt;&gt;中使用绝对的路径名</li>
-<li>禁止结构体声明不完整</li>
-<li>禁止结构体定义中含有空域</li>
-<li>禁止声明多重标号</li>
-<li>在过程声明中必须对参数说明</li>
-<li>禁止过程参数只有类型没有标识符</li>
-<li>禁止在过程参数表中使用省略号</li>
-<li>禁止重新定义使用C或C++的关键字</li>
-<li>建议使用typedef在统一的变量声明头文件中对基本的变量类型重新定义</li>
-<li>避免将过程定义为参数</li>
-<li>过程中避免使用过多的参数，建议不要超过20个</li>
-<li>在结构体定义中谨慎使用位域</li>
-<li>禁止在块中使用#define或#undef</li>
-<li>谨慎使用#pragma</li>
-<li>谨慎使用联合(union)的声明</li>
-<li>在结构体中谨慎使用无名位域</li>
-<li>main必须定义为int main(void)或int main(int,char*[])的形式</li>
-<li>循环体必须用大括号括起来</li>
-<li>then/else中的语句必须用大括号括起来</li>
-<li>逻辑表达式的连接必须使用括号</li>
-<li>禁止在头文件前有可执行的代码</li>
-<li>宏参数必须用括号括起来</li>
-<li>嵌入汇编程序的过程必须是纯汇编程序</li>
-<li>头文件名禁止使用“‘”,”、”,”\”和”#”等字符</li>
-<li>禁止字符串中单独使用”\”，字符串的终止必须使用”\0”</li>
-<li>建议一个文件中的程序总行不超过200行</li>
-<li>建议一个过程或函数中的程序总行不超过200行</li>
-<li>禁止条件判别成立时相应分支无可执行语句</li>
-<li>在if…else if语句中必须使用else分支</li>
-<li>禁止条件判别的else分支无可执行语句</li>
-<li>在switch语句中必须使用default语句</li>
-<li>禁止使用空switch语句</li>
-<li>禁止switch语句中只包含defau语句</li>
-<li>禁止switch的case语句不是由break终止</li>
-<li>禁止switch的case语句中无任何可执行语句</li>
-<li>禁止将参数指针赋值给过程指针</li>
-<li>禁止将指针的指针超过两级</li>
-<li>禁止将过程声明为指针类型</li>
-<li>谨慎使用指针的逻辑比较</li>
-<li>谨慎对指针进行代数运算</li>
-<li>禁止直接从过程中跳出</li>
-<li>禁止使用goto语句</li>
-<li>避免使用setimp/longimp</li>
-<li>禁止在非赋值表达式中出现赋值操作符</li>
-<li>禁止对常数值做逻辑非的运算</li>
-<li>禁止对有符号类型使用位运算</li>
-<li>禁止对枚举类型的越限使用</li>
-<li>禁止在逻辑表达式中使用赋值操作福</li>
-<li>禁止赋值操作符与“&amp;&amp;”，“||”连用</li>
-<li>禁止位操作符带有布尔型的操作数</li>
-<li>禁止位操作符作用于布尔值</li>
-<li>数组的使用必须保证不会出现越界</li>
-<li>禁止对有符号的类型进行位运算</li>
-<li>对变量进行位运算必须保证不会产生溢出</li>
-<li>禁止给无符号变量赋负值</li>
-<li>有符号类型的长度必须大于等于两位</li>
-<li>位的定义必须是由符号整数或无符号整数</li>
-<li>禁止给变量赋的值与变量的类型不一致</li>
-<li>赋值类型必须匹配</li>
-<li>避免使用逗号操作符</li>
-<li>谨防长度操作符sizeof的副作用</li>
-<li>谨慎使用不同类型变量的混合运算</li>
-<li>避免由于设计的原因导致某些代码不能执行</li>
-<li>主过程所在的文件中禁止有未被该文件中任何过程调用的子过程</li>
-<li>static类型的过程在所在的文件中必须被调用</li>
-<li>禁止使用被禁用的过程、函数、文件或名称</li>
-<li>禁止用一个表达式中调用多个相关函数</li>
-<li>禁止void类型的变量作为参数进行传递</li>
-<li>禁止实参和形参类型不一致</li>
-<li>避免过程参数在过程调用中未被使用</li>
-<li>避免以非调用方式使用函数</li>
-<li>谨慎使用abort，exit等函数</li>
-<li>禁止单独使用小写字母”i”或大写字母”O”作为变量名</li>
-<li>禁止三字母词的使用</li>
-<li>使用八进制数必须加以注释</li>
-<li>避免使用”+=”或”-=”操作符</li>
-<li>谨慎使用”++”或”–”操作符</li>
-<li>避免使用continue语句</li>
-<li>谨慎使用三重表达式</li>
-<li>避免使用不起作用的语句</li>
-<li>避免使用空语句</li>
-<li>谨慎使用寄存器变量</li>
-<li>避免使用老的参数表的定义形式</li>
-<li>函数必须有返回语句</li>
-<li>禁止void类型的过程中的return语句带有返回值</li>
-<li>有返回值的函数中，return必须带有返回值</li>
-<li>函数返回类型必须一致</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;启用规则&quot;&gt;&lt;a href=&quot;#启用规则&quot; class=&quot;headerlink&quot; title=&quot;启用规则&quot;&gt;&lt;/a&gt;启用规则&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;禁止使用嵌套的注释&lt;/li&gt;
-&lt;li&gt;建议不适用单行的注释“//”&lt;/li&gt;
-&lt;li&gt;禁止使用不适合的循环变量类
-    
-    </summary>
-    
-    
-      <category term="GJB5369" scheme="http://www.z16388.top/tags/GJB5369/"/>
-    
-      <category term="软件测试" scheme="http://www.z16388.top/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
