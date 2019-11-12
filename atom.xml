@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2019-11-12T13:23:21.402Z</updated>
+  <updated>2019-11-12T13:28:07.569Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://www.z16388.top/2019/11/12/most_wechat/"/>
     <id>http://www.z16388.top/2019/11/12/most_wechat/</id>
     <published>2019-11-12T13:15:53.000Z</published>
-    <updated>2019-11-12T13:23:21.402Z</updated>
+    <updated>2019-11-12T13:28:07.569Z</updated>
     
-    <content type="html"><![CDATA[<p>之前因为需求找到了这个超级好用的微信爬虫工具<a href="https://github.com/striver-ing/wechat-spider" target="_blank" rel="external">https://github.com/striver-ing/wechat-spider</a>，目前已经开源。工具可以很方便地实现爬取微信文章，获取点赞、评论等功能。需要注意的是，目前微信已经针对文章历史接口做了调整：PC版限制了爬取的次数，访问间隔应该控制在8分钟以上，移动端则是在两个月前直接干掉了这个功能。文章评论则没有改变。</p>
-<p>因此，这个工具目前最好的使用方式就是多开，分别爬不同的文章，再单开一个用来爬需要爬的评论。</p>
+    <content type="html"><![CDATA[<p>之前因为需求找到了这个超级好用的微信爬虫工具<a href="https://github.com/striver-ing/wechat-spider" target="_blank" rel="external">https://github.com/striver-ing/wechat-spider</a>，目前已经开源。工具可以很方便地实现爬取微信文章，获取点赞、评论等功能。</p>
+<p>最近，微信针对文章历史接口做了调整：PC版限制了爬取的次数，访问间隔应该控制在8分钟以上，移动端则是在两个月前直接干掉了这个功能。文章评论则没有改变。因此，这个工具目前最好的使用方式就是多开，分别爬不同的文章，再单开一个用来爬需要爬的评论。</p>
 <p>工具的具体使用方法在原工程中都有提到，这里就不再赘述了。</p>
 <p>在工具的使用方法中，我们知道，作者是使用全局代理，将所有的https消息都强制走了本机的8080端口，然后通过Python的mitmproxy来截取消息内容来实现的这个工具。那么，我可以使用局部代理，将制定的微信客户端，走制定端口，即可实现工具的多开。</p>
 <p>有了这个思路，那么我们就只需要解决两个问题：</p>
