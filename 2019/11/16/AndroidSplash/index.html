@@ -30,30 +30,27 @@
     
     <meta name="keywords" content="Android">
     <meta name="description" content="去年在接入安卓SDK时，会有部分渠道有要求手写闪屏的情况，下面是当时的笔记，这只是最简单的一种方法。
-创建安卓应用闪屏参考资料：
-很好的例子：
+参考资料：很好的例子：
 https://www.jianshu.com/p/a609f510b19a
 https://blog.csdn.net/l799069596/article/details/47094731
-安卓动画：https://blog.csdn.net/IO_F">
+安卓动画：https://blog.csdn.net/IO_Field/arti">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安卓应用闪屏">
 <meta property="og:url" content="http://www.z16388.top/2019/11/16/AndroidSplash/index.html">
 <meta property="og:site_name" content="崎径 其镜">
 <meta property="og:description" content="去年在接入安卓SDK时，会有部分渠道有要求手写闪屏的情况，下面是当时的笔记，这只是最简单的一种方法。
-创建安卓应用闪屏参考资料：
-很好的例子：
+参考资料：很好的例子：
 https://www.jianshu.com/p/a609f510b19a
 https://blog.csdn.net/l799069596/article/details/47094731
-安卓动画：https://blog.csdn.net/IO_F">
-<meta property="og:updated_time" content="2019-11-16T13:40:09.264Z">
+安卓动画：https://blog.csdn.net/IO_Field/arti">
+<meta property="og:updated_time" content="2019-11-16T13:41:45.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安卓应用闪屏">
 <meta name="twitter:description" content="去年在接入安卓SDK时，会有部分渠道有要求手写闪屏的情况，下面是当时的笔记，这只是最简单的一种方法。
-创建安卓应用闪屏参考资料：
-很好的例子：
+参考资料：很好的例子：
 https://www.jianshu.com/p/a609f510b19a
 https://blog.csdn.net/l799069596/article/details/47094731
-安卓动画：https://blog.csdn.net/IO_F">
+安卓动画：https://blog.csdn.net/IO_Field/arti">
     
         <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
     
@@ -196,7 +193,7 @@ https://blog.csdn.net/l799069596/article/details/47094731
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#创建安卓应用闪屏"><span class="post-toc-number">1.</span> <span class="post-toc-text">创建安卓应用闪屏</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料："><span class="post-toc-number">1.</span> <span class="post-toc-text">参考资料：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#背景："><span class="post-toc-number">2.</span> <span class="post-toc-text">背景：</span></a></li></ol>
         </nav>
     </aside>
     
@@ -220,13 +217,11 @@ https://blog.csdn.net/l799069596/article/details/47094731
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>去年在接入安卓SDK时，会有部分渠道有要求手写闪屏的情况，下面是当时的笔记，这只是最简单的一种方法。</p>
-<h1 id="创建安卓应用闪屏"><a href="#创建安卓应用闪屏" class="headerlink" title="创建安卓应用闪屏"></a>创建安卓应用闪屏</h1><p>参考资料：</p>
-<p>很好的例子：</p>
+<h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1><p>很好的例子：</p>
 <p><a href="https://www.jianshu.com/p/a609f510b19a" target="_blank" rel="external">https://www.jianshu.com/p/a609f510b19a</a></p>
 <p><a href="https://blog.csdn.net/l799069596/article/details/47094731" target="_blank" rel="external">https://blog.csdn.net/l799069596/article/details/47094731</a></p>
 <p>安卓动画：<a href="https://blog.csdn.net/IO_Field/article/details/53101499" target="_blank" rel="external">https://blog.csdn.net/IO_Field/article/details/53101499</a></p>
-<p>背景：</p>
-<p>除去游戏本身的闪屏之外，有的渠道会要求，有额外的渠道闪屏。为了使用一套资源出不同渠道包，我们可以对接渠道的AS工程进行处理，单独设置闪屏。</p>
+<h1 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h1><p>除去游戏本身的闪屏之外，有的渠道会要求，有额外的渠道闪屏。为了使用一套资源出不同渠道包，我们可以对接渠道的AS工程进行处理，单独设置闪屏。</p>
 <p>首先，创建一个闪屏Activity，为你的主Activity，这样在游戏的一开始你就可以看到闪屏了。</p>
 <p>这里需要注意的是，你原先的Activit也需要在Manifest中注册打开日志，否则在打包的时候会找不到，报错：</p>
 <p><a href="https://blog.csdn.net/qq_28301007/article/details/52265775" target="_blank" rel="external">https://blog.csdn.net/qq_28301007/article/details/52265775</a></p>
@@ -246,7 +241,7 @@ https://blog.csdn.net/l799069596/article/details/47094731
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-11-16T13:40:09.264Z" itemprop="dateUpdated">2019-11-16 21:40:09</time>
+    最后更新时间：<time datetime="2019-11-16T13:41:45.264Z" itemprop="dateUpdated">2019-11-16 21:41:45</time>
 </span><br>
 
 
@@ -326,7 +321,14 @@ https://blog.csdn.net/l799069596/article/details/47094731
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/11/16/mysqltimeout/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">当你的程序连接Mysql然后崩溃时</h4>
+      </a>
+    </div>
   
 
   

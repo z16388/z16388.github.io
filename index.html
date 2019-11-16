@@ -172,6 +172,149 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-jssplice"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-16 21:59:56" datetime="2019-11-16T13:59:56.000Z"  itemprop="datePublished">2019-11-16</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/16/jssplice/">JS使用Splice()函数操作数组</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        在js的使用过程中，有一次需要对数组进行各种操作，一时间迫使我想要去使用链表。后来通过查阅资料，总结了下面的一些方法，主要使用了splice()函数。
+下面的方法主要是使用下标进行操作。如果是用值的话，可以通过indexOf()函数来获取下标。若不存在则返回-1。
+值交换
+1234function swap_arr(a_list, index1, index2) &#123;    a_li...
+    
+
+        <a href="/2019/11/16/jssplice/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-jsreplace"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-16 21:59:56" datetime="2019-11-16T13:59:56.000Z"  itemprop="datePublished">2019-11-16</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/16/jsreplace/">JS使用replace()函数全部替换</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        在处理爬虫爬取下来的数据时，遇到了在文字中出现了经过转义的换行符，在文中显示出了\n，很影响观赏效果。因此，我对内容做了处理。
+但是在刷库的过程中，我发现，我总不能一次处理完所有的数据。后来发现是JavaScript的Replace函数的问题，这个函数默认只能替换第一个匹配到的项目。如果需要处理全部的，需要使用正则表达式：
+1string.replace(/\\n/g, "\n")
+除此之外...
+    
+
+        <a href="/2019/11/16/jsreplace/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-mysqltimeout"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-11-16 21:43:56" datetime="2019-11-16T13:43:56.000Z"  itemprop="datePublished">2019-11-16</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/16/mysqltimeout/">当你的程序连接Mysql然后崩溃时</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        之前写过一个监控mysql数据库更新状态的预警程序，总是莫名其妙的报一个连接错误的错，然后程序死掉。后来在系统趋于稳定之后，我就没再继续维护这个工具了。
+但是最近我在写另一个工具时，遇到了一个奇怪的问题，就是：tick总在27000多左右的时候崩溃。
+我进行了一系列的猜测，比如tick的代码，或者是逻辑有问题，最后我把思路放在了之前遇到的这个错误上。查阅资料后发现，MySQL数据库在连接之后...
+    
+
+        <a href="/2019/11/16/mysqltimeout/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-AndroidSplash"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -199,11 +342,10 @@
 
     
         去年在接入安卓SDK时，会有部分渠道有要求手写闪屏的情况，下面是当时的笔记，这只是最简单的一种方法。
-创建安卓应用闪屏参考资料：
-很好的例子：
+参考资料：很好的例子：
 https://www.jianshu.com/p/a609f510b19a
 https://blog.csdn.net/l799069596/article/details/47094731
-安卓动画：https://blog.csdn.net/I...
+安卓动画：https://blog.csdn.net/IO_Field/a...
     
 
         <a href="/2019/11/16/AndroidSplash/" class="post-more waves-effect waves-button">
@@ -497,179 +639,6 @@ https://blog.csdn.net/l799069596/article/details/47094731
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-music"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-06-26 22:03:05" datetime="2018-06-26T14:03:05.000Z"  itemprop="datePublished">2018-06-26</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/06/26/music/">乐理笔记</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        基础知识调式&emsp;&emsp;调式分为升号调与降号调，升号调中的黑键用升号表示，降号调中的黑键用降号表示。
-
-
-
-升号调
-降号调
-
-
-
-
-G、D、A、E、B、F#、C#
-F、Bb、Eb、Ab、Db、Gb、Cb
-
-
-
-&emsp;&emsp;调子中的7个音，下面从左往右，越往右越不稳定：
-
-
-
-稳定音
-不稳定音
-
-
-
-
-1 5 3
-6 2 4 7
-
-
-
-&emsp;&emsp;不稳定音总...
-    
-
-        <a href="/2018/06/26/music/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-midiff"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-06-17 18:16:20" datetime="2018-06-17T10:16:20.000Z"  itemprop="datePublished">2018-06-17</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/06/17/midiff/">关于最终幻想14演奏系统的解决方案</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        MIDI键盘映射
-目前键盘映射不能使用组合键，4.3版本更新之后可使用。
-
-下载安装&emsp;&emsp;最终幻想14更新了4.20版本。在这个版本中，诗人的演奏系统做出了一定的更改，小键盘党的我直接报警了。最后我决定放弃这个“邪门歪道”，直接使用电钢琴进行映射，实现演奏功能。
-&emsp;&emsp;在这里，使用到了一个MIDI键盘映射软件：Bome’s Midi Translator。...
-    
-
-        <a href="/2018/06/17/midiff/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AutoHotkey/">AutoHotkey</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MIDI/">MIDI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游戏/">游戏</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-daoyin"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-03-13 14:11:43" datetime="2018-03-13T06:11:43.000Z"  itemprop="datePublished">2018-03-13</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/03/13/daoyin/">系统导引修改</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        &emsp;&emsp;寒假的时候给电脑换了个系统，出现了原系统导引没有删除的问题。因为是不同的系统，所以还是比较容易能够分辨的。
-
-右键“此电脑”-&gt;属性-&gt;高级系统设置-&gt;高级-&gt;启动和故障恢复-&gt;设置-&gt;默认操作系统
-
-&emsp;&emsp;在这里可以根据需求进行更改，修改多系统选择时间，还是默认进入哪一个。但是Win10的兼容性不是很好，我的外置...
-    
-
-        <a href="/2018/03/13/daoyin/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统/">系统</a></li></ul>
 
     </div>
     
