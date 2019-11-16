@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2019-11-16T14:00:02.652Z</updated>
+  <updated>2019-11-16T14:03:21.249Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS使用replace()函数全部替换</title>
+    <link href="http://www.z16388.top/2019/11/16/jsreplace/"/>
+    <id>http://www.z16388.top/2019/11/16/jsreplace/</id>
+    <published>2019-11-16T14:03:56.000Z</published>
+    <updated>2019-11-16T14:03:21.249Z</updated>
+    
+    <content type="html"><![CDATA[<p>在处理爬虫爬取下来的数据时，遇到了在文字中出现了经过转义的换行符，在文中显示出了\n，很影响观赏效果。因此，我对内容做了处理。</p>
+<p>但是在刷库的过程中，我发现，我总不能一次处理完所有的数据。后来发现是JavaScript的Replace函数的问题，这个函数默认只能替换第一个匹配到的项目。如果需要处理全部的，需要使用正则表达式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">string.replace(<span class="regexp">/\\n/g</span>, <span class="string">"\n"</span>)</div></pre></td></tr></table></figure>
+<p>除此之外，下面是一些处理爬取内容常用操作，包含了html的转义：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">string.replace(<span class="regexp">/&amp;nbsp;/g</span>, <span class="string">' '</span>)</div><div class="line">string.replace(<span class="regexp">/&amp;lt;/g</span>, <span class="string">'&lt;'</span>)</div><div class="line">string.replace(<span class="regexp">/&amp;gt;/g</span>, <span class="string">'&gt;'</span>)</div><div class="line">string.replace(<span class="regexp">/&amp;amp;/g</span>, <span class="string">'&amp;'</span>)</div><div class="line">string.replace(<span class="regexp">/&amp;quot;/g</span>, <span class="string">'"'</span>)</div><div class="line">   string.replace(<span class="regexp">/&amp;#x3D;/g</span>, <span class="string">'='</span>)</div><div class="line">   string.replace(<span class="regexp">/\[.*?\]/g</span>,<span class="string">''</span>)</div><div class="line">   string.replace(<span class="string">"\\n"</span>,<span class="string">"\n"</span>)</div><div class="line">   string.replace(<span class="string">"\\t"</span>,<span class="string">""</span>)</div><div class="line">   string.replace(<span class="string">"\\r"</span>,<span class="string">""</span>)</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在处理爬虫爬取下来的数据时，遇到了在文字中出现了经过转义的换行符，在文中显示出了\n，很影响观赏效果。因此，我对内容做了处理。&lt;/p&gt;
+&lt;p&gt;但是在刷库的过程中，我发现，我总不能一次处理完所有的数据。后来发现是JavaScript的Replace函数的问题，这个函数默认只能
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://www.z16388.top/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>JS使用Splice()函数操作数组</title>
@@ -41,31 +66,6 @@
     
       &lt;p&gt;在js的使用过程中，有一次需要对数组进行各种操作，一时间迫使我想要去使用链表。后来通过查阅资料，总结了下面的一些方法，主要使用了splice()函数。&lt;/p&gt;
 &lt;p&gt;下面的方法主要是使用下标进行操作。如果是用值的话，可以通过&lt;code&gt;indexOf()&lt;/code&gt;函数来
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://www.z16388.top/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS使用replace()函数全部替换</title>
-    <link href="http://www.z16388.top/2019/11/16/jsreplace/"/>
-    <id>http://www.z16388.top/2019/11/16/jsreplace/</id>
-    <published>2019-11-16T13:59:56.000Z</published>
-    <updated>2019-11-16T14:01:28.852Z</updated>
-    
-    <content type="html"><![CDATA[<p>在处理爬虫爬取下来的数据时，遇到了在文字中出现了经过转义的换行符，在文中显示出了\n，很影响观赏效果。因此，我对内容做了处理。</p>
-<p>但是在刷库的过程中，我发现，我总不能一次处理完所有的数据。后来发现是JavaScript的Replace函数的问题，这个函数默认只能替换第一个匹配到的项目。如果需要处理全部的，需要使用正则表达式：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">string.replace(<span class="regexp">/\\n/g</span>, <span class="string">"\n"</span>)</div></pre></td></tr></table></figure>
-<p>除此之外，下面是一些处理爬取内容常用操作，包含了html的转义：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">string.replace(<span class="regexp">/&amp;nbsp;/g</span>, <span class="string">' '</span>)</div><div class="line">string.replace(<span class="regexp">/&amp;lt;/g</span>, <span class="string">'&lt;'</span>)</div><div class="line">string.replace(<span class="regexp">/&amp;gt;/g</span>, <span class="string">'&gt;'</span>)</div><div class="line">string.replace(<span class="regexp">/&amp;amp;/g</span>, <span class="string">'&amp;'</span>)</div><div class="line">string.replace(<span class="regexp">/&amp;quot;/g</span>, <span class="string">'"'</span>)</div><div class="line">   string.replace(<span class="regexp">/&amp;#x3D;/g</span>, <span class="string">'='</span>)</div><div class="line">   string.replace(<span class="regexp">/\[.*?\]/g</span>,<span class="string">''</span>)</div><div class="line">   string.replace(<span class="string">"\\n"</span>,<span class="string">"\n"</span>)</div><div class="line">   string.replace(<span class="string">"\\t"</span>,<span class="string">""</span>)</div><div class="line">   string.replace(<span class="string">"\\r"</span>,<span class="string">""</span>)</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在处理爬虫爬取下来的数据时，遇到了在文字中出现了经过转义的换行符，在文中显示出了\n，很影响观赏效果。因此，我对内容做了处理。&lt;/p&gt;
-&lt;p&gt;但是在刷库的过程中，我发现，我总不能一次处理完所有的数据。后来发现是JavaScript的Replace函数的问题，这个函数默认只能
     
     </summary>
     
