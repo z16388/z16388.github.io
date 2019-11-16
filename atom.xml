@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2019-11-12T15:13:25.279Z</updated>
+  <updated>2019-11-16T13:14:11.710Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux环境下的Apk解包工具</title>
+    <link href="http://www.z16388.top/2019/11/16/Androidapkandlinux/"/>
+    <id>http://www.z16388.top/2019/11/16/Androidapkandlinux/</id>
+    <published>2019-11-16T13:06:56.000Z</published>
+    <updated>2019-11-16T13:14:11.710Z</updated>
+    
+    <content type="html"><![CDATA[<p>关于对Apk的解包和打包，我做过三种。在之前的一篇文章中，我给出了使用bat脚本解包的代码，<a href="http://z16388.github.io/2018/10/21/cmdapk/" target="_blank" rel="external">http://z16388.github.io/2018/10/21/cmdapk/</a>下面是sh脚本的版本。除此之外还有Python的版本。这些工具的原理都是相同的，只是环境不同，以应对不同的需求。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>和在其他环境下进行安卓apk的打包解包一样，我们需要使用java中的jarsigner工具进行签名操作。以CentOS为例，使用yum安装openjdk：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum search jdk</div><div class="line">yum install java-1.6.0-openjdk.x86_64</div><div class="line">yum install java-1.6.0-openjdk-devel.x86_64</div></pre></td></tr></table></figure>
+<h1 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h1><p>脚本的思路相同。先将apk文件解包，修改文件之后，先删除原先的签名文件，再进行打包签名操作。<br>同样，打包解包可以使用apktool进行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">if [ $# != 3 ]</div><div class="line">then</div><div class="line">    echo &quot;The number of parameter is not correct !&quot;</div><div class="line">else</div><div class="line">    fileName=$1</div><div class="line">    outPath=$2</div><div class="line">    tracker=$3</div><div class="line">    if [ ! -f $fileName ]                                                                                                          </div><div class="line">    then</div><div class="line">        echo &quot;The apk file is not found !&quot;</div><div class="line">    else</div><div class="line">        if [ -d $tracker ]</div><div class="line">        then</div><div class="line">            rm -rf $tracker</div><div class="line">            echo &quot;Delet mid file success&quot;</div><div class="line">        fi</div><div class="line">        unzip $fileName -d $tracker</div><div class="line">        rm -rf $tracker&quot;/META-INF&quot;</div><div class="line"></div><div class="line">        /* 这里写对包内文件的修改*/</div><div class="line"></div><div class="line">        zip -r ../trans.apk ./*</div><div class="line">        cd ..</div><div class="line">        jarsigner -verbose -keystore [keystore path] -storepass [pass] -keypass [pass] -signedjar [out apk name] [current apk name] [alias name]</div><div class="line">        if [ -f trans.apk ]</div><div class="line">        then</div><div class="line">            rm -rf trans.apk</div><div class="line">        fi</div><div class="line">        if [ -d $tracker ]</div><div class="line">        then</div><div class="line">            rm -rf $tracker</div><div class="line">            echo &quot;Delet mid file success&quot;</div><div class="line">        fi</div><div class="line">    fi</div><div class="line">fi</div></pre></td></tr></table></figure>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>Windows上写好的.sh脚本，需要在Linux上更改编码格式才能使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">:set fileformat=unix</div><div class="line">:wq</div></pre></td></tr></table></figure>
+<h1 id="shell脚本参考文献"><a href="#shell脚本参考文献" class="headerlink" title="shell脚本参考文献"></a>shell脚本参考文献</h1><p><a href="https://www.cnblogs.com/handsomecui/p/5869361.html" target="_blank" rel="external">https://www.cnblogs.com/handsomecui/p/5869361.html</a><br><a href="https://www.cnblogs.com/chenduzizhong/p/9041346.html" target="_blank" rel="external">https://www.cnblogs.com/chenduzizhong/p/9041346.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关于对Apk的解包和打包，我做过三种。在之前的一篇文章中，我给出了使用bat脚本解包的代码，&lt;a href=&quot;http://z16388.github.io/2018/10/21/cmdapk/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://www.z16388.top/tags/Android/"/>
+    
+      <category term="Linux" scheme="http://www.z16388.top/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>安卓各渠道SDK接入体验</title>
@@ -1187,53 +1217,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;第八节-从全排列到深度优先搜索算法&quot;&gt;&lt;a href=&quot;#第八节-从全排列到深度优先搜索算法&quot; class=&quot;headerlink&quot; title=&quot;第八节 从全排列到深度优先搜索算法&quot;&gt;&lt;/a&gt;第八节 从全排列到深度优先搜索算法&lt;/h1&gt;&lt;h2 id=&quot;全排列&quot;&gt;
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.top/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.top/tags/ACM%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】2.5数学简单问题</title>
-    <link href="http://www.z16388.top/2017/03/22/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-5%E6%95%B0%E5%AD%A6%E7%AE%80%E5%8D%95%E9%97%AE%E9%A2%98/"/>
-    <id>http://www.z16388.top/2017/03/22/【ACM教程】2-5数学简单问题/</id>
-    <published>2017-03-22T07:25:01.000Z</published>
-    <updated>2017-04-13T13:25:15.894Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第五节-数学简单问题"><a href="#第五节-数学简单问题" class="headerlink" title="第五节 数学简单问题"></a>第五节 数学简单问题</h1><p>&emsp;&emsp;竞赛中的很多题目会考到数学相关的知识，在这一节，我们会挑出一些简单的问题集中讲解。</p>
-<h2 id="最大公约数-最小公倍数"><a href="#最大公约数-最小公倍数" class="headerlink" title="最大公约数/最小公倍数"></a>最大公约数/最小公倍数</h2><p>&emsp;&emsp;首先我们要介绍一个算法，欧几里德算法。欧几里得是著名的古希腊数学家，被称为“几何学之父”，代表作为《几何原本》。</p>
-<p>&emsp;&emsp;欧几里得算法又称辗转相除算法，定理如下：两个整数的最大公约数等于其中较小的那个数和两数相除余数的最大公约数。（最大公约数缩写为gcd）在这里就不作证明了，直接给出代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>  <span class="comment">//最大公约数</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(b==<span class="number">0</span>) <span class="keyword">return</span> a;</div><div class="line">	<span class="keyword">else</span> <span class="keyword">return</span> gcd(b,a%b);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>  <span class="comment">//最小公倍数</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">return</span> a/gcd(a,b)*b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="判断素数"><a href="#判断素数" class="headerlink" title="判断素数"></a>判断素数</h2><p>&emsp;&emsp;什么是素数呢？素数是大于等于2的，只有1和他本身能够整除他的数。要去判断一个数n是否是素数，只要从2到sqrt(n)依次判断即可，代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">su</span><span class="params">(<span class="keyword">int</span> b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=(<span class="keyword">int</span>)<span class="built_in">sqrt</span>(b);i++) &#123;</div><div class="line">        <span class="keyword">if</span>(b%i==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="排列组合打表"><a href="#排列组合打表" class="headerlink" title="排列组合打表"></a>排列组合打表</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> c[N][N];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">com</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">memset</span>(c,<span class="number">0</span>,<span class="keyword">sizeof</span>(c));</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++) &#123;</div><div class="line">		c[i][<span class="number">0</span>]=c[i][i]=<span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;i;j++) &#123;</div><div class="line">			c[i][j]=c[i<span class="number">-1</span>][j]+c[i<span class="number">-1</span>][j<span class="number">-1</span>];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h2><p>&emsp;&emsp;求a的b次幂，我们可以直接使用for循环去做。但是当b很大的时候，就会花费很多时间，这时候需要使用快速幂算法。</p>
-<p>&emsp;&emsp;下面我们就以求a^11为例，介绍一下快速幂算法。</p>
-<ol>
-<li>将11转化为二进制——1011</li>
-<li>分解：11=1*2^3+0*2^2+1*2^1+1*2^0</li>
-<li>将a^11转化为a^(2^3)*a^(2^1)*a^(2^0)</li>
-</ol>
-<p>&emsp;&emsp;代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Fast</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> tem=x,ans=<span class="number">1</span>;</div><div class="line">	<span class="keyword">while</span>(n) &#123;</div><div class="line">		<span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">1</span>) ans*=tem;</div><div class="line">		tem*=tem;</div><div class="line">		n&gt;&gt;=<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="快速幂取模"><a href="#快速幂取模" class="headerlink" title="快速幂取模"></a>快速幂取模</h2><p>&emsp;&emsp;公式：a*b%c=((a%c)*b)%c&emsp;&emsp;(a+b)%c=(a%c+b%c)%c</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">pow</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> ans=<span class="number">1</span>,temp=a%p;</div><div class="line">	<span class="keyword">while</span>(x) &#123;</div><div class="line">		<span class="keyword">if</span>(x&amp;<span class="number">1</span>) ans=((<span class="keyword">long</span> <span class="keyword">long</span>)ans*temp)%p;</div><div class="line">		temp=((<span class="keyword">long</span> <span class="keyword">long</span>)temp*temp)%p;</div><div class="line">		x&gt;&gt;=<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="十进制转换为x进制"><a href="#十进制转换为x进制" class="headerlink" title="十进制转换为x进制"></a>十进制转换为x进制</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">trans</span><span class="params">(<span class="keyword">int</span> num,<span class="keyword">int</span> base)</span> </span>&#123;</div><div class="line">	<span class="built_in">string</span> str;</div><div class="line">	<span class="keyword">while</span>(num&gt;<span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">if</span>(num%base&lt;<span class="number">10</span>) &#123;</div><div class="line">			str+=num%base+<span class="string">'0'</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> &#123;</div><div class="line">			str+=num%base<span class="number">-10</span>+<span class="string">'A'</span>;</div><div class="line">		&#125;</div><div class="line">		num=num/base;</div><div class="line">	&#125;</div><div class="line">	reverse(str.begin(),str.end());</div><div class="line">	<span class="keyword">return</span> str;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="常用的数学公式"><a href="#常用的数学公式" class="headerlink" title="常用的数学公式"></a>常用的数学公式</h2><p>等差数列求和公式：</p>
-<p>Sn=n*a1+n(n-1)d/2<br>Sn=n(a1+an)/2</p>
-<p>等比数列求和公式：</p>
-<p>Sn=a1(1-q^n)/(1-q)</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第五节-数学简单问题&quot;&gt;&lt;a href=&quot;#第五节-数学简单问题&quot; class=&quot;headerlink&quot; title=&quot;第五节 数学简单问题&quot;&gt;&lt;/a&gt;第五节 数学简单问题&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;竞赛中的很多题目会考到数学相关的知识，在这一节，我们
     
     </summary>
     
