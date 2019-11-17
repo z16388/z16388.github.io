@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2019-11-17T10:12:59.064Z</updated>
+  <updated>2019-11-17T10:17:31.629Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>Pyinstaller报错&quot;an integer is required (got type bytes)&quot;</title>
-    <link href="http://www.z16388.top/2019/11/17/pyinstallererror/"/>
-    <id>http://www.z16388.top/2019/11/17/pyinstallererror/</id>
+    <link href="http://www.z16388.top/2019/11/17/pyinstaller/"/>
+    <id>http://www.z16388.top/2019/11/17/pyinstaller/</id>
     <published>2019-11-17T10:08:44.000Z</published>
-    <updated>2019-11-17T10:12:59.064Z</updated>
+    <updated>2019-11-17T10:17:31.629Z</updated>
     
     <content type="html"><![CDATA[<p>今天在新的环境打包Python程序时，出现了这个奇怪的错误。查阅资料之后发现，直接使用<code>pip install pyinstaller</code>安装的会造成这个问题，需要指定安装目录，从github安装这个工具。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz</div></pre></td></tr></table></figure>]]></content>
