@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2019-11-16T14:03:21.249Z</updated>
+  <updated>2019-11-17T10:12:59.064Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Pyinstaller报错&quot;an integer is required (got type bytes)&quot;</title>
+    <link href="http://www.z16388.top/2019/11/17/pyinstallererror/"/>
+    <id>http://www.z16388.top/2019/11/17/pyinstallererror/</id>
+    <published>2019-11-17T10:08:44.000Z</published>
+    <updated>2019-11-17T10:12:59.064Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天在新的环境打包Python程序时，出现了这个奇怪的错误。查阅资料之后发现，直接使用<code>pip install pyinstaller</code>安装的会造成这个问题，需要指定安装目录，从github安装这个工具。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天在新的环境打包Python程序时，出现了这个奇怪的错误。查阅资料之后发现，直接使用&lt;code&gt;pip install pyinstaller&lt;/code&gt;安装的会造成这个问题，需要指定安装目录，从github安装这个工具。&lt;/p&gt;
+&lt;figure class=&quot;high
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://www.z16388.top/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>JS使用replace()函数全部替换</title>
@@ -1132,78 +1154,6 @@
     
     
       <category term="QT" scheme="http://www.z16388.top/tags/QT/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数学模型中的Huntington除数法</title>
-    <link href="http://www.z16388.top/2017/05/19/Huntington/"/>
-    <id>http://www.z16388.top/2017/05/19/Huntington/</id>
-    <published>2017-05-19T14:36:44.000Z</published>
-    <updated>2017-05-22T10:42:40.359Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>本篇博客请结合《数学模型（第四版）》，姜启源版教材第八章第四节内容阅读。</p>
-</blockquote>
-<p>&emsp;&emsp;在处理席位分析问题时，常使用Huntington除数法来进行处理。在书中279~281的学习中，我们了解到了怎样去比较一个分配结果的不公平度，以及一个较惯例分配法更加公平的“Q值法”。那么，下面我将介绍一种处理这类问题的通用方法，Huntington除数法。</p>
-<p>&emsp;&emsp;Edward Vermilye Huntington(1874~1952)，1922年获得哈佛大学博士学位。20世纪20年代，他对这个问题做了具体的研究，提出了一系列的席位分配方法。之前介绍过的“Q值法”，也作为其中的一种情况，包含在内。</p>
-<p>&emsp;&emsp;假设共有<code>m</code>方分配<code>N</code>个席位，第<code>i</code>方的人数记为<code>pi</code>,<code>ni</code>表示第<code>i</code>方分配的席位数，且均为非负整数。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Huntington除数法</th>
-<th style="text-align:center">除数&emsp;d(n)</th>
-<th style="text-align:center">不公平度的度量指标(假定pi/ni&gt;pj/nj)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">最大除数法(GD)</td>
-<td style="text-align:center">n+1</td>
-<td style="text-align:center">(nj-pi)/pj-ni</td>
-</tr>
-<tr>
-<td style="text-align:center">主要分数法(MF)</td>
-<td style="text-align:center">n+1/2</td>
-<td style="text-align:center">(nj/pj)-(ni-pi)</td>
-</tr>
-<tr>
-<td style="text-align:center">相等比例法(EP)</td>
-<td style="text-align:center">sqrt(n(n+1))</td>
-<td style="text-align:center">(njpi)/(nipj)-1</td>
-</tr>
-<tr>
-<td style="text-align:center">调和平均法(HM)</td>
-<td style="text-align:center">2n(n+1)/(2n+1)</td>
-<td style="text-align:center">pi/ni-pj/nj</td>
-</tr>
-<tr>
-<td style="text-align:center">最小除数法(SD)</td>
-<td style="text-align:center">n</td>
-<td style="text-align:center">nj-nipj/pi</td>
-</tr>
-</tbody>
-</table>
-<p>&emsp;&emsp;下面是这个方法的思路：首先，我们对每一方都分配一个席位，然后利用选定的衡量指标，计算出每一方的不公平度。给最大的那一组，分配一个席位，然后继续计算，直到将所有席位分配完毕。一般情况下，在使用Huntington除数法时，通常在各方自动分得1席的基础上在做分配，除非在各方人数悬殊且席位数较少的时候。</p>
-<p>&emsp;&emsp;由于在计算的过程中，采用了每增加1席计算一次的方式，因此不会出现席位悖论和人口悖论。</p>
-<p>&emsp;&emsp;下面是C语言写的Huntington算法。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> w;</div><div class="line">FILE *fin=fopen(<span class="string">"in.txt"</span>,<span class="string">"r"</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">dn</span><span class="params">(<span class="keyword">int</span> n)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">switch</span>(w)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">case</span> <span class="number">1</span>:<span class="keyword">return</span> n+<span class="number">1.0</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">2</span>:<span class="keyword">return</span> n+<span class="number">0.5</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">3</span>:<span class="keyword">return</span> <span class="built_in">sqrt</span>(n*(n+<span class="number">1.0</span>));</div><div class="line">        <span class="keyword">case</span> <span class="number">4</span>:<span class="keyword">return</span> <span class="number">2</span>*n*(n+<span class="number">1.0</span>)/(<span class="number">2</span>*n+<span class="number">1</span>);</div><div class="line">        <span class="keyword">case</span> <span class="number">5</span>:<span class="keyword">return</span> n;</div><div class="line">        <span class="keyword">default</span>:<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Huntington</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> s,flag=<span class="number">0</span>,bh=<span class="number">1</span>;</div><div class="line">    <span class="keyword">double</span> p[<span class="number">6</span>],pd[<span class="number">6</span>];</div><div class="line">    <span class="keyword">int</span> n[<span class="number">6</span>];</div><div class="line">    <span class="keyword">double</span> max_pd;</div><div class="line">    <span class="built_in">fscanf</span>(fin,<span class="string">"%d"</span>,&amp;s);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">fscanf</span>(fin,<span class="string">"%lf"</span>,&amp;p[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)</div><div class="line">    &#123;</div><div class="line">        n[i]=<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">while</span>(n[<span class="number">1</span>]+n[<span class="number">2</span>]+n[<span class="number">3</span>]+n[<span class="number">4</span>]+n[<span class="number">5</span>]!=s)</div><div class="line">    &#123;</div><div class="line">        flag=<span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)</div><div class="line">        &#123;</div><div class="line">            pd[i] = p[i]/dn(n[i]);</div><div class="line">        &#125;</div><div class="line">        max_pd = p[<span class="number">1</span>]/dn(n[<span class="number">1</span>]);</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=<span class="number">5</span>;i++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span>(pd[i]&gt;max_pd)</div><div class="line">            &#123;</div><div class="line">                flag = i,max_pd = pd[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        n[flag]++;</div><div class="line"></div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"第"</span>&lt;&lt;bh++&lt;&lt;<span class="string">"次："</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)</div><div class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"p/di="</span>&lt;&lt;pd[i]&lt;&lt;<span class="string">"  n="</span>&lt;&lt;n[i]&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"--------------------"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">printList</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"#请选择需要模拟的权重函数#"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"1.最大除数法(GD)"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"2.主要分数法(MF)"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"3.相等比例法(EP)"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"4.调和平均法(HM)"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"5.最小除数法(SD)"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"--------------------"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"退出请输入0"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">select</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    printList();</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;w) &#123;</div><div class="line">        <span class="keyword">switch</span> (w)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">case</span> <span class="number">1</span>:<span class="keyword">case</span> <span class="number">2</span>:<span class="keyword">case</span> <span class="number">3</span>:<span class="keyword">case</span> <span class="number">4</span>:<span class="keyword">case</span> <span class="number">5</span>:</div><div class="line">                Huntington();</div><div class="line">                select();</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">0</span>:fclose(fin);<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="built_in">cout</span>&lt;&lt;<span class="string">"输入错误，请重新输入"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">                <span class="built_in">cout</span>&lt;&lt;<span class="string">"--------------------"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">                select();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    select();</div><div class="line">    fclose(fin);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;GD法偏向于人数多的组，SD法偏向于人数少的组。Huntington推荐偏向适中的EP法，也就是“Q值法”，该方法在1930年后一直在被美国国会众议员席位分配中采用。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本篇博客请结合《数学模型（第四版）》，姜启源版教材第八章第四节内容阅读。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;在处理席位分析问题时，常使用Huntington除数法来进行处理。在书中279~281的学习中，我们了解到了
-    
-    </summary>
-    
-    
-      <category term="数学" scheme="http://www.z16388.top/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-      <category term="数学模型" scheme="http://www.z16388.top/tags/%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   
