@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.z16388.top/"/>
-  <updated>2019-11-17T10:33:15.419Z</updated>
+  <updated>2019-12-01T16:46:00.326Z</updated>
   <id>http://www.z16388.top/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>震惊，JS不加分号会造成错误！？</title>
+    <link href="http://www.z16388.top/2019/12/01/%E9%9C%87%E6%83%8Ajs/"/>
+    <id>http://www.z16388.top/2019/12/01/震惊js/</id>
+    <published>2019-11-30T16:12:19.000Z</published>
+    <updated>2019-12-01T16:46:00.326Z</updated>
+    
+    <content type="html"><![CDATA[<p>在之前的工作中，我遇到了一个奇怪的问题。明明在语法上没有问题，找同事也看了，但是程序依旧会产生奇怪的错误。最后通过一步一步断点，定为了错误位置，才找到了造成这个错误的原因———在一个不需要分号的语言中，句末不加分号居然报错了。</p>
+<p>不卖关子了，这个错误是多返回值函数造成了对上一句值的影响。下面举个例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> [<span class="number">1</span>, <span class="number">2</span>]</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> b = <span class="number">0</span></div><div class="line"><span class="keyword">let</span> c = <span class="number">0</span></div><div class="line"><span class="keyword">let</span> a = <span class="number">3</span></div><div class="line">[b, c] = func();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"a is :"</span> + a)</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"b is :"</span> + b + <span class="string">" c is :"</span> + c)</div></pre></td></tr></table></figure>
+<p>运行的结果将会是这样:</p>
+<blockquote>
+<p>a is :1,2<br>b is :0 c is :0</p>
+</blockquote>
+<p>很容易看到，我们函数的返回值给了上一行的a。这是因为我们的编译器将代码认为了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a = <span class="number">3</span> ,[b, c] = func();</div></pre></td></tr></table></figure>
+<p>避免这种情况，还是要多加分号吧——虽然它并不会报错。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在之前的工作中，我遇到了一个奇怪的问题。明明在语法上没有问题，找同事也看了，但是程序依旧会产生奇怪的错误。最后通过一步一步断点，定为了错误位置，才找到了造成这个错误的原因———在一个不需要分号的语言中，句末不加分号居然报错了。&lt;/p&gt;
+&lt;p&gt;不卖关子了，这个错误是多返回值函
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://www.z16388.top/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>Github图床工具</title>
@@ -1108,32 +1139,6 @@
     
     
       <category term="hexo" scheme="http://www.z16388.top/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>免备案又免费的域名转发</title>
-    <link href="http://www.z16388.top/2018/01/10/urlchange/"/>
-    <id>http://www.z16388.top/2018/01/10/urlchange/</id>
-    <published>2018-01-10T13:47:18.000Z</published>
-    <updated>2018-01-11T03:40:41.463Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;由于.win域名的不稳定，无法备案，无法被搜索引擎收录等问题，我将博客的域名换为同样廉价的.top域名。然而Github Pages只支持一个域名的绑定，这就使我之前的域名变得无法使用。但是我通过各种渠道去宣传，使用这个域名已经很久了，更换起来也比较麻烦。因此，只能维持.win域名，明进行显式的域名转发。</p>
-<p>&emsp;&emsp;万网的域名转发转功能有两个条件，一是必须是万网的域名，二是域名要进行备案。Github Pages无法进行备案，因此不能直接使用万网的解析。</p>
-<p>&emsp;&emsp;经过测试，米发的域名转发功能最方便。<a href="https://www.mfpad.com/" target="_blank" rel="external">https://www.mfpad.com/</a></p>
-<p>&emsp;&emsp;注册账号，添加域名，然后将域名解析到米发分配的CNAME即可。当然，@和www都要进行一次记录。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;由于.win域名的不稳定，无法备案，无法被搜索引擎收录等问题，我将博客的域名换为同样廉价的.top域名。然而Github Pages只支持一个域名的绑定，这就使我之前的域名变得无法使用。但是我通过各种渠道去宣传，使用这个域名已经很久了，更换起来也比较
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://www.z16388.top/tags/hexo/"/>
-    
-      <category term="域名" scheme="http://www.z16388.top/tags/%E5%9F%9F%E5%90%8D/"/>
     
   </entry>
   
