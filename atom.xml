@@ -121,28 +121,6 @@
   </entry>
   
   <entry>
-    <title>Pyinstaller报错&quot;an integer is required (got type bytes)&quot;</title>
-    <link href="http://www.z16388.top/2019/11/17/pyinstaller/"/>
-    <id>http://www.z16388.top/2019/11/17/pyinstaller/</id>
-    <published>2019-11-17T10:08:44.000Z</published>
-    <updated>2019-11-17T10:17:31.629Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天在新的环境打包Python程序时，出现了这个奇怪的错误。查阅资料之后发现，直接使用<code>pip install pyinstaller</code>安装的会造成这个问题，需要指定安装目录，从github安装这个工具。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天在新的环境打包Python程序时，出现了这个奇怪的错误。查阅资料之后发现，直接使用&lt;code&gt;pip install pyinstaller&lt;/code&gt;安装的会造成这个问题，需要指定安装目录，从github安装这个工具。&lt;/p&gt;
-&lt;figure class=&quot;high
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://www.z16388.top/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JS使用replace()函数全部替换</title>
     <link href="http://www.z16388.top/2019/11/16/jsreplace/"/>
     <id>http://www.z16388.top/2019/11/16/jsreplace/</id>
@@ -1142,6 +1120,39 @@
       <category term="hexo" scheme="http://www.z16388.top/tags/hexo/"/>
     
       <category term="markdown" scheme="http://www.z16388.top/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>评论系统Valine的使用</title>
+    <link href="http://www.z16388.top/2018/01/10/valine/"/>
+    <id>http://www.z16388.top/2018/01/10/valine/</id>
+    <published>2018-01-10T14:02:29.000Z</published>
+    <updated>2018-01-10T14:26:26.872Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>&emsp;&emsp;Valine是一款基于Leancloud的快速、简洁且高效的无后端评论系统。</p>
+</blockquote>
+<p>&emsp;&emsp;由于某些原因，博客的一些评论系统被查水表了。忙于考研的原因，一直没有更新评论系统。今天给博客更新了一下主题，也使用了新的评论系统。</p>
+<p>&emsp;&emsp;进入<a href="https://leancloud.cn" target="_blank" rel="external">https://leancloud.cn</a>，点击免费试用，注册账号。根据Valine创建好应用，配置好各种参数即可使用。</p>
+<p>&emsp;&emsp;值得一提的是，头像参数最好设置为<code>‘’<code>，信息参数最好设置为用户名与邮箱。</code></code></p>
+<p>&emsp;&emsp;头像信息在<a href="https://cn.gravatar.com/" target="_blank" rel="external">https://cn.gravatar.com/</a>进行设置。</p>
+<blockquote>
+<p>Gravatar是一图像跟随著您到访过的网站，当您在博客中留言或发表文章，它将会出现在您的名称旁。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;Valine是一款基于Leancloud的快速、简洁且高效的无后端评论系统。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;由于某些原因，博客的一些评论系统被查水表了。忙于考研的原因，一直没有更新评论系统
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://www.z16388.top/tags/hexo/"/>
     
   </entry>
   
