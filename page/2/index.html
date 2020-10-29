@@ -177,6 +177,97 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-unity7"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-10-29 23:00:07" datetime="2019-10-29T15:00:07.000Z"  itemprop="datePublished">2019-10-29</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/10/29/unity7/">U3D问题总结（七） C#</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        .Net与Mono的关系？1mono是.net的一个开源跨平台工具，就类似java虚拟机，java本身不是跨平台语言，但运行在虚拟机上就能够实现了跨平台。.net只能在windows下运行，mono可以实现跨平台跑，可以运行于linux，Unix，Mac OS等。
+C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一种完全面向对象的语言，而C++ 不是，另外C# 是基...
+    
+
+        <a href="/2019/10/29/unity7/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-unity6"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-10-29 23:00:06" datetime="2019-10-29T15:00:06.000Z"  itemprop="datePublished">2019-10-29</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/10/29/unity6/">U3D问题总结（六） 优化</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+    
+
+        <a href="/2019/10/29/unity6/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-unity5"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -203,7 +294,8 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
+        LOD是什么，优缺点(?1LOD(Level of detail)多层次细节，是最常用的游戏优化技术。它按照模型的位置和重要程度决定物体渲染的资源分配，降低非重要物体的面数和细节度，从而获得高效率的渲染运算。缺点是增加了内存。
+MipMap是什么，作用(?1MipMapping：在三维计算机图形的贴图渲染中有常用的技术，为加快渲染进度和减少图像锯齿，贴图被处理成由一系列被预先计算和优化过的图...
     
 
         <a href="/2019/10/29/unity5/" class="post-more waves-effect waves-button">
@@ -248,8 +340,8 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Unity3d中的碰撞器和触发器的区别？123碰撞器是触发器的载体，触发器是碰撞器的属性Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果，调用OnCollisionEnter/Stay/Exit函数Is Trigger=true，碰撞器被物理引擎所忽略，没有碰撞效果，可以调用OnTriggerEnter/Stay/Exit函数
-发生碰撞的必要条件
+        Unity3d中的碰撞器和触发器的区别？12345碰撞器是触发器的载体，触发器是碰撞器的属性Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果此时调用OnCollisionEnter/Stay/Exit函数Is Trigger=true，碰撞器被物理引擎所忽略，没有碰撞效果此时调用OnTriggerEnter/Stay/Exit函数
+发生碰撞的必要条件123两个物体...
     
 
         <a href="/2019/10/29/unity4/" class="post-more waves-effect waves-button">
@@ -294,7 +386,9 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
+        Unity3D支持的作为脚本的语言1C#、JS
+OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生12Awake-&gt;OnEnable-&gt;StartOnEnable可以在同一周期中重复发生
+生命周期1Awake——&gt;OnEnable–&gt;Start——&gt;Update——&gt;FixedUpdate——&gt;LateUpdate...
     
 
         <a href="/2019/10/29/unity3/" class="post-more waves-effect waves-button">
@@ -339,7 +433,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
+        向量的点乘、叉乘以及归一化的意义1231.点乘描述了两个向量的相似程度，结果越大两向量越相似，还可表示投影2.叉乘得到的向量垂直于原来的两个向量3.标准化向量：用在只关系方向，不关心大小的时候
     
 
         <a href="/2019/10/29/unity2/" class="post-more waves-effect waves-button">
@@ -384,7 +478,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
+        结构体和类有何区别1结构体是一种值类型，而类是引用类型。（值类型、引用类型是根据数据存储的角度来分的）就是值类型用于存储数据的值，引用类型用于存储对实际数据的引用。那么结构体就是当成值来使用的，类则通过引用来对实际数据操作
     
 
         <a href="/2019/10/29/unity1/" class="post-more waves-effect waves-button">
@@ -532,127 +626,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-cmdapk"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-10-21 14:24:25" datetime="2018-10-21T06:24:25.000Z"  itemprop="datePublished">2018-10-21</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/10/21/cmdapk/">命令行修改apk工具</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        概述&emsp;&emsp;在前一段时间的工作中，我得到了一个新的任务，写一个命令行工具，修改apk中的某个文件，再进行重新打包。这个过程实际上十分简单：首先，apk文件就是一个zip文件，但是在安装的时候安卓系统会校验签名，因此我们需要对重新打包的apk进行签名。下面是实现这个工具的重难点和具体思路：
-命令行数组&emsp;&emsp;如果想要生成一批apk，他们中需要修改的位置都是相同的...
-    
-
-        <a href="/2018/10/21/cmdapk/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-music"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-06-26 22:03:05" datetime="2018-06-26T14:03:05.000Z"  itemprop="datePublished">2018-06-26</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/06/26/music/">乐理笔记</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        基础知识调式&emsp;&emsp;调式分为升号调与降号调，升号调中的黑键用升号表示，降号调中的黑键用降号表示。
-
-
-
-升号调
-降号调
-
-
-
-
-G、D、A、E、B、F#、C#
-F、Bb、Eb、Ab、Db、Gb、Cb
-
-
-
-&emsp;&emsp;调子中的7个音，下面从左往右，越往右越不稳定：
-
-
-
-稳定音
-不稳定音
-
-
-
-
-1 5 3
-6 2 4 7
-
-
-
-&emsp;&emsp;不稳定音总...
-    
-
-        <a href="/2018/06/26/music/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐/">音乐</a></li></ul>
 
     </div>
     

@@ -34,13 +34,19 @@
     
     
     <meta name="keywords" content="Unity">
-    <meta property="og:type" content="article">
+    <meta name="description" content="LOD是什么，优缺点(?1LOD(Level of detail)多层次细节，是最常用的游戏优化技术。它按照模型的位置和重要程度决定物体渲染的资源分配，降低非重要物体的面数和细节度，从而获得高效率的渲染运算。缺点是增加了内存。
+MipMap是什么，作用(?1MipMapping：在三维计算机图形的贴图渲染中有常用的技术，为加快渲染进度和减少图像锯齿，贴图被处理成由一系列被预先计算和优化过的图片组成">
+<meta property="og:type" content="article">
 <meta property="og:title" content="U3D问题总结（五） 渲染与光照">
 <meta property="og:url" content="http://www.z16388.top/2019/10/29/unity5/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:updated_time" content="2020-10-29T15:51:34.959Z">
+<meta property="og:description" content="LOD是什么，优缺点(?1LOD(Level of detail)多层次细节，是最常用的游戏优化技术。它按照模型的位置和重要程度决定物体渲染的资源分配，降低非重要物体的面数和细节度，从而获得高效率的渲染运算。缺点是增加了内存。
+MipMap是什么，作用(?1MipMapping：在三维计算机图形的贴图渲染中有常用的技术，为加快渲染进度和减少图像锯齿，贴图被处理成由一系列被预先计算和优化过的图片组成">
+<meta property="og:updated_time" content="2020-10-29T16:38:29.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="U3D问题总结（五） 渲染与光照">
+<meta name="twitter:description" content="LOD是什么，优缺点(?1LOD(Level of detail)多层次细节，是最常用的游戏优化技术。它按照模型的位置和重要程度决定物体渲染的资源分配，降低非重要物体的面数和细节度，从而获得高效率的渲染运算。缺点是增加了内存。
+MipMap是什么，作用(?1MipMapping：在三维计算机图形的贴图渲染中有常用的技术，为加快渲染进度和减少图像锯齿，贴图被处理成由一系列被预先计算和优化过的图片组成">
     
         <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
     
@@ -180,6 +186,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#LOD是什么，优缺点"><span class="post-toc-number">1.</span> <span class="post-toc-text">LOD是什么，优缺点(?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MipMap是什么，作用"><span class="post-toc-number">2.</span> <span class="post-toc-text">MipMap是什么，作用(?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是LightMap"><span class="post-toc-number">3.</span> <span class="post-toc-text">什么是LightMap</span></a></li></ol>
+        </nav>
+    </aside>
+    
 <article id="post-unity5"
   class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -199,14 +212,17 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            
+            <h1 id="LOD是什么，优缺点"><a href="#LOD是什么，优缺点" class="headerlink" title="LOD是什么，优缺点(?"></a>LOD是什么，优缺点(?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LOD(Level of detail)多层次细节，是最常用的游戏优化技术。它按照模型的位置和重要程度决定物体渲染的资源分配，降低非重要物体的面数和细节度，从而获得高效率的渲染运算。缺点是增加了内存。</div></pre></td></tr></table></figure>
+<h1 id="MipMap是什么，作用"><a href="#MipMap是什么，作用" class="headerlink" title="MipMap是什么，作用(?"></a>MipMap是什么，作用(?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MipMapping：在三维计算机图形的贴图渲染中有常用的技术，为加快渲染进度和减少图像锯齿，贴图被处理成由一系列被预先计算和优化过的图片组成的文件，这样的贴图被称为MipMap。</div></pre></td></tr></table></figure>
+<h1 id="什么是LightMap"><a href="#什么是LightMap" class="headerlink" title="什么是LightMap"></a>什么是LightMap</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LightMap:就是指在三维软件里实现打好光，然后渲染把场景各表面的光照输出到贴图上，最后又通过引擎贴到场景上，这样就使物体有了光照的感觉。</div></pre></td></tr></table></figure>
+
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-10-29T15:51:34.959Z" itemprop="dateUpdated">2020-10-29 23:51:34</time>
+    最后更新时间：<time datetime="2020-10-29T16:38:29.007Z" itemprop="dateUpdated">2020-10-30 00:38:29</time>
 </span><br>
 
 

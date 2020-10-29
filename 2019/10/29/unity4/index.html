@@ -34,19 +34,19 @@
     
     
     <meta name="keywords" content="Unity">
-    <meta name="description" content="Unity3d中的碰撞器和触发器的区别？123碰撞器是触发器的载体，触发器是碰撞器的属性Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果，调用OnCollisionEnter/Stay/Exit函数Is Trigger=true，碰撞器被物理引擎所忽略，没有碰撞效果，可以调用OnTriggerEnter/Stay/Exit函数
-发生碰撞的必要条件">
+    <meta name="description" content="Unity3d中的碰撞器和触发器的区别？12345碰撞器是触发器的载体，触发器是碰撞器的属性Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果此时调用OnCollisionEnter/Stay/Exit函数Is Trigger=true，碰撞器被物理引擎所忽略，没有碰撞效果此时调用OnTriggerEnter/Stay/Exit函数
+发生碰撞的必要条件123两个物体都必须">
 <meta property="og:type" content="article">
 <meta property="og:title" content="U3D问题总结（四） 物理相关">
 <meta property="og:url" content="http://www.z16388.top/2019/10/29/unity4/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content="Unity3d中的碰撞器和触发器的区别？123碰撞器是触发器的载体，触发器是碰撞器的属性Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果，调用OnCollisionEnter/Stay/Exit函数Is Trigger=true，碰撞器被物理引擎所忽略，没有碰撞效果，可以调用OnTriggerEnter/Stay/Exit函数
-发生碰撞的必要条件">
-<meta property="og:updated_time" content="2020-10-29T15:52:14.571Z">
+<meta property="og:description" content="Unity3d中的碰撞器和触发器的区别？12345碰撞器是触发器的载体，触发器是碰撞器的属性Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果此时调用OnCollisionEnter/Stay/Exit函数Is Trigger=true，碰撞器被物理引擎所忽略，没有碰撞效果此时调用OnTriggerEnter/Stay/Exit函数
+发生碰撞的必要条件123两个物体都必须">
+<meta property="og:updated_time" content="2020-10-29T16:26:31.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="U3D问题总结（四） 物理相关">
-<meta name="twitter:description" content="Unity3d中的碰撞器和触发器的区别？123碰撞器是触发器的载体，触发器是碰撞器的属性Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果，调用OnCollisionEnter/Stay/Exit函数Is Trigger=true，碰撞器被物理引擎所忽略，没有碰撞效果，可以调用OnTriggerEnter/Stay/Exit函数
-发生碰撞的必要条件">
+<meta name="twitter:description" content="Unity3d中的碰撞器和触发器的区别？12345碰撞器是触发器的载体，触发器是碰撞器的属性Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果此时调用OnCollisionEnter/Stay/Exit函数Is Trigger=true，碰撞器被物理引擎所忽略，没有碰撞效果此时调用OnTriggerEnter/Stay/Exit函数
+发生碰撞的必要条件123两个物体都必须">
     
         <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
     
@@ -189,7 +189,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Unity3d中的碰撞器和触发器的区别？"><span class="post-toc-number">1.</span> <span class="post-toc-text">Unity3d中的碰撞器和触发器的区别？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#发生碰撞的必要条件"><span class="post-toc-number">2.</span> <span class="post-toc-text">发生碰撞的必要条件</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Unity3d中的碰撞器和触发器的区别？"><span class="post-toc-number">1.</span> <span class="post-toc-text">Unity3d中的碰撞器和触发器的区别？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#发生碰撞的必要条件"><span class="post-toc-number">2.</span> <span class="post-toc-text">发生碰撞的必要条件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#物体发生碰撞的过程有几个阶段"><span class="post-toc-number">3.</span> <span class="post-toc-text">物体发生碰撞的过程有几个阶段</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Unity3d物理引擎中，有几种施加力的方式（？"><span class="post-toc-number">4.</span> <span class="post-toc-text">Unity3d物理引擎中，有几种施加力的方式（？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CharacterController和Rigdibody的区别"><span class="post-toc-number">5.</span> <span class="post-toc-text">CharacterController和Rigdibody的区别</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么叫做链条关节-？"><span class="post-toc-number">6.</span> <span class="post-toc-text">什么叫做链条关节(？</span></a></li></ol>
         </nav>
     </aside>
     
@@ -212,15 +212,19 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="Unity3d中的碰撞器和触发器的区别？"><a href="#Unity3d中的碰撞器和触发器的区别？" class="headerlink" title="Unity3d中的碰撞器和触发器的区别？"></a>Unity3d中的碰撞器和触发器的区别？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">碰撞器是触发器的载体，触发器是碰撞器的属性</div><div class="line">Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果，调用OnCollisionEnter/Stay/Exit函数</div><div class="line">Is Trigger=true，碰撞器被物理引擎所忽略，没有碰撞效果，可以调用OnTriggerEnter/Stay/Exit函数</div></pre></td></tr></table></figure>
-<h1 id="发生碰撞的必要条件"><a href="#发生碰撞的必要条件" class="headerlink" title="发生碰撞的必要条件"></a>发生碰撞的必要条件</h1>
+            <h1 id="Unity3d中的碰撞器和触发器的区别？"><a href="#Unity3d中的碰撞器和触发器的区别？" class="headerlink" title="Unity3d中的碰撞器和触发器的区别？"></a>Unity3d中的碰撞器和触发器的区别？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">碰撞器是触发器的载体，触发器是碰撞器的属性</div><div class="line">Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果</div><div class="line">此时调用OnCollisionEnter/Stay/Exit函数</div><div class="line">Is Trigger=true，碰撞器被物理引擎所忽略，没有碰撞效果</div><div class="line">此时调用OnTriggerEnter/Stay/Exit函数</div></pre></td></tr></table></figure>
+<h1 id="发生碰撞的必要条件"><a href="#发生碰撞的必要条件" class="headerlink" title="发生碰撞的必要条件"></a>发生碰撞的必要条件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">两个物体都必须带有碰撞器（Collider）</div><div class="line">其中至少有一个物体带有刚体（Rigidbody）或者角色控制器（CharacController）</div><div class="line">必须是运动的物体带有Rigidbody脚本才能检测到碰撞</div></pre></td></tr></table></figure>
+<h1 id="物体发生碰撞的过程有几个阶段"><a href="#物体发生碰撞的过程有几个阶段" class="headerlink" title="物体发生碰撞的过程有几个阶段"></a>物体发生碰撞的过程有几个阶段</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.OnCollisionEnter  </div><div class="line">2.OnCollisionStay </div><div class="line">3.OnCollisionExit</div></pre></td></tr></table></figure>
+<h1 id="Unity3d物理引擎中，有几种施加力的方式（？"><a href="#Unity3d物理引擎中，有几种施加力的方式（？" class="headerlink" title="Unity3d物理引擎中，有几种施加力的方式（？"></a>Unity3d物理引擎中，有几种施加力的方式（？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rigidbody.AddForce/AddForceAtPosition，都在rigidbody系列函数中</div></pre></td></tr></table></figure>
+<h1 id="CharacterController和Rigdibody的区别"><a href="#CharacterController和Rigdibody的区别" class="headerlink" title="CharacterController和Rigdibody的区别"></a>CharacterController和Rigdibody的区别</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Rigidbody：刚体组件、用于模拟真实的物理效果、可以受到重力和其他力的作用、这个力可以直接施加、也可以来自其他刚体的碰撞</div><div class="line">CharacterController：角色控制组件，它自带一个胶囊控制器，能够受到重力的影响。移动时使用自身的Move()、SimpleMove()方法</div></pre></td></tr></table></figure>
+<h1 id="什么叫做链条关节-？"><a href="#什么叫做链条关节-？" class="headerlink" title="什么叫做链条关节(？"></a>什么叫做链条关节(？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hinge Joint，可以模拟两个物体间用一根链条连接在一起的情况，能保持两个物体在一个固定距离内部相互移动而不产生作用力，但是达到固定距离后就会产生拉力。</div></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-10-29T15:52:14.571Z" itemprop="dateUpdated">2020-10-29 23:52:14</time>
+    最后更新时间：<time datetime="2020-10-29T16:26:31.898Z" itemprop="dateUpdated">2020-10-30 00:26:31</time>
 </span><br>
 
 

@@ -370,11 +370,50 @@
   </entry>
   
   <entry>
+    <title>U3D问题总结（八） lua</title>
+    <link href="http://www.z16388.top/2019/10/29/unity8/"/>
+    <id>http://www.z16388.top/2019/10/29/unity8/</id>
+    <published>2019-10-29T15:00:08.000Z</published>
+    <updated>2020-10-29T16:34:43.006Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Unity" scheme="http://www.z16388.top/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>U3D问题总结（七） C#</title>
+    <link href="http://www.z16388.top/2019/10/29/unity7/"/>
+    <id>http://www.z16388.top/2019/10/29/unity7/</id>
+    <published>2019-10-29T15:00:07.000Z</published>
+    <updated>2020-10-29T16:40:46.349Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Net与Mono的关系？"><a href="#Net与Mono的关系？" class="headerlink" title=".Net与Mono的关系？"></a>.Net与Mono的关系？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mono是.net的一个开源跨平台工具，就类似java虚拟机，java本身不是跨平台语言，但运行在虚拟机上就能够实现了跨平台。.net只能在windows下运行，mono可以实现跨平台跑，可以运行于linux，Unix，Mac OS等。</div></pre></td></tr></table></figure>
+<h1 id="C-和C-的区别"><a href="#C-和C-的区别" class="headerlink" title="C#和C++的区别(?"></a>C#和C++的区别(?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">C# 与C++ 比较的话，最重要的特性就是C# 是一种完全面向对象的语言，而C++ 不是，另外C# 是基于IL 中间语言和.NET Framework CLR 的，在可移植性，可维护性和强壮性都比C++ 有很大的改进。C# 的设计目标是用来开发快速稳定可扩展的应用程序，当然也可以通过Interop 和Pinvoke 完成一些底层操作</div></pre></td></tr></table></figure>
+<h1 id="ref参数和out参数是什么？有什么区别-？"><a href="#ref参数和out参数是什么？有什么区别-？" class="headerlink" title="ref参数和out参数是什么？有什么区别(？"></a>ref参数和out参数是什么？有什么区别(？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ref和out参数的效果一样，都是通过关键字找到定义在主函数里面的变量的内存地址，并通过方法体内的语法改变它的大小。不同点就是输出参数必须对参数进行初始化。ref必须初始化，out 参数必须在函数里赋值。ref参数是引用，out参数为输出参数。</div></pre></td></tr></table></figure>
+<h1 id="C-的委托是什么？有何用处"><a href="#C-的委托是什么？有何用处" class="headerlink" title="C#的委托是什么？有何用处"></a>C#的委托是什么？有何用处</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">委托类似于一种安全的指针引用，在使用它时是当做类来看待而不是一个方法，相当于对一组方法的列表的引用。用处：使用委托使程序员可以将方法引用封装在委托对象内。然后可以将该委托对象传递给可调用所引用方法的代码，而不必在编译时知道将调用哪个方法。与C或C++中的函数指针不同，委托是面向对象，而且是类型安全的。</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Net与Mono的关系？&quot;&gt;&lt;a href=&quot;#Net与Mono的关系？&quot; class=&quot;headerlink&quot; title=&quot;.Net与Mono的关系？&quot;&gt;&lt;/a&gt;.Net与Mono的关系？&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;
+    
+    </summary>
+    
+    
+      <category term="Unity" scheme="http://www.z16388.top/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
     <title>U3D问题总结（六） 优化</title>
     <link href="http://www.z16388.top/2019/10/29/unity6/"/>
     <id>http://www.z16388.top/2019/10/29/unity6/</id>
     <published>2019-10-29T15:00:06.000Z</published>
-    <updated>2020-10-29T15:51:42.339Z</updated>
+    <updated>2020-10-29T16:32:21.967Z</updated>
     
     <summary type="html">
     
@@ -390,9 +429,16 @@
     <link href="http://www.z16388.top/2019/10/29/unity5/"/>
     <id>http://www.z16388.top/2019/10/29/unity5/</id>
     <published>2019-10-29T15:00:05.000Z</published>
-    <updated>2020-10-29T15:51:34.959Z</updated>
+    <updated>2020-10-29T16:38:29.007Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="LOD是什么，优缺点"><a href="#LOD是什么，优缺点" class="headerlink" title="LOD是什么，优缺点(?"></a>LOD是什么，优缺点(?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LOD(Level of detail)多层次细节，是最常用的游戏优化技术。它按照模型的位置和重要程度决定物体渲染的资源分配，降低非重要物体的面数和细节度，从而获得高效率的渲染运算。缺点是增加了内存。</div></pre></td></tr></table></figure>
+<h1 id="MipMap是什么，作用"><a href="#MipMap是什么，作用" class="headerlink" title="MipMap是什么，作用(?"></a>MipMap是什么，作用(?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MipMapping：在三维计算机图形的贴图渲染中有常用的技术，为加快渲染进度和减少图像锯齿，贴图被处理成由一系列被预先计算和优化过的图片组成的文件，这样的贴图被称为MipMap。</div></pre></td></tr></table></figure>
+<h1 id="什么是LightMap"><a href="#什么是LightMap" class="headerlink" title="什么是LightMap"></a>什么是LightMap</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LightMap:就是指在三维软件里实现打好光，然后渲染把场景各表面的光照输出到贴图上，最后又通过引擎贴到场景上，这样就使物体有了光照的感觉。</div></pre></td></tr></table></figure>
+]]></content>
     
     <summary type="html">
+    
+      &lt;h1 id=&quot;LOD是什么，优缺点&quot;&gt;&lt;a href=&quot;#LOD是什么，优缺点&quot; class=&quot;headerlink&quot; title=&quot;LOD是什么，优缺点(?&quot;&gt;&lt;/a&gt;LOD是什么，优缺点(?&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;tabl
     
     </summary>
     
@@ -406,10 +452,14 @@
     <link href="http://www.z16388.top/2019/10/29/unity4/"/>
     <id>http://www.z16388.top/2019/10/29/unity4/</id>
     <published>2019-10-29T15:00:04.000Z</published>
-    <updated>2020-10-29T15:52:14.571Z</updated>
+    <updated>2020-10-29T16:26:31.898Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Unity3d中的碰撞器和触发器的区别？"><a href="#Unity3d中的碰撞器和触发器的区别？" class="headerlink" title="Unity3d中的碰撞器和触发器的区别？"></a>Unity3d中的碰撞器和触发器的区别？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">碰撞器是触发器的载体，触发器是碰撞器的属性</div><div class="line">Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果，调用OnCollisionEnter/Stay/Exit函数</div><div class="line">Is Trigger=true，碰撞器被物理引擎所忽略，没有碰撞效果，可以调用OnTriggerEnter/Stay/Exit函数</div></pre></td></tr></table></figure>
-<h1 id="发生碰撞的必要条件"><a href="#发生碰撞的必要条件" class="headerlink" title="发生碰撞的必要条件"></a>发生碰撞的必要条件</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="Unity3d中的碰撞器和触发器的区别？"><a href="#Unity3d中的碰撞器和触发器的区别？" class="headerlink" title="Unity3d中的碰撞器和触发器的区别？"></a>Unity3d中的碰撞器和触发器的区别？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">碰撞器是触发器的载体，触发器是碰撞器的属性</div><div class="line">Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果</div><div class="line">此时调用OnCollisionEnter/Stay/Exit函数</div><div class="line">Is Trigger=true，碰撞器被物理引擎所忽略，没有碰撞效果</div><div class="line">此时调用OnTriggerEnter/Stay/Exit函数</div></pre></td></tr></table></figure>
+<h1 id="发生碰撞的必要条件"><a href="#发生碰撞的必要条件" class="headerlink" title="发生碰撞的必要条件"></a>发生碰撞的必要条件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">两个物体都必须带有碰撞器（Collider）</div><div class="line">其中至少有一个物体带有刚体（Rigidbody）或者角色控制器（CharacController）</div><div class="line">必须是运动的物体带有Rigidbody脚本才能检测到碰撞</div></pre></td></tr></table></figure>
+<h1 id="物体发生碰撞的过程有几个阶段"><a href="#物体发生碰撞的过程有几个阶段" class="headerlink" title="物体发生碰撞的过程有几个阶段"></a>物体发生碰撞的过程有几个阶段</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.OnCollisionEnter  </div><div class="line">2.OnCollisionStay </div><div class="line">3.OnCollisionExit</div></pre></td></tr></table></figure>
+<h1 id="Unity3d物理引擎中，有几种施加力的方式（？"><a href="#Unity3d物理引擎中，有几种施加力的方式（？" class="headerlink" title="Unity3d物理引擎中，有几种施加力的方式（？"></a>Unity3d物理引擎中，有几种施加力的方式（？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rigidbody.AddForce/AddForceAtPosition，都在rigidbody系列函数中</div></pre></td></tr></table></figure>
+<h1 id="CharacterController和Rigdibody的区别"><a href="#CharacterController和Rigdibody的区别" class="headerlink" title="CharacterController和Rigdibody的区别"></a>CharacterController和Rigdibody的区别</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Rigidbody：刚体组件、用于模拟真实的物理效果、可以受到重力和其他力的作用、这个力可以直接施加、也可以来自其他刚体的碰撞</div><div class="line">CharacterController：角色控制组件，它自带一个胶囊控制器，能够受到重力的影响。移动时使用自身的Move()、SimpleMove()方法</div></pre></td></tr></table></figure>
+<h1 id="什么叫做链条关节-？"><a href="#什么叫做链条关节-？" class="headerlink" title="什么叫做链条关节(？"></a>什么叫做链条关节(？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hinge Joint，可以模拟两个物体间用一根链条连接在一起的情况，能保持两个物体在一个固定距离内部相互移动而不产生作用力，但是达到固定距离后就会产生拉力。</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -427,9 +477,27 @@
     <link href="http://www.z16388.top/2019/10/29/unity3/"/>
     <id>http://www.z16388.top/2019/10/29/unity3/</id>
     <published>2019-10-29T15:00:03.000Z</published>
-    <updated>2020-10-29T15:51:18.067Z</updated>
+    <updated>2020-10-29T16:38:04.256Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Unity3D支持的作为脚本的语言"><a href="#Unity3D支持的作为脚本的语言" class="headerlink" title="Unity3D支持的作为脚本的语言"></a>Unity3D支持的作为脚本的语言</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">C#、JS</div></pre></td></tr></table></figure>
+<h1 id="OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生"><a href="#OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生" class="headerlink" title="OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生"></a>OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Awake-&gt;OnEnable-&gt;Start</div><div class="line">OnEnable可以在同一周期中重复发生</div></pre></td></tr></table></figure>
+<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Awake——&gt;OnEnable–&gt;Start——&gt;Update——&gt;FixedUpdate——&gt;LateUpdate——&gt;OnGUI——&gt;OnDisable——&gt;OnDestroy</div></pre></td></tr></table></figure>
+<h1 id="物理更新一般放在哪个系统函数里-？"><a href="#物理更新一般放在哪个系统函数里-？" class="headerlink" title="物理更新一般放在哪个系统函数里(？"></a>物理更新一般放在哪个系统函数里(？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FixedUpdate，每固定帧绘制时执行一次，和Update不同的是FixedUpdate是渲染帧执行，如果你的渲染效率低下的时候FixedUpdate调用次数就会跟着下降。FixedUpdate比较适用于物理引擎的计算，因为是跟每帧渲染有关。Update就比较适合做控制。</div></pre></td></tr></table></figure>
+<h1 id="prefab的作用"><a href="#prefab的作用" class="headerlink" title="prefab的作用"></a>prefab的作用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. 在游戏运行时实例化。Prefab相当于一个模板，对已有的素材、脚本和参数做一个基础的配置，便于以后的修改</div><div class="line">2. Prefab打包的内容简化了导出操作，便于团队协同</div></pre></td></tr></table></figure>
+<h1 id="物体自身旋转使用的函数？"><a href="#物体自身旋转使用的函数？" class="headerlink" title="物体自身旋转使用的函数？"></a>物体自身旋转使用的函数？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Transform.Rotate()</div><div class="line">例如：</div></pre></td></tr></table></figure>
+<h1 id="U3D中用于记录节点空间几何信息的组件名称，及其父类名称"><a href="#U3D中用于记录节点空间几何信息的组件名称，及其父类名称" class="headerlink" title="U3D中用于记录节点空间几何信息的组件名称，及其父类名称"></a>U3D中用于记录节点空间几何信息的组件名称，及其父类名称</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Transform 父类是 Component</div></pre></td></tr></table></figure>
+<h1 id="如何销毁一个UnityEngine-Object及其子类"><a href="#如何销毁一个UnityEngine-Object及其子类" class="headerlink" title="如何销毁一个UnityEngine.Object及其子类"></a>如何销毁一个UnityEngine.Object及其子类</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Destroy()方法</div></pre></td></tr></table></figure>
+<h1 id="为什么Unity3d中会发生在组件上出现数据丢失的情况"><a href="#为什么Unity3d中会发生在组件上出现数据丢失的情况" class="headerlink" title="为什么Unity3d中会发生在组件上出现数据丢失的情况(?"></a>为什么Unity3d中会发生在组件上出现数据丢失的情况(?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">组件上绑定的物体对象被删除了</div></pre></td></tr></table></figure>
+<h1 id="如何安全地在不同工程间安全地迁移asset数据（？"><a href="#如何安全地在不同工程间安全地迁移asset数据（？" class="headerlink" title="如何安全地在不同工程间安全地迁移asset数据（？"></a>如何安全地在不同工程间安全地迁移asset数据（？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 将Assets目录和Library目录一起迁移</div><div class="line">2. 导出包，export Package</div><div class="line">3. 用unity自带的assets Server功能</div></pre></td></tr></table></figure>
+<h1 id="Unity3d实现2d游戏，有几种方式"><a href="#Unity3d实现2d游戏，有几种方式" class="headerlink" title="Unity3d实现2d游戏，有几种方式"></a>Unity3d实现2d游戏，有几种方式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 使用自身的GUI</div><div class="line">2. 把摄像机的Projection（投影）值调整为Orthographic（正交投影），不考虑z轴</div><div class="line">3. 使用2d的ui插件：2DToolKit、NGUI等</div></pre></td></tr></table></figure>
+<h1 id="为何大家都在移动设备上寻求U3D原生GUI的替代方案"><a href="#为何大家都在移动设备上寻求U3D原生GUI的替代方案" class="headerlink" title="为何大家都在移动设备上寻求U3D原生GUI的替代方案"></a>为何大家都在移动设备上寻求U3D原生GUI的替代方案</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">不美观，OnGUI很耗费时间，效率不高，使用不方便</div></pre></td></tr></table></figure>
+<h1 id="如何在不同分辨率下保持UI的一致性"><a href="#如何在不同分辨率下保持UI的一致性" class="headerlink" title="如何在不同分辨率下保持UI的一致性(?"></a>如何在不同分辨率下保持UI的一致性(?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NGUI很好的解决了这一点，屏幕分辨率的自适应性，原理就是计算出屏幕的宽高比跟原来的预设的屏幕分辨率求出一个对比值，然后修改摄像机的size。UGUI通过锚点和中心点和分辨率也解决这个问题</div></pre></td></tr></table></figure>
+<h1 id="在场景中放置多个Camera并同时处于活动状态会发生什么-？"><a href="#在场景中放置多个Camera并同时处于活动状态会发生什么-？" class="headerlink" title="在场景中放置多个Camera并同时处于活动状态会发生什么(？"></a>在场景中放置多个Camera并同时处于活动状态会发生什么(？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">游戏界面可以看到很多摄像机的混合。</div></pre></td></tr></table></figure>
+<h1 id="Unity3d提供了一个用于保存和读取数据的类-PlayerPrefs-，请列出保存和读取整形数据的函数"><a href="#Unity3d提供了一个用于保存和读取数据的类-PlayerPrefs-，请列出保存和读取整形数据的函数" class="headerlink" title="Unity3d提供了一个用于保存和读取数据的类(PlayerPrefs)，请列出保存和读取整形数据的函数"></a>Unity3d提供了一个用于保存和读取数据的类(PlayerPrefs)，请列出保存和读取整形数据的函数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PlayerPrefs.SetInt() PlayerPrefs.GetInt()</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
+    
+      &lt;h1 id=&quot;Unity3D支持的作为脚本的语言&quot;&gt;&lt;a href=&quot;#Unity3D支持的作为脚本的语言&quot; class=&quot;headerlink&quot; title=&quot;Unity3D支持的作为脚本的语言&quot;&gt;&lt;/a&gt;Unity3D支持的作为脚本的语言&lt;/h1&gt;&lt;figure class
     
     </summary>
     
@@ -443,9 +511,13 @@
     <link href="http://www.z16388.top/2019/10/29/unity2/"/>
     <id>http://www.z16388.top/2019/10/29/unity2/</id>
     <published>2019-10-29T15:00:02.000Z</published>
-    <updated>2020-10-29T15:51:10.481Z</updated>
+    <updated>2020-10-29T16:37:03.529Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="向量的点乘、叉乘以及归一化的意义"><a href="#向量的点乘、叉乘以及归一化的意义" class="headerlink" title="向量的点乘、叉乘以及归一化的意义"></a>向量的点乘、叉乘以及归一化的意义</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.点乘描述了两个向量的相似程度，结果越大两向量越相似，还可表示投影</div><div class="line">2.叉乘得到的向量垂直于原来的两个向量</div><div class="line">3.标准化向量：用在只关系方向，不关心大小的时候</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
+    
+      &lt;h1 id=&quot;向量的点乘、叉乘以及归一化的意义&quot;&gt;&lt;a href=&quot;#向量的点乘、叉乘以及归一化的意义&quot; class=&quot;headerlink&quot; title=&quot;向量的点乘、叉乘以及归一化的意义&quot;&gt;&lt;/a&gt;向量的点乘、叉乘以及归一化的意义&lt;/h1&gt;&lt;figure class=&quot;hi
     
     </summary>
     
@@ -459,9 +531,13 @@
     <link href="http://www.z16388.top/2019/10/29/unity1/"/>
     <id>http://www.z16388.top/2019/10/29/unity1/</id>
     <published>2019-10-29T15:00:01.000Z</published>
-    <updated>2020-10-29T15:51:02.719Z</updated>
+    <updated>2020-10-29T16:39:52.600Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="结构体和类有何区别"><a href="#结构体和类有何区别" class="headerlink" title="结构体和类有何区别"></a>结构体和类有何区别</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">结构体是一种值类型，而类是引用类型。（值类型、引用类型是根据数据存储的角度来分的）就是值类型用于存储数据的值，引用类型用于存储对实际数据的引用。那么结构体就是当成值来使用的，类则通过引用来对实际数据操作</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
+    
+      &lt;h1 id=&quot;结构体和类有何区别&quot;&gt;&lt;a href=&quot;#结构体和类有何区别&quot; class=&quot;headerlink&quot; title=&quot;结构体和类有何区别&quot;&gt;&lt;/a&gt;结构体和类有何区别&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
     
     </summary>
     
@@ -574,167 +650,6 @@
     
     
       <category term="Android" scheme="http://www.z16388.top/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>命令行修改apk工具</title>
-    <link href="http://www.z16388.top/2018/10/21/cmdapk/"/>
-    <id>http://www.z16388.top/2018/10/21/cmdapk/</id>
-    <published>2018-10-21T06:24:25.000Z</published>
-    <updated>2018-11-10T10:32:59.008Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>&emsp;&emsp;在前一段时间的工作中，我得到了一个新的任务，写一个命令行工具，修改apk中的某个文件，再进行重新打包。这个过程实际上十分简单：首先，apk文件就是一个zip文件，但是在安装的时候安卓系统会校验签名，因此我们需要对重新打包的apk进行签名。下面是实现这个工具的重难点和具体思路：</p>
-<h2 id="命令行数组"><a href="#命令行数组" class="headerlink" title="命令行数组"></a>命令行数组</h2><p>&emsp;&emsp;如果想要生成一批apk，他们中需要修改的位置都是相同的，只有写入的文本不同。那么，第一时间我们会想到字符串数组。但是在命令行中是没有数组的，有的文章采用本地文件逐行读取的方法，但我们也可以使用下面的方法来对数组进行模拟:</p>
-<p><a href="https://www.yiibai.com/batch_script/batch_script_arrays.html" target="_blank" rel="external">参考资料：</a><a href="https://www.yiibai.com/batch_script/batch_script_arrays.html" target="_blank" rel="external">https://www.yiibai.com/batch_script/batch_script_arrays.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">set a[0]=1 </div><div class="line">set a[1]=2 </div><div class="line">set a[2]=3 </div><div class="line">echo The first element of the array is %a[0]% </div><div class="line">echo The second element of the array is %a[1]% </div><div class="line">echo The third element of the array is %a[2]%</div></pre></td></tr></table></figure>
-<h2 id="批处理压缩与解压缩"><a href="#批处理压缩与解压缩" class="headerlink" title="批处理压缩与解压缩"></a>批处理压缩与解压缩</h2><p>&emsp;&emsp;在windows环境中，我们不能方便地像隔壁那样，直接调用zip和unzip命令进行压缩和解压，需要下载相应的程序来帮助我们完成这一过程。<a href="http://stahlworks.com/dev/index.php?tool=zipunzip" target="_blank" rel="external">下载地址：</a><a href="http://stahlworks.com/dev/index.php?tool=zipunzip" target="_blank" rel="external">http://stahlworks.com/dev/index.php?tool=zipunzip</a></p>
-<p>&emsp;&emsp;下载完两个exe文件之后，我们将它放在与脚本相同目录下或者是<code>C:/Windows</code>目录下，推荐后者，然后就可以使用压缩与解压缩命令了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zip -r fileName.apk ./*</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这里的命令是将当前目录压缩为指定名称的apk文件，其中参数-r为递归压缩子目录下所有文件。不加的话只会得到一个空的文件夹。这里需要注意的是，在打包apk的时候，我们需要cd到解压好的文件目录下进行压缩，否则会出现压缩好之后的apk因为打开后是一个文件夹，不是标准apk目录结构的情况而无法进行安装。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">unzip -o -d /path fileName.apk</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这里的命令是将指定apk解压到指定的目录中，-o是不提示覆盖，-d是指定路径。</p>
-<h2 id="关于apk签名"><a href="#关于apk签名" class="headerlink" title="关于apk签名"></a>关于apk签名</h2><p>&emsp;&emsp;我们可以通过下面的方法对apk的签名进行查看：解压出位于<code>META-INF</code>位置下的CERT.RSA文件，使用命令查看:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -printcert -file [file path]</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;想要对apk重新签名，需要删除apk中原先的签名文件。有博客说删掉两个文件就行，但是会出现错误。<code>jarsigner: java.lang.SecurityException:SHA1 digest error for META-INF/CERT.RSA</code>根据stack overflow上某个老哥给的答案：<a href="https://stackoverflow.com/questions/37513084/jarsigner-java-lang-securityexceptionsha1-digest-error-for-meta-inf-cert-rsa-a" target="_blank" rel="external">https://stackoverflow.com/questions/37513084/jarsigner-java-lang-securityexceptionsha1-digest-error-for-meta-inf-cert-rsa-a</a>我们需要删除整个META-INF文件进行</p>
-<p>&emsp;&emsp;apk的重新签名需要项目的证书文件，后缀名为：<code>.keystores</code>，命令为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jarsigner -verbose -keystore [keystore path] -signedjar [out apk name].apk [current apk name].apk [alias name] -storepass [password]</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这里需要填写的参数分别是证书文件的路径、签名后apk名及路径、签名前apk名及路径，别名，密码。</p>
-<p>&emsp;&emsp;签名完毕后，还可以对生成的apk进行验证。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jarsigner -verify [out apk name].apk</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;至此，整个工具的重点就介绍完毕了。</p>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><p>&emsp;&emsp;在很多文章中，有人会推荐使用apktool的工具进行上面的一些工作，这里非常不推荐。apktool是一个java写的工具，在解包和打包过程结束后，会自动关闭当前的命令行。解包打包签名，可能就需要有三个脚本了，给工具的制作造成了很大的不便。</p>
-<p>&emsp;&emsp;下面是工具的代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">setlocal enabledelayedexpansion</div><div class="line"></div><div class="line">rem 拖入apk并获取其路径和文件名</div><div class="line">echo 请拖入需要处理的apk</div><div class="line">set /p input=</div><div class="line">set apkUrl=</div><div class="line">for /f &quot;delims=&quot; %%i in (&apos;dir /b %input%&apos;) do (set apkUrl=!apkUrl!%%i)</div><div class="line">set fileName=%apkUrl:.apk=%</div><div class="line"></div><div class="line">rem 解包并删除签名</div><div class="line">if exist output rmdir /s/q output</div><div class="line">md output</div><div class="line">cd output</div><div class="line">md %fileName%</div><div class="line">unzip -o -d %fileName% %input%</div><div class="line">rmdir /s/q %fileName%\META-INF</div><div class="line"></div><div class="line">rem 修改文件打包并签名</div><div class="line">for  do (</div><div class="line">[这里填写修改操作]</div><div class="line">cd !fileName!</div><div class="line">zip -r [your file name].apk ./*</div><div class="line">cd..</div><div class="line">jarsigner -verbose -keystore [keystore path] -signedjar [out apk name].apk [current apk name].apk [alias name] -storepass [password]</div><div class="line">)</div><div class="line"></div><div class="line">pause</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;在这里我使用了for循环获取了解压后的文件夹名的方法，实现起来可能显得会比较扭曲。但是如果在事先不确定拖入文件名，并且打出的包对原文件名有需求的话，就得用这种方法去取了。除此之外，在进行签名的时候，签名前和签名后文件名可以是同一个，这样就不会出现新的apk，而是在原有未签名apk的基础上进行签名。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;在前一段时间的工作中，我得到了一个新的任务，写一个命令行工具，修改apk中的某个文件，再进行重新打包。这个过程实际上
-    
-    </summary>
-    
-    
-      <category term="Android" scheme="http://www.z16388.top/tags/Android/"/>
-    
-      <category term="安卓" scheme="http://www.z16388.top/tags/%E5%AE%89%E5%8D%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>乐理笔记</title>
-    <link href="http://www.z16388.top/2018/06/26/music/"/>
-    <id>http://www.z16388.top/2018/06/26/music/</id>
-    <published>2018-06-26T14:03:05.000Z</published>
-    <updated>2018-06-26T14:17:03.528Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="调式"><a href="#调式" class="headerlink" title="调式"></a>调式</h2><p>&emsp;&emsp;调式分为升号调与降号调，升号调中的黑键用升号表示，降号调中的黑键用降号表示。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">升号调</th>
-<th style="text-align:center">降号调</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">G、D、A、E、B、F#、C#</td>
-<td style="text-align:center">F、Bb、Eb、Ab、Db、Gb、Cb</td>
-</tr>
-</tbody>
-</table>
-<p>&emsp;&emsp;调子中的7个音，下面从左往右，越往右越不稳定：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">稳定音</th>
-<th style="text-align:center">不稳定音</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1 5 3</td>
-<td style="text-align:center">6 2 4 7</td>
-</tr>
-</tbody>
-</table>
-<p>&emsp;&emsp;不稳定音总是倾向于稳定音的，他们的倾向分别为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1←2</div><div class="line">3←4</div><div class="line">5←6</div><div class="line">7→i</div></pre></td></tr></table></figure>
-<h2 id="音程"><a href="#音程" class="headerlink" title="音程"></a>音程</h2><p>&emsp;&emsp;音程表</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">半音数</th>
-<th style="text-align:center">音程</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">纯一度</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">小二度</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">大二度</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">小三度</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">大三度</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">纯四度</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">增四/减五度</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">纯五度</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">小六度</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">大六度</td>
-</tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:center">小七度</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:center">大七度</td>
-</tr>
-<tr>
-<td style="text-align:center">12</td>
-<td style="text-align:center">纯八度</td>
-</tr>
-</tbody>
-</table>
-<p>&emsp;&emsp;</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;基础知识&quot;&gt;&lt;a href=&quot;#基础知识&quot; class=&quot;headerlink&quot; title=&quot;基础知识&quot;&gt;&lt;/a&gt;基础知识&lt;/h1&gt;&lt;h2 id=&quot;调式&quot;&gt;&lt;a href=&quot;#调式&quot; class=&quot;headerlink&quot; title=&quot;调式&quot;&gt;&lt;/a&gt;调式&lt;/h
-    
-    </summary>
-    
-    
-      <category term="音乐" scheme="http://www.z16388.top/tags/%E9%9F%B3%E4%B9%90/"/>
     
   </entry>
   

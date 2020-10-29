@@ -34,13 +34,22 @@
     
     
     <meta name="keywords" content="Unity">
-    <meta property="og:type" content="article">
+    <meta name="description" content="Unity3D支持的作为脚本的语言1C#、JS
+OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生12Awake-&amp;gt;OnEnable-&amp;gt;StartOnEnable可以在同一周期中重复发生
+生命周期1Awake——&amp;gt;OnEnable–&amp;gt;Start——&amp;gt;Update——&amp;gt;FixedUpdate——&amp;gt;LateUpdate——&amp;">
+<meta property="og:type" content="article">
 <meta property="og:title" content="U3D问题总结（三） Unity基础">
 <meta property="og:url" content="http://www.z16388.top/2019/10/29/unity3/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:updated_time" content="2020-10-29T15:51:18.067Z">
+<meta property="og:description" content="Unity3D支持的作为脚本的语言1C#、JS
+OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生12Awake-&amp;gt;OnEnable-&amp;gt;StartOnEnable可以在同一周期中重复发生
+生命周期1Awake——&amp;gt;OnEnable–&amp;gt;Start——&amp;gt;Update——&amp;gt;FixedUpdate——&amp;gt;LateUpdate——&amp;">
+<meta property="og:updated_time" content="2020-10-29T16:38:04.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="U3D问题总结（三） Unity基础">
+<meta name="twitter:description" content="Unity3D支持的作为脚本的语言1C#、JS
+OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生12Awake-&amp;gt;OnEnable-&amp;gt;StartOnEnable可以在同一周期中重复发生
+生命周期1Awake——&amp;gt;OnEnable–&amp;gt;Start——&amp;gt;Update——&amp;gt;FixedUpdate——&amp;gt;LateUpdate——&amp;">
     
         <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
     
@@ -180,6 +189,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Unity3D支持的作为脚本的语言"><span class="post-toc-number">1.</span> <span class="post-toc-text">Unity3D支持的作为脚本的语言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生"><span class="post-toc-number">2.</span> <span class="post-toc-text">OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#生命周期"><span class="post-toc-number">3.</span> <span class="post-toc-text">生命周期</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#物理更新一般放在哪个系统函数里-？"><span class="post-toc-number">4.</span> <span class="post-toc-text">物理更新一般放在哪个系统函数里(？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#prefab的作用"><span class="post-toc-number">5.</span> <span class="post-toc-text">prefab的作用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#物体自身旋转使用的函数？"><span class="post-toc-number">6.</span> <span class="post-toc-text">物体自身旋转使用的函数？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#U3D中用于记录节点空间几何信息的组件名称，及其父类名称"><span class="post-toc-number">7.</span> <span class="post-toc-text">U3D中用于记录节点空间几何信息的组件名称，及其父类名称</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何销毁一个UnityEngine-Object及其子类"><span class="post-toc-number">8.</span> <span class="post-toc-text">如何销毁一个UnityEngine.Object及其子类</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为什么Unity3d中会发生在组件上出现数据丢失的情况"><span class="post-toc-number">9.</span> <span class="post-toc-text">为什么Unity3d中会发生在组件上出现数据丢失的情况(?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何安全地在不同工程间安全地迁移asset数据（？"><span class="post-toc-number">10.</span> <span class="post-toc-text">如何安全地在不同工程间安全地迁移asset数据（？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Unity3d实现2d游戏，有几种方式"><span class="post-toc-number">11.</span> <span class="post-toc-text">Unity3d实现2d游戏，有几种方式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为何大家都在移动设备上寻求U3D原生GUI的替代方案"><span class="post-toc-number">12.</span> <span class="post-toc-text">为何大家都在移动设备上寻求U3D原生GUI的替代方案</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何在不同分辨率下保持UI的一致性"><span class="post-toc-number">13.</span> <span class="post-toc-text">如何在不同分辨率下保持UI的一致性(?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#在场景中放置多个Camera并同时处于活动状态会发生什么-？"><span class="post-toc-number">14.</span> <span class="post-toc-text">在场景中放置多个Camera并同时处于活动状态会发生什么(？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Unity3d提供了一个用于保存和读取数据的类-PlayerPrefs-，请列出保存和读取整形数据的函数"><span class="post-toc-number">15.</span> <span class="post-toc-text">Unity3d提供了一个用于保存和读取数据的类(PlayerPrefs)，请列出保存和读取整形数据的函数</span></a></li></ol>
+        </nav>
+    </aside>
+    
 <article id="post-unity3"
   class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -199,14 +215,28 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            
+            <h1 id="Unity3D支持的作为脚本的语言"><a href="#Unity3D支持的作为脚本的语言" class="headerlink" title="Unity3D支持的作为脚本的语言"></a>Unity3D支持的作为脚本的语言</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">C#、JS</div></pre></td></tr></table></figure>
+<h1 id="OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生"><a href="#OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生" class="headerlink" title="OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生"></a>OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Awake-&gt;OnEnable-&gt;Start</div><div class="line">OnEnable可以在同一周期中重复发生</div></pre></td></tr></table></figure>
+<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Awake——&gt;OnEnable–&gt;Start——&gt;Update——&gt;FixedUpdate——&gt;LateUpdate——&gt;OnGUI——&gt;OnDisable——&gt;OnDestroy</div></pre></td></tr></table></figure>
+<h1 id="物理更新一般放在哪个系统函数里-？"><a href="#物理更新一般放在哪个系统函数里-？" class="headerlink" title="物理更新一般放在哪个系统函数里(？"></a>物理更新一般放在哪个系统函数里(？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FixedUpdate，每固定帧绘制时执行一次，和Update不同的是FixedUpdate是渲染帧执行，如果你的渲染效率低下的时候FixedUpdate调用次数就会跟着下降。FixedUpdate比较适用于物理引擎的计算，因为是跟每帧渲染有关。Update就比较适合做控制。</div></pre></td></tr></table></figure>
+<h1 id="prefab的作用"><a href="#prefab的作用" class="headerlink" title="prefab的作用"></a>prefab的作用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. 在游戏运行时实例化。Prefab相当于一个模板，对已有的素材、脚本和参数做一个基础的配置，便于以后的修改</div><div class="line">2. Prefab打包的内容简化了导出操作，便于团队协同</div></pre></td></tr></table></figure>
+<h1 id="物体自身旋转使用的函数？"><a href="#物体自身旋转使用的函数？" class="headerlink" title="物体自身旋转使用的函数？"></a>物体自身旋转使用的函数？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Transform.Rotate()</div><div class="line">例如：</div></pre></td></tr></table></figure>
+<h1 id="U3D中用于记录节点空间几何信息的组件名称，及其父类名称"><a href="#U3D中用于记录节点空间几何信息的组件名称，及其父类名称" class="headerlink" title="U3D中用于记录节点空间几何信息的组件名称，及其父类名称"></a>U3D中用于记录节点空间几何信息的组件名称，及其父类名称</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Transform 父类是 Component</div></pre></td></tr></table></figure>
+<h1 id="如何销毁一个UnityEngine-Object及其子类"><a href="#如何销毁一个UnityEngine-Object及其子类" class="headerlink" title="如何销毁一个UnityEngine.Object及其子类"></a>如何销毁一个UnityEngine.Object及其子类</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Destroy()方法</div></pre></td></tr></table></figure>
+<h1 id="为什么Unity3d中会发生在组件上出现数据丢失的情况"><a href="#为什么Unity3d中会发生在组件上出现数据丢失的情况" class="headerlink" title="为什么Unity3d中会发生在组件上出现数据丢失的情况(?"></a>为什么Unity3d中会发生在组件上出现数据丢失的情况(?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">组件上绑定的物体对象被删除了</div></pre></td></tr></table></figure>
+<h1 id="如何安全地在不同工程间安全地迁移asset数据（？"><a href="#如何安全地在不同工程间安全地迁移asset数据（？" class="headerlink" title="如何安全地在不同工程间安全地迁移asset数据（？"></a>如何安全地在不同工程间安全地迁移asset数据（？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 将Assets目录和Library目录一起迁移</div><div class="line">2. 导出包，export Package</div><div class="line">3. 用unity自带的assets Server功能</div></pre></td></tr></table></figure>
+<h1 id="Unity3d实现2d游戏，有几种方式"><a href="#Unity3d实现2d游戏，有几种方式" class="headerlink" title="Unity3d实现2d游戏，有几种方式"></a>Unity3d实现2d游戏，有几种方式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 使用自身的GUI</div><div class="line">2. 把摄像机的Projection（投影）值调整为Orthographic（正交投影），不考虑z轴</div><div class="line">3. 使用2d的ui插件：2DToolKit、NGUI等</div></pre></td></tr></table></figure>
+<h1 id="为何大家都在移动设备上寻求U3D原生GUI的替代方案"><a href="#为何大家都在移动设备上寻求U3D原生GUI的替代方案" class="headerlink" title="为何大家都在移动设备上寻求U3D原生GUI的替代方案"></a>为何大家都在移动设备上寻求U3D原生GUI的替代方案</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">不美观，OnGUI很耗费时间，效率不高，使用不方便</div></pre></td></tr></table></figure>
+<h1 id="如何在不同分辨率下保持UI的一致性"><a href="#如何在不同分辨率下保持UI的一致性" class="headerlink" title="如何在不同分辨率下保持UI的一致性(?"></a>如何在不同分辨率下保持UI的一致性(?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NGUI很好的解决了这一点，屏幕分辨率的自适应性，原理就是计算出屏幕的宽高比跟原来的预设的屏幕分辨率求出一个对比值，然后修改摄像机的size。UGUI通过锚点和中心点和分辨率也解决这个问题</div></pre></td></tr></table></figure>
+<h1 id="在场景中放置多个Camera并同时处于活动状态会发生什么-？"><a href="#在场景中放置多个Camera并同时处于活动状态会发生什么-？" class="headerlink" title="在场景中放置多个Camera并同时处于活动状态会发生什么(？"></a>在场景中放置多个Camera并同时处于活动状态会发生什么(？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">游戏界面可以看到很多摄像机的混合。</div></pre></td></tr></table></figure>
+<h1 id="Unity3d提供了一个用于保存和读取数据的类-PlayerPrefs-，请列出保存和读取整形数据的函数"><a href="#Unity3d提供了一个用于保存和读取数据的类-PlayerPrefs-，请列出保存和读取整形数据的函数" class="headerlink" title="Unity3d提供了一个用于保存和读取数据的类(PlayerPrefs)，请列出保存和读取整形数据的函数"></a>Unity3d提供了一个用于保存和读取数据的类(PlayerPrefs)，请列出保存和读取整形数据的函数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PlayerPrefs.SetInt() PlayerPrefs.GetInt()</div></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-10-29T15:51:18.067Z" itemprop="dateUpdated">2020-10-29 23:51:18</time>
+    最后更新时间：<time datetime="2020-10-29T16:38:04.256Z" itemprop="dateUpdated">2020-10-30 00:38:04</time>
 </span><br>
 
 
