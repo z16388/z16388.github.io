@@ -370,6 +370,107 @@
   </entry>
   
   <entry>
+    <title>U3D问题总结（六） 优化</title>
+    <link href="http://www.z16388.top/2019/10/29/unity6/"/>
+    <id>http://www.z16388.top/2019/10/29/unity6/</id>
+    <published>2019-10-29T15:00:06.000Z</published>
+    <updated>2020-10-29T15:51:42.339Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Unity" scheme="http://www.z16388.top/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>U3D问题总结（五） 渲染与光照</title>
+    <link href="http://www.z16388.top/2019/10/29/unity5/"/>
+    <id>http://www.z16388.top/2019/10/29/unity5/</id>
+    <published>2019-10-29T15:00:05.000Z</published>
+    <updated>2020-10-29T15:51:34.959Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Unity" scheme="http://www.z16388.top/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>U3D问题总结（四） 物理相关</title>
+    <link href="http://www.z16388.top/2019/10/29/unity4/"/>
+    <id>http://www.z16388.top/2019/10/29/unity4/</id>
+    <published>2019-10-29T15:00:04.000Z</published>
+    <updated>2020-10-29T15:52:14.571Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Unity3d中的碰撞器和触发器的区别？"><a href="#Unity3d中的碰撞器和触发器的区别？" class="headerlink" title="Unity3d中的碰撞器和触发器的区别？"></a>Unity3d中的碰撞器和触发器的区别？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">碰撞器是触发器的载体，触发器是碰撞器的属性</div><div class="line">Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果，调用OnCollisionEnter/Stay/Exit函数</div><div class="line">Is Trigger=true，碰撞器被物理引擎所忽略，没有碰撞效果，可以调用OnTriggerEnter/Stay/Exit函数</div></pre></td></tr></table></figure>
+<h1 id="发生碰撞的必要条件"><a href="#发生碰撞的必要条件" class="headerlink" title="发生碰撞的必要条件"></a>发生碰撞的必要条件</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Unity3d中的碰撞器和触发器的区别？&quot;&gt;&lt;a href=&quot;#Unity3d中的碰撞器和触发器的区别？&quot; class=&quot;headerlink&quot; title=&quot;Unity3d中的碰撞器和触发器的区别？&quot;&gt;&lt;/a&gt;Unity3d中的碰撞器和触发器的区别？&lt;/h1&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="Unity" scheme="http://www.z16388.top/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>U3D问题总结（三） Unity基础</title>
+    <link href="http://www.z16388.top/2019/10/29/unity3/"/>
+    <id>http://www.z16388.top/2019/10/29/unity3/</id>
+    <published>2019-10-29T15:00:03.000Z</published>
+    <updated>2020-10-29T15:51:18.067Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Unity" scheme="http://www.z16388.top/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>U3D问题总结（二） 线性代数</title>
+    <link href="http://www.z16388.top/2019/10/29/unity2/"/>
+    <id>http://www.z16388.top/2019/10/29/unity2/</id>
+    <published>2019-10-29T15:00:02.000Z</published>
+    <updated>2020-10-29T15:51:10.481Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Unity" scheme="http://www.z16388.top/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>U3D问题总结（一） 计算机基础</title>
+    <link href="http://www.z16388.top/2019/10/29/unity1/"/>
+    <id>http://www.z16388.top/2019/10/29/unity1/</id>
+    <published>2019-10-29T15:00:01.000Z</published>
+    <updated>2020-10-29T15:51:02.719Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Unity" scheme="http://www.z16388.top/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
     <title>生成Java版Anysdk的aar</title>
     <link href="http://www.z16388.top/2018/11/10/anysdk/"/>
     <id>http://www.z16388.top/2018/11/10/anysdk/</id>
@@ -634,525 +735,6 @@
     
     
       <category term="音乐" scheme="http://www.z16388.top/tags/%E9%9F%B3%E4%B9%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于最终幻想14演奏系统的解决方案</title>
-    <link href="http://www.z16388.top/2018/06/17/midiff/"/>
-    <id>http://www.z16388.top/2018/06/17/midiff/</id>
-    <published>2018-06-17T10:16:20.000Z</published>
-    <updated>2018-06-18T04:06:03.543Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="MIDI键盘映射"><a href="#MIDI键盘映射" class="headerlink" title="MIDI键盘映射"></a>MIDI键盘映射</h1><blockquote>
-<p>目前键盘映射不能使用组合键，4.3版本更新之后可使用。</p>
-</blockquote>
-<h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p>&emsp;&emsp;最终幻想14更新了4.20版本。在这个版本中，诗人的演奏系统做出了一定的更改，小键盘党的我直接报警了。最后我决定放弃这个“邪门歪道”，直接使用电钢琴进行映射，实现演奏功能。</p>
-<p>&emsp;&emsp;在这里，使用到了一个MIDI键盘映射软件：Bome’s Midi Translator。</p>
-<blockquote>
-<p>官方网站：<a href="https://www.bome.com/products/miditranslator" target="_blank" rel="external">https://www.bome.com/products/miditranslator</a></p>
-</blockquote>
-<p>&emsp;&emsp;需要注意的是，Pro版本需要59刀的价格。这里，在下载的时候选择精简版。</p>
-<h2 id="硬件设备"><a href="#硬件设备" class="headerlink" title="硬件设备"></a>硬件设备</h2><p>&emsp;&emsp;首先介绍一下我所使用的硬件设备。键盘是吟飞的电钢琴，MIDI连接线是淘宝来的便宜货，连输入输出都标反了。在键盘的选择上，并没有太大的要求。因为游戏的演奏功能上只有三个八度。即使是淘宝上买来的手卷钢琴，也是可以使用的。</p>
-<h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><p>&emsp;&emsp;在完成软件的安装之后，不能直接打开软件，需要给予管理员权限。</p>
-<p>&emsp;&emsp;关于MIDI的输入输出端口，软件的文档有下面的内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Define MIDI Ports</div><div class="line">     Next, specify the MIDI input and output ports you will be using. The MIDI OUT ports will be the ports to which translated MIDI messages are sent to.</div><div class="line"></div><div class="line">    The MIDI IN port will be used as the source of MIDI data, typically connecting with an external MIDI device, e.g. via USB or a MIDI interface on a sound card. Select the appropriate MIDI input source(s) by checking it.</div><div class="line"></div><div class="line">    You can use a virtual MIDI port here if you are setting up a translator for a software sequencer or other audio application that interfaces with MIDI. Check the virtual MIDI port as the output device and then select it as the MIDI input port in your 3rd party application in order to have Bome MIDI Translator control it. Use the alias “Bome Virtual Port 1” (in italics ) instead</div><div class="line">of the direct device.</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;把输入端口设置为你的MIDI设备。需要注意的是，MIDI端口只能有一个应用去占用。像我为了测试MIDI设备是否能够使用，打开了Cubase，软件就提示了无法设置该端口的问题。设置完端口之后，将后面的状态设置为启用。这时候很明显可以看到，左下角输入的端口在闪光。</p>
-<p>&emsp;&emsp;之后是输出端口。原文中提到，如果想要使用MIDI映射，就要把输出端口设置为软件提供的一个虚拟端口。如果是Pro版本，需要在设置里，选择选项“Bome Virtual Port 1”即可。除此之外，还要像ASIO声卡一样设置跳线。在这里，将你设备的端口跳到“Bome Virtual Port 1”。跳线设置完之后，会看到输出端口的指示灯也会闪。我们使用的基础班只要将输出端口设置为空即可。</p>
-<h2 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h2><p>&emsp;&emsp;这里的设置分为三步。</p>
-<p>&emsp;&emsp;第一步是指定映射名。这里我使用简谱表示唱名，<code>#</code>和字母<code>b</code>分别表示升降调，符号<code>+</code>和<code>-</code>分别表示升降八度。</p>
-<p>&emsp;&emsp;第二步是键盘抓取。勾上抓取，然后按MIDI上相应的键，截取。PRO版还有按压时间这一属性，这里忽略掉。</p>
-<p>&emsp;&emsp;最后一步是设置映射的按键。</p>
-<h1 id="小键盘按键替换"><a href="#小键盘按键替换" class="headerlink" title="小键盘按键替换"></a>小键盘按键替换</h1><p>&emsp;&emsp;在这个版本中，无法将演奏按钮设置为小键盘，这让我这种小键盘党十分头疼。这里使用AutoHotKey脚本，解决这个问题。</p>
-<p>&emsp;&emsp;需要注意的是，脚本生成的可执行文件无法兼容win7以上系统。这里要设置兼容性为win7,并给予管理员权限。</p>
-<p>&emsp;&emsp;脚本如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Numpad1::q</div><div class="line">Numpad2::w</div><div class="line">Numpad3::e</div><div class="line">Numpad4::r</div><div class="line">Numpad5::t</div><div class="line">Numpad6::y</div><div class="line">Numpad7::u</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;脚本需要使用AutoHotKey进行编译。下载地址：<a href="https://www.autohotkey.com/" target="_blank" rel="external">https://www.autohotkey.com/</a></p>
-<p>&emsp;&emsp;也可以使用我编译好的可执行程序：<a href="https://pan.baidu.com/s/1nmDNgbDi3lcZXMVttSU_Mw" target="_blank" rel="external">https://pan.baidu.com/s/1nmDNgbDi3lcZXMVttSU_Mw</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;MIDI键盘映射&quot;&gt;&lt;a href=&quot;#MIDI键盘映射&quot; class=&quot;headerlink&quot; title=&quot;MIDI键盘映射&quot;&gt;&lt;/a&gt;MIDI键盘映射&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;目前键盘映射不能使用组合键，4.3版本更新之后可使用。&lt;/p&gt;
-&lt;
-    
-    </summary>
-    
-    
-      <category term="音乐" scheme="http://www.z16388.top/tags/%E9%9F%B3%E4%B9%90/"/>
-    
-      <category term="MIDI" scheme="http://www.z16388.top/tags/MIDI/"/>
-    
-      <category term="AutoHotkey" scheme="http://www.z16388.top/tags/AutoHotkey/"/>
-    
-      <category term="游戏" scheme="http://www.z16388.top/tags/%E6%B8%B8%E6%88%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>系统导引修改</title>
-    <link href="http://www.z16388.top/2018/03/13/daoyin/"/>
-    <id>http://www.z16388.top/2018/03/13/daoyin/</id>
-    <published>2018-03-13T06:11:43.000Z</published>
-    <updated>2018-03-13T06:23:24.039Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;寒假的时候给电脑换了个系统，出现了原系统导引没有删除的问题。因为是不同的系统，所以还是比较容易能够分辨的。</p>
-<blockquote>
-<p>右键“此电脑”-&gt;属性-&gt;高级系统设置-&gt;高级-&gt;启动和故障恢复-&gt;设置-&gt;默认操作系统</p>
-</blockquote>
-<p>&emsp;&emsp;在这里可以根据需求进行更改，修改多系统选择时间，还是默认进入哪一个。但是Win10的兼容性不是很好，我的外置声卡驱动，还有音频编辑软件都无法正常安装与使用，我便在开学时换回了win8.1。但是问题出现了，两个win8.1难以分辨，而且留着一个没用的导引也十分没有必要。下面就是删除多余导引的方法。（不需要其他软件）</p>
-<blockquote>
-<p>运行命令提示符（管理员权限）<br>输入命令<code>easybcd</code>查看导引<br>当前的导引会标记为<code>current</code>，并且会有系统盘的路径信息，复制想要删除的导引的标识符，就是用大括号括起来的一长串。<br>执行<code>bcdedit /delete {标识符}</code>完成删除</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;寒假的时候给电脑换了个系统，出现了原系统导引没有删除的问题。因为是不同的系统，所以还是比较容易能够分辨的。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;右键“此电脑”-&amp;gt;属性-&amp;gt;高级系统设置-&amp;gt;高级-&amp;gt;启动和故障恢复-&amp;gt;设置
-    
-    </summary>
-    
-    
-      <category term="系统" scheme="http://www.z16388.top/tags/%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【ACM教程】2.6 文件操作</title>
-    <link href="http://www.z16388.top/2018/03/06/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-6%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"/>
-    <id>http://www.z16388.top/2018/03/06/【ACM教程】2-6文件操作/</id>
-    <published>2018-03-06T05:57:13.000Z</published>
-    <updated>2018-03-13T08:47:12.521Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第六节-文件操作"><a href="#第六节-文件操作" class="headerlink" title="第六节 文件操作"></a>第六节 文件操作</h1><p>&emsp;&emsp;在算法类竞赛的过程中，还需要我们掌握文件操作。</p>
-<p>&emsp;&emsp;在去年的蓝桥杯省赛中，第一道题需要处理大量的数据。如果每次都要进行大量的数据输入操作，会花费很多时间。这个时候，把数据存放到文本文档中去，再使用文件操作读取数据，进行计算，能够节省大量的时间。</p>
-<p>&emsp;&emsp;除此之外，在调试程序时，也可以将测试数据保存在文件中读取，可以省去每次编译时，数据输入的时间。</p>
-<p>&emsp;&emsp;C语言使用文件指针来进行文件的读写。</p>
-<p>&emsp;&emsp;首先是创建文件指针：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FILE *fin;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这里的FILE一定要大写，用于存放文件的变量一定是指针类型。</p>
-<p>&emsp;&emsp;接下来要对文件指针初始化：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fin = fopen(<span class="string">"xx.txt"</span>,<span class="string">"w"</span>);</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这里的fopen()函数拥有两个参数，一个是用于读写的用户名，另一个就是读写的参数，这个参数由以下几种字母组成：</p>
-<blockquote>
-<p>r(read): 只读<br>w(write): 只写<br>a(append): 追加<br>t(text): 文本文件，可省略不写<br>b(binary): 二进制文件<br>+: 读和写</p>
-</blockquote>
-<p>&emsp;&emsp;我们通常使用w创建输出和输出两个文档，然后将输入文档改为r即可。</p>
-<p>&emsp;&emsp;下面是一个简单的A+B问题的文件操作实现：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    FILE *fin,*fout;</div><div class="line">    <span class="keyword">int</span> a,b,res;</div><div class="line">    fin = fopen(<span class="string">"in.txt"</span>,<span class="string">"r"</span>);</div><div class="line">    fout = fopen(<span class="string">"out.txt"</span>,<span class="string">"w"</span>);</div><div class="line">    <span class="built_in">fscanf</span>(fin,<span class="string">"%d %d"</span>,&amp;a,&amp;b);</div><div class="line">    res = a+b;</div><div class="line">    <span class="built_in">fprintf</span>(fout,<span class="string">"%d\n"</span>,res);</div><div class="line">    fclose(fin);</div><div class="line">    fclose(fout);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;第六节-文件操作&quot;&gt;&lt;a href=&quot;#第六节-文件操作&quot; class=&quot;headerlink&quot; title=&quot;第六节 文件操作&quot;&gt;&lt;/a&gt;第六节 文件操作&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;在算法类竞赛的过程中，还需要我们掌握文件操作。&lt;/p&gt;
-&lt;p&gt;&amp;em
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://www.z16388.top/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://www.z16388.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="ACM教程" scheme="http://www.z16388.top/tags/ACM%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="动态规划" scheme="http://www.z16388.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Lua学习笔记</title>
-    <link href="http://www.z16388.top/2018/02/25/Luanote/"/>
-    <id>http://www.z16388.top/2018/02/25/Luanote/</id>
-    <published>2018-02-25T03:32:12.000Z</published>
-    <updated>2018-03-15T09:22:34.303Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;学习资料地址：<a href="http://www.runoob.com/lua/lua-tutorial.html" target="_blank" rel="external">http://www.runoob.com/lua/lua-tutorial.html</a></p>
-<h1 id="环境安装与使用"><a href="#环境安装与使用" class="headerlink" title="环境安装与使用"></a>环境安装与使用</h1><h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p>&emsp;&emsp;在Windows环境下，使用SciTE来运行Lua程序。</p>
-<p>&emsp;&emsp;项目GitHub地址：<a href="https://github.com/rjpcomputing/luaforwindows/releases" target="_blank" rel="external">https://github.com/rjpcomputing/luaforwindows/releases</a></p>
-<p>&emsp;&emsp;上面的官方下载无法保证下载速度，我使用的是菜鸟教程分流的下载地址：<a href="http://static.runoob.com/download/LuaForWindows_v5.1.4-46.exe" target="_blank" rel="external">http://static.runoob.com/download/LuaForWindows_v5.1.4-46.exe</a></p>
-<h2 id="开始编程"><a href="#开始编程" class="headerlink" title="开始编程"></a>开始编程</h2><p>&emsp;&emsp;和Python一样，Lua也有交互式的编程方式。在命令行中输入<code>lua</code>或者<code>lua -i</code>启用。</p>
-<p>&emsp;&emsp;同时也可以使用脚本式编程，就是将代码存放在一个lua文件中，命令行执行<code>lua xxx.lua</code>即可。</p>
-<p>&emsp;&emsp;需要注意的是，交互式编程状态下不能使用lua命令，会出现下面的错误，这一点我也是犯了好多次：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stdin:1: &apos;=&apos; expected near &apos;hello&apos;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;教程中没有提到怎样退出lua环境 。<code>os.exit()</code>退出。</p>
-<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>&emsp;&emsp;单行注释:</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;多行注释：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--[[</span></div><div class="line">XXX</div><div class="line">XXX</div><div class="line">]]<span class="comment">--</span></div></pre></td></tr></table></figure>
-<h2 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"hello world!"</span>)</div></pre></td></tr></table></figure>
-<h1 id="数据类型与变量"><a href="#数据类型与变量" class="headerlink" title="数据类型与变量"></a>数据类型与变量</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>&emsp;&emsp;Lua有三种变量类型：全局变量，局部变量和表中的域。默认情况下，变量都是全局变量，函数里面没有做特殊声明的变量也都是全局变量。全局变量不需要声明，直接赋值即创建了这个全局变量。如果访问了一个没有创建的变量，会返回一个nil。同样，如果想要删除一个变量，直接赋值nil即可。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">print</span>(b)</div><div class="line"><span class="keyword">nil</span></div><div class="line">&gt; b=<span class="number">10</span></div><div class="line">&gt; <span class="built_in">print</span>(b)</div><div class="line"><span class="number">10</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;如果想要一个局部变量，需要使用<code>local</code>显式声明：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> b = <span class="number">5</span></div></pre></td></tr></table></figure>
-<h3 id="赋值语句"><a href="#赋值语句" class="headerlink" title="赋值语句"></a>赋值语句</h3><p>&emsp;&emsp;赋值时改变一个变量的值和改变表域的最基本方法。同大多数编程语言类似，Lua使用从右到左的赋值方式。除此之外，还能够实现多个变量同时赋值：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a, b = <span class="number">10</span>, <span class="number">2</span>*x</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;上面的语句在功能上，等同于：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = <span class="number">10</span></div><div class="line">b = <span class="number">2</span>*x</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;在对多个变量进行赋值时，Lua采用的计算方式是<strong>先计算右侧的值，再进行赋值</strong>的操作。所以再Lua中，实现两个变量值的交换只需要一行代码：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x, y = y, x</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;除此之外，当变量的个数和数值的个数不一致时，Lua会遵循这个策略：</p>
-<ol>
-<li>当 变量个数 &gt; 值的个数 时，右侧没有指定值的变量赋值为nil</li>
-<li>当 变量个数 &lt; 值的个数 时，右侧多余的值会被忽略掉。</li>
-</ol>
-<p>&emsp;&emsp;所以比较容易出现的错误是，在对多个变量进行相同赋值时：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a, b, c = <span class="number">0</span></div><div class="line"><span class="built_in">print</span>(a,b,c)             <span class="comment">--&gt; 0   nil   nil</span></div><div class="line">a, b, c = <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span></div><div class="line"><span class="built_in">print</span>(a,b,c)             <span class="comment">--&gt; 0   0   0</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;多赋值语句，除了用在上面的值交换的过程中之外，还常用于记录函数的多个返回值。Lua中，函数可以有多个返回值。如果想要将函数<code>f()</code>的两个返回值存放到全局变量<code>a</code>和<code>b</code>中去，可以使用下面的语句：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a, b = f()</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;上面的语句，实现了将函数的第一个返回值给a，第二个给b。</p>
-<p>&emsp;&emsp;虽然Lua定义全局变量比较方便，但是应当尽可能地使用局部变量。因为局部变量的访问时间要比全局变量更快，同时也避免了变量命名的冲突。</p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>&emsp;&emsp;以下是常见的集中变量类型。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">数据类型</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">nil</td>
-<td style="text-align:center">无效值，没有赋值的变量都会返回nil</td>
-</tr>
-<tr>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">布尔</td>
-</tr>
-<tr>
-<td style="text-align:center">number</td>
-<td style="text-align:center">双精度浮点型</td>
-</tr>
-<tr>
-<td style="text-align:center">string</td>
-<td style="text-align:center">字符串，用单引号或双引号括起来</td>
-</tr>
-<tr>
-<td style="text-align:center">function</td>
-<td style="text-align:center">由C或Lua编写的函数</td>
-</tr>
-<tr>
-<td style="text-align:center">userdata</td>
-<td style="text-align:center">*表示任意存储在变量中的C数据结构</td>
-</tr>
-<tr>
-<td style="text-align:center">thread</td>
-<td style="text-align:center">*表示执行的独立线路，用于执行协同程序</td>
-</tr>
-<tr>
-<td style="text-align:center">table</td>
-<td style="text-align:center">*Lua 中的表（table）其实是一个”关联数组”（associative arrays），数组的索引可以是数字或者是字符串。在 Lua 里，table 的创建是通过”构造表达式”来完成，最简单构造表达式是{}，用来创建一个空表。</td>
-</tr>
-</tbody>
-</table>
-<p>&emsp;&emsp;可以使用type函数测试给定变量或常量的类型：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="string">"Hello world"</span>))      <span class="comment">--&gt; string</span></div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="number">10.4</span>*<span class="number">3</span>))             <span class="comment">--&gt; number</span></div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">print</span>))              <span class="comment">--&gt; function</span></div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">type</span>))               <span class="comment">--&gt; function</span></div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="keyword">true</span>))               <span class="comment">--&gt; boolean</span></div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="keyword">nil</span>))                <span class="comment">--&gt; nil</span></div><div class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">type</span>(X)))            <span class="comment">--&gt; string</span></div></pre></td></tr></table></figure>
-<h3 id="nil（空）"><a href="#nil（空）" class="headerlink" title="nil（空）"></a>nil（空）</h3><p>&emsp;&emsp;nil类型表示没有任何有效值，只有一个值，nil。打印一个没有赋值的变量会输出nil。对于全局变量和table变量，nil可以起到删除的作用。全局变量或者 table表里的变量赋一个nil值，等同于将他们删除。</p>
-<p>&emsp;&emsp;nil在比较时，需要使用双引号括起来。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">type</span>(X)</div><div class="line"><span class="keyword">nil</span></div><div class="line">&gt; <span class="built_in">type</span>(X)==<span class="keyword">nil</span></div><div class="line"><span class="keyword">false</span></div><div class="line">&gt; <span class="built_in">type</span>(X)==<span class="string">"nil"</span></div><div class="line"><span class="keyword">true</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
-<h3 id="boolean（布尔）"><a href="#boolean（布尔）" class="headerlink" title="boolean（布尔）"></a>boolean（布尔）</h3><p>&emsp;&emsp;Lua的布尔值与其他语言有一个显著的区别，它将false和nil看作假，其他的值，<strong>包括0，都为真</strong>。长时间使用其他编程语言的人可能会很难反应过来。</p>
-<p>&emsp;&emsp;除此之外，在进行逻辑判断时也和其他语言有很多不同。进行或、与运算时，如0 or false的值就为0，10 and 20返回值就为20。</p>
-<h3 id="number（数字）"><a href="#number（数字）" class="headerlink" title="number（数字）"></a>number（数字）</h3><p>&emsp;&emsp;Lua默认只有一种number类型，即双精度浮点型。</p>
-<h3 id="string（字符串）"><a href="#string（字符串）" class="headerlink" title="string（字符串）"></a>string（字符串）</h3><p>&emsp;&emsp;字符串由一对单引号或者双引号括起来。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">string1 = <span class="string">"this is string1"</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;也可以使用两个方括号<code>[[]]</code>来表示一块字符串。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">html = <span class="string">[[</span></div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;a href="http://www.z16388.com/"&gt;崎径 其镜&lt;/a&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line">]]</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;运行时，Lua会自动在string和number之间进行格式转换。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"10"</span>+ <span class="number">1</span>)     <span class="comment">--&gt; 11</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"10 + 1"</span>)  <span class="comment">--&gt; 10 + 1</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"hello"</span>+ <span class="number">1</span>)    <span class="comment">-- 报错 (无法转换 "hello")</span></div><div class="line"><span class="built_in">print</span>(<span class="number">10</span> .. <span class="number">20</span>) <span class="comment">--&gt; 1020</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;在一个数字后写<code>..</code>时应该<strong>加空格，防止被错误解释</strong>。</p>
-<p>&emsp;&emsp;可以使用两点<code>..</code>来连接两个字符串：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">print</span>(<span class="string">"a"</span> .. <span class="string">'b'</span>)</div><div class="line">ab</div><div class="line">&gt; <span class="built_in">print</span>(<span class="number">157</span> .. <span class="number">428</span>)</div><div class="line"><span class="number">157428</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;可以使用<code>#</code>来计算字符串的长度：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; len = <span class="string">"www.z16388.top"</span></div><div class="line">&gt; <span class="built_in">print</span>(#len)</div><div class="line"><span class="number">14</span></div><div class="line">&gt; <span class="built_in">print</span>(#<span class="string">"www.z16388.top"</span>)</div><div class="line"><span class="number">14</span></div></pre></td></tr></table></figure>
-<h3 id="table（表）"><a href="#table（表）" class="headerlink" title="table（表）"></a>table（表）</h3><p>&emsp;&emsp;表是一个关联数组，可以创建空表，也可以在创建的时候初始化：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> tbl1 = &#123;&#125;</div><div class="line"><span class="keyword">local</span> tbl2 = &#123;<span class="string">"apple"</span>, <span class="string">"pear"</span>, <span class="string">"orange"</span>, <span class="string">"grape"</span>&#125;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;数组的索引可以是数字或者字符串：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a[key] = <span class="number">22</span></div><div class="line">a[<span class="number">2</span>] = <span class="number">11</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;需要注意的是，与其他语言不同，<strong>Lua默认初始索引是从1开始的！！！！</strong></p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> tbl = &#123;<span class="string">"apple"</span>, <span class="string">"pear"</span>, <span class="string">"orange"</span>, <span class="string">"grape"</span>&#125;</div><div class="line"><span class="keyword">for</span> key, val <span class="keyword">in</span> <span class="built_in">pairs</span>(tbl) <span class="keyword">do</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"Key"</span>, key)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;程序的运行结果是：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Key    <span class="number">1</span></div><div class="line">Key    <span class="number">2</span></div><div class="line">Key    <span class="number">3</span></div><div class="line">Key    <span class="number">4</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;对table的索引除了使用国际惯例<code>[]</code>之外，还可以使用<code>.</code>进行操作。需要注意的是，<strong>使用点号来索引时，索引的关键字不能为数字</strong>。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; site = &#123;&#125;</div><div class="line">&gt; site[<span class="string">"key"</span>] = <span class="string">"www.z16388.top"</span></div><div class="line">&gt; <span class="built_in">print</span>(site[<span class="string">"key"</span>])</div><div class="line">www.z16388.top</div><div class="line">&gt; <span class="built_in">print</span>(site.key)</div><div class="line">www.z16388.top</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;最后，table不会固定长度,没有被赋值的部分，返回值都为nil。如果直接使用for循环进行遍历，循环会在遇到nil值时终止，可能无法实现对整个数组的遍历。（如果其中有空值的话）具体的解决方法在table部分给出。</p>
-<h3 id="function（函数）"><a href="#function（函数）" class="headerlink" title="function（函数）"></a>function（函数）</h3><p>&emsp;&emsp;在Lua中，函数被看作第一类值，函数可以存在变量里。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial1</span><span class="params">(n)</span></span></div><div class="line">    <span class="keyword">if</span> n == <span class="number">0</span> <span class="keyword">then</span></div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> n * factorial1(n - <span class="number">1</span>)</div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="built_in">print</span>(factorial1(<span class="number">5</span>))</div><div class="line">factorial2 = factorial1</div><div class="line"><span class="built_in">print</span>(factorial2(<span class="number">5</span>))</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;可以以匿名函数的方式，通过参数传递。函数之所以有名字，就是为了方便进行调用。而只使用一次的函数，则可以不起名字，也就是匿名函数。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">testFun</span><span class="params">(tab,fun)</span></span></div><div class="line">    <span class="keyword">for</span> k ,v <span class="keyword">in</span> <span class="built_in">pairs</span>(tab) <span class="keyword">do</span></div><div class="line">        <span class="built_in">print</span>(fun(k,v));</div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"></div><div class="line">tab=&#123;key1=<span class="string">"val1"</span>,key2=<span class="string">"val2"</span>&#125;</div><div class="line">testFun(tab,</div><div class="line"><span class="function"><span class="keyword">function</span><span class="params">(key,val)</span></span><span class="comment">--匿名函数</span></div><div class="line">    <span class="keyword">return</span> key..<span class="string">"="</span>..val</div><div class="line"><span class="keyword">end</span></div><div class="line">);</div></pre></td></tr></table></figure>
-<h1 id="循环与流程控制"><a href="#循环与流程控制" class="headerlink" title="循环与流程控制"></a>循环与流程控制</h1><h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><p>&emsp;&emsp;条件为<code>true</code>时会重复执行循环体的语句。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span>(condition)</div><div class="line"><span class="keyword">do</span></div><div class="line">   statements</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><p>&emsp;&emsp;for循环是可以制定循环体执行次数的循环语句。Lua中的for循环需要相当地注意，分为两大类：</p>
-<h4 id="数值for循环"><a href="#数值for循环" class="headerlink" title="数值for循环"></a>数值for循环</h4><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> var=exp1,exp2,exp3 <span class="keyword">do</span>  </div><div class="line">    &lt;执行体&gt;  </div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;<code>exp1</code>为初值，<code>exp2</code>为终值，<code>exp3</code>为步长。若<code>exp3</code>不指定，值默认为1。需要注意的是，表达式中<strong>三个参数的值都会在循环开始前一次性求值，以后不再进行求值</strong>。</p>
-<p>&emsp;&emsp;参数</p>
-<h4 id="泛型for循环"><a href="#泛型for循环" class="headerlink" title="泛型for循环"></a>泛型for循环</h4><p>&emsp;&emsp;泛型for循环，通过一个迭代器来遍历所有的值，与C++类似。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i,v <span class="keyword">in</span> <span class="built_in">ipairs</span>(a) </div><div class="line">    <span class="keyword">do</span> <span class="built_in">print</span>(v) </div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;其中，<code>i</code>是索引，<code>v</code>是索引对应的元素的值，ipairs是Lua提供的一个迭代器函数，用来迭代数组。它的参数<code>a</code>就是数组名。下面是一个对数组进行泛型for循环输出的例子。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">days = &#123;<span class="string">"Suanday"</span>,<span class="string">"Monday"</span>,<span class="string">"Tuesday"</span>,<span class="string">"Wednesday"</span>,<span class="string">"Thursday"</span>,<span class="string">"Friday"</span>,<span class="string">"Saturday"</span>&#125;  </div><div class="line"><span class="keyword">for</span> i,v <span class="keyword">in</span> <span class="built_in">ipairs</span>(days) <span class="keyword">do</span>  </div><div class="line">    <span class="built_in">print</span>(v) </div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<h3 id="repeat-…-until循环"><a href="#repeat-…-until循环" class="headerlink" title="repeat … until循环"></a>repeat … until循环</h3><p>&emsp;&emsp;即do … while，重复执行循环体到循环条件为真时。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">repeat</span></div><div class="line">   statements</div><div class="line"><span class="keyword">until</span>( condition )</div></pre></td></tr></table></figure>
-<h3 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h3><p>&emsp;&emsp;Lua支持break语句。</p>
-<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><p>&emsp;&emsp;if语句的格式：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(布尔表达式)</div><div class="line"><span class="keyword">then</span></div><div class="line">   <span class="comment">--[ 在布尔表达式为 true 时执行的语句 --]</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;if … else 语句格式：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(布尔表达式)</div><div class="line"><span class="keyword">then</span></div><div class="line">   <span class="comment">--[ 布尔表达式为 true 时执行该语句块 --]</span></div><div class="line"><span class="keyword">else</span></div><div class="line">   <span class="comment">--[ 布尔表达式为 false 时执行该语句块 --]</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;需要注意的是，Lua中<strong>0也为真值</strong>，只有false和nil为假。</p>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>&emsp;&emsp;Lua中，函数的标准格式如下：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">optional_function_scope <span class="function"><span class="keyword">function</span> <span class="title">function_name</span><span class="params">( argument1, argument2, argument3..., argumentn)</span></span></div><div class="line">    function_body</div><div class="line">    <span class="keyword">return</span> result_params_comma_separated</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<blockquote>
-<ol>
-<li><code>optional_function_scope</code>这个参数是可选的，表示函数是全局的还是局部的。默认为全局函数，设置为局部函数需要加关键字local</li>
-<li><code>function_name</code>函数名</li>
-<li><code>argument</code>函数的参数，用逗号隔开，也可以不带参数</li>
-<li><code>function_body</code>函数体</li>
-<li><code>result_params_comma_separated</code>返回值，可以有多个。</li>
-</ol>
-</blockquote>
-<p>&emsp;&emsp;<strong>函数可以作为参数</strong>。</p>
-<h2 id="多返回值"><a href="#多返回值" class="headerlink" title="多返回值"></a>多返回值</h2><p>&emsp;&emsp;Lua中的函数可以有多个返回值。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> res1,res2;</div></pre></td></tr></table></figure>
-<h2 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h2><p>&emsp;&emsp;Lua中的函数可以接受可变数目的参数，用三点<code>…</code>来代表多个参数。计算平均值的程序，可以这样写：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">average</span><span class="params">(...)</span></span></div><div class="line">   result = <span class="number">0</span></div><div class="line">   <span class="keyword">local</span> arg=&#123;...&#125;</div><div class="line">   <span class="keyword">for</span> i,v <span class="keyword">in</span> <span class="built_in">ipairs</span>(arg) <span class="keyword">do</span></div><div class="line">      result = result + v</div><div class="line">   <span class="keyword">end</span></div><div class="line">   <span class="built_in">print</span>(<span class="string">"总共传入 "</span> .. #arg .. <span class="string">" 个数"</span>)</div><div class="line">   <span class="keyword">return</span> result/#arg</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"平均值为"</span>,average(<span class="number">10</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>))</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;在新的版本里，<code>#</code>不能用于返回数组元素的个数了，而是需要使用：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">select</span>(<span class="string">"#"</span>,...)</div></pre></td></tr></table></figure>
-<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><p>&emsp;&emsp;常用的算术运算符与其他语言类似。需要注意的是，Lua里没有整数，所以如果想要取整操作，必须要进行取整操作：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x = <span class="built_in">math</span>.ceil(x)</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;需要注意的是，这里的取整仍然是向上取整。也就是说，无论小数部分有多小，取整的结果都是要比原数的整数部分大1。</p>
-<p>&emsp;&emsp;除此之外，常用的操作应该还有数据精度的控制：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span>.format(<span class="string">"%.2f"</span>,dt)</div></pre></td></tr></table></figure>
-<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">符号</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">==</td>
-<td style="text-align:center">等于</td>
-</tr>
-<tr>
-<td style="text-align:center">~=</td>
-<td style="text-align:center">不等</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;=</td>
-<td style="text-align:center">大于等于</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;=</td>
-<td style="text-align:center">小于等于</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;</td>
-<td style="text-align:center">大于</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;</td>
-<td style="text-align:center">小于</td>
-</tr>
-</tbody>
-</table>
-<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">符号</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">and</td>
-<td style="text-align:center">与</td>
-</tr>
-<tr>
-<td style="text-align:center">or</td>
-<td style="text-align:center">或</td>
-</tr>
-<tr>
-<td style="text-align:center">not</td>
-<td style="text-align:center">非</td>
-</tr>
-</tbody>
-</table>
-<h2 id="其他运算符"><a href="#其他运算符" class="headerlink" title="其他运算符"></a>其他运算符</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">符号</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">..</td>
-<td style="text-align:center">连结两个字符串</td>
-</tr>
-<tr>
-<td style="text-align:center">#</td>
-<td style="text-align:center">返回字符串或表的长度</td>
-</tr>
-</tbody>
-</table>
-<p>&emsp;&emsp;<code>#</code>运算符，获取的表的长度实际上获取的是表最大的索引值。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">tab1 = &#123;<span class="string">"1"</span>,<span class="string">"2"</span>&#125;</div><div class="line"><span class="built_in">print</span>(<span class="string">"tab1长度"</span>..#tab1)</div><div class="line">tab2 = &#123;key1=<span class="string">"1"</span>,<span class="string">"2"</span>&#125;</div><div class="line"><span class="built_in">print</span>(<span class="string">"tab2长度"</span>..#tab2)</div><div class="line">tab3 = &#123;&#125;</div><div class="line">tab3[<span class="number">1</span>]=<span class="string">"1"</span></div><div class="line">tab3[<span class="number">2</span>]=<span class="string">"2"</span></div><div class="line">tab3[<span class="number">4</span>]=<span class="string">"4"</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"tab3长度"</span>..#tab3)</div><div class="line"></div><div class="line">tab1长度<span class="number">2</span></div><div class="line">tab2长度<span class="number">1</span></div><div class="line">tab3长度<span class="number">4</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;但是当下表的值，<strong>大小相差超过1的时候，就会停止计算</strong>。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">tab3=&#123;&#125;</div><div class="line">tab3[<span class="number">1</span>]=<span class="string">"1"</span></div><div class="line">tab3[<span class="number">2</span>]=<span class="string">"2"</span></div><div class="line">tab3[<span class="number">5</span>]=<span class="string">"5"</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"tab3的长度"</span>,#tab3)</div><div class="line"></div><div class="line">tab3的长度    <span class="number">2</span></div></pre></td></tr></table></figure>
-<h2 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h2><p>&emsp;&emsp;在原口诀的基础上，字符串连接运算符的优先级在算数运算符和关系运算符之间。</p>
-<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="形式"><a href="#形式" class="headerlink" title="形式"></a>形式</h2><p>&emsp;&emsp;共有三种类型</p>
-<ol>
-<li>单引号括起来</li>
-<li>双引号括起来</li>
-<li><code>[[]]</code>括起来</li>
-</ol>
-<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:center">用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">uper(str)</td>
-<td style="text-align:center">全部转为大写字母</td>
-</tr>
-<tr>
-<td style="text-align:center">lower(str)</td>
-<td style="text-align:center">全部转为小写字母</td>
-</tr>
-<tr>
-<td style="text-align:center">len(str)</td>
-<td style="text-align:center">计算长度</td>
-</tr>
-<tr>
-<td style="text-align:center">gsub(str,str1,str2,num)</td>
-<td style="text-align:center">将str中的str1，替换为str2，替换num个，num可以省略</td>
-</tr>
-<tr>
-<td style="text-align:center">find(str,str1,[init, [end]])</td>
-<td style="text-align:center">在str中搜索str1，返回其位置。如果不存在返回nil。第三个参数为索引</td>
-</tr>
-</tbody>
-</table>
-<p>&emsp;&emsp;字符串翻转</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">string</span>.reverse(<span class="string">"Lua"</span>)</div><div class="line">auL</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;字符串格式化，和C的输出类似</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">string</span>.format(<span class="string">"the value is:%d"</span>,<span class="number">4</span>)</div><div class="line">the value is:<span class="number">4</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;<code>char()</code>函数，将整数按照ASCII码转换成对应的符号；<code>byte(str,num)</code>将第num个字幕转换为ASCII码，默认是第一个。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">string</span>.char(<span class="number">97</span>,<span class="number">98</span>,<span class="number">99</span>,<span class="number">100</span>)</div><div class="line">abcd</div><div class="line">&gt; <span class="built_in">string</span>.byte(<span class="string">"ABCD"</span>,<span class="number">4</span>)</div><div class="line"><span class="number">68</span></div><div class="line">&gt; <span class="built_in">string</span>.byte(<span class="string">"ABCD"</span>)</div><div class="line"><span class="number">65</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;<code>rep(string,n)</code>将字符串复制n次。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">string</span>.rep(<span class="string">"abcd"</span>,<span class="number">2</span>)</div><div class="line">abcdabcd</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;<code>..</code>可以用于连接字符串：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">print</span>(<span class="string">"FF"</span>..<span class="string">"14"</span>)</div><div class="line">FF14</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;原课程笔记中提到了两个比较有用的程序。一个是将阿拉伯数字转换成大写的中文数字，另一个是移除一个字符串中的汉字字符和符号。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> <span class="function"><span class="keyword">function</span> <span class="title">NumToCN</span><span class="params">(num)</span></span></div><div class="line">    <span class="keyword">local</span> size = #<span class="built_in">tostring</span>(num)</div><div class="line">    <span class="keyword">local</span> CN = <span class="string">""</span></div><div class="line">    <span class="keyword">local</span> StrCN = &#123;<span class="string">"一"</span>,<span class="string">"二"</span>,<span class="string">"三"</span>,<span class="string">"四"</span>,<span class="string">"五"</span>,<span class="string">"六"</span>,<span class="string">"七"</span>,<span class="string">"八"</span>,<span class="string">"九"</span>&#125;</div><div class="line">    <span class="keyword">for</span> i = <span class="number">1</span> , size <span class="keyword">do</span></div><div class="line">        CN = CN .. StrCN[<span class="built_in">tonumber</span>(<span class="built_in">string</span>.sub(<span class="built_in">tostring</span>(num), i , i))]</div><div class="line">    <span class="keyword">end</span></div><div class="line">    <span class="keyword">return</span> CN</div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="built_in">print</span>(NumToCN(<span class="number">56665</span>))</div></pre></td></tr></table></figure>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">StrSplit</span><span class="params">(inputstr, sep)</span></span></div><div class="line">    <span class="keyword">if</span> sep == <span class="keyword">nil</span> <span class="keyword">then</span></div><div class="line">      sep = <span class="string">"%s"</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">    <span class="keyword">local</span> t=&#123;&#125;</div><div class="line">    <span class="keyword">local</span> i=<span class="number">1</span></div><div class="line">    <span class="keyword">for</span> str <span class="keyword">in</span> <span class="built_in">string</span>.gmatch(inputstr, <span class="string">"([^"</span>..sep..<span class="string">"]+)"</span>) <span class="keyword">do</span></div><div class="line">       t[i] = str</div><div class="line">       i = i + <span class="number">1</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">    <span class="keyword">return</span> t</div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="keyword">local</span> a = <span class="string">"23245023496830,汉字。。。。"</span></div><div class="line"><span class="keyword">local</span> b = <span class="string">":"</span></div><div class="line">b = StrSplit(a,<span class="string">","</span>)</div><div class="line"><span class="built_in">print</span>(b[<span class="number">1</span>])</div></pre></td></tr></table></figure>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>&emsp;&emsp;数组就是同一类型数据，按照一定顺序排列的集合。数组可以是一维的，也可以是多维的。</p>
-<p>&emsp;&emsp;Lua中的数组的索引键值可以使用整数表示,数组的大小是不固定的。</p>
-<h2 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h2><p>&emsp;&emsp;一维数组是最简单的数组，逻辑结构是线性表。一维数组可以使用for循环输出数组中的元素：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">array = &#123;<span class="string">"Hello"</span>, <span class="string">"World!"</span>&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> i= <span class="number">0</span>, <span class="number">2</span> <span class="keyword">do</span></div><div class="line">   <span class="built_in">print</span>(array[i])</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;Lua的索引默认从1开始，可以指定从0甚至从负数开始，索引指定的位置没有数值返回nil。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">array = &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> i= <span class="number">-2</span>, <span class="number">2</span> <span class="keyword">do</span></div><div class="line">   array[i] = i *<span class="number">2</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i = <span class="number">-2</span>,<span class="number">2</span> <span class="keyword">do</span></div><div class="line">   <span class="built_in">print</span>(array[i])</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p>&emsp;&emsp;多维数组分为两种。数组中包含数组，或者是一维数组的索引键对应一个数组。</p>
-<p>&emsp;&emsp;三行三列多维数组：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- 初始化数组</span></div><div class="line">array = &#123;&#125;</div><div class="line"><span class="keyword">for</span> i=<span class="number">1</span>,<span class="number">3</span> <span class="keyword">do</span></div><div class="line">   array[i] = &#123;&#125;</div><div class="line">      <span class="keyword">for</span> j=<span class="number">1</span>,<span class="number">3</span> <span class="keyword">do</span></div><div class="line">         array[i][j] = i*j</div><div class="line">      <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment">-- 访问数组</span></div><div class="line"><span class="keyword">for</span> i=<span class="number">1</span>,<span class="number">3</span> <span class="keyword">do</span></div><div class="line">   <span class="keyword">for</span> j=<span class="number">1</span>,<span class="number">3</span> <span class="keyword">do</span></div><div class="line">      <span class="built_in">print</span>(array[i][j])</div><div class="line">   <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;不同索引键的三行三列阵列多维数组：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- 初始化数组</span></div><div class="line">array = &#123;&#125;</div><div class="line">maxRows = <span class="number">3</span></div><div class="line">maxColumns = <span class="number">3</span></div><div class="line"><span class="keyword">for</span> row=<span class="number">1</span>,maxRows <span class="keyword">do</span></div><div class="line">   <span class="keyword">for</span> col=<span class="number">1</span>,maxColumns <span class="keyword">do</span></div><div class="line">      array[row*maxColumns +col] = row*col</div><div class="line">   <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment">-- 访问数组</span></div><div class="line"><span class="keyword">for</span> row=<span class="number">1</span>,maxRows <span class="keyword">do</span></div><div class="line">   <span class="keyword">for</span> col=<span class="number">1</span>,maxColumns <span class="keyword">do</span></div><div class="line">      <span class="built_in">print</span>(array[row*maxColumns +col])</div><div class="line">   <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<h1 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><p>&emsp;&emsp;迭代器（iterator）是一种对象，它能够用来遍历标准模板库容器中的部分或全部元素，每个迭代器对象代表容器中的确定的地址。迭代器是一种支持指针类型的结构，它可以遍历集合的每一个元素。</p>
-<h2 id="泛型for迭代器"><a href="#泛型for迭代器" class="headerlink" title="泛型for迭代器"></a>泛型for迭代器</h2><p>&emsp;&emsp;泛型 for 在自己内部保存迭代函数，实际上它保存三个值：迭代函数、状态常量、控制变量。泛型 for 迭代器提供了集合的 key/value 对，语法格式如下：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">pairs</span>(t) <span class="keyword">do</span></div><div class="line">    <span class="built_in">print</span>(k, v)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;对于一个表来说，使用泛型for迭代器，用通俗直白的话来讲，k就是索引，v是索引对应的值，t则是这个表的表名。下面是一个实例：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">array = &#123;<span class="string">"Lua"</span>, <span class="string">"Tutorial"</span>&#125;</div><div class="line"><span class="keyword">for</span> key,value <span class="keyword">in</span> <span class="built_in">ipairs</span>(array) </div><div class="line"><span class="keyword">do</span></div><div class="line">   <span class="built_in">print</span>(key, value)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;上面的代码输出结果为：</p>
-<blockquote>
-<p>1  Lua<br>2  Tutorial</p>
-</blockquote>
-<p>&emsp;&emsp;</p>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="常用的几种遍历方式"><a href="#常用的几种遍历方式" class="headerlink" title="常用的几种遍历方式"></a>常用的几种遍历方式</h2><p>&emsp;&emsp;第一种，按照key的hash值排列的顺序遍历。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> <span class="built_in">pairs</span>(tbtest) <span class="keyword">do</span>      </div><div class="line">    XXX  </div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;第二种，要求Key是连续的，从1开始的数字。ipairs只会从1开始按连续的key顺序遍历到key不连续为止。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> <span class="built_in">ipairs</span>(tbtest) <span class="keyword">do</span>      </div><div class="line">    XXX  </div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;第三种，必须存在1这个key，而且是从1开始依次加一的顺序，找到一个不是1的就不再进行遍历。</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i=<span class="number">1</span>, #(tbtest) <span class="keyword">do</span>      </div><div class="line">    XXX  </div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;学习资料地址：&lt;a href=&quot;http://www.runoob.com/lua/lua-tutorial.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.runoob.com/lua/lua-tut
-    
-    </summary>
-    
-    
-      <category term="Lua" scheme="http://www.z16388.top/tags/Lua/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown编辑器Smark</title>
-    <link href="http://www.z16388.top/2018/01/17/smark/"/>
-    <id>http://www.z16388.top/2018/01/17/smark/</id>
-    <published>2018-01-17T04:54:11.000Z</published>
-    <updated>2018-01-17T05:06:03.245Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;寒假到了，毕设也做完了，回到家之后我就更换了电脑，重做了系统。经过了漫长的系统更新以及某个臃肿的IDE的安装之后，到家第二天的中午终于能够使用我的老笔记本电脑了。在开始C#学习的时候，想要开一个博客文章记录一下学习的内容的时候。发现在安装之前使用过的MarkdownPad的时候，出现了异常，研究半天也没有研究好，只得去寻找其他的Markdown编辑器。</p>
-<p>&emsp;&emsp;我找到了一款名为Smark的编辑器。这是一个开源的编辑器，虽然三年没有更新，但是作为一款Markdown文本编辑器它还是很中规中矩的。</p>
-<p>&emsp;&emsp;首先是安装部分。原项目的地址在<a href="https://gitee.com/elerao/Smark" target="_blank" rel="external">https://gitee.com/elerao/Smark</a>相关的一些介绍可以查看项目的具体信息。文中出现的链接部分失效，相关的下载内容有雷锋转移到了<a href="http://pan.baidu.com/s/1pJnrX5x" target="_blank" rel="external">http://pan.baidu.com/s/1pJnrX5x</a>。</p>
-<p>&emsp;&emsp;我在解压后直接就能使用，不同平台和其他异常情况参见原项目的内容介绍，下面将一些使用的注意事项。</p>
-<ol>
-<li><p>默认情况下，编辑栏在右侧，习惯之后反而觉得很方便。</p>
-</li>
-<li><p>没有实时渲染的功能，只能够渲染已经保存的内容。其实这个我觉得应该是一个优势，因为我经常会有写东西写一半忘了保存的时候，这个小缺陷能够随时提醒你要进行保存。没有保存的行在编辑器中会有灰色的背景标记，比较明显。</p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;寒假到了，毕设也做完了，回到家之后我就更换了电脑，重做了系统。经过了漫长的系统更新以及某个臃肿的IDE的安装之后，到家第二天的中午终于能够使用我的老笔记本电脑了。在开始C#学习的时候，想要开一个博客文章记录一下学习的内容的时候。发现在安装之前使用过的
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://www.z16388.top/tags/hexo/"/>
-    
-      <category term="markdown" scheme="http://www.z16388.top/tags/markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>评论系统Valine的使用</title>
-    <link href="http://www.z16388.top/2018/01/10/valine/"/>
-    <id>http://www.z16388.top/2018/01/10/valine/</id>
-    <published>2018-01-10T14:02:29.000Z</published>
-    <updated>2018-01-10T14:26:26.872Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>&emsp;&emsp;Valine是一款基于Leancloud的快速、简洁且高效的无后端评论系统。</p>
-</blockquote>
-<p>&emsp;&emsp;由于某些原因，博客的一些评论系统被查水表了。忙于考研的原因，一直没有更新评论系统。今天给博客更新了一下主题，也使用了新的评论系统。</p>
-<p>&emsp;&emsp;进入<a href="https://leancloud.cn" target="_blank" rel="external">https://leancloud.cn</a>，点击免费试用，注册账号。根据Valine创建好应用，配置好各种参数即可使用。</p>
-<p>&emsp;&emsp;值得一提的是，头像参数最好设置为<code>‘’<code>，信息参数最好设置为用户名与邮箱。</code></code></p>
-<p>&emsp;&emsp;头像信息在<a href="https://cn.gravatar.com/" target="_blank" rel="external">https://cn.gravatar.com/</a>进行设置。</p>
-<blockquote>
-<p>Gravatar是一图像跟随著您到访过的网站，当您在博客中留言或发表文章，它将会出现在您的名称旁。</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;Valine是一款基于Leancloud的快速、简洁且高效的无后端评论系统。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;由于某些原因，博客的一些评论系统被查水表了。忙于考研的原因，一直没有更新评论系统
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://www.z16388.top/tags/hexo/"/>
     
   </entry>
   
