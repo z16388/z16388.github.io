@@ -34,13 +34,28 @@
     
     
     <meta name="keywords" content="Unity">
-    <meta property="og:type" content="article">
+    <meta name="description" content="请简述GC（垃圾回收）产生的原因，并描述如何避免（？
+GC回收堆上的内存避免：1.减少new产生对象的次数2.使用公用的对象（静态成员）3.将String换为StringBuilder
+
+如何优化内存？
+1.压缩自带类库；2.将暂时不用的以后还需要使用的物体隐藏起来而不是直接Destroy掉；3.释放AssetBundle占用的资源；4.降低模型的片面数，降低模型的骨骼数量，降低贴图的大小；5.使">
+<meta property="og:type" content="article">
 <meta property="og:title" content="U3D问题总结（六） 优化">
 <meta property="og:url" content="http://www.z16388.top/2019/10/29/unity6/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:updated_time" content="2020-10-29T16:32:21.967Z">
+<meta property="og:description" content="请简述GC（垃圾回收）产生的原因，并描述如何避免（？
+GC回收堆上的内存避免：1.减少new产生对象的次数2.使用公用的对象（静态成员）3.将String换为StringBuilder
+
+如何优化内存？
+1.压缩自带类库；2.将暂时不用的以后还需要使用的物体隐藏起来而不是直接Destroy掉；3.释放AssetBundle占用的资源；4.降低模型的片面数，降低模型的骨骼数量，降低贴图的大小；5.使">
+<meta property="og:updated_time" content="2020-10-30T04:31:19.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="U3D问题总结（六） 优化">
+<meta name="twitter:description" content="请简述GC（垃圾回收）产生的原因，并描述如何避免（？
+GC回收堆上的内存避免：1.减少new产生对象的次数2.使用公用的对象（静态成员）3.将String换为StringBuilder
+
+如何优化内存？
+1.压缩自带类库；2.将暂时不用的以后还需要使用的物体隐藏起来而不是直接Destroy掉；3.释放AssetBundle占用的资源；4.降低模型的片面数，降低模型的骨骼数量，降低贴图的大小；5.使">
     
         <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
     
@@ -180,6 +195,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#请简述GC（垃圾回收）产生的原因，并描述如何避免（？"><span class="post-toc-number">1.</span> <span class="post-toc-text">请简述GC（垃圾回收）产生的原因，并描述如何避免（？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何优化内存？"><span class="post-toc-number">2.</span> <span class="post-toc-text">如何优化内存？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UNITY3d在移动设备上的一些优化资源的方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">UNITY3d在移动设备上的一些优化资源的方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#场景优化"><span class="post-toc-number">4.</span> <span class="post-toc-text">场景优化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UI优化"><span class="post-toc-number">5.</span> <span class="post-toc-text">UI优化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GC优化"><span class="post-toc-number">6.</span> <span class="post-toc-text">GC优化</span></a></li></ol>
+        </nav>
+    </aside>
+    
 <article id="post-unity6"
   class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -199,14 +221,32 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            
+            <h2 id="请简述GC（垃圾回收）产生的原因，并描述如何避免（？"><a href="#请简述GC（垃圾回收）产生的原因，并描述如何避免（？" class="headerlink" title="请简述GC（垃圾回收）产生的原因，并描述如何避免（？"></a>请简述GC（垃圾回收）产生的原因，并描述如何避免（？</h2><blockquote>
+<p>GC回收堆上的内存<br>避免：1.减少new产生对象的次数<br>2.使用公用的对象（静态成员）<br>3.将String换为StringBuilder</p>
+</blockquote>
+<h2 id="如何优化内存？"><a href="#如何优化内存？" class="headerlink" title="如何优化内存？"></a>如何优化内存？</h2><blockquote>
+<p>1.压缩自带类库；<br>2.将暂时不用的以后还需要使用的物体隐藏起来而不是直接Destroy掉；<br>3.释放AssetBundle占用的资源；<br>4.降低模型的片面数，降低模型的骨骼数量，降低贴图的大小；<br>5.使用光照贴图，使用多层次细节(LOD)，使用着色器(Shader)，使用预设(Prefab)。<br>6.代码中少产生临时变量</p>
+</blockquote>
+<h2 id="UNITY3d在移动设备上的一些优化资源的方法"><a href="#UNITY3d在移动设备上的一些优化资源的方法" class="headerlink" title="UNITY3d在移动设备上的一些优化资源的方法"></a>UNITY3d在移动设备上的一些优化资源的方法</h2><blockquote>
+<p>1.使用assetbundle，实现资源分离和共享，将内存控制到200m之内，同时也可以实现资源的在线更新<br>2.顶点数对渲染无论是cpu还是gpu都是压力最大的贡献者，降低顶点数到8万以下，fps稳定到了30帧左右<br>3.只使用一盏动态光，不是用阴影，不使用光照探头<br>粒子系统是cpu上的大头<br>4.剪裁粒子系统<br>5.合并同时出现的粒子系统<br>6.自己实现轻量级的粒子系统<br>animator也是一个效率奇差的地方<br>7.把不需要跟骨骼动画和动作过渡的地方全部使用animation，控制骨骼数量在30根以下<br>8.animator出视野不更新<br>9.删除无意义的animator<br>10.animator的初始化很耗时（粒子上能不能尽量不用animator）<br>11.除主角外都不要跟骨骼运动apply root motion<br>12.绝对禁止掉那些不带刚体带包围盒的物体（static collider ）运动<br>NUGI的代码效率很差，基本上runtime的时候对cpu的贡献和render不相上下<br>13每帧递归的计算finalalpha改为只有初始化和变动时计算<br>14去掉法线计算<br>15不要每帧计算viewsize 和windowsize<br>16filldrawcall时构建顶点缓存使用array.copy<br>17.代码剪裁：使用strip level ，使用.net2.0 subset<br>18.尽量减少smooth group<br>19.给美术定一个严格的经过科学验证的美术标准，并在U3D里面配以相应的检查工具</p>
+</blockquote>
+<h2 id="场景优化"><a href="#场景优化" class="headerlink" title="场景优化"></a>场景优化</h2><blockquote>
+<p>1.遮挡剔除（Occlusion Culling）                不显示被遮挡住的物体<br>2.LOD                                         根据相机距离远近显示不同精细程度的模型<br>3.大场景可以调节相机可视距离<br>4.小物体可以适当隐藏掉<br>5.使用光照贴图                                 避免动态实时的进行光照计算，提高效率</p>
+</blockquote>
+<h2 id="UI优化"><a href="#UI优化" class="headerlink" title="UI优化"></a>UI优化</h2><blockquote>
+<p>1.将同一画面图片放到同一图集中<br>2.图片和文字尽量不要交叉，会产生多余drawcall（相同材质和纹理的UI元素是可以合并的）<br>3.UI层级尽量不要重叠太多<br>4.取消勾选不必要的射线检测RaycastTarget<br>5.将动态的UI元素和静态的UI元素放在不同的Canvas中，减少canvas网格重构频率</p>
+</blockquote>
+<h2 id="GC优化"><a href="#GC优化" class="headerlink" title="GC优化"></a>GC优化</h2><blockquote>
+<p>1.字符串使用StringBuilder而不是string，stringBuilder在创建时会自动获取一个容量存储并逐渐扩充，string每一次改变都会创建一个新的对象。<br>2.访问物体tag的时候尽量使用Gameobject.CompareTag()，因为访问物体的tag属性会在堆上额外的分配空间<br>3.使用对象池缓存大量创建的物体<br>4.用for代替foreach，foreach每次迭代产生24字节垃圾内存</p>
+</blockquote>
+
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-10-29T16:32:21.967Z" itemprop="dateUpdated">2020-10-30 00:32:21</time>
+    最后更新时间：<time datetime="2020-10-30T04:31:19.171Z" itemprop="dateUpdated">2020-10-30 12:31:19</time>
 </span><br>
 
 
@@ -291,7 +331,7 @@
     <div class="waves-block waves-effect prev">
       <a href="/2019/10/29/unity7/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">U3D问题总结（七） C#</h4>
+        <h4 class="title">U3D问题总结（七） lua</h4>
       </a>
     </div>
   

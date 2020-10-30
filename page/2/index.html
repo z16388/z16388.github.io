@@ -177,54 +177,6 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-unity7"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-10-29 23:00:07" datetime="2019-10-29T15:00:07.000Z"  itemprop="datePublished">2019-10-29</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/29/unity7/">U3D问题总结（七） C#</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        .Net与Mono的关系？
-mono是.net的一个开源跨平台工具，就类似java虚拟机，java本身不是跨平台语言，但运行在虚拟机上就能够实现了跨平台。.net只能在windows下运行，mono可以实现跨平台跑，可以运行于linux，Unix，Mac OS等。
-
-C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一种完全面向对象的语言，而C++ 不是，另外C# 是...
-    
-
-        <a href="/2019/10/29/unity7/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-unity6"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -251,7 +203,11 @@ C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一�
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
+        请简述GC（垃圾回收）产生的原因，并描述如何避免（？
+GC回收堆上的内存避免：1.减少new产生对象的次数2.使用公用的对象（静态成员）3.将String换为StringBuilder
+
+如何优化内存？
+1.压缩自带类库；2.将暂时不用的以后还需要使用的物体隐藏起来而不是直接Destroy掉；3.释放AssetBundle占用的资源；4.降低模型的片面数，降低模型的骨骼数量，降低贴图的大小；...
     
 
         <a href="/2019/10/29/unity6/" class="post-more waves-effect waves-button">
@@ -296,8 +252,11 @@ C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一�
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        LOD是什么，优缺点(?1LOD(Level of detail)多层次细节，是最常用的游戏优化技术。它按照模型的位置和重要程度决定物体渲染的资源分配，降低非重要物体的面数和细节度，从而获得高效率的渲染运算。缺点是增加了内存。
-MipMap是什么，作用(?1MipMapping：在三维计算机图形的贴图渲染中有常用的技术，为加快渲染进度和减少图像锯齿，贴图被处理成由一系列被预先计算和优化过的图...
+        什么是渲染管道（？
+是指在显示器上为了显示出图像而经过的一系列必要操作。 渲染管道中的很多步骤，都要将几何物体从一个坐标系中变换到另一个坐标系中去。主要步骤有：本地坐标-&gt;视图坐标-&gt;背面裁剪-&gt;光照-&gt;裁剪-&gt;投影-&gt;视图变换-&gt;光栅化
+
+对渲染管线的理解
+渲染流水线流程：1.应用阶段（由CPU负责，输出是渲染所需要的几何信息，即渲染图元）2.几何...
     
 
         <a href="/2019/10/29/unity5/" class="post-more waves-effect waves-button">
@@ -342,8 +301,11 @@ MipMap是什么，作用(?1MipMapping：在三维计算机图形的贴图渲染�
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Unity3d中的碰撞器和触发器的区别？12345碰撞器是触发器的载体，触发器是碰撞器的属性Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果此时调用OnCollisionEnter/Stay/Exit函数Is Trigger=true，碰撞器被物理引擎所忽略，没有碰撞效果此时调用OnTriggerEnter/Stay/Exit函数
-发生碰撞的必要条件123两个物体...
+        射线检测碰撞物的原理是
+射线是3D世界中一个点向一个方向发射的一条无终点的线，在发射轨迹中与其他物体发生碰撞时，它将停止发射 。
+
+Unity3d中的碰撞器和触发器的区别？
+碰撞器是触发器的载体，触发器是碰撞器的属性Is Trigger=false，碰撞器根据物理引擎引发碰撞，产生碰撞的效果此时调用OnCollisionEnter/Stay/Exit函数Is Trigger=true，碰撞器...
     
 
         <a href="/2019/10/29/unity4/" class="post-more waves-effect waves-button">
@@ -388,9 +350,16 @@ MipMap是什么，作用(?1MipMapping：在三维计算机图形的贴图渲染�
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Unity3D支持的作为脚本的语言1C#、JS
-OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期中重复发生12Awake-&gt;OnEnable-&gt;StartOnEnable可以在同一周期中重复发生
-生命周期1Awake——&gt;OnEnable–&gt;Start——&gt;Update——&gt;FixedUpdate——&gt;LateUpdate...
+        Unity基础Unity和Android与iOS如何交互
+Unity可以导出安卓和IOS的工程。导出的工程有Unity封装的方法，可以通过发消息的方式跟Unity进行交互。其中，C#不能与OC直接进行交互，需要用C++去写。
+
+Unity3D支持的作为脚本的语言
+C#、JS、Boo 
+
+Unity中用过哪些插件？具体功能
+NGUI，制作2D界面
+Helpshift，帮助与提示
+KTPlay，...
     
 
         <a href="/2019/10/29/unity3/" class="post-more waves-effect waves-button">
@@ -425,7 +394,7 @@ OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期�
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/29/unity2/">U3D问题总结（二） 线性代数</a>
+      <a class="post-title-link" href="/2019/10/29/unity2/">U3D问题总结（二） 线性代数与算法</a>
     </h3>
   
 
@@ -435,7 +404,9 @@ OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期�
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        向量的点乘、叉乘以及归一化的意义1231.点乘描述了两个向量的相似程度，结果越大两向量越相似，还可表示投影2.叉乘得到的向量垂直于原来的两个向量3.标准化向量：用在只关系方向，不关心大小的时候
+        线性代数向量的点乘、叉乘以及归一化的意义
+1.点乘描述了两个向量的相似程度，结果越大两向量越相似，还可表示投影2.叉乘得到的向量垂直于原来的两个向量3.标准化向量：用在只关系方向，不关心大小的时候
+叉乘：几何意义：得到一个与这两个向量都垂直的向量，这个向量的模是以两个向量为边的平行四边形的面积在同一平面内， 结果 &gt; 0 表示 B在A的逆时针方向， 结果 &lt;0 表示B在A的顺式针...
     
 
         <a href="/2019/10/29/unity2/" class="post-more waves-effect waves-button">
@@ -470,7 +441,7 @@ OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期�
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/29/unity1/">U3D问题总结（一） 计算机基础</a>
+      <a class="post-title-link" href="/2019/10/29/unity1/">U3D问题总结（一） 计算机基础与C#</a>
     </h3>
   
 
@@ -480,7 +451,11 @@ OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期�
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        结构体和类有何区别1结构体是一种值类型，而类是引用类型。（值类型、引用类型是根据数据存储的角度来分的）就是值类型用于存储数据的值，引用类型用于存储对实际数据的引用。那么结构体就是当成值来使用的，类则通过引用来对实际数据操作
+        计算机概述序列化
+定义：将对象的状态信息转换为可以存储或传输的形式的过程。与序列化相对的是反序列化，它将流转换为对象。
+目的：当我们需要把对象的状态信息通过网络进行传输，或者需要将对象的状态信息持久化，以便将来使用时都需要把对象进行序列化
+对象序列化：1.把对象转换为字节序列的过程称为对象的序列化2.把字节序列恢复为对象的过程称为对象的反序列化
+比如，可以序列化一个对象，然后使用HTTP通过...
     
 
         <a href="/2019/10/29/unity1/" class="post-more waves-effect waves-button">
@@ -628,6 +603,52 @@ OnEnable、Awake、Start运行时发生的顺序，哪些可以在同一周期�
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-cmdapk"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-10-21 14:24:25" datetime="2018-10-21T06:24:25.000Z"  itemprop="datePublished">2018-10-21</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/10/21/cmdapk/">命令行修改apk工具</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        概述&emsp;&emsp;在前一段时间的工作中，我得到了一个新的任务，写一个命令行工具，修改apk中的某个文件，再进行重新打包。这个过程实际上十分简单：首先，apk文件就是一个zip文件，但是在安装的时候安卓系统会校验签名，因此我们需要对重新打包的apk进行签名。下面是实现这个工具的重难点和具体思路：
+命令行数组&emsp;&emsp;如果想要生成一批apk，他们中需要修改的位置都是相同的...
+    
+
+        <a href="/2018/10/21/cmdapk/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li></ul>
 
     </div>
     

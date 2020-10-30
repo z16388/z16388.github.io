@@ -27,32 +27,23 @@
     <link rel="canonical" href="http://www.z16388.top/2019/10/29/unity7/">
     
     
-    <title>U3D问题总结（七） C# | 崎径 其镜 | 求学道路上的行车记录仪</title>
+    <title>U3D问题总结（七） lua | 崎径 其镜 | 求学道路上的行车记录仪</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="Unity">
-    <meta name="description" content=".Net与Mono的关系？
-mono是.net的一个开源跨平台工具，就类似java虚拟机，java本身不是跨平台语言，但运行在虚拟机上就能够实现了跨平台。.net只能在windows下运行，mono可以实现跨平台跑，可以运行于linux，Unix，Mac OS等。
-
-C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一种完全面向对象的语言，而C++ 不是，另外C# 是基于I">
+    <meta name="description" content="lua实现类的继承lua遍历查找某个数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="U3D问题总结（七） C#">
+<meta property="og:title" content="U3D问题总结（七） lua">
 <meta property="og:url" content="http://www.z16388.top/2019/10/29/unity7/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content=".Net与Mono的关系？
-mono是.net的一个开源跨平台工具，就类似java虚拟机，java本身不是跨平台语言，但运行在虚拟机上就能够实现了跨平台。.net只能在windows下运行，mono可以实现跨平台跑，可以运行于linux，Unix，Mac OS等。
-
-C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一种完全面向对象的语言，而C++ 不是，另外C# 是基于I">
-<meta property="og:updated_time" content="2020-10-30T01:03:37.527Z">
+<meta property="og:description" content="lua实现类的继承lua遍历查找某个数">
+<meta property="og:updated_time" content="2020-10-30T08:41:14.658Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="U3D问题总结（七） C#">
-<meta name="twitter:description" content=".Net与Mono的关系？
-mono是.net的一个开源跨平台工具，就类似java虚拟机，java本身不是跨平台语言，但运行在虚拟机上就能够实现了跨平台。.net只能在windows下运行，mono可以实现跨平台跑，可以运行于linux，Unix，Mac OS等。
-
-C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一种完全面向对象的语言，而C++ 不是，另外C# 是基于I">
+<meta name="twitter:title" content="U3D问题总结（七） lua">
+<meta name="twitter:description" content="lua实现类的继承lua遍历查找某个数">
     
         <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
     
@@ -140,7 +131,7 @@ C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一�
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">U3D问题总结（七） C#</div>
+        <div class="flex-col header-title ellipsis">U3D问题总结（七） lua</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -172,7 +163,7 @@ C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一�
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">U3D问题总结（七） C#</h1>
+        <h1 class="title">U3D问题总结（七） lua</h1>
         <h5 class="subtitle">
             
                 <time datetime="2019-10-29T15:00:07.000Z" itemprop="datePublished" class="page-time">
@@ -195,7 +186,7 @@ C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一�
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Net与Mono的关系？"><span class="post-toc-number">1.</span> <span class="post-toc-text">.Net与Mono的关系？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#C-和C-的区别"><span class="post-toc-number">2.</span> <span class="post-toc-text">C#和C++的区别(?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ref参数和out参数是什么？有什么区别-？"><span class="post-toc-number">3.</span> <span class="post-toc-text">ref参数和out参数是什么？有什么区别(？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#C-的委托是什么？有何用处"><span class="post-toc-number">4.</span> <span class="post-toc-text">C#的委托是什么？有何用处</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#lua实现类的继承"><span class="post-toc-number">1.</span> <span class="post-toc-text">lua实现类的继承</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#lua遍历查找某个数"><span class="post-toc-number">2.</span> <span class="post-toc-text">lua遍历查找某个数</span></a></li></ol>
         </nav>
     </aside>
     
@@ -203,7 +194,7 @@ C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一�
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">U3D问题总结（七） C#</h1>
+        <h1 class="post-card-title">U3D问题总结（七） lua</h1>
         <div class="post-meta">
             <time class="post-time" title="2019-10-29 23:00:07" datetime="2019-10-29T15:00:07.000Z"  itemprop="datePublished">2019-10-29</time>
 
@@ -218,19 +209,14 @@ C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一�
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="Net与Mono的关系？"><a href="#Net与Mono的关系？" class="headerlink" title=".Net与Mono的关系？"></a>.Net与Mono的关系？</h1><blockquote>
-<p>mono是.net的一个开源跨平台工具，就类似java虚拟机，java本身不是跨平台语言，但运行在虚拟机上就能够实现了跨平台。.net只能在windows下运行，mono可以实现跨平台跑，可以运行于linux，Unix，Mac OS等。</p>
-</blockquote>
-<h1 id="C-和C-的区别"><a href="#C-和C-的区别" class="headerlink" title="C#和C++的区别(?"></a>C#和C++的区别(?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">C# 与C++ 比较的话，最重要的特性就是C# 是一种完全面向对象的语言，而C++ 不是，另外C# 是基于IL 中间语言和.NET Framework CLR 的，在可移植性，可维护性和强壮性都比C++ 有很大的改进。C# 的设计目标是用来开发快速稳定可扩展的应用程序，当然也可以通过Interop 和Pinvoke 完成一些底层操作</div></pre></td></tr></table></figure>
-<h1 id="ref参数和out参数是什么？有什么区别-？"><a href="#ref参数和out参数是什么？有什么区别-？" class="headerlink" title="ref参数和out参数是什么？有什么区别(？"></a>ref参数和out参数是什么？有什么区别(？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ref和out参数的效果一样，都是通过关键字找到定义在主函数里面的变量的内存地址，并通过方法体内的语法改变它的大小。不同点就是输出参数必须对参数进行初始化。ref必须初始化，out 参数必须在函数里赋值。ref参数是引用，out参数为输出参数。</div></pre></td></tr></table></figure>
-<h1 id="C-的委托是什么？有何用处"><a href="#C-的委托是什么？有何用处" class="headerlink" title="C#的委托是什么？有何用处"></a>C#的委托是什么？有何用处</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">委托类似于一种安全的指针引用，在使用它时是当做类来看待而不是一个方法，相当于对一组方法的列表的引用。用处：使用委托使程序员可以将方法引用封装在委托对象内。然后可以将该委托对象传递给可调用所引用方法的代码，而不必在编译时知道将调用哪个方法。与C或C++中的函数指针不同，委托是面向对象，而且是类型安全的。</div></pre></td></tr></table></figure>
+            <h2 id="lua实现类的继承"><a href="#lua实现类的继承" class="headerlink" title="lua实现类的继承"></a>lua实现类的继承</h2><h2 id="lua遍历查找某个数"><a href="#lua遍历查找某个数" class="headerlink" title="lua遍历查找某个数"></a>lua遍历查找某个数</h2>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-10-30T01:03:37.527Z" itemprop="dateUpdated">2020-10-30 09:03:37</time>
+    最后更新时间：<time datetime="2020-10-30T08:41:14.658Z" itemprop="dateUpdated">2020-10-30 16:41:14</time>
 </span><br>
 
 
@@ -265,7 +251,7 @@ C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一�
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2019/10/29/unity7/&title=《U3D问题总结（七） C#》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2019/10/29/unity7/&title=《U3D问题总结（七） lua》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -275,7 +261,7 @@ C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一�
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2019/10/29/unity7/&title=《U3D问题总结（七） C#》 — 崎径 其镜&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2019/10/29/unity7/&title=《U3D问题总结（七） lua》 — 崎径 其镜&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -285,7 +271,7 @@ C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一�
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《U3D问题总结（七） C#》 — 崎径 其镜&url=http://www.z16388.top/2019/10/29/unity7/&via=http://www.z16388.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《U3D问题总结（七） lua》 — 崎径 其镜&url=http://www.z16388.top/2019/10/29/unity7/&via=http://www.z16388.top" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -313,9 +299,9 @@ C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一�
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/10/29/unity8/" id="post-prev" class="post-nav-link">
+      <a href="/2019/11/12/most_wechat/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">U3D问题总结（八） lua</h4>
+        <h4 class="title">某微信爬虫工具多开方案</h4>
       </a>
     </div>
   
@@ -444,7 +430,7 @@ C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一�
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2019/10/29/unity7/&title=《U3D问题总结（七） C#》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2019/10/29/unity7/&title=《U3D问题总结（七） lua》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -454,7 +440,7 @@ C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一�
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2019/10/29/unity7/&title=《U3D问题总结（七） C#》 — 崎径 其镜&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2019/10/29/unity7/&title=《U3D问题总结（七） lua》 — 崎径 其镜&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -464,7 +450,7 @@ C#和C++的区别(?1C# 与C++ 比较的话，最重要的特性就是C# 是一�
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《U3D问题总结（七） C#》 — 崎径 其镜&url=http://www.z16388.top/2019/10/29/unity7/&via=http://www.z16388.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《U3D问题总结（七） lua》 — 崎径 其镜&url=http://www.z16388.top/2019/10/29/unity7/&via=http://www.z16388.top" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>

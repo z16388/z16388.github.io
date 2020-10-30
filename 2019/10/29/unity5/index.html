@@ -34,19 +34,28 @@
     
     
     <meta name="keywords" content="Unity">
-    <meta name="description" content="LOD是什么，优缺点(?1LOD(Level of detail)多层次细节，是最常用的游戏优化技术。它按照模型的位置和重要程度决定物体渲染的资源分配，降低非重要物体的面数和细节度，从而获得高效率的渲染运算。缺点是增加了内存。
-MipMap是什么，作用(?1MipMapping：在三维计算机图形的贴图渲染中有常用的技术，为加快渲染进度和减少图像锯齿，贴图被处理成由一系列被预先计算和优化过的图片组成">
+    <meta name="description" content="什么是渲染管道（？
+是指在显示器上为了显示出图像而经过的一系列必要操作。 渲染管道中的很多步骤，都要将几何物体从一个坐标系中变换到另一个坐标系中去。主要步骤有：本地坐标-&amp;gt;视图坐标-&amp;gt;背面裁剪-&amp;gt;光照-&amp;gt;裁剪-&amp;gt;投影-&amp;gt;视图变换-&amp;gt;光栅化
+
+对渲染管线的理解
+渲染流水线流程：1.应用阶段（由CPU负责，输出是渲染所需要的几何信息，即渲染图元）2.几何阶段（">
 <meta property="og:type" content="article">
 <meta property="og:title" content="U3D问题总结（五） 渲染与光照">
 <meta property="og:url" content="http://www.z16388.top/2019/10/29/unity5/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content="LOD是什么，优缺点(?1LOD(Level of detail)多层次细节，是最常用的游戏优化技术。它按照模型的位置和重要程度决定物体渲染的资源分配，降低非重要物体的面数和细节度，从而获得高效率的渲染运算。缺点是增加了内存。
-MipMap是什么，作用(?1MipMapping：在三维计算机图形的贴图渲染中有常用的技术，为加快渲染进度和减少图像锯齿，贴图被处理成由一系列被预先计算和优化过的图片组成">
-<meta property="og:updated_time" content="2020-10-29T16:38:29.007Z">
+<meta property="og:description" content="什么是渲染管道（？
+是指在显示器上为了显示出图像而经过的一系列必要操作。 渲染管道中的很多步骤，都要将几何物体从一个坐标系中变换到另一个坐标系中去。主要步骤有：本地坐标-&amp;gt;视图坐标-&amp;gt;背面裁剪-&amp;gt;光照-&amp;gt;裁剪-&amp;gt;投影-&amp;gt;视图变换-&amp;gt;光栅化
+
+对渲染管线的理解
+渲染流水线流程：1.应用阶段（由CPU负责，输出是渲染所需要的几何信息，即渲染图元）2.几何阶段（">
+<meta property="og:updated_time" content="2020-10-30T07:38:01.685Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="U3D问题总结（五） 渲染与光照">
-<meta name="twitter:description" content="LOD是什么，优缺点(?1LOD(Level of detail)多层次细节，是最常用的游戏优化技术。它按照模型的位置和重要程度决定物体渲染的资源分配，降低非重要物体的面数和细节度，从而获得高效率的渲染运算。缺点是增加了内存。
-MipMap是什么，作用(?1MipMapping：在三维计算机图形的贴图渲染中有常用的技术，为加快渲染进度和减少图像锯齿，贴图被处理成由一系列被预先计算和优化过的图片组成">
+<meta name="twitter:description" content="什么是渲染管道（？
+是指在显示器上为了显示出图像而经过的一系列必要操作。 渲染管道中的很多步骤，都要将几何物体从一个坐标系中变换到另一个坐标系中去。主要步骤有：本地坐标-&amp;gt;视图坐标-&amp;gt;背面裁剪-&amp;gt;光照-&amp;gt;裁剪-&amp;gt;投影-&amp;gt;视图变换-&amp;gt;光栅化
+
+对渲染管线的理解
+渲染流水线流程：1.应用阶段（由CPU负责，输出是渲染所需要的几何信息，即渲染图元）2.几何阶段（">
     
         <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
     
@@ -189,7 +198,7 @@ MipMap是什么，作用(?1MipMapping：在三维计算机图形的贴图渲染�
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#LOD是什么，优缺点"><span class="post-toc-number">1.</span> <span class="post-toc-text">LOD是什么，优缺点(?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MipMap是什么，作用"><span class="post-toc-number">2.</span> <span class="post-toc-text">MipMap是什么，作用(?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是LightMap"><span class="post-toc-number">3.</span> <span class="post-toc-text">什么是LightMap</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是渲染管道（？"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是渲染管道（？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对渲染管线的理解"><span class="post-toc-number">2.</span> <span class="post-toc-text">对渲染管线的理解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是DrawCall？DrawCall高了又什么影响？如何降低DrawCall？"><span class="post-toc-number">3.</span> <span class="post-toc-text">什么是DrawCall？DrawCall高了又什么影响？如何降低DrawCall？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是DrawCall，有什么方法可以减少DrawCall"><span class="post-toc-number">4.</span> <span class="post-toc-text">什么是DrawCall，有什么方法可以减少DrawCall</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GPU方面减少DrawCall"><span class="post-toc-number">5.</span> <span class="post-toc-text">GPU方面减少DrawCall</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是material，什么是shader，二者有什么关系"><span class="post-toc-number">6.</span> <span class="post-toc-text">什么是material，什么是shader，二者有什么关系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何在Unity3D中查看场景的面数，顶点数和Draw-Call数？如何降低Draw-Call数"><span class="post-toc-number">7.</span> <span class="post-toc-text">如何在Unity3D中查看场景的面数，顶点数和Draw Call数？如何降低Draw Call数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DrawCall和SetPass-Call"><span class="post-toc-number">8.</span> <span class="post-toc-text">DrawCall和SetPass Call</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Unity3D-Shader分哪几种，有什么区别"><span class="post-toc-number">9.</span> <span class="post-toc-text">Unity3D Shader分哪几种，有什么区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#有A和B两组物体，有什么办法能够保证A组物体永远比B组物体先渲染？"><span class="post-toc-number">10.</span> <span class="post-toc-text">有A和B两组物体，有什么办法能够保证A组物体永远比B组物体先渲染？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问一个Terrain，分别贴3张，4张，5张地表贴图，渲染速度有什么区别？为什么？"><span class="post-toc-number">11.</span> <span class="post-toc-text">问一个Terrain，分别贴3张，4张，5张地表贴图，渲染速度有什么区别？为什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LOD是什么，优缺点"><span class="post-toc-number">12.</span> <span class="post-toc-text">LOD是什么，优缺点(?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MipMap是什么，作用"><span class="post-toc-number">13.</span> <span class="post-toc-text">MipMap是什么，作用(?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是LightMap"><span class="post-toc-number">14.</span> <span class="post-toc-text">什么是LightMap</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#alpha-blend工作原理"><span class="post-toc-number">15.</span> <span class="post-toc-text">alpha blend工作原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Unity的Shader中，Blend-SrcAlpha-OneMinusSrcAlpha这句话是什么意思"><span class="post-toc-number">16.</span> <span class="post-toc-text">Unity的Shader中，Blend SrcAlpha OneMinusSrcAlpha这句话是什么意思</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#alpha-test在何时使用？能达到什么效果"><span class="post-toc-number">17.</span> <span class="post-toc-text">alpha test在何时使用？能达到什么效果</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Vertex-Shader是什么，怎么计算"><span class="post-toc-number">18.</span> <span class="post-toc-text">Vertex Shader是什么，怎么计算</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#写出光照计算中的diffuse（漫反射）的计算公式"><span class="post-toc-number">19.</span> <span class="post-toc-text">写出光照计算中的diffuse（漫反射）的计算公式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MeshRender中material和sharedmaterial的区别"><span class="post-toc-number">20.</span> <span class="post-toc-text">MeshRender中material和sharedmaterial的区别(?</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简述水面倒影的渲染原理"><span class="post-toc-number"></span> <span class="post-toc-text">简述水面倒影的渲染原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么叫动态合批？跟静态合批有什么区别"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么叫动态合批？跟静态合批有什么区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#两种阴影判断的方法、工作原理。"><span class="post-toc-number">2.</span> <span class="post-toc-text">两种阴影判断的方法、工作原理。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Unity提供了几种光源，分别是什么"><span class="post-toc-number">3.</span> <span class="post-toc-text">Unity提供了几种光源，分别是什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实时点光源的优缺点是什么"><span class="post-toc-number">4.</span> <span class="post-toc-text">实时点光源的优缺点是什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GPU的工作原理"><span class="post-toc-number">5.</span> <span class="post-toc-text">GPU的工作原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#图形学"><span class="post-toc-number"></span> <span class="post-toc-text">图形学</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#光照模型有哪些"><span class="post-toc-number">1.</span> <span class="post-toc-text">光照模型有哪些</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3维模型组成"><span class="post-toc-number">2.</span> <span class="post-toc-text">3维模型组成</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mesh下面有哪些字段"><span class="post-toc-number">3.</span> <span class="post-toc-text">Mesh下面有哪些字段</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如向将文理贴在模型上"><span class="post-toc-number">4.</span> <span class="post-toc-text">如向将文理贴在模型上</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图片向格式有那些"><span class="post-toc-number">5.</span> <span class="post-toc-text">图片向格式有那些</span></a></li></ol>
         </nav>
     </aside>
     
@@ -212,17 +221,102 @@ MipMap是什么，作用(?1MipMapping：在三维计算机图形的贴图渲染�
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="LOD是什么，优缺点"><a href="#LOD是什么，优缺点" class="headerlink" title="LOD是什么，优缺点(?"></a>LOD是什么，优缺点(?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LOD(Level of detail)多层次细节，是最常用的游戏优化技术。它按照模型的位置和重要程度决定物体渲染的资源分配，降低非重要物体的面数和细节度，从而获得高效率的渲染运算。缺点是增加了内存。</div></pre></td></tr></table></figure>
-<h1 id="MipMap是什么，作用"><a href="#MipMap是什么，作用" class="headerlink" title="MipMap是什么，作用(?"></a>MipMap是什么，作用(?</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MipMapping：在三维计算机图形的贴图渲染中有常用的技术，为加快渲染进度和减少图像锯齿，贴图被处理成由一系列被预先计算和优化过的图片组成的文件，这样的贴图被称为MipMap。</div></pre></td></tr></table></figure>
-<h1 id="什么是LightMap"><a href="#什么是LightMap" class="headerlink" title="什么是LightMap"></a>什么是LightMap</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LightMap:就是指在三维软件里实现打好光，然后渲染把场景各表面的光照输出到贴图上，最后又通过引擎贴到场景上，这样就使物体有了光照的感觉。</div></pre></td></tr></table></figure>
-
+            <h2 id="什么是渲染管道（？"><a href="#什么是渲染管道（？" class="headerlink" title="什么是渲染管道（？"></a>什么是渲染管道（？</h2><blockquote>
+<p>是指在显示器上为了显示出图像而经过的一系列必要操作。 渲染管道中的很多步骤，都要将几何物体从一个坐标系中变换到另一个坐标系中去。主要步骤有：<br>本地坐标-&gt;视图坐标-&gt;背面裁剪-&gt;光照-&gt;裁剪-&gt;投影-&gt;视图变换-&gt;光栅化</p>
+</blockquote>
+<h2 id="对渲染管线的理解"><a href="#对渲染管线的理解" class="headerlink" title="对渲染管线的理解"></a>对渲染管线的理解</h2><blockquote>
+<p>渲染流水线流程：<br>1.应用阶段（由CPU负责，输出是渲染所需要的几何信息，即渲染图元）<br>2.几何阶段（由GPU负责，处理渲染图元，这阶段中最重要的就是把顶点坐标变换屏幕空间中，交给光栅器处理<br>这阶段输出的是屏幕空间中二维顶点坐标、每个顶点对应的深度值、着色等相关信息）<br>3.光栅化阶段（由GPU，负责这一阶段会使用上个阶段传递的数据来产生屏幕上的像素，并渲染出最终的图像）<br>细节过程<a href="https://zhuanlan.zhihu.com/p/97498781" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/97498781</a></p>
+<p>渲染管线(Rendering Pipeline)就是GPU渲染。流程：顶点处理、面处理、光栅化、像素处理。顶点处理：通过一系列坐标系转换将模型顶点在摄像机前位移，最终投影到摄像机屏幕上(本地 - 世界 - 观察 - 投影)。包括顶点坐标变化、逐顶点雾化、材质属性和光照属性处理。面处理：面的组装、截取、剔除。光栅化：消除遮挡面；Texture Operation，根据像素纹理坐标查询对应纹理值；Blending，根据已经画好颜色与正在计算的颜色alpha值混合形成新颜色；Filtering，将正在计算的颜色经过某种滤镜后输出，该阶段后像素的颜色值被写入帧缓存中。像素处理：对每个像素区域着色，对像素贴上贴图形成最终画面。</p>
+</blockquote>
+<h2 id="什么是DrawCall？DrawCall高了又什么影响？如何降低DrawCall？"><a href="#什么是DrawCall？DrawCall高了又什么影响？如何降低DrawCall？" class="headerlink" title="什么是DrawCall？DrawCall高了又什么影响？如何降低DrawCall？"></a>什么是DrawCall？DrawCall高了又什么影响？如何降低DrawCall？</h2><blockquote>
+<p>Unity中，每次引擎准备数据并通知GPU的过程称为一次Draw Call。DrawCall越高对显卡的消耗就越大。降低DrawCall的方法：</p>
+<ol>
+<li>Dynamic Batching</li>
+<li>Static Batching</li>
+<li>高级特性Shader降级为统一的低级特性的Shader。</li>
+</ol>
+</blockquote>
+<h2 id="什么是DrawCall，有什么方法可以减少DrawCall"><a href="#什么是DrawCall，有什么方法可以减少DrawCall" class="headerlink" title="什么是DrawCall，有什么方法可以减少DrawCall"></a>什么是DrawCall，有什么方法可以减少DrawCall</h2><blockquote>
+<p>CPU通过调用绘制命令来告诉GPU开始进行一个渲染过程(一次DrawCall)。<br>CPU方面减少DrawCall：<br>1、使用Draw Call Batching 、Dynamic Batching动态批处理<br>2、纹理打包成图集减少材质使用<br>3、少用反光、阴影<br>4、设置一个合适的Fixed Timestep<br>5、不要使用网格碰撞器(Mesh Collider)<br>6、大量或频繁的字符串连接操作一定要用StringBuilder<br>7、某些可能情况，使用结构体代替类<br>8、使用对象池重复利用空间<br>9、尽量不要用foreach，用for<br>10、不要直接访问GameObjcet的tag属性<br>11、不要频繁使用GetComponent，访问一次后保留其引用<br>12、使用OnBecameVisible()和OnBecameInVisible()，控制物体update()函数的执行减少开销<br>13、使用内建数组，如Vector3.zero而不是new Vector3(0,0,0)<br>14、使用ref关键字对方法的参数进行优化<br>15、关闭所有update中的log操作<br>16、不在update中调用GetComponent、SendMessage、FindWithTag等方法<br>17、不在update中使用临时变量</p>
+</blockquote>
+<h2 id="GPU方面减少DrawCall"><a href="#GPU方面减少DrawCall" class="headerlink" title="GPU方面减少DrawCall"></a>GPU方面减少DrawCall</h2><blockquote>
+<p>1、使用纹理图集代替一系列单独小贴图<br>2、保持材质数目尽可能少<br>3、如果使用纹理图集和共享材质，用Renderer.sharedMaterial代替Renderer.material<br>4、使用光照纹理(lightmap)而非实时灯光<br>5、使用LOD<br>6、使用mobile版的shader<br>7、尽可能减少顶点数、背面删减<br>8、压缩图片，减少显存带宽压力</p>
+</blockquote>
+<h2 id="什么是material，什么是shader，二者有什么关系"><a href="#什么是material，什么是shader，二者有什么关系" class="headerlink" title="什么是material，什么是shader，二者有什么关系"></a>什么是material，什么是shader，二者有什么关系</h2><blockquote>
+<p>材质系统定义了如何渲染物件表面信息。shader里面使用材质信息加自身操作，最终呈现物体渲染。shader是material一部分，是根据计算即时演算生成贴图的程序，叫着色器。常用处理无法用固定贴图表现的模型。material是模型的材质，包含贴图、shader、顶点、凹凸等信息。</p>
+</blockquote>
+<h2 id="如何在Unity3D中查看场景的面数，顶点数和Draw-Call数？如何降低Draw-Call数"><a href="#如何在Unity3D中查看场景的面数，顶点数和Draw-Call数？如何降低Draw-Call数" class="headerlink" title="如何在Unity3D中查看场景的面数，顶点数和Draw Call数？如何降低Draw Call数"></a>如何在Unity3D中查看场景的面数，顶点数和Draw Call数？如何降低Draw Call数</h2><blockquote>
+<p>在Game视图右上角点击Stats。降低Draw Call 的技术是Draw Call Batching<br>这个在5.0以后在window-》Profiler下面，快捷键是cmd + 7（ctl + 7</p>
+</blockquote>
+<h2 id="DrawCall和SetPass-Call"><a href="#DrawCall和SetPass-Call" class="headerlink" title="DrawCall和SetPass Call"></a>DrawCall和SetPass Call</h2><blockquote>
+<p>DrawCall：meshes网格绘制应用批处理后的总数。请注意，在多次呈现对象(例如，由像素灯照明的对象)，每个在一个单独的渲染结果绘制调用。</p>
+<p>SetPass Call：渲染改变（ passes）次数。每个改变 需要Unity运行时绑定一个新的渲染器（shader），它可能会引入 CPU 开销。</p>
+</blockquote>
+<h2 id="Unity3D-Shader分哪几种，有什么区别"><a href="#Unity3D-Shader分哪几种，有什么区别" class="headerlink" title="Unity3D Shader分哪几种，有什么区别"></a>Unity3D Shader分哪几种，有什么区别</h2><blockquote>
+<p>表面着色器的抽象层次比较高，它可以轻松地以简洁方式实现复杂着色。表面着色器可同时在前向渲染及延迟渲染模式下正常工作。<br>顶点片段着色器可以非常灵活地实现需要的效果，但是需要编写更多的代码，并且很难与Unity的渲染管线完美集成。<br>固定功能管线着色器可以作为前两种着色器的备用选择，当硬件无法运行那些酷炫Shader的时，还可以通过固定功能管线着色器来绘制出一些基本的内容。</p>
+</blockquote>
+<h2 id="有A和B两组物体，有什么办法能够保证A组物体永远比B组物体先渲染？"><a href="#有A和B两组物体，有什么办法能够保证A组物体永远比B组物体先渲染？" class="headerlink" title="有A和B两组物体，有什么办法能够保证A组物体永远比B组物体先渲染？"></a>有A和B两组物体，有什么办法能够保证A组物体永远比B组物体先渲染？</h2><blockquote>
+<p>把A组物体的渲染队列大于B物体的渲染队列，通过shader里面的渲染队列来渲染</p>
+</blockquote>
+<h2 id="问一个Terrain，分别贴3张，4张，5张地表贴图，渲染速度有什么区别？为什么？"><a href="#问一个Terrain，分别贴3张，4张，5张地表贴图，渲染速度有什么区别？为什么？" class="headerlink" title="问一个Terrain，分别贴3张，4张，5张地表贴图，渲染速度有什么区别？为什么？"></a>问一个Terrain，分别贴3张，4张，5张地表贴图，渲染速度有什么区别？为什么？</h2><blockquote>
+<p>没有区别，因为不管几张贴图只渲染一次。</p>
+</blockquote>
+<h2 id="LOD是什么，优缺点"><a href="#LOD是什么，优缺点" class="headerlink" title="LOD是什么，优缺点(?"></a>LOD是什么，优缺点(?</h2><blockquote>
+<p>LOD(Level of detail)多层次细节，是最常用的游戏优化技术。它按照模型的位置和重要程度决定物体渲染的资源分配，降低非重要物体的面数和细节度，从而获得高效率的渲染运算。缺点是增加了内存。</p>
+</blockquote>
+<h2 id="MipMap是什么，作用"><a href="#MipMap是什么，作用" class="headerlink" title="MipMap是什么，作用(?"></a>MipMap是什么，作用(?</h2><blockquote>
+<p>MipMapping：在三维计算机图形的贴图渲染中有常用的技术，为加快渲染进度和减少图像锯齿，贴图被处理成由一系列被预先计算和优化过的图片组成的文件，这样的贴图被称为MipMap。</p>
+</blockquote>
+<h2 id="什么是LightMap"><a href="#什么是LightMap" class="headerlink" title="什么是LightMap"></a>什么是LightMap</h2><blockquote>
+<p>LightMap:就是指在三维软件里实现打好光，然后渲染把场景各表面的光照输出到贴图上，最后又通过引擎贴到场景上，这样就使物体有了光照的感觉。</p>
+</blockquote>
+<h2 id="alpha-blend工作原理"><a href="#alpha-blend工作原理" class="headerlink" title="alpha blend工作原理"></a>alpha blend工作原理</h2><blockquote>
+<p>Alpha Blend 实现透明效果，不过只能针对某块区域进行alpha操作，透明度可设。</p>
+<p>alpha blend 用于做半透明效果。Color = (源颜色 <em>    源系数) OP (   目标颜色</em> 目标系数);其中OP（混合方式）有加，减，反减，取最小，取最大</p>
+</blockquote>
+<h2 id="Unity的Shader中，Blend-SrcAlpha-OneMinusSrcAlpha这句话是什么意思"><a href="#Unity的Shader中，Blend-SrcAlpha-OneMinusSrcAlpha这句话是什么意思" class="headerlink" title="Unity的Shader中，Blend SrcAlpha OneMinusSrcAlpha这句话是什么意思"></a>Unity的Shader中，Blend SrcAlpha OneMinusSrcAlpha这句话是什么意思</h2><blockquote>
+<p>作用就是Alpha混合。公式：最终颜色 = 源颜色 x 源透明值 + 目标颜色 x（1 - 源透明值）</p>
+</blockquote>
+<h2 id="alpha-test在何时使用？能达到什么效果"><a href="#alpha-test在何时使用？能达到什么效果" class="headerlink" title="alpha test在何时使用？能达到什么效果"></a>alpha test在何时使用？能达到什么效果</h2><blockquote>
+<p>Alpha Test ,中文就是透明度测试。简而言之就是V&amp;F shader中最后fragment函数输出的该点颜色值（即上一讲frag的输出half4）的alpha值与固定值进行比较。AlphaTest语句通常于Pass{}中的起始位置。Alpha Test产生的效果也很极端，要么完全透明，即看不到，要么完全不透明。</p>
+</blockquote>
+<h2 id="Vertex-Shader是什么，怎么计算"><a href="#Vertex-Shader是什么，怎么计算" class="headerlink" title="Vertex Shader是什么，怎么计算"></a>Vertex Shader是什么，怎么计算</h2><blockquote>
+<p>顶点着色器是一段执行在GPU上的程序，用来取代fixed pipeline中的transformation和lighting，Vertex Shader主要操作顶点。<br>Vertex Shader对输入顶点完成了从local space到homogeneous space（齐次空间）的变换过程，homogeneous space即projection space的下一个space。在这其间共有world transformation, view transformation和projection transformation及lighting几个过程。</p>
+</blockquote>
+<h2 id="写出光照计算中的diffuse（漫反射）的计算公式"><a href="#写出光照计算中的diffuse（漫反射）的计算公式" class="headerlink" title="写出光照计算中的diffuse（漫反射）的计算公式"></a>写出光照计算中的diffuse（漫反射）的计算公式</h2><blockquote>
+<p>diffuse = Kd x colorLight x max(N*L,0)；<br>Kd 漫反射系数、colorLight 光的颜色、N 单位法线向量、L 由点指向光源的单位向量、其中N与L点乘，如果结果小于等于0，则漫反射为0。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">答：漫反射光(diffuse)计算公式为：Idiffuse = Dintensity*Dcolor*N.L ; (Dintensity表示漫反射强度，Dcolor表示漫反射光颜色，N为该点的法向量，L为光源向量)</div><div class="line"></div><div class="line">  其他，3D渲染中，物体表面的光照计算公式为：</div><div class="line"></div><div class="line">I = 环境光(Iambient) + 漫反射光(Idiffuse) + 镜面高光(Ispecular);</div><div class="line"></div><div class="line">  其中，环境光(ambient)计算公式为：</div><div class="line"></div><div class="line">Iambient= Aintensity* Acolor; (Aintensity表示环境光强度，Acolor表示环境光颜色)</div><div class="line"></div><div class="line">  漫反射光(diffuse)计算公式为：</div><div class="line"></div><div class="line">Idiffuse = Dintensity*Dcolor*N.L ; (Dintensity表示漫反射强度，Dcolor表示漫反射光颜色，N为该点的法向量，L为光源向量)</div><div class="line"></div><div class="line">镜面光照(specular)计算公式为：</div><div class="line"></div><div class="line">Ispecular = Sintensity*Scolor*(R.V)n; (Sintensity表示镜面光照强度，Scolor表示镜面光颜色，R为光的反射向量，V为观察者向量)</div><div class="line"></div><div class="line">综上所得：整个光照公式为：</div><div class="line"></div><div class="line">I = Aintensity* Acolor+ Dintensity*Dcolor*N.L + Sintensity*Scolor*(R.V)n ;</div><div class="line"></div><div class="line">将一些值合并，并使用白色作为光照颜色，则上述公式可简化为：</div><div class="line"></div><div class="line">I = A + D*N.L + (R.V)n</div></pre></td></tr></table></figure>
+<h2 id="MeshRender中material和sharedmaterial的区别"><a href="#MeshRender中material和sharedmaterial的区别" class="headerlink" title="MeshRender中material和sharedmaterial的区别(?"></a>MeshRender中material和sharedmaterial的区别(?</h2><blockquote>
+<p>修改sharedMaterial将改变所有物体使用这个材质的外观，并且也改变储存在工程里的材质设置。不推荐修改由sharedMaterial返回的材质。如果你想修改渲染器的材质，使用material替代。</p>
+</blockquote>
+<h1 id="简述水面倒影的渲染原理"><a href="#简述水面倒影的渲染原理" class="headerlink" title="简述水面倒影的渲染原理"></a>简述水面倒影的渲染原理</h1><blockquote>
+<p>原理就是对水面的贴图纹理进行扰动，以产生波光玲玲的效果。用shader可以通过GPU在像素级别作扰动，效果细腻，需要的顶点少，速度快</p>
+</blockquote>
+<h2 id="什么叫动态合批？跟静态合批有什么区别"><a href="#什么叫动态合批？跟静态合批有什么区别" class="headerlink" title="什么叫动态合批？跟静态合批有什么区别"></a>什么叫动态合批？跟静态合批有什么区别</h2><blockquote>
+<p>如果动态物体共用着相同的材质，那么Unity会自动对这些物体进行批处理。动态批处理操作是自动完成的，并不需要你进行额外的操作。<br>区别：动态批处理一切都是自动的，不需要做任何操作，而且物体是可以移动的，但是限制很多。静态批处理：自由度很高，限制很少，缺点可能会占用更多的内存，而且经过静态批处理后的所有物体都不可以再移动了。</p>
+</blockquote>
+<h2 id="两种阴影判断的方法、工作原理。"><a href="#两种阴影判断的方法、工作原理。" class="headerlink" title="两种阴影判断的方法、工作原理。"></a>两种阴影判断的方法、工作原理。</h2><blockquote>
+<p>本影：景物表面上那些没有被光源直接照射的区域（全黑的轮廓分明的区域）。<br>半影：景物表面上那些被某些特定光源直接照射但并非被所有特定光源直接照射的区域（半明半暗区域）<br>工作原理：从光源处向物体的所有可见面投射光线，将这些面投影到场景中得到投影面，再将这些投影面与场景中的其他平面求交得出阴影多边形，保存这些阴影多边形信息，然后再按视点位置对场景进行相应处理得到所要求的视图（利用空间换时间，每次只需依据视点位置进行一次阴影计算即可，省去了一次消隐过程）</p>
+</blockquote>
+<h2 id="Unity提供了几种光源，分别是什么"><a href="#Unity提供了几种光源，分别是什么" class="headerlink" title="Unity提供了几种光源，分别是什么"></a>Unity提供了几种光源，分别是什么</h2><blockquote>
+<p>四种。<br>平行光：Directional Light<br>点光源：Point Light<br>聚光灯：Spot Light<br>区域光源：Area Light</p>
+</blockquote>
+<h2 id="实时点光源的优缺点是什么"><a href="#实时点光源的优缺点是什么" class="headerlink" title="实时点光源的优缺点是什么"></a>实时点光源的优缺点是什么</h2><blockquote>
+<p>可以有cookies – 带有 alpha通道的立方图(Cubemap )纹理。点光源是最耗费资源的。</p>
+</blockquote>
+<h2 id="GPU的工作原理"><a href="#GPU的工作原理" class="headerlink" title="GPU的工作原理"></a>GPU的工作原理</h2><blockquote>
+<p>简而言之，GPU的图形（处理）流水线完成如下的工作：（并不一定是按照如下顺序） 顶点处理：这阶段GPU读取描述3D图形外观的顶点数据并根据顶点数据确定3D图形的形状及位置关系，建立起3D图形的骨架。在支持DX8和DX9规格的GPU中，这些工作由硬件实现的Vertex Shader（定点着色器）完成。 光栅化计算：显示器实际显示的图像是由像素组成的，我们需要将上面生成的图形上的点和线通过一定的算法转换到相应的像素点。把一个矢量图形转换为一系列像素点的过程就称为光栅化。例如，一条数学表示的斜线段，最终被转化成阶梯状的连续像素点。 纹理帖图：顶点单元生成的多边形只构成了3D物体的轮廓，而纹理映射（texture mapping）工作完成对多变形表面的帖图，通俗的说，就是将多边形的表面贴上相应的图片，从而生成“真实”的图形。TMU（Texture mapping unit）即是用来完成此项工作。 像素处理：这阶段（在对每个像素进行光栅化处理期间）GPU完成对像素的计算和处理，从而确定每个像素的最终属性。在支持DX8和DX9规格的GPU中，这些工作由硬件实现的Pixel Shader（像素着色器）完成。 最终输出：由ROP（光栅化引擎）最终完成像素的输出，1帧渲染完毕后，被送到显存帧缓冲区。<br>总结：GPU的工作通俗的来说就是完成3D图形的生成，将图形映射到相应的像素点上，对每个像素进行计算确定最终颜色并完成输出。</p>
+</blockquote>
+<h1 id="图形学"><a href="#图形学" class="headerlink" title="图形学"></a>图形学</h1><h2 id="光照模型有哪些"><a href="#光照模型有哪些" class="headerlink" title="光照模型有哪些"></a>光照模型有哪些</h2><h2 id="3维模型组成"><a href="#3维模型组成" class="headerlink" title="3维模型组成"></a>3维模型组成</h2><p>Mesh</p>
+<h2 id="Mesh下面有哪些字段"><a href="#Mesh下面有哪些字段" class="headerlink" title="Mesh下面有哪些字段"></a>Mesh下面有哪些字段</h2><h2 id="如向将文理贴在模型上"><a href="#如向将文理贴在模型上" class="headerlink" title="如向将文理贴在模型上"></a>如向将文理贴在模型上</h2><h2 id="图片向格式有那些"><a href="#图片向格式有那些" class="headerlink" title="图片向格式有那些"></a>图片向格式有那些</h2>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-10-29T16:38:29.007Z" itemprop="dateUpdated">2020-10-30 00:38:29</time>
+    最后更新时间：<time datetime="2020-10-30T07:38:01.685Z" itemprop="dateUpdated">2020-10-30 15:38:01</time>
 </span><br>
 
 

@@ -27,23 +27,35 @@
     <link rel="canonical" href="http://www.z16388.top/2019/10/29/unity1/">
     
     
-    <title>U3D问题总结（一） 计算机基础 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+    <title>U3D问题总结（一） 计算机基础与C# | 崎径 其镜 | 求学道路上的行车记录仪</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="Unity">
-    <meta name="description" content="结构体和类有何区别1结构体是一种值类型，而类是引用类型。（值类型、引用类型是根据数据存储的角度来分的）就是值类型用于存储数据的值，引用类型用于存储对实际数据的引用。那么结构体就是当成值来使用的，类则通过引用来对实际数据操作">
+    <meta name="description" content="计算机概述序列化
+定义：将对象的状态信息转换为可以存储或传输的形式的过程。与序列化相对的是反序列化，它将流转换为对象。
+目的：当我们需要把对象的状态信息通过网络进行传输，或者需要将对象的状态信息持久化，以便将来使用时都需要把对象进行序列化
+对象序列化：1.把对象转换为字节序列的过程称为对象的序列化2.把字节序列恢复为对象的过程称为对象的反序列化
+比如，可以序列化一个对象，然后使用HTTP通过Int">
 <meta property="og:type" content="article">
-<meta property="og:title" content="U3D问题总结（一） 计算机基础">
+<meta property="og:title" content="U3D问题总结（一） 计算机基础与C#">
 <meta property="og:url" content="http://www.z16388.top/2019/10/29/unity1/index.html">
 <meta property="og:site_name" content="崎径 其镜">
-<meta property="og:description" content="结构体和类有何区别1结构体是一种值类型，而类是引用类型。（值类型、引用类型是根据数据存储的角度来分的）就是值类型用于存储数据的值，引用类型用于存储对实际数据的引用。那么结构体就是当成值来使用的，类则通过引用来对实际数据操作">
-<meta property="og:updated_time" content="2020-10-29T16:39:52.600Z">
+<meta property="og:description" content="计算机概述序列化
+定义：将对象的状态信息转换为可以存储或传输的形式的过程。与序列化相对的是反序列化，它将流转换为对象。
+目的：当我们需要把对象的状态信息通过网络进行传输，或者需要将对象的状态信息持久化，以便将来使用时都需要把对象进行序列化
+对象序列化：1.把对象转换为字节序列的过程称为对象的序列化2.把字节序列恢复为对象的过程称为对象的反序列化
+比如，可以序列化一个对象，然后使用HTTP通过Int">
+<meta property="og:updated_time" content="2020-10-30T08:34:32.708Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="U3D问题总结（一） 计算机基础">
-<meta name="twitter:description" content="结构体和类有何区别1结构体是一种值类型，而类是引用类型。（值类型、引用类型是根据数据存储的角度来分的）就是值类型用于存储数据的值，引用类型用于存储对实际数据的引用。那么结构体就是当成值来使用的，类则通过引用来对实际数据操作">
+<meta name="twitter:title" content="U3D问题总结（一） 计算机基础与C#">
+<meta name="twitter:description" content="计算机概述序列化
+定义：将对象的状态信息转换为可以存储或传输的形式的过程。与序列化相对的是反序列化，它将流转换为对象。
+目的：当我们需要把对象的状态信息通过网络进行传输，或者需要将对象的状态信息持久化，以便将来使用时都需要把对象进行序列化
+对象序列化：1.把对象转换为字节序列的过程称为对象的序列化2.把字节序列恢复为对象的过程称为对象的反序列化
+比如，可以序列化一个对象，然后使用HTTP通过Int">
     
         <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
     
@@ -131,7 +143,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">U3D问题总结（一） 计算机基础</div>
+        <div class="flex-col header-title ellipsis">U3D问题总结（一） 计算机基础与C#</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -163,7 +175,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">U3D问题总结（一） 计算机基础</h1>
+        <h1 class="title">U3D问题总结（一） 计算机基础与C#</h1>
         <h5 class="subtitle">
             
                 <time datetime="2019-10-29T15:00:01.000Z" itemprop="datePublished" class="page-time">
@@ -186,7 +198,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#结构体和类有何区别"><span class="post-toc-number">1.</span> <span class="post-toc-text">结构体和类有何区别</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#计算机"><span class="post-toc-number">1.</span> <span class="post-toc-text">计算机</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概述序列化"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">概述序列化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是协同程序-？"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">什么是协同程序(？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#协程的开启关闭"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">协程的开启关闭</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#协程的用途"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">协程的用途</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#协同程序的执行代码是什么？有何用处，有何缺点"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">协同程序的执行代码是什么？有何用处，有何缺点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#协程的执行原理"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">协程的执行原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网络"><span class="post-toc-number">2.</span> <span class="post-toc-text">网络</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#客户端与服务器交互方式有几种"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">客户端与服务器交互方式有几种</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP和UDP的区别"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">TCP和UDP的区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Http和Https的区别"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Http和Https的区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#面向对象"><span class="post-toc-number">3.</span> <span class="post-toc-text">面向对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#面向对象的优点"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">面向对象的优点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是里氏代换原则"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">什么是里氏代换原则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#继承和组合的区别"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">继承和组合的区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#虚方法virtual抽象方法abstract"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">虚方法virtual抽象方法abstract</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类和结构体的区别？使用环境？"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">类和结构体的区别？使用环境？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据结构"><span class="post-toc-number">4.</span> <span class="post-toc-text">数据结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Heap与Stack有何区别-？"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Heap与Stack有何区别(？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#栈和堆谁比较快？为什么？"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">栈和堆谁比较快？为什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#c-c-程序运行时有堆内存与栈内存之分，请写一个语句在堆中分配一个整数：-int-a-new-int-4-在栈内存中分配一个整数：（int-a-5）。"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">c/c++程序运行时有堆内存与栈内存之分，请写一个语句在堆中分配一个整数：(int a = new int(4)),在栈内存中分配一个整数：（int a = 5）。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#值类型和引用类型有何区别"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">值类型和引用类型有何区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结构体和类有何区别"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">结构体和类有何区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#排序方式有哪些"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">排序方式有哪些</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#k层二叉树最多有-2-k-1-个结点。"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">k层二叉树最多有 2^k - 1 个结点。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#请简述ArrayList和List的主要区别"><span class="post-toc-number">4.8.</span> <span class="post-toc-text">请简述ArrayList和List的主要区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数组和List两者效率之间哪个好"><span class="post-toc-number">4.9.</span> <span class="post-toc-text">数组和List两者效率之间哪个好</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#哈希表与字典"><span class="post-toc-number">4.10.</span> <span class="post-toc-text">哈希表与字典</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#StringBuilder和String的区别"><span class="post-toc-number">4.11.</span> <span class="post-toc-text">StringBuilder和String的区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#有一本牛津词典，现在输入一串字母组成一个单词，怎么样快速查询词典中是否有这个单词"><span class="post-toc-number">4.12.</span> <span class="post-toc-text">有一本牛津词典，现在输入一串字母组成一个单词，怎么样快速查询词典中是否有这个单词</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在一段文本中，有许多”-”和”-”和”-”，判断这段文本中的括号是否使用正确？"><span class="post-toc-number">4.13.</span> <span class="post-toc-text">在一段文本中，有许多”{}”和”[]”和”()”，判断这段文本中的括号是否使用正确？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#设计模式"><span class="post-toc-number">5.</span> <span class="post-toc-text">设计模式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#C"><span class="post-toc-number">6.</span> <span class="post-toc-text">C</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在类的构造函数前加上static会报什么错-为什么"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">在类的构造函数前加上static会报什么错?为什么?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#以下选项中，正确的是（D）"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">以下选项中，正确的是（D）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-、-Net与Mono的关系？"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">C#、.Net与Mono的关系？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-和C-的区别-？"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">C#和C++的区别(？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-与C-结构体的区别"><span class="post-toc-number">6.5.</span> <span class="post-toc-text">C#与C++结构体的区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现计时器的方法"><span class="post-toc-number">6.6.</span> <span class="post-toc-text">## 实现计时器的方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#“”与null的区别"><span class="post-toc-number">6.7.</span> <span class="post-toc-text">“”与null的区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ref参数和out参数是什么？有什么区别-？"><span class="post-toc-number">6.8.</span> <span class="post-toc-text">ref参数和out参数是什么？有什么区别(？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-的委托是什么？有何用处"><span class="post-toc-number">6.9.</span> <span class="post-toc-text">C#的委托是什么？有何用处</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三种泛型委托"><span class="post-toc-number">6.10.</span> <span class="post-toc-text">三种泛型委托</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#委托delegate是什么，event关键字有什么用"><span class="post-toc-number">6.11.</span> <span class="post-toc-text">委托delegate是什么，event关键字有什么用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概述c-中代理和事件"><span class="post-toc-number">6.12.</span> <span class="post-toc-text">概述c#中代理和事件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sealed关键字用在类声明时与函数声明时的作用"><span class="post-toc-number">6.13.</span> <span class="post-toc-text">sealed关键字用在类声明时与函数声明时的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#请简述private，public，protected，internal的区别"><span class="post-toc-number">6.14.</span> <span class="post-toc-text">请简述private，public，protected，internal的区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#请描述接口Interface与抽象类之间的不同（？"><span class="post-toc-number">6.15.</span> <span class="post-toc-text">请描述接口Interface与抽象类之间的不同（？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#static和const关键字的作用"><span class="post-toc-number">6.16.</span> <span class="post-toc-text">static和const关键字的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-中四种访问修饰符是哪些？各有什么区别？"><span class="post-toc-number">6.17.</span> <span class="post-toc-text">C#中四种访问修饰符是哪些？各有什么区别？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#已知strcpy函数的原型是：char-strcpy-char-strDest-const-char-strSrc-1-不调用库函数，实现strcpy函数。2-解释为什么要返回char"><span class="post-toc-number">6.18.</span> <span class="post-toc-text">已知strcpy函数的原型是：char  strcpy(char  strDest,const char  strSrc); 1.不调用库函数，实现strcpy函数。2.解释为什么要返回char </span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -194,7 +206,7 @@
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">U3D问题总结（一） 计算机基础</h1>
+        <h1 class="post-card-title">U3D问题总结（一） 计算机基础与C#</h1>
         <div class="post-meta">
             <time class="post-time" title="2019-10-29 23:00:01" datetime="2019-10-29T15:00:01.000Z"  itemprop="datePublished">2019-10-29</time>
 
@@ -209,14 +221,222 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="结构体和类有何区别"><a href="#结构体和类有何区别" class="headerlink" title="结构体和类有何区别"></a>结构体和类有何区别</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">结构体是一种值类型，而类是引用类型。（值类型、引用类型是根据数据存储的角度来分的）就是值类型用于存储数据的值，引用类型用于存储对实际数据的引用。那么结构体就是当成值来使用的，类则通过引用来对实际数据操作</div></pre></td></tr></table></figure>
+            <h1 id="计算机"><a href="#计算机" class="headerlink" title="计算机"></a>计算机</h1><h2 id="概述序列化"><a href="#概述序列化" class="headerlink" title="概述序列化"></a>概述序列化</h2><blockquote>
+<p>定义：将对象的状态信息转换为可以存储或传输的形式的过程。与序列化相对的是反序列化，它将流转换为对象。</p>
+<p>目的：当我们需要把对象的状态信息通过网络进行传输，或者需要将对象的状态信息持久化，以便将来使用时都需要把对象进行序列化</p>
+<p>对象序列化：1.把对象转换为字节序列的过程称为对象的序列化<br>2.把字节序列恢复为对象的过程称为对象的反序列化</p>
+<p>比如，可以序列化一个对象，然后使用HTTP通过Internet在客户端和服务器端之间传输该对象</p>
+</blockquote>
+<h2 id="什么是协同程序-？"><a href="#什么是协同程序-？" class="headerlink" title="什么是协同程序(？"></a>什么是协同程序(？</h2><blockquote>
+<p>A coroutine is a function that is executed partially and, presuming suitable conditions are met, will be resumed at some point in the future until its work is done.</p>
+<p>协程是一个分部执行，遇到条件（yield return 语句）会挂起，直到条件满足才会被唤醒继续执行后面的代码。<br>Unity在每一帧（Frame）都会去处理对象上的协程。Unity主要是在Update后去处理协程</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">using UnityEngine;  </div><div class="line">using System.Collections;  </div><div class="line">   </div><div class="line">public class CoroutineCountdown : MonoBehaviour  </div><div class="line">&#123;  </div><div class="line">    void Start()  </div><div class="line">    &#123;  </div><div class="line">        StartCoroutine(Countdown());  </div><div class="line">    &#125;  </div><div class="line">   </div><div class="line">    IEnumerator Countdown()  </div><div class="line">    &#123;  </div><div class="line">        for(floattimer = 3; timer &gt;= 0; timer -= Time.deltaTime)  </div><div class="line">            Yield return 0;  </div><div class="line">   </div><div class="line">        Debug.Log(&quot;This message appears after 3 seconds!&quot;);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>yield return的常见返回值及其作用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">yield return new WaitForSeconds(3.0f); // 等待3秒，然后继续从此处开始，常用于做定时器</div><div class="line">yield return null; // 这一帧到此暂停，下一帧再从暂停处继续，常用于循环中</div><div class="line">yield return new WaitForEndOfFrame(); // 等到这一帧的cameras和GUI渲染结束后再从此处继续，即等到这帧的末尾再往下运行。这行之后的代码还是在当前帧运行，是在下一帧开始前执行，跟return null很相似</div><div class="line">yield return new WaitForFixedUpdate(); // 在下一次执行FixedUpdate的时候继续执行这段代码，即等一次物理引擎的更新</div><div class="line">yield return www; // 等待直至异步下载完成</div><div class="line">yield break; // 直接跳出协程，对某些判定失败必须跳出的时候，比如加载AssetBundle的时候，WWW失败了，后边加载bundle没有必要了，这时候可以yield break跳出。</div><div class="line">yield return StartCoroutine(methodName); // 等待另一个协程执行完。这是把协程串联起来的关键，常用于让多个协程按顺序逐个运行</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="协程的开启关闭"><a href="#协程的开启关闭" class="headerlink" title="协程的开启关闭"></a>协程的开启关闭</h2><blockquote>
+<p>开启：</p>
+<ol>
+<li>StartCoroutine(string methodName)</li>
+<li>StartCoroutine（IEnumerator method)</li>
+</ol>
+<p>终止：</p>
+<ol>
+<li>StopCoroutine (string methodName) // 只能终止指定的协程<br>在程序中调用StopCoroutine() 方法只能终止以字符串形式启动的协程</li>
+<li>StopAllCoroutine()                // 终止所有协程</li>
+</ol>
+</blockquote>
+<h2 id="协程的用途"><a href="#协程的用途" class="headerlink" title="协程的用途"></a>协程的用途</h2><blockquote>
+<p>1.用来延时<br>2.用来异步加载等待<br>3.加载WWW<br>4.制代码在特定的时机执行。</p>
+</blockquote>
+<h2 id="协同程序的执行代码是什么？有何用处，有何缺点"><a href="#协同程序的执行代码是什么？有何用处，有何缺点" class="headerlink" title="协同程序的执行代码是什么？有何用处，有何缺点"></a>协同程序的执行代码是什么？有何用处，有何缺点</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function Start() &#123; </div><div class="line">    // 协同程序WaitAndPrint在Start函数内执行,可以视同于它与Start函数同步执行.</div><div class="line">    StartCoroutine(WaitAndPrint(2.0)); </div><div class="line">    print (&quot;Before WaitAndPrint Finishes &quot; + Time.time );</div><div class="line">&#125;</div><div class="line"></div><div class="line">function WaitAndPrint (waitTime : float) &#123;</div><div class="line">    // 暂停执行waitTime秒</div><div class="line">    yield WaitForSeconds (waitTime);</div><div class="line">    print (&quot;WaitAndPrint &quot;+ Time.time );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>作用：一个协同程序在执行过程中,可以在任意位置使用yield语句。yield的返回值控制何时恢复协同程序向下执行。协同程序在对象自有帧执行过程中堪称优秀。协同程序在性能上没有更多的开销。<br>缺点：协同程序并非真线程，可能会发生堵塞。</p>
+</blockquote>
+<h2 id="协程的执行原理"><a href="#协程的执行原理" class="headerlink" title="协程的执行原理"></a>协程的执行原理</h2><blockquote>
+<p>协程函数的返回值时IEnumerator,它是一个迭代器，可以把它当成执行一个序列的某个节点的指针，它提供了两个重要的接口，分别是Current(返回当前指向的元素)和MoveNext()(将指针向后移动一个单位，如果移动成功，则返回true)</p>
+<p>yield关键词用来声明序列中的下一个值或者是一个无意义的值，如果使用yield return x(x是指一个具体的对象或者数值)的话，那么MoveNext返回为true并且Current被赋值为x,如果使用yield break使得MoveNext()返回为false</p>
+<p>如果MoveNext函数返回为true意味着协程的执行条件被满足，则能够从当前的位置继续往下执行。否则不能从当前位置继续往下执行。</p>
+</blockquote>
+<h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><h2 id="客户端与服务器交互方式有几种"><a href="#客户端与服务器交互方式有几种" class="headerlink" title="客户端与服务器交互方式有几种"></a>客户端与服务器交互方式有几种</h2><blockquote>
+<p>socket通常也称作”套接字”，实现服务器和客户端之间的物理连接，并进行数据传输。主要有UDP和TCP两个协议，处于网络协议的传输层。<br>http协议传输的主要有http协议和基于http协议的Soap协议（web service）（基于XML）。常见的方式是 http 的post 和get 请求、web service。</p>
+</blockquote>
+<h2 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h2><blockquote>
+<p>1、连接方面区别<br>TCP面向连接（如打电话要先拨号建立连接）。<br>UDP是无连接回的，即发送数据之答前不需要建立连接。</p>
+<p>2、安全方面的区别<br>TCP提供可靠的服务，通过TCP连接传送的数据，无差错，不丢失，不重复，且按序到达。<br>UDP尽最大努力交付，即不保证可靠交付。</p>
+<p>3、传输效率的区别<br>TCP传输效率相对较低。<br>UDP传输效率高，适用于对高速传输和实时性有较高的通信或广播通信。</p>
+<p>4、连接对象数量的区别<br>TCP连接只能是点到点、一对一的。<br>UDP支持一对一，一对多，多对一和多对多的交互通信。</p>
+</blockquote>
+<h2 id="Http和Https的区别"><a href="#Http和Https的区别" class="headerlink" title="Http和Https的区别"></a>Http和Https的区别</h2><blockquote>
+<p>一、传输bai信息安全性不同<br>1.http协议：是超文本传输协议，信息是明文传输。如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读懂其中的信息。<br>2.https协议：是具有安全性的ssl加密传输协议，为浏览器和服务器之间的通信加密，确保数据传输的安全。</p>
+<p>二、连接方式不同<br>1.http协议：http的连接很简单，是无状态的。<br>2.https协议：是由SSL＋HTTP协议构建的可进行加密传输、身份认证的网络协议。</p>
+<p>三、默认端口不同<br>1.http协议：默认端口是80<br>2.https协议：默认的端口是443</p>
+<p>四、证书申请方式不同<br>1.http协议：免费申请。<br>2.https协议：需要到ca申请证书，一般免费证书很少，需要交费。</p>
+</blockquote>
+<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h2 id="面向对象的优点"><a href="#面向对象的优点" class="headerlink" title="面向对象的优点"></a>面向对象的优点</h2><blockquote>
+<ol>
+<li>易维护<br>采用面向对象思想设计的结构，可读性高，由于继承的存在，即使改变需求，那么维护也只是在局部模块，所以维护起来是非常方便和较低成本的。</li>
+<li>质量高<br>在设计时，可重用现有的，在以前的项目的领域中已被测试过的类使系统满足业务需求并具有较高的质量。</li>
+<li>效率高<br>在软件开发时，根据设计的需要对现实世界的事物进行抽象，产生类。使用这样的方法解决问题，接近于日常生活和自然的思考方式，势必提高软件开发的效率和质量。</li>
+<li>易扩展<br>由于继承、封装、多态的特性，自然设计出高内聚、低耦合的系统结构，使得系统更灵活、更容易扩展，而且成本较低。</li>
+</ol>
+</blockquote>
+<h2 id="什么是里氏代换原则"><a href="#什么是里氏代换原则" class="headerlink" title="什么是里氏代换原则"></a>什么是里氏代换原则</h2><blockquote>
+<p>里氏替换原则(Liskov Substitution Principle LSP)面向对象设计的基本原则之一。任何基类可以出现的地方，子类一定可以出现。（就是子类对象可以赋值给基类对象，基类对象不能赋值给子类对象）</p>
+</blockquote>
+<h2 id="继承和组合的区别"><a href="#继承和组合的区别" class="headerlink" title="继承和组合的区别"></a>继承和组合的区别</h2><blockquote>
+<p>继承：可以使用现有类的功能，并且在无需重复编写原有类的情况下对原有类进行功能上的扩展。(is-a关系)</p>
+<p>组合：在新类里面创建原有类的对象，重复利用已有类的功能。(has-a关系)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">组 合 关 系</th>
+<th style="text-align:left">继 承 关 系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">优点：不破坏封装，整体类与局部类之间松耦合，彼此相对独立</td>
+<td style="text-align:left">缺点：破坏封装，子类与父类之间紧密耦合，子类依赖于父类的实现，子类缺乏独立性</td>
+</tr>
+<tr>
+<td style="text-align:left">优点：具有较好的可扩展性</td>
+<td style="text-align:left">缺点：支持扩展，但是往往以增加系统结构的复杂度为代价</td>
+</tr>
+<tr>
+<td style="text-align:left">优点：支持动态组合。在运行时，整体对象可以选择不同类型的局部对象</td>
+<td style="text-align:left">缺点：不支持动态继承。在运行时，子类无法选择不同的父类</td>
+</tr>
+<tr>
+<td style="text-align:left">优点：整体类可以对局部类进行包装，封装局部类的接口，提供新的接口</td>
+<td style="text-align:left">缺点：子类不能改变父类的接口</td>
+</tr>
+<tr>
+<td style="text-align:left">缺点：整体类不能自动获得和局部类同样的接口</td>
+<td style="text-align:left">优点：子类能自动继承父类的接口</td>
+</tr>
+<tr>
+<td style="text-align:left">缺点：创建整体类的对象时，需要创建所有局部类的对象</td>
+<td style="text-align:left">优点：创建子类的对象时，无须创建父类的对象</td>
+</tr>
+</tbody>
+</table>
+<h2 id="虚方法virtual抽象方法abstract"><a href="#虚方法virtual抽象方法abstract" class="headerlink" title="虚方法virtual抽象方法abstract"></a>虚方法virtual抽象方法abstract</h2><ol>
+<li>虚方法必须有实现部分，抽象方法没有提供实现部分。抽象方法是一种强制派生类覆盖的方法，否则派生类将不能被实例化</li>
+<li>抽象方法只能在抽象类中声明，虚方法不是。如果类包含抽象方法，那么该类也是抽象的，也必须声明为抽象的</li>
+<li>派生类必须重写抽象类中的抽象方法，虚方法则不必要</li>
+<li>虚方法可以实现多态，而抽象方法不行</li>
+</ol>
+<h2 id="类和结构体的区别？使用环境？"><a href="#类和结构体的区别？使用环境？" class="headerlink" title="类和结构体的区别？使用环境？"></a>类和结构体的区别？使用环境？</h2><blockquote>
+<p>结构体是值类型，类是引用类型。结构体存储在栈中，类存储在堆中，栈的空间小但是访问快，堆的空间大但是访问速度较慢。</p>
+<p>结构体不能继承，不能创建默认构造函数和析构函数。结构成员不能指定为 abstract、virtual 或 protected。结构体的构造函数必须为所有值赋初值。</p>
+<p>结构体一般存储较为轻量的数据，类一般存储具有较为复杂逻辑结构的数据。</p>
+<p>使用环境：</p>
+<ol>
+<li>当堆栈的空间很有限，且有大量的逻辑对象时，创建类要比创建结构好一些；</li>
+<li>对于点、矩形和颜色这样的轻量对象，假如要声明一个含有许多个颜色对象的数组，则CLR需要为每个对象分配内存，在这种情况下，使用结构的成本较低；</li>
+<li>在表现抽象和多级别的对象层次时，类是最好的选择，因为结构不支持继承。</li>
+</ol>
+</blockquote>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="Heap与Stack有何区别-？"><a href="#Heap与Stack有何区别-？" class="headerlink" title="Heap与Stack有何区别(？"></a>Heap与Stack有何区别(？</h2><blockquote>
+<p>1.heap是堆，stack是栈。<br>2.stack的空间由操作系统自动分配和释放，heap的空间是手动申请和释放的，heap常用new关键字来分配。<br>3.stack空间有限，heap的空间是很大的自由区。</p>
+</blockquote>
+<h2 id="栈和堆谁比较快？为什么？"><a href="#栈和堆谁比较快？为什么？" class="headerlink" title="栈和堆谁比较快？为什么？"></a>栈和堆谁比较快？为什么？</h2><blockquote>
+<p>栈，原因：</p>
+<ol>
+<li>栈有专门的寄存器，堆是随机内存。</li>
+<li>栈是在一级缓存上运行的，而堆是在二级缓存上运行的。</li>
+<li>访问栈上的数据只需一次，而访问堆上的数据需要两次，先访问栈，再访问堆。</li>
+</ol>
+</blockquote>
+<h2 id="c-c-程序运行时有堆内存与栈内存之分，请写一个语句在堆中分配一个整数：-int-a-new-int-4-在栈内存中分配一个整数：（int-a-5）。"><a href="#c-c-程序运行时有堆内存与栈内存之分，请写一个语句在堆中分配一个整数：-int-a-new-int-4-在栈内存中分配一个整数：（int-a-5）。" class="headerlink" title="c/c++程序运行时有堆内存与栈内存之分，请写一个语句在堆中分配一个整数：(int a = new int(4)),在栈内存中分配一个整数：（int a = 5）。"></a>c/c++程序运行时有堆内存与栈内存之分，请写一个语句在堆中分配一个整数：(int a = new int(4)),在栈内存中分配一个整数：（int a = 5）。</h2><h2 id="值类型和引用类型有何区别"><a href="#值类型和引用类型有何区别" class="headerlink" title="值类型和引用类型有何区别"></a>值类型和引用类型有何区别</h2><blockquote>
+<p>1.值类型根据声明位置不同堆和栈中都有可能存储，引用类型存储在堆中<br>2.值类型存取速度快，引用类型存取速度慢。<br>3.值类型表示实际数据，引用类型表示指向存储在内存堆中的数据的指针或引用<br>4.值类型继承自System.ValueType，引用类型继承自System.Object</p>
+</blockquote>
+<h2 id="结构体和类有何区别"><a href="#结构体和类有何区别" class="headerlink" title="结构体和类有何区别"></a>结构体和类有何区别</h2><blockquote>
+<p>结构体是一种值类型，而类是引用类型。（值类型、引用类型是根据数据存储的角度来分的）就是值类型用于存储数据的值，引用类型用于存储对实际数据的引用。那么结构体就是当成值来使用的，类则通过引用来对实际数据操作</p>
+</blockquote>
+<h2 id="排序方式有哪些"><a href="#排序方式有哪些" class="headerlink" title="排序方式有哪些"></a>排序方式有哪些</h2><blockquote>
+<p>选择排序，冒泡排序，快速排序，插入排序，希尔排序，归并排序</p>
+</blockquote>
+<h2 id="k层二叉树最多有-2-k-1-个结点。"><a href="#k层二叉树最多有-2-k-1-个结点。" class="headerlink" title="k层二叉树最多有 2^k - 1 个结点。"></a>k层二叉树最多有 2^k - 1 个结点。</h2><p>## </p>
+<h2 id="请简述ArrayList和List的主要区别"><a href="#请简述ArrayList和List的主要区别" class="headerlink" title="请简述ArrayList和List的主要区别"></a>请简述ArrayList和List的主要区别</h2><blockquote>
+<p>ArrayList存在不安全类型（ArrayList会把所有插入其中的数据都当做Object来处理）装箱拆箱的操作（费时）List是接口，ArrayList是一个实现了该接口的类，可以被实例化</p>
+</blockquote>
+<h2 id="数组和List两者效率之间哪个好"><a href="#数组和List两者效率之间哪个好" class="headerlink" title="数组和List两者效率之间哪个好"></a>数组和List两者效率之间哪个好</h2><blockquote>
+<p>数组： 它在内存中是连续的存储的，所以索引速度很快，而且赋值与修改元素也很简单。可以利用偏移地址访问元素，时间复杂度为O(1);删除时间复杂度为O(n)，数组没有添加数据选项。</p>
+<p>List：基于数组，时间复杂度相同，插入为O(n)；不过在数据少量的时候跟数组差不多，数据庞大的时候效率会低于数组。</p>
+</blockquote>
+<h2 id="哈希表与字典"><a href="#哈希表与字典" class="headerlink" title="哈希表与字典"></a>哈希表与字典</h2><blockquote>
+<p>字典：内部用了Hashtable作为存储结构<br>如果我们试图找到一个不存在的键，它将返回 / 抛出异常。<br>它比哈希表更快，因为没有装箱和拆箱，尤其是值类型。<br>仅公共静态成员是线程安全的。<br>字典是一种通用类型，这意味着我们可以将其与任何数据类型一起使用（创建时，必须同时指定键和值的数据类型）。<br>Dictionay 是 Hashtable 的类型安全实现， Keys和Values是强类型的。<br>Dictionary遍历输出的顺序，就是加入的顺序</p>
+<p>哈希表：<br>如果我们尝试查找不存在的键，则返回 null。<br>它比字典慢，因为它需要装箱和拆箱。<br>哈希表中的所有成员都是线程安全的，<br>哈希表不是通用类型，<br>Hashtable 是松散类型的数据结构，我们可以添加任何类型的键和值。<br>HashTable是经过优化的，访问下标的对象先散列过，所以内部是无序散列的</p>
+</blockquote>
+<h2 id="StringBuilder和String的区别"><a href="#StringBuilder和String的区别" class="headerlink" title="StringBuilder和String的区别"></a>StringBuilder和String的区别</h2><blockquote>
+<p>String是字符串常量。<br>StringBuffer是字符串变量 ，线程安全。<br>StringBuilder是字符串变量，线程不安全。<br>String类型是个不可变的对象，当每次对String进行改变时都需要生成一个新的String对象，然后将指针指向一个新的对象，如果在一个循环里面，不断的改变一个对象，就要不断的生成新的对象，所以效率很低，建议在不断更改String对象的地方不要使用String类型。<br>StringBuilder对象在做字符串连接操作时是在原来的字符串上进行修改，改善了性能。这一点我们平时使用中也许都知道，连接操作频繁的时候，使用StringBuilder对象。</p>
+<p>如果是处理字符串的话，用string中的方法每次都需要创建一个新的字符串对象并且分配新的内存地址，而stringBuilder是在原来的内存里对字符串进行修改，所以在字符串处理方面还是建议用stringBuilder这样比较节约内存。但是string 类的方法和功能仍然还是比stringBuilder类要强。</p>
+</blockquote>
+<h2 id="有一本牛津词典，现在输入一串字母组成一个单词，怎么样快速查询词典中是否有这个单词"><a href="#有一本牛津词典，现在输入一串字母组成一个单词，怎么样快速查询词典中是否有这个单词" class="headerlink" title="有一本牛津词典，现在输入一串字母组成一个单词，怎么样快速查询词典中是否有这个单词"></a>有一本牛津词典，现在输入一串字母组成一个单词，怎么样快速查询词典中是否有这个单词</h2><blockquote>
+<p>使用树结构来存储词典的单词，以字母为顺序分别放在相应的子树中。然后根据输入将字母从左到右分级并根据树的结构依次查询。</p>
+</blockquote>
+<h2 id="在一段文本中，有许多”-”和”-”和”-”，判断这段文本中的括号是否使用正确？"><a href="#在一段文本中，有许多”-”和”-”和”-”，判断这段文本中的括号是否使用正确？" class="headerlink" title="在一段文本中，有许多”{}”和”[]”和”()”，判断这段文本中的括号是否使用正确？"></a>在一段文本中，有许多”{}”和”[]”和”()”，判断这段文本中的括号是否使用正确？</h2><blockquote>
+<p>使用栈的结构进判断，将所有括号依次入栈，当一次入栈是右括号时判断之前的栈顶是否是对应的左括号，如果是说明合法，将之前的左括号和现在入栈的右括号都出栈。然后继续将新的括号依次入栈，当有一次入栈非法即可判定非法，或者知道最后全部判定合法则判定该文本合法。</p>
+</blockquote>
+<h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><p><a href="https://blog.csdn.net/weixin_43122090/article/details/105462226" target="_blank" rel="external">https://blog.csdn.net/weixin_43122090/article/details/105462226</a></p>
+<h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><h2 id="在类的构造函数前加上static会报什么错-为什么"><a href="#在类的构造函数前加上static会报什么错-为什么" class="headerlink" title="在类的构造函数前加上static会报什么错?为什么?"></a>在类的构造函数前加上static会报什么错?为什么?</h2><blockquote>
+<p>构造函数格式为 public+类名，如果加上static会报错（静态构造函数不能有访问修饰符）<br>原因：静态构造函数不允许访问修饰符，也不接受任何参数；<br>无论创建多少类型的对象，静态构造函数只执行一次；<br>运行库创建类实例或者首次访问静态成员之前，运行库调用静态构造函数；<br>静态构造函数执行先于任何实例级别的构造函数；<br>显然也就无法使用this和base来调用构造函数。</p>
+</blockquote>
+<h2 id="以下选项中，正确的是（D）"><a href="#以下选项中，正确的是（D）" class="headerlink" title="以下选项中，正确的是（D）"></a>以下选项中，正确的是（D）</h2><blockquote>
+<p>A.Mathf.Round方法作用是限制 B.Mathf.Clamp方法作用是插值<br>C.Mathf.Lerp方法作用是四舍五入 D.Mathf.Abs方法作用是取得绝对值</p>
+</blockquote>
+<h2 id="C-、-Net与Mono的关系？"><a href="#C-、-Net与Mono的关系？" class="headerlink" title="C#、.Net与Mono的关系？"></a>C#、.Net与Mono的关系？</h2><blockquote>
+<p>mono是.net的一个开源跨平台工具，就类似java虚拟机，java本身不是跨平台语言，但运行在虚拟机上就能够实现了跨平台，由Xamarin提出，它是.NET框架的一个开源版本。<br>.net是微软的一个开发平台,只能在windows下运行，而mono可以实现跨平台跑，可以运行于linux，Unix，Mac OS等。<br>C#是微软的编程语言，开发包是.NET，就像Java之于JDK</p>
+</blockquote>
+<h2 id="C-和C-的区别-？"><a href="#C-和C-的区别-？" class="headerlink" title="C#和C++的区别(？"></a>C#和C++的区别(？</h2><blockquote>
+<p>C# 与C++ 比较的话，最重要的特性就是C# 是一种完全面向对象的语言，而C++ 不是，另外C# 是基于IL 中间语言和.NET Framework CLR 的，在可移植性，可维护性和强壮性都比C++ 有很大的改进。C# 的设计目标是用来开发快速稳定可扩展的应用程序，当然也可以通过Interop 和Pinvoke 完成一些底层操作</p>
+<p>C# 是一种完全面向对象的语言。另外C# 是基于IL 中间语言和.NET Framework CLR 的，在可移植性，可维护性和强壮性都比C++ 有很大的改进。</p>
+</blockquote>
+<h2 id="C-与C-结构体的区别"><a href="#C-与C-结构体的区别" class="headerlink" title="C#与C++结构体的区别"></a>C#与C++结构体的区别</h2><h2 id="实现计时器的方法"><a href="#实现计时器的方法" class="headerlink" title="## 实现计时器的方法"></a>## 实现计时器的方法</h2><blockquote>
+<p>Time eltatine:协程</p>
+</blockquote>
+<h2 id="“”与null的区别"><a href="#“”与null的区别" class="headerlink" title="“”与null的区别"></a>“”与null的区别</h2><h2 id="ref参数和out参数是什么？有什么区别-？"><a href="#ref参数和out参数是什么？有什么区别-？" class="headerlink" title="ref参数和out参数是什么？有什么区别(？"></a>ref参数和out参数是什么？有什么区别(？</h2><blockquote>
+<p>ref和out参数的效果一样，都是通过关键字找到定义在主函数里面的变量的内存地址，并通过方法体内的语法改变它的大小。不同点就是输出参数必须对参数进行初始化。ref必须初始化，out 参数必须在函数里赋值。ref参数是引用，out参数为输出参数。</p>
+</blockquote>
+<h2 id="C-的委托是什么？有何用处"><a href="#C-的委托是什么？有何用处" class="headerlink" title="C#的委托是什么？有何用处"></a>C#的委托是什么？有何用处</h2><blockquote>
+<p>委托类似于一种安全的指针引用，在使用它时是当做类来看待而不是一个方法，相当于对一组方法的列表的引用。用处：使用委托使程序员可以将方法引用封装在委托对象内。然后可以将该委托对象传递给可调用所引用方法的代码，而不必在编译时知道将调用哪个方法。与C或C++中的函数指针不同，委托是面向对象，而且是类型安全的。</p>
+</blockquote>
+<h2 id="三种泛型委托"><a href="#三种泛型委托" class="headerlink" title="三种泛型委托"></a>三种泛型委托</h2><h2 id="委托delegate是什么，event关键字有什么用"><a href="#委托delegate是什么，event关键字有什么用" class="headerlink" title="委托delegate是什么，event关键字有什么用"></a>委托delegate是什么，event关键字有什么用</h2><blockquote>
+<p>delegate 委托，是C#的一种类型，持有对某个方法的引用的类，能够拥有一个签名，引用只能与签名方法相匹配。实现：1、声明一个委托对象，与传递方法具有相同参数列表和返回值类型。2、创建委托对象，将要传递的函数作为参数传入。3、在实现异步调用地方，通过上一步创建对象调用方法。</p>
+<p>event 事件，在类中声明且生成，通过使用同一个类或其他类的委托与事件处理程序关联。包含事件的类用于发布事件，称为发布器(publisher)类；接受该事件的类称为订阅器(subscriber)类。事件使用发布-订阅模型。两者的区别：1、委托允许直接访问相应处理函数，事件只能通过公布的回调函数去调用。2、事件只能通过“+=”、“-=”方式注册和取消处理函数，委托除此之外还可以“=”直接赋值处理函数。</p>
+</blockquote>
+<h2 id="概述c-中代理和事件"><a href="#概述c-中代理和事件" class="headerlink" title="概述c#中代理和事件"></a>概述c#中代理和事件</h2><blockquote>
+<p>代理就是用来定义指向方法的引用。<br>C＃事件本质就是对消息的封装，用作对象之间的通信；发送方叫事件发送器，接收方叫事件接收器</p>
+</blockquote>
+<h2 id="sealed关键字用在类声明时与函数声明时的作用"><a href="#sealed关键字用在类声明时与函数声明时的作用" class="headerlink" title="sealed关键字用在类声明时与函数声明时的作用"></a>sealed关键字用在类声明时与函数声明时的作用</h2><blockquote>
+<p>sealed修饰的类为密封类，类声明时可防止其他类继承此类，在方法中声明则可防止派生类重写此方法。</p>
+</blockquote>
+<h2 id="请简述private，public，protected，internal的区别"><a href="#请简述private，public，protected，internal的区别" class="headerlink" title="请简述private，public，protected，internal的区别"></a>请简述private，public，protected，internal的区别</h2><blockquote>
+<p>public：对任何类和成员都公开，无限制访问<br>private：仅对该类公开<br>protected：对该类和其派生类公开<br>internal：只能在包含该类的程序集中访问该类</p>
+</blockquote>
+<h2 id="请描述接口Interface与抽象类之间的不同（？"><a href="#请描述接口Interface与抽象类之间的不同（？" class="headerlink" title="请描述接口Interface与抽象类之间的不同（？"></a>请描述接口Interface与抽象类之间的不同（？</h2><blockquote>
+<p>抽象类和接口都不能实例化。</p>
+<p>抽象类可以有抽象的的方法和未抽象的的方法，可以通过子类来重写。抽象类主要是子类的通用结构。</p>
+<p>常量、字段、运算符、实例构造函数、析构函数或类型、不能包含静态成员。接口不能有实现的方法。接口主要是作为规范来使用。</p>
+</blockquote>
+<h2 id="static和const关键字的作用"><a href="#static和const关键字的作用" class="headerlink" title="static和const关键字的作用"></a>static和const关键字的作用</h2><blockquote>
+<p>static 关键字至少有下列几个作用：<br>（1）函数体内static 变量的作用范围为该函数体，不同于auto 变量，该变量的内存只被分配一次，因此其值在下次调用时仍维持上次的值；<br>（2）在模块内的static 全局变量可以被模块内所用函数访问，但不能被模块外其它函数访问；<br>（3）在模块内的static 函数只可被这一模块内的其它函数调用，这个函数的使用范围被限制在声明它的模块内；<br>（4）在类中的static 成员变量属于整个类所拥有，对类的所有对象只有一份拷贝；<br>（5）在类中的static 成员函数属于整个类所拥有，这个函数不接收this 指针，因而只能访问类的static 成员变量。<br>const 关键字至少有下列几个作用：<br>（1）欲阻止一个变量被改变，可以使用const 关键字。在定义该const 变量时，通常需要对它进行初始化，因为以后就没有机会再去改变它了；<br>（2）对指针来说，可以指定指针本身为const，也可以指定指针所指的数据为const，或二者同时指定为const；<br>（3）在一个函数声明中，const 可以修饰形参，表明它是一个输入参数，在函数内部不能改变其值；<br>（4）对于类的成员函数，若指定其为const 类型，则表明其是一个常函数，不能修改类的成员变量<br>（5）对于类的成员函数，有时候必须指定其返回值为const 类型，以使得其返回值不为“左值”。</p>
+</blockquote>
+<h2 id="C-中四种访问修饰符是哪些？各有什么区别？"><a href="#C-中四种访问修饰符是哪些？各有什么区别？" class="headerlink" title="C#中四种访问修饰符是哪些？各有什么区别？"></a>C#中四种访问修饰符是哪些？各有什么区别？</h2><blockquote>
+<p>1.属性修饰符 2.存取修饰符 3.类修饰符 4.成员修饰符。<br>属性修饰符：<br>Serializable：按值将对象封送到远程服务器。<br>STATread：是单线程套间的意思，是一种线程模型。<br>MATAThread：是多线程套间的意思，也是一种线程模型。<br>存取修饰符：<br>public：存取不受限制。<br>private：只有包含该成员的类可以存取。<br>internal：只有当前工程可以存取。<br>protected：只有包含该成员的类以及派生类可以存取。<br>类修饰符：<br>abstract：抽象类。指示一个类只能作为其它类的基类。<br>sealed：密封类。指示一个类不能被继承。理所当然，密封类不能同时又是抽象类，因为抽象总是希望被继承的。<br>成员修饰符：<br>abstract：指示该方法或属性没有实现。<br>sealed：密封方法。可以防止在派生类中对该方法的override（重载）。不是类的每个成员方法都可以作为密封方法密封方法，必须对基类的虚方法进行重载，提供具体的实现方法。所以，在方法的声明中，sealed修饰符总是和override修饰符同时使用。<br>delegate：委托。用来定义一个函数指针。C#中的事件驱动是基于delegate + event的。<br>const：指定该成员的值只读不允许修改。<br>event：声明一个事件。<br>extern：指示方法在外部实现。<br>override：重写。对由基类继承成员的新实现。<br>readonly：指示一个域只能在声明时以及相同类的内部被赋值。<br>static：指示一个成员属于类型本身，而不是属于特定的对象。即在定义后可不经实例化，就可使用。<br>virtual：指示一个方法或存取器的实现可以在继承类中被覆盖。<br>new：在派生类中隐藏指定的基类成员，从而实现重写的功能。 若要隐藏继承类的成员，请使用相同名称在派生类中声明该成员，并用 new 修饰符修饰它。</p>
+</blockquote>
+<h2 id="已知strcpy函数的原型是：char-strcpy-char-strDest-const-char-strSrc-1-不调用库函数，实现strcpy函数。2-解释为什么要返回char"><a href="#已知strcpy函数的原型是：char-strcpy-char-strDest-const-char-strSrc-1-不调用库函数，实现strcpy函数。2-解释为什么要返回char" class="headerlink" title="已知strcpy函数的原型是：char  strcpy(char  strDest,const char  strSrc); 1.不调用库函数，实现strcpy函数。2.解释为什么要返回char "></a>已知strcpy函数的原型是：char <em> strcpy(char </em> strDest,const char <em> strSrc); 1.不调用库函数，实现strcpy函数。2.解释为什么要返回char </em></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">char * strcpy(char * strDest,const char * strSrc)</div><div class="line">&#123;</div><div class="line">    if ((strDest==NULL)||(strSrc==NULL))</div><div class="line">        throw &quot;Invalid argument(s)&quot;;</div><div class="line">    char * strDestCopy=strDest;</div><div class="line">    while ((*strDest++=*strSrc++)!=&apos;\0&apos;);</div><div class="line">    return strDestCopy;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-10-29T16:39:52.600Z" itemprop="dateUpdated">2020-10-30 00:39:52</time>
+    最后更新时间：<time datetime="2020-10-30T08:34:32.708Z" itemprop="dateUpdated">2020-10-30 16:34:32</time>
 </span><br>
 
 
@@ -251,7 +471,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2019/10/29/unity1/&title=《U3D问题总结（一） 计算机基础》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2019/10/29/unity1/&title=《U3D问题总结（一） 计算机基础与C#》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -261,7 +481,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2019/10/29/unity1/&title=《U3D问题总结（一） 计算机基础》 — 崎径 其镜&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2019/10/29/unity1/&title=《U3D问题总结（一） 计算机基础与C#》 — 崎径 其镜&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -271,7 +491,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《U3D问题总结（一） 计算机基础》 — 崎径 其镜&url=http://www.z16388.top/2019/10/29/unity1/&via=http://www.z16388.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《U3D问题总结（一） 计算机基础与C#》 — 崎径 其镜&url=http://www.z16388.top/2019/10/29/unity1/&via=http://www.z16388.top" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -301,7 +521,7 @@
     <div class="waves-block waves-effect prev">
       <a href="/2019/10/29/unity2/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">U3D问题总结（二） 线性代数</h4>
+        <h4 class="title">U3D问题总结（二） 线性代数与算法</h4>
       </a>
     </div>
   
@@ -430,7 +650,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2019/10/29/unity1/&title=《U3D问题总结（一） 计算机基础》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2019/10/29/unity1/&title=《U3D问题总结（一） 计算机基础与C#》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -440,7 +660,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2019/10/29/unity1/&title=《U3D问题总结（一） 计算机基础》 — 崎径 其镜&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2019/10/29/unity1/&title=《U3D问题总结（一） 计算机基础与C#》 — 崎径 其镜&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -450,7 +670,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《U3D问题总结（一） 计算机基础》 — 崎径 其镜&url=http://www.z16388.top/2019/10/29/unity1/&via=http://www.z16388.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《U3D问题总结（一） 计算机基础与C#》 — 崎径 其镜&url=http://www.z16388.top/2019/10/29/unity1/&via=http://www.z16388.top" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
