@@ -432,14 +432,13 @@
     <link href="http://www.z16388.top/2019/10/29/unity5/"/>
     <id>http://www.z16388.top/2019/10/29/unity5/</id>
     <published>2019-10-29T15:00:05.000Z</published>
-    <updated>2020-10-30T07:38:01.685Z</updated>
+    <updated>2020-11-08T15:10:55.122Z</updated>
     
     <content type="html"><![CDATA[<h2 id="什么是渲染管道（？"><a href="#什么是渲染管道（？" class="headerlink" title="什么是渲染管道（？"></a>什么是渲染管道（？</h2><blockquote>
 <p>是指在显示器上为了显示出图像而经过的一系列必要操作。 渲染管道中的很多步骤，都要将几何物体从一个坐标系中变换到另一个坐标系中去。主要步骤有：<br>本地坐标-&gt;视图坐标-&gt;背面裁剪-&gt;光照-&gt;裁剪-&gt;投影-&gt;视图变换-&gt;光栅化</p>
 </blockquote>
 <h2 id="对渲染管线的理解"><a href="#对渲染管线的理解" class="headerlink" title="对渲染管线的理解"></a>对渲染管线的理解</h2><blockquote>
-<p>渲染流水线流程：<br>1.应用阶段（由CPU负责，输出是渲染所需要的几何信息，即渲染图元）<br>2.几何阶段（由GPU负责，处理渲染图元，这阶段中最重要的就是把顶点坐标变换屏幕空间中，交给光栅器处理<br>这阶段输出的是屏幕空间中二维顶点坐标、每个顶点对应的深度值、着色等相关信息）<br>3.光栅化阶段（由GPU，负责这一阶段会使用上个阶段传递的数据来产生屏幕上的像素，并渲染出最终的图像）<br>细节过程<a href="https://zhuanlan.zhihu.com/p/97498781" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/97498781</a></p>
-<p>渲染管线(Rendering Pipeline)就是GPU渲染。流程：顶点处理、面处理、光栅化、像素处理。顶点处理：通过一系列坐标系转换将模型顶点在摄像机前位移，最终投影到摄像机屏幕上(本地 - 世界 - 观察 - 投影)。包括顶点坐标变化、逐顶点雾化、材质属性和光照属性处理。面处理：面的组装、截取、剔除。光栅化：消除遮挡面；Texture Operation，根据像素纹理坐标查询对应纹理值；Blending，根据已经画好颜色与正在计算的颜色alpha值混合形成新颜色；Filtering，将正在计算的颜色经过某种滤镜后输出，该阶段后像素的颜色值被写入帧缓存中。像素处理：对每个像素区域着色，对像素贴上贴图形成最终画面。</p>
+<p>渲染流水线流程：<br>1.应用阶段（由CPU负责，输出是渲染所需要的几何信息，即渲染图元。然后发起Draw Call，进入GPU流水线）<br>2.几何阶段（由GPU负责，处理渲染图元，这阶段中最重要的就是把顶点坐标变换屏幕空间中，交给光栅器处理<br>这阶段输出的是屏幕空间中二维顶点坐标、每个顶点对应的深度值、着色等相关信息）<br>3.光栅化阶段（由GPU，负责这一阶段会使用上个阶段传递的数据来产生屏幕上的像素，并渲染出最终的图像）<br>细节过程<a href="https://zhuanlan.zhihu.com/p/97498781" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/97498781</a></p>
 </blockquote>
 <h2 id="什么是DrawCall？DrawCall高了又什么影响？如何降低DrawCall？"><a href="#什么是DrawCall？DrawCall高了又什么影响？如何降低DrawCall？" class="headerlink" title="什么是DrawCall？DrawCall高了又什么影响？如何降低DrawCall？"></a>什么是DrawCall？DrawCall高了又什么影响？如何降低DrawCall？</h2><blockquote>
 <p>Unity中，每次引擎准备数据并通知GPU的过程称为一次Draw Call。DrawCall越高对显卡的消耗就越大。降低DrawCall的方法：</p>
