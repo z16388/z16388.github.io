@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65402820"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?93a4135d9a9b44969ef103d08c93d191"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://www.z16388.top/2021/05/06/efk/">
+    
+    
+    <title>EFK日志分析系统的搭建 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="ELK,运维">
+    <meta name="description" content="简介
+EFK 是三个开源软件的缩写，Elasticsearch，FileBeat，Kibana。其中 ELasticsearch 负责日志分析和存储，FileBeat 负责日志收集，Kibana 负责界面展示。它们之间互相配合使用，完美衔接，高效的满足了很多场合的应用，是目前主流的一种日志分析系统解决方案。
+EFK 和 ELK 只有一个区别， 收集日志的组件由 Logstash 替换成了 File">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EFK日志分析系统的搭建">
+<meta property="og:url" content="http://www.z16388.top/2021/05/06/efk/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="简介
+EFK 是三个开源软件的缩写，Elasticsearch，FileBeat，Kibana。其中 ELasticsearch 负责日志分析和存储，FileBeat 负责日志收集，Kibana 负责界面展示。它们之间互相配合使用，完美衔接，高效的满足了很多场合的应用，是目前主流的一种日志分析系统解决方案。
+EFK 和 ELK 只有一个区别， 收集日志的组件由 Logstash 替换成了 File">
+<meta property="og:updated_time" content="2021-05-20T14:00:28.439Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EFK日志分析系统的搭建">
+<meta name="twitter:description" content="简介
+EFK 是三个开源软件的缩写，Elasticsearch，FileBeat，Kibana。其中 ELasticsearch 负责日志分析和存储，FileBeat 负责日志收集，Kibana 负责界面展示。它们之间互相配合使用，完美衔接，高效的满足了很多场合的应用，是目前主流的一种日志分析系统解决方案。
+EFK 和 ELK 只有一个区别， 收集日志的组件由 Logstash 替换成了 File">
+    
+        <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/Favicon1.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.1">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brands/brand3.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo1.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Anqi Zhao</h5>
+          <a href="mailto:1021622929@qq.com" title="1021622929@qq.com" class="mail">1021622929@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-table"></i>
+                动态
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/work"  >
+                <i class="icon icon-lg icon-archives"></i>
+                工作笔记
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/int"  >
+                <i class="icon icon-lg icon-link"></i>
+                常用网址导航
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friend"  >
+                <i class="icon icon-lg icon-mars-double"></i>
+                友情链接
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">EFK日志分析系统的搭建</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://psnine.com/psnid/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-gamepad"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">EFK日志分析系统的搭建</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-05-06T09:22:01.000Z" itemprop="datePublished" class="page-time">
+  2021-05-06
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#部署步骤"><span class="post-toc-number">2.</span> <span class="post-toc-text">部署步骤</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-efk"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">EFK日志分析系统的搭建</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-05-06 17:22:01" datetime="2021-05-06T09:22:01.000Z"  itemprop="datePublished">2021-05-06</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>EFK 是三个开源软件的缩写，Elasticsearch，FileBeat，Kibana。其中 ELasticsearch 负责日志分析和存储，FileBeat 负责日志收集，Kibana 负责界面展示。它们之间互相配合使用，完美衔接，高效的满足了很多场合的应用，是目前主流的一种日志分析系统解决方案。</p>
+<p>EFK 和 ELK 只有一个区别， 收集日志的组件由 Logstash 替换成了 FileBeat，因为 Filebeat 相对于 Logstash 来说有2个好处:<br>1.侵入低，无需修改 elasticsearch 和 kibana 的配置；<br>2.性能高，IO 占用率比 logstash 小太多</p>
+<p>当然 Logstash 相比于 FileBeat 也有一定的优势，比如 Logstash 对于日志的格式化处理能力，FileBeat 只是将日志从日志文件中读取出来，当然如果收集的日志本身是有一定格式的，FileBeat 也可以格式化，但是相对于Logstash 来说，效果差很多。</p>
+</blockquote>
+<h2 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h2><p><strong>1 .  安装Docker</strong></p>
+<p><strong>2 .  下载所需镜像</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">docker pull elasticsearch:7.12.0</div><div class="line">docker pull kibana:7.12.0</div><div class="line">docker pull store/elastic/filebeat:7.12.0</div></pre></td></tr></table></figure></p>
+<p><strong>3 .  创建自定义网络</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker network create elk_net</div></pre></td></tr></table></figure></p>
+<p><strong>4 .  启动Elasticsearch和Kibana</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker run -d --name elasticsearch --net elk_net -p 9200:9200 -p 9300:9300 -e &quot;discovery.type=single-node&quot; elasticsearch:7.12.0</div><div class="line">docker run -d --name kibana --net elk_net -p 5601:5601 kibana:7.12.0</div></pre></td></tr></table></figure></p>
+<p>如果希望使用中文界面（中文化不完全，不推荐使用），可以进入kibana的容器里，修改排至文件，在现有配置文件中加一行中文相关的配置即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">server.name: kibana</div><div class="line">server.host: &quot;0&quot;</div><div class="line">elasticsearch.hosts: [ &quot;http://elasticsearch:9200&quot; ]</div><div class="line">monitoring.ui.container.elasticsearch.enabled: true</div><div class="line">// 设置语言为中文↓</div><div class="line">i18n.locale: &quot;zh-CN&quot;</div></pre></td></tr></table></figure></p>
+<p>进入docker容器的指令为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it kibana /bin/bash</div></pre></td></tr></table></figure></p>
+<p><strong>5 .  配置日志解析规则</strong><br>日志解析的规则，是存放在Elasticsearch中的。只要通过curl命令即可实现向es中插入数据。<br>新建json文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;grok&quot;: &#123;</div><div class="line">    &quot;field&quot;: &quot;message&quot;,</div><div class="line">    &quot;patterns&quot;: [</div><div class="line">      &quot;%&#123;TIMESTAMP_ISO8601:Time&#125;\\s\\s*\\[%&#123;DATA:ServerType&#125;\\]*\\[%&#123;DATA:ServerID&#125;\\]*\\[%&#123;LOGLEVEL:Level&#125;\\s+\\]*\\[%&#123;DATA:Func&#125;\\]%&#123;GREEDYDATA:Log&#125;&quot;</div><div class="line">    ],</div><div class="line">    &quot;pattern_definitions&quot;: &#123;</div><div class="line">      &quot;ALL_CODE&quot;: &quot;(.|\\n)*&quot;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;,</div><div class="line">&#123;</div><div class="line">  &quot;date&quot;: &#123;</div><div class="line">    &quot;field&quot;: &quot;Time&quot;,</div><div class="line">    &quot;formats&quot;: [</div><div class="line">      &quot;ISO8601&quot;</div><div class="line">    ],</div><div class="line">    &quot;target_field&quot;: &quot;@timestamp&quot;,</div><div class="line">    &quot;timezone&quot;: &quot;Asia/Shanghai&quot;</div><div class="line">  &#125;</div><div class="line">&#125;,</div><div class="line">&#123;</div><div class="line">  &quot;remove&quot;: &#123;</div><div class="line">    &quot;field&quot;: &quot;message&quot;</div><div class="line">  &#125;</div><div class="line">&#125;,</div><div class="line">&#123;</div><div class="line">  &quot;remove&quot;: &#123;</div><div class="line">    &quot;field&quot;: &quot;Time&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>patterns部分为解析每行日志的正则表达式，pattern_definitions是处理换行标志。<br>测试可以使用kibana自带的grok测试工具，在设置界面会有。<br>下方的date部分，是通过对上方产生的Time字段，存放到默认的时间戳上，用于处理排序。<br>处理完成后，把多余的字段删除，特别是输入的message，有利于缩减入库数据的量。<br>需要注意的是，json文件里的反斜杠一定要进行转义。</p>
+<p>执行命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -H &quot;Content-Type: application/json&quot; -XPUT &apos;http://192.168.3.67:9200/_ingest/pipeline/lmyzpip&apos; -d@/home/docker/pipline/pip.json</div></pre></td></tr></table></figure></p>
+<p>除此之外，可以登录Kibana界面，通过可视化界面配置解析。</p>
+<ul>
+<li>点击左侧的三条线按钮，进入Stack Management-&gt;Ingest Node Pipelines-&gt;Create a pipeline</li>
+<li>输入名称和描述</li>
+<li>点击下方Add a processor，增加处理方式</li>
+<li>填写相关参数，点击Add保存</li>
+</ul>
+<p>右侧Add documents可以填写测试用例，测试相关配置是否正确（通过直接写入ES的配置也可以在此测试）。</p>
+<p>测试数据的格式为：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">    &#123;<span class="attr">"_index"</span>:<span class="string">"index"</span>,</div><div class="line">        <span class="attr">"_id"</span>:<span class="string">"id"</span>,</div><div class="line">        <span class="attr">"_source"</span>:&#123;<span class="attr">"message"</span>:<span class="string">"2021-04-29T15:42:05.000000  [Game][4][DEBUG   ][CNetManager::_SendServerConfigRequest]Request for server-config, Stream-&#123;Game: 4-0&#125;. ServerConfig&lt;2&gt; DBConfig&lt;0&gt; RedisConfig&lt;0&gt;"</span>&#125;</div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p><strong>6 .  安装filebeat</strong><br>新增配置文件filebeat.docker.yml：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#=========================== Filebeat inputs ==============</span></div><div class="line">filebeat.inputs:</div><div class="line"></div><div class="line"><span class="attr">- type:</span> log</div><div class="line"></div><div class="line"><span class="attr">  enabled:</span> <span class="literal">true</span></div><div class="line">  <span class="comment">##配置你要收集的日志目录，可以配置多个目录</span></div><div class="line"><span class="attr">  paths:</span></div><div class="line"><span class="bullet">    -</span> /home/docker/logs/*.log</div><div class="line"></div><div class="line"><span class="comment">## 设置kibana的地址，开始filebeat的可视化  </span></div><div class="line">setup.kibana.host: <span class="string">"http://kibana:5601"</span></div><div class="line">setup.dashboards.enabled: <span class="literal">true</span></div><div class="line"><span class="comment">#-------------------------- Elasticsearch output ---------</span></div><div class="line">output.elasticsearch:</div><div class="line"><span class="attr">    hosts:</span> [<span class="string">"elasticsearch:9200"</span>]</div><div class="line"><span class="attr">    pipeline:</span> <span class="string">"lmyzpip"</span></div><div class="line"></div><div class="line">setup.template.name: <span class="string">"my-log"</span></div><div class="line">setup.template.pattern: <span class="string">"my-log-*"</span></div><div class="line">json.keys_under_root: <span class="literal">false</span></div><div class="line">json.overwrite_keys: <span class="literal">true</span></div></pre></td></tr></table></figure>
+<p>其中需要注意的是，如果filebeat和前面的EK两个东西，没有部署在同一台机器上，需要把容器名改成对应的ip地址。</p>
+<p>运行Filebeat：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -d --net elk_net -v /home/docker/filebeat/filebeat.docker.yml:/usr/share/filebeat/filebeat.yml -v /home/docker/logs/:/home/docker/logs/ --link elasticsearch:elasticsearch --link kibana:kibana  --name filebeat docker.io/store/elastic/filebeat:7.12.0</div></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-05-20T14:00:28.439Z" itemprop="dateUpdated">2021-05-20 22:00:28</time>
+</span><br>
+
+
+        
+        梦想依在 人生正当年
+        
+    </div>
+    <footer>
+        <a href="http://www.z16388.top">
+            <img src="/img/logo1.png" alt="Anqi Zhao">
+            Anqi Zhao
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ELK/">ELK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/运维/">运维</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2021/05/06/efk/&title=《EFK日志分析系统的搭建》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2021/05/06/efk/&title=《EFK日志分析系统的搭建》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2021/05/06/efk/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《EFK日志分析系统的搭建》 — 崎径 其镜&url=http://www.z16388.top/2021/05/06/efk/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2021/05/06/efk/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2021/05/10/luanew/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Lua新知</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/12/12/bezier/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">使用贝塞尔曲线实现道具随机飞动效果</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "etRSqNOcMILcVs1M6AUeU6yG-gzGzoHsz",
+            appKey: "kcmkjlCM6bDnVREmI5bqDQEH",
+            avatar: "",
+            placeholder: "在这里输入回复内容,头像可以到https://cn.gravatar.com/进行设置",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        也可以请我喝一杯咖啡
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Anqi Zhao &copy; 2016 - 2021</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备19057807号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2021/05/06/efk/&title=《EFK日志分析系统的搭建》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2021/05/06/efk/&title=《EFK日志分析系统的搭建》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2021/05/06/efk/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《EFK日志分析系统的搭建》 — 崎径 其镜&url=http://www.z16388.top/2021/05/06/efk/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2021/05/06/efk/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/2021/05/06/efk/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.1"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.1" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65402820"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?93a4135d9a9b44969ef103d08c93d191"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://www.z16388.top/2021/05/10/luanew/">
+    
+    
+    <title>Lua新知 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Lua,游戏">
+    <meta name="description" content="两年没有碰过Lua了，总觉得得要捡起来。现在从头到尾再过一遍，总结一些东西。之前根据菜鸟学的时候，使用了5.1.1的版本。与现在常用的版本相悖。因此这次我使用了：zerobrane studio，它可以方便切换版本，能实现很好的练习效果。
+关于多行注释的安全问题如果直接使用默认的–[[和–]]来进行多行注释的时候,如果遇到table包table的情况会直接结束注释:123456--[[a = []">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lua新知">
+<meta property="og:url" content="http://www.z16388.top/2021/05/10/luanew/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="两年没有碰过Lua了，总觉得得要捡起来。现在从头到尾再过一遍，总结一些东西。之前根据菜鸟学的时候，使用了5.1.1的版本。与现在常用的版本相悖。因此这次我使用了：zerobrane studio，它可以方便切换版本，能实现很好的练习效果。
+关于多行注释的安全问题如果直接使用默认的–[[和–]]来进行多行注释的时候,如果遇到table包table的情况会直接结束注释:123456--[[a = []">
+<meta property="og:updated_time" content="2021-05-20T14:31:48.078Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lua新知">
+<meta name="twitter:description" content="两年没有碰过Lua了，总觉得得要捡起来。现在从头到尾再过一遍，总结一些东西。之前根据菜鸟学的时候，使用了5.1.1的版本。与现在常用的版本相悖。因此这次我使用了：zerobrane studio，它可以方便切换版本，能实现很好的练习效果。
+关于多行注释的安全问题如果直接使用默认的–[[和–]]来进行多行注释的时候,如果遇到table包table的情况会直接结束注释:123456--[[a = []">
+    
+        <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/Favicon1.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.1">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brands/brand3.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo1.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Anqi Zhao</h5>
+          <a href="mailto:1021622929@qq.com" title="1021622929@qq.com" class="mail">1021622929@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-table"></i>
+                动态
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/work"  >
+                <i class="icon icon-lg icon-archives"></i>
+                工作笔记
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/int"  >
+                <i class="icon icon-lg icon-link"></i>
+                常用网址导航
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friend"  >
+                <i class="icon icon-lg icon-mars-double"></i>
+                友情链接
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Lua新知</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://psnine.com/psnid/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-gamepad"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Lua新知</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-05-10T03:42:01.000Z" itemprop="datePublished" class="page-time">
+  2021-05-10
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#关于多行注释的安全问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">关于多行注释的安全问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多行字符串安全问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">多行字符串安全问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#运算符相关"><span class="post-toc-number">3.</span> <span class="post-toc-text">运算符相关</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#自定义迭代器"><span class="post-toc-number">4.</span> <span class="post-toc-text">自定义迭代器</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#循环时的goto语句"><span class="post-toc-number">5.</span> <span class="post-toc-text">循环时的goto语句</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#元表"><span class="post-toc-number">6.</span> <span class="post-toc-text">元表</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#协程"><span class="post-toc-number">7.</span> <span class="post-toc-text">协程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#面向对象"><span class="post-toc-number">8.</span> <span class="post-toc-text">面向对象</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-luanew"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Lua新知</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-05-10 11:42:01" datetime="2021-05-10T03:42:01.000Z"  itemprop="datePublished">2021-05-10</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>两年没有碰过Lua了，总觉得得要捡起来。现在从头到尾再过一遍，总结一些东西。之前根据菜鸟学的时候，使用了5.1.1的版本。与现在常用的版本相悖。因此这次我使用了：zerobrane studio，它可以方便切换版本，能实现很好的练习效果。</p>
+<h1 id="关于多行注释的安全问题"><a href="#关于多行注释的安全问题" class="headerlink" title="关于多行注释的安全问题"></a>关于多行注释的安全问题</h1><p>如果直接使用默认的<code>–[[</code>和<code>–]]</code>来进行多行注释的时候,如果遇到table包table的情况会直接结束注释:<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--[[</span></div><div class="line">a = [];</div><div class="line">b = [a];</div><div class="line">a[b[1]]</div><div class="line">a = <span class="number">1</span></div><div class="line"><span class="comment">--]]</span></div></pre></td></tr></table></figure></p>
+<p>可以使用另一种方法来进行多行注释,避免这个问题:<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--[=[</span></div><div class="line">a = [];</div><div class="line">b = [a];</div><div class="line">a[b[1]]</div><div class="line">a = <span class="number">1</span></div><div class="line">]=]</div></pre></td></tr></table></figure></p>
+<p>当然,最安全的方法还是使用IDE的快捷键进行注释.IDE会在每行的前面加单行注释,避免错误的发生.</p>
+<h1 id="多行字符串安全问题"><a href="#多行字符串安全问题" class="headerlink" title="多行字符串安全问题"></a>多行字符串安全问题</h1><p>多行字符串,也会出现类似于上面的情况:<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">str = </div><div class="line"><span class="string">[[</span></div><div class="line">话说</div><div class="line">这个东西</div><div class="line">好像打印不出来</div><div class="line">就是这个</div><div class="line">table[table[idx]]</div><div class="line">咋办啊</div><div class="line">]]</div><div class="line"><span class="built_in">print</span>(str)</div></pre></td></tr></table></figure></p>
+<h1 id="运算符相关"><a href="#运算符相关" class="headerlink" title="运算符相关"></a>运算符相关</h1><p>#运算符取的是最大索引的值，如果删除了中间的值，获得的结果不会改变：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tb_a = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line"><span class="built_in">print</span> (#tb_a)</div><div class="line"></div><div class="line">tb_a[<span class="number">2</span>] = <span class="keyword">nil</span></div><div class="line"><span class="built_in">print</span> (#tb_a)</div></pre></td></tr></table></figure></p>
+<p>但是这种情况仅限于Lua 5.1 ，Lua5.3和Lua5.4结果是1。</p>
+<p>模拟三目运算符的<code>and…or…</code>，在第二个参数为false时，始终返回c，会出现问题：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = <span class="keyword">true</span></div><div class="line"><span class="built_in">print</span> (a <span class="keyword">and</span> <span class="keyword">false</span> <span class="keyword">or</span> <span class="keyword">true</span>)</div></pre></td></tr></table></figure></p>
+<p>输出结果会是true 而不是三目运算符应该返回的false。<br>这时候，可以将三目运算符的后面两个部分转换成table，运算结束后再取第一个元素，即可实现：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">a = <span class="keyword">true</span></div><div class="line">b = (a <span class="keyword">and</span> &#123;<span class="keyword">false</span>&#125; <span class="keyword">or</span> &#123;<span class="keyword">true</span>&#125;)[<span class="number">1</span>]</div><div class="line"><span class="keyword">if</span> b <span class="keyword">then</span></div><div class="line">	<span class="built_in">print</span>(<span class="string">"true"</span>)</div><div class="line"><span class="keyword">else</span></div><div class="line">	<span class="built_in">print</span>(<span class="string">"false"</span>)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<h1 id="自定义迭代器"><a href="#自定义迭代器" class="headerlink" title="自定义迭代器"></a>自定义迭代器</h1><p>自定义迭代器的格式：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> 变量列表 <span class="keyword">in</span> 迭代函数, 状态变量, 控制变量 <span class="keyword">do</span></div><div class="line">    <span class="comment">-- 循环体</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>自定义无状态迭代器<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span><span class="params">(iteratorMaxCount, currentNumber)</span></span></div><div class="line">    <span class="keyword">if</span> currentNumber &lt; iteratorMaxCount <span class="keyword">then</span></div><div class="line">        currentNumber = currentNumber + <span class="number">1</span></div><div class="line">        <span class="keyword">return</span> currentNumber, currentNumber * currentNumber</div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i, n <span class="keyword">in</span> square, <span class="number">3</span>, <span class="number">0</span></div><div class="line"><span class="keyword">do</span></div><div class="line">    <span class="built_in">print</span>(i, n)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>多状态迭代器：<br>多个状态可以存放在table，因此只需要一个参数即可：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">array = &#123;<span class="string">"Google"</span>, <span class="string">"Runoob"</span>&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">elementIterator</span> <span class="params">(collection)</span></span></div><div class="line">    <span class="keyword">local</span> index = <span class="number">0</span></div><div class="line">    <span class="keyword">local</span> count = #collection</div><div class="line">    <span class="comment">-- 闭包函数</span></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span></span></div><div class="line">        index = index + <span class="number">1</span></div><div class="line">        <span class="keyword">if</span> index &lt;= count <span class="keyword">then</span></div><div class="line">            <span class="comment">--  返回迭代器的当前元素</span></div><div class="line">            <span class="keyword">return</span> collection[index]</div><div class="line">        <span class="keyword">end</span></div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> element <span class="keyword">in</span> elementIterator(array) <span class="keyword">do</span></div><div class="line">    <span class="built_in">print</span>(element)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<h1 id="循环时的goto语句"><a href="#循环时的goto语句" class="headerlink" title="循环时的goto语句"></a>循环时的goto语句</h1><p>可以使用goto语句来实现continue：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i=<span class="number">1</span>, <span class="number">3</span> <span class="keyword">do</span></div><div class="line">    <span class="keyword">if</span> i &lt;= <span class="number">2</span> <span class="keyword">then</span></div><div class="line">        <span class="built_in">print</span>(i, <span class="string">"yes continue"</span>)</div><div class="line">        goto continue</div><div class="line">    <span class="keyword">end</span></div><div class="line">    <span class="built_in">print</span>(i, <span class="string">" no continue"</span>)</div><div class="line">    ::continue::</div><div class="line">    <span class="built_in">print</span>(<span class="string">[[i'm end]]</span>)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<h1 id="元表"><a href="#元表" class="headerlink" title="元表"></a>元表</h1><p>Lua可以通过设置元表，定义元方法的方式，改变table的一些行为：</p>
+<p><strong>index元方法，可以修改按索引取值的逻辑。<br>若</strong>index内容是一个表的话，如果table里没有值，会从元表中对应的索引去取：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">t_table = <span class="built_in">setmetatable</span>(&#123;k1 = <span class="string">"v1"</span>&#125;, &#123;__index = &#123;k2 = <span class="string">"v2"</span>&#125;&#125;)</div><div class="line"><span class="built_in">print</span>(t_table[<span class="string">"k1"</span>])</div><div class="line"><span class="built_in">print</span>(t_table[<span class="string">"k2"</span>])</div><div class="line">t_table[<span class="string">"k2"</span>] = <span class="string">"v3"</span></div><div class="line"><span class="built_in">print</span>(t_table[<span class="string">"k2"</span>])</div><div class="line"><span class="comment">--[[</span></div><div class="line">输出是：</div><div class="line">v1</div><div class="line">v2</div><div class="line">v3</div><div class="line">--]]</div></pre></td></tr></table></figure></p>
+<p>若__index内容是一个函数，则可以定义返回逻辑：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">t_table = <span class="built_in">setmetatable</span>(&#123;&#125;, &#123;__index =</div><div class="line">	<span class="function"><span class="keyword">function</span><span class="params">(t_table, key)</span></span></div><div class="line">		<span class="keyword">if</span> key == <span class="number">1</span> <span class="keyword">then</span></div><div class="line">			<span class="keyword">return</span> <span class="string">"true"</span></div><div class="line">		<span class="keyword">else</span></div><div class="line">			<span class="keyword">return</span> <span class="string">"false"</span></div><div class="line">		<span class="keyword">end</span></div><div class="line">	<span class="keyword">end</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">print</span>(t_table[<span class="number">1</span>])</div><div class="line"><span class="built_in">print</span>(t_table[<span class="number">2</span>])</div><div class="line"><span class="built_in">print</span>(t_table[<span class="number">3</span>])</div><div class="line"></div><div class="line">t_table = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line"></div><div class="line"><span class="built_in">print</span>(t_table[<span class="number">1</span>])</div><div class="line"><span class="built_in">print</span>(t_table[<span class="number">2</span>])</div><div class="line"><span class="built_in">print</span>(t_table[<span class="number">3</span>])</div><div class="line"><span class="comment">--[[</span></div><div class="line">输出是：</div><div class="line">true</div><div class="line">false</div><div class="line">false</div><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">--]]</div></pre></td></tr></table></figure></p>
+<p>__newindex元方法，可以修改追加索引时的逻辑<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">t_table = <span class="built_in">setmetatable</span>(&#123;k1 = <span class="string">"v1"</span>&#125;, &#123;</div><div class="line">	__newindex =</div><div class="line">	<span class="function"><span class="keyword">function</span><span class="params">(t_table, key, value)</span></span></div><div class="line">		<span class="built_in">rawset</span>(t_table, key, <span class="string">"\"v"</span> .. value .. <span class="string">"\""</span>)</div><div class="line">	<span class="keyword">end</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">t_table[<span class="string">"k2"</span>] = <span class="number">2</span></div><div class="line"></div><div class="line"><span class="built_in">print</span>(t_table[<span class="string">"k1"</span>])</div><div class="line"><span class="built_in">print</span>(t_table[<span class="string">"k2"</span>])</div><div class="line"></div><div class="line"><span class="comment">--[[</span></div><div class="line">输出是：</div><div class="line">v1</div><div class="line">"v2"</div><div class="line">--]]</div></pre></td></tr></table></figure></p>
+<p>其它的规则：<br>|元表|运算符|<br>|:–:|:–:|<br>|<strong>add|+|<br>|</strong>sub|-|<br>|<strong>mul|*|<br>|</strong>div|/|<br>|<strong>mod|%|<br>|</strong>unm|-(相反数)|<br>|<strong>concat|..|<br>|</strong>eq|==|<br>|<strong>lt|&lt;|<br>|</strong>le|&lt;=|</p>
+<p><strong>add和</strong>tostring:<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">t_table = <span class="built_in">setmetatable</span>(&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, &#123;__add =</div><div class="line">	<span class="function"><span class="keyword">function</span><span class="params">(t_table, data)</span></span></div><div class="line">		t_table[#t_table + <span class="number">1</span>] = data</div><div class="line">		<span class="keyword">return</span> t_table</div><div class="line">	<span class="keyword">end</span>,</div><div class="line">	__tostring =</div><div class="line">	<span class="function"><span class="keyword">function</span><span class="params">(t_table)</span></span></div><div class="line">		<span class="keyword">local</span> res = <span class="string">""</span></div><div class="line">		<span class="keyword">for</span> _, v <span class="keyword">in</span> <span class="built_in">pairs</span>(t_table) <span class="keyword">do</span></div><div class="line">			res = res .. v</div><div class="line">		<span class="keyword">end</span></div><div class="line">		<span class="keyword">return</span> res</div><div class="line">	<span class="keyword">end</span></div><div class="line">&#125;)</div><div class="line"><span class="built_in">print</span>(t_table)</div><div class="line"><span class="built_in">print</span>(t_table + <span class="number">4</span>)</div><div class="line"><span class="comment">--[[</span></div><div class="line">输出：</div><div class="line">123</div><div class="line">1234</div><div class="line">--]]</div></pre></td></tr></table></figure></p>
+<p>需要注意的是，关系运算符，比较的两端，元表必须相同。如果只有一方有元表，另一方没有，又或者是两方拥有不同的元表，会导致比较报错：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">a_metatable =</div><div class="line">&#123;</div><div class="line">	__gt = <span class="function"><span class="keyword">function</span><span class="params">(a_table, b_table)</span></span></div><div class="line">		<span class="keyword">return</span> a_table[<span class="number">1</span>] &gt; b_table[<span class="number">1</span>]</div><div class="line">	<span class="keyword">end</span>,</div><div class="line">	__lt = <span class="function"><span class="keyword">function</span><span class="params">(a_table, b_table)</span></span></div><div class="line">		<span class="keyword">return</span> a_table[<span class="number">1</span>] &lt; b_table[<span class="number">1</span>]</div><div class="line">	<span class="keyword">end</span></div><div class="line">&#125;</div><div class="line">b_metatable =</div><div class="line">&#123;</div><div class="line">	__gt = <span class="function"><span class="keyword">function</span><span class="params">(a_table, b_table)</span></span></div><div class="line">		<span class="keyword">return</span> b_table[<span class="number">1</span>] &gt; a_table[<span class="number">1</span>]</div><div class="line">	<span class="keyword">end</span>,</div><div class="line">	__lt = <span class="function"><span class="keyword">function</span><span class="params">(a_table, b_table)</span></span></div><div class="line">		<span class="keyword">return</span> b_table[<span class="number">1</span>] &lt; a_table[<span class="number">1</span>]</div><div class="line">	<span class="keyword">end</span></div><div class="line">&#125;</div><div class="line">a_table = <span class="built_in">setmetatable</span>(&#123;<span class="number">0</span>&#125;, a_metatable)</div><div class="line">b_table = <span class="built_in">setmetatable</span>(&#123;<span class="number">1</span>&#125;, b_metatable)</div><div class="line"><span class="built_in">print</span>(a_table&lt;b_table)</div><div class="line"><span class="comment">--[[</span></div><div class="line">报错内容是：</div><div class="line">attempt to compare two table values</div><div class="line">--]]</div></pre></td></tr></table></figure></p>
+<p>重写取反操作<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">a_metatable =</div><div class="line">&#123;</div><div class="line">	__unm = <span class="function"><span class="keyword">function</span><span class="params">(a_table)</span></span></div><div class="line">		<span class="keyword">local</span> _temp_table = &#123;&#125;</div><div class="line">		<span class="keyword">for</span> i = #a_table, <span class="number">1</span>, <span class="number">-1</span> <span class="keyword">do</span></div><div class="line">			_temp_table[#a_table + <span class="number">1</span> - i] = a_table[i]</div><div class="line">		<span class="keyword">end</span></div><div class="line">		<span class="keyword">return</span> _temp_table</div><div class="line">	<span class="keyword">end</span></div><div class="line">&#125;</div><div class="line">p_metatable =</div><div class="line">&#123;</div><div class="line">	__tostring =</div><div class="line">	<span class="function"><span class="keyword">function</span><span class="params">(a_table)</span></span></div><div class="line">		<span class="keyword">local</span> res = <span class="string">""</span></div><div class="line">		<span class="keyword">for</span> _, v <span class="keyword">in</span> <span class="built_in">pairs</span>(a_table) <span class="keyword">do</span></div><div class="line">			res = res .. v</div><div class="line">		<span class="keyword">end</span></div><div class="line">		<span class="keyword">return</span> res</div><div class="line">	<span class="keyword">end</span></div><div class="line">&#125;</div><div class="line">a_table = <span class="built_in">setmetatable</span>(&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, a_metatable)</div><div class="line">b_table = <span class="built_in">setmetatable</span>(-a_table, p_metatable)</div><div class="line"><span class="built_in">print</span>(b_table)</div></pre></td></tr></table></figure></p>
+<p>__call比较有意思，可以让table可以变得和函数一样可以执行。因此可以写成如下的极其过分的形式：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function_content =</div><div class="line">&#123;</div><div class="line">	__call = <span class="function"><span class="keyword">function</span><span class="params">(a_table, a_data)</span></span></div><div class="line">		<span class="built_in">print</span>(a_data)</div><div class="line">	<span class="keyword">end</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">func_print = <span class="built_in">setmetatable</span>(&#123;&#125;, function_content)</div><div class="line">b = func_print(<span class="number">4</span>)</div></pre></td></tr></table></figure></p>
+<h1 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h1><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span><span class="params">(n)</span></span></div><div class="line">   <span class="keyword">local</span> t0 = <span class="built_in">os</span>.clock()</div><div class="line">   <span class="keyword">while</span> <span class="built_in">os</span>.clock() - t0 &lt;= n <span class="keyword">do</span> <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="comment">-- 这里的sleep会占用大量资源 正常逻辑不能使用</span></div><div class="line"></div><div class="line">test_coroutine = <span class="built_in">coroutine</span>.create(</div><div class="line">	<span class="function"><span class="keyword">function</span><span class="params">()</span></span></div><div class="line">		<span class="keyword">for</span> i = <span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span> <span class="keyword">do</span></div><div class="line">			<span class="built_in">print</span>(i)</div><div class="line">			sleep(<span class="number">0.1</span>)</div><div class="line">			<span class="built_in">coroutine</span>.yield()</div><div class="line">		<span class="keyword">end</span></div><div class="line">	<span class="keyword">end</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">do_cro</span><span class="params">(co)</span></span></div><div class="line">	<span class="keyword">while</span>(<span class="built_in">coroutine</span>.status(co) ~=<span class="string">"dead"</span>) <span class="keyword">do</span></div><div class="line">		<span class="built_in">coroutine</span>.resume(co)</div><div class="line">	<span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">do_cro(test_coroutine)</div></pre></td></tr></table></figure>
+<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><p>用table实现了类与继承<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- 类</span></div><div class="line"><span class="comment">-- 类管理器 </span></div><div class="line">CClassManager = &#123;&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">CClassManager.ctor</span><span class="params">(cls, ...)</span></span></div><div class="line">  <span class="keyword">local</span> this = &#123;&#125;</div><div class="line">  <span class="built_in">setmetatable</span>(this, cls)</div><div class="line">  cls.__index = cls  <span class="comment">-- 将元表的__index设为自身，访问表的属性不存在时会搜索元表</span></div><div class="line">  cls.init(this, ...)</div><div class="line">  <span class="keyword">return</span> this</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">CClassManager.VInit</span><span class="params">(self, ...)</span></span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">CClassManager.init</span><span class="params">(self, ...)</span></span></div><div class="line">  self:VInit(...)</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">CClassManager.dtor</span><span class="params">(cls)</span></span></div><div class="line">  <span class="comment">-- do sth</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">-- 通过继承实现的类的定义</span></div><div class="line">ClassT = CClassManager:ctor()</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ClassT.VInit</span><span class="params">(self, word)</span></span></div><div class="line">  self.word = word</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ClassT.say</span><span class="params">(self)</span></span></div><div class="line">  <span class="built_in">print</span>(self.word)</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">test = ClassT:ctor(<span class="string">"B"</span>)</div><div class="line">test:say()</div><div class="line">test:dtor()</div><div class="line">test:say()</div></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-05-20T14:31:48.078Z" itemprop="dateUpdated">2021-05-20 22:31:48</time>
+</span><br>
+
+
+        
+        梦想依在 人生正当年
+        
+    </div>
+    <footer>
+        <a href="http://www.z16388.top">
+            <img src="/img/logo1.png" alt="Anqi Zhao">
+            Anqi Zhao
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lua/">Lua</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游戏/">游戏</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2021/05/10/luanew/&title=《Lua新知》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2021/05/10/luanew/&title=《Lua新知》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2021/05/10/luanew/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Lua新知》 — 崎径 其镜&url=http://www.z16388.top/2021/05/10/luanew/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2021/05/10/luanew/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2021/05/18/xlua/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">xlua学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/05/06/efk/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">EFK日志分析系统的搭建</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "etRSqNOcMILcVs1M6AUeU6yG-gzGzoHsz",
+            appKey: "kcmkjlCM6bDnVREmI5bqDQEH",
+            avatar: "",
+            placeholder: "在这里输入回复内容,头像可以到https://cn.gravatar.com/进行设置",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        也可以请我喝一杯咖啡
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Anqi Zhao &copy; 2016 - 2021</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备19057807号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2021/05/10/luanew/&title=《Lua新知》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2021/05/10/luanew/&title=《Lua新知》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2021/05/10/luanew/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Lua新知》 — 崎径 其镜&url=http://www.z16388.top/2021/05/10/luanew/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2021/05/10/luanew/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/2021/05/10/luanew/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.1"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.1" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
