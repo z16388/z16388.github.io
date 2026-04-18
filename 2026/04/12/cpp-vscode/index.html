@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65402820"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?93a4135d9a9b44969ef103d08c93d191"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://www.z16388.top/2026/04/12/cpp-vscode/">
+    
+    
+    <title>从零配置 VS Code C++ 环境 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="算法">
+    <meta name="description" content="本文档记录在 Windows 系统上从零配置 VS Code C++ 开发环境的全过程，包括编译、调试和运行。 前置条件 Windows 10/11 系统 已安装 VS Code（下载链接）  需要的工具1. MSYS2MSYS2 是一个 Windows 下的 Linux-like 环境，提供 g++ 编译器和 gdb 调试器。  下载链接：https://www.msys2.org/ 安装路径：">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零配置 VS Code C++ 环境">
+<meta property="og:url" content="http://www.z16388.top/2026/04/12/cpp-vscode/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="本文档记录在 Windows 系统上从零配置 VS Code C++ 开发环境的全过程，包括编译、调试和运行。 前置条件 Windows 10/11 系统 已安装 VS Code（下载链接）  需要的工具1. MSYS2MSYS2 是一个 Windows 下的 Linux-like 环境，提供 g++ 编译器和 gdb 调试器。  下载链接：https://www.msys2.org/ 安装路径：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2026-04-18T12:45:50.159Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从零配置 VS Code C++ 环境">
+<meta name="twitter:description" content="本文档记录在 Windows 系统上从零配置 VS Code C++ 开发环境的全过程，包括编译、调试和运行。 前置条件 Windows 10/11 系统 已安装 VS Code（下载链接）  需要的工具1. MSYS2MSYS2 是一个 Windows 下的 Linux-like 环境，提供 g++ 编译器和 gdb 调试器。  下载链接：https://www.msys2.org/ 安装路径：">
+    
+        <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/Favicon1.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.1">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brands/brand3.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo1.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Anqi Zhao</h5>
+          <a href="mailto:1021622929@qq.com" title="1021622929@qq.com" class="mail">1021622929@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-table"></i>
+                动态
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/un"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Unity经验总结
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">从零配置 VS Code C++ 环境</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://psnine.com/psnid/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-gamepad"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">从零配置 VS Code C++ 环境</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2026-04-12T22:32:49.000Z" itemprop="datePublished" class="page-time">
+  2026-04-12
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前置条件"><span class="post-toc-number">1.</span> <span class="post-toc-text">前置条件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需要的工具"><span class="post-toc-number">2.</span> <span class="post-toc-text">需要的工具</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-MSYS2"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1. MSYS2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-VS-Code-扩展"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2. VS Code 扩展</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装步骤"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#步骤-1：安装-MSYS2"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">步骤 1：安装 MSYS2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#步骤-2：更新-MSYS2-并安装工具"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">步骤 2：更新 MSYS2 并安装工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#步骤-3：安装-VS-Code-扩展"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">步骤 3：安装 VS Code 扩展</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#VS-Code-配置"><span class="post-toc-number">4.</span> <span class="post-toc-text">VS Code 配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-c-cpp-properties-json"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">1. c_cpp_properties.json</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-settings-json"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">2. settings.json</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-tasks-json"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">3. tasks.json</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-launch-json"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">4. launch.json</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-keybindings-json（全局配置）"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">5. keybindings.json（全局配置）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用方法"><span class="post-toc-number">5.</span> <span class="post-toc-text">使用方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常见问题"><span class="post-toc-number">6.</span> <span class="post-toc-text">常见问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-找不到-g-或-gdb"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">1. 找不到 g++ 或 gdb</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-编译失败"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">2. 编译失败</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-调试失败"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">3. 调试失败</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-黑框不弹出"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">4. 黑框不弹出</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#版本信息"><span class="post-toc-number">7.</span> <span class="post-toc-text">版本信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">8.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-cpp-vscode"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">从零配置 VS Code C++ 环境</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2026-04-12 22:32:49" datetime="2026-04-12T22:32:49.000Z"  itemprop="datePublished">2026-04-12</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>本文档记录在 Windows 系统上从零配置 VS Code C++ 开发环境的全过程，包括编译、调试和运行。</p>
+<h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><ul>
+<li>Windows 10/11 系统</li>
+<li>已安装 VS Code（<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">下载链接</a>）</li>
+</ul>
+<h2 id="需要的工具"><a href="#需要的工具" class="headerlink" title="需要的工具"></a>需要的工具</h2><h3 id="1-MSYS2"><a href="#1-MSYS2" class="headerlink" title="1. MSYS2"></a>1. MSYS2</h3><p>MSYS2 是一个 Windows 下的 Linux-like 环境，提供 g++ 编译器和 gdb 调试器。</p>
+<ul>
+<li><strong>下载链接</strong>：<a href="https://www.msys2.org/" target="_blank" rel="noopener">https://www.msys2.org/</a></li>
+<li><strong>安装路径</strong>：推荐安装到 <code>C:\msys64</code>（默认路径）</li>
+</ul>
+<h3 id="2-VS-Code-扩展"><a href="#2-VS-Code-扩展" class="headerlink" title="2. VS Code 扩展"></a>2. VS Code 扩展</h3><ul>
+<li><strong>C/C++ 扩展</strong>：由 Microsoft 提供，支持 IntelliSense、调试等功能<ul>
+<li>在 VS Code 中搜索安装：<code>ms-vscode.cpptools</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h3 id="步骤-1：安装-MSYS2"><a href="#步骤-1：安装-MSYS2" class="headerlink" title="步骤 1：安装 MSYS2"></a>步骤 1：安装 MSYS2</h3><ol>
+<li>下载 MSYS2 安装包并运行安装程序</li>
+<li>选择安装路径为 <code>C:\msys64</code></li>
+<li>安装完成后，运行 MSYS2 UCRT64 终端（从开始菜单启动）</li>
+</ol>
+<h3 id="步骤-2：更新-MSYS2-并安装工具"><a href="#步骤-2：更新-MSYS2-并安装工具" class="headerlink" title="步骤 2：更新 MSYS2 并安装工具"></a>步骤 2：更新 MSYS2 并安装工具</h3><p>在 MSYS2 UCRT64 终端中执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新包数据库</span></span><br><span class="line">pacman -Syu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 g++ 编译器和 gdb 调试器</span></span><br><span class="line">pacman -S mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-gdb</span><br></pre></td></tr></table></figure>
+<h3 id="步骤-3：安装-VS-Code-扩展"><a href="#步骤-3：安装-VS-Code-扩展" class="headerlink" title="步骤 3：安装 VS Code 扩展"></a>步骤 3：安装 VS Code 扩展</h3><ol>
+<li>打开 VS Code</li>
+<li>按 <code>Ctrl+Shift+X</code> 打开扩展面板</li>
+<li>搜索 <code>C/C++</code> 并安装 Microsoft 的 C/C++ 扩展</li>
+</ol>
+<h2 id="VS-Code-配置"><a href="#VS-Code-配置" class="headerlink" title="VS Code 配置"></a>VS Code 配置</h2><p>在你的 C++ 项目根目录（例如 <code>C:\Dev\leetcode</code>）创建 <code>.vscode</code> 文件夹，并添加以下配置文件：</p>
+<h3 id="1-c-cpp-properties-json"><a href="#1-c-cpp-properties-json" class="headerlink" title="1. c_cpp_properties.json"></a>1. c_cpp_properties.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"windows-gcc-x64"</span>,</span><br><span class="line">            <span class="attr">"includePath"</span>: [</span><br><span class="line">                <span class="string">"$&#123;workspaceFolder&#125;/**"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"compilerPath"</span>: <span class="string">"C:\\msys64\\ucrt64\\bin\\gcc"</span>,</span><br><span class="line">            <span class="attr">"cStandard"</span>: <span class="string">"$&#123;default&#125;"</span>,</span><br><span class="line">            <span class="attr">"cppStandard"</span>: <span class="string">"$&#123;default&#125;"</span>,</span><br><span class="line">            <span class="attr">"intelliSenseMode"</span>: <span class="string">"windows-gcc-x64"</span>,</span><br><span class="line">            <span class="attr">"compilerArgs"</span>: [</span><br><span class="line">                <span class="string">""</span></span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"version"</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-settings-json"><a href="#2-settings-json" class="headerlink" title="2. settings.json"></a>2. settings.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"C_Cpp.default.compilerPath"</span>: <span class="string">"c:\\msys64\\ucrt64\\bin\\gcc.exe"</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.cCompilerPath"</span>: <span class="string">"gcc"</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.cppCompilerPath"</span>: <span class="string">"g++"</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.debuggerPath"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.cStandard"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.cppStandard"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.msvcBatchPath"</span>: <span class="string">"C:/Program Files/Microsoft Visual Studio/VR_NR/Community/VC/Auxiliary/Build/vcvarsall.bat"</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.useMsvc"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.warnings"</span>: [</span><br><span class="line">    <span class="string">"-Wall"</span>,</span><br><span class="line">    <span class="string">"-Wextra"</span>,</span><br><span class="line">    <span class="string">"-Wpedantic"</span>,</span><br><span class="line">    <span class="string">"-Wshadow"</span>,</span><br><span class="line">    <span class="string">"-Wformat=2"</span>,</span><br><span class="line">    <span class="string">"-Wcast-align"</span>,</span><br><span class="line">    <span class="string">"-Wconversion"</span>,</span><br><span class="line">    <span class="string">"-Wsign-conversion"</span>,</span><br><span class="line">    <span class="string">"-Wnull-dereference"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.msvcWarnings"</span>: [</span><br><span class="line">    <span class="string">"/W4"</span>,</span><br><span class="line">    <span class="string">"/permissive-"</span>,</span><br><span class="line">    <span class="string">"/w14242"</span>,</span><br><span class="line">    <span class="string">"/w14287"</span>,</span><br><span class="line">    <span class="string">"/w14296"</span>,</span><br><span class="line">    <span class="string">"/w14311"</span>,</span><br><span class="line">    <span class="string">"/w14826"</span>,</span><br><span class="line">    <span class="string">"/w44062"</span>,</span><br><span class="line">    <span class="string">"/w44242"</span>,</span><br><span class="line">    <span class="string">"/w14905"</span>,</span><br><span class="line">    <span class="string">"/w14906"</span>,</span><br><span class="line">    <span class="string">"/w14263"</span>,</span><br><span class="line">    <span class="string">"/w44265"</span>,</span><br><span class="line">    <span class="string">"/w14928"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.enableWarnings"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.warningsAsError"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.compilerArgs"</span>: [],</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.linkerArgs"</span>: [],</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.includePaths"</span>: [],</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.includeSearch"</span>: [</span><br><span class="line">    <span class="string">"*"</span>,</span><br><span class="line">    <span class="string">"**/*"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.excludeSearch"</span>: [</span><br><span class="line">    <span class="string">"**/build"</span>,</span><br><span class="line">    <span class="string">"**/build/**"</span>,</span><br><span class="line">    <span class="string">"**/.*"</span>,</span><br><span class="line">    <span class="string">"**/.*/**"</span>,</span><br><span class="line">    <span class="string">"**/.vscode"</span>,</span><br><span class="line">    <span class="string">"**/.vscode/**"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.useAddressSanitizer"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.useUndefinedSanitizer"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.useLeakSanitizer"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.showCompilationTime"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.useLinkTimeOptimization"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"C_Cpp_Runner.msvcSecureNoWarnings"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"terminal.external.windowsExec"</span>: <span class="string">"C:\\Windows\\System32\\cmd.exe"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-tasks-json"><a href="#3-tasks-json" class="headerlink" title="3. tasks.json"></a>3. tasks.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="attr">"tasks"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"cppbuild"</span>,</span><br><span class="line">            <span class="attr">"label"</span>: <span class="string">"C/C++: g++.exe build active file"</span>,</span><br><span class="line">            <span class="attr">"command"</span>: <span class="string">"C:\\msys64\\ucrt64\\bin\\g++.exe"</span>,</span><br><span class="line">            <span class="attr">"args"</span>: [</span><br><span class="line">                <span class="string">"-fdiagnostics-color=always"</span>,</span><br><span class="line">                <span class="string">"-g"</span>,</span><br><span class="line">                <span class="string">"$&#123;file&#125;"</span>,</span><br><span class="line">                <span class="string">"-o"</span>,</span><br><span class="line">                <span class="string">"$&#123;workspaceFolder&#125;\\build\\Debug\\outDebug.exe"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"options"</span>: &#123;</span><br><span class="line">                <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"problemMatcher"</span>: [</span><br><span class="line">                <span class="string">"$gcc"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"group"</span>: &#123;</span><br><span class="line">                <span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">                <span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"detail"</span>: <span class="string">"Compile current C++ file to build/Debug/outDebug.exe"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="attr">"label"</span>: <span class="string">"Run C++ Program"</span>,</span><br><span class="line">            <span class="attr">"command"</span>: <span class="string">"cmd.exe"</span>,</span><br><span class="line">            <span class="attr">"args"</span>: [</span><br><span class="line">                <span class="string">"/c"</span>,</span><br><span class="line">                <span class="string">"start \"\" cmd.exe /k \"$&#123;workspaceFolder&#125;\\build\\Debug\\outDebug.exe\""</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"dependsOn"</span>: [</span><br><span class="line">                <span class="string">"C/C++: g++.exe build active file"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"options"</span>: &#123;</span><br><span class="line">                <span class="attr">"shell"</span>: &#123;</span><br><span class="line">                    <span class="attr">"executable"</span>: <span class="string">"C:\\Windows\\System32\\cmd.exe"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"group"</span>: &#123;</span><br><span class="line">                <span class="attr">"kind"</span>: <span class="string">"test"</span>,</span><br><span class="line">                <span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"presentation"</span>: &#123;</span><br><span class="line">                <span class="attr">"echo"</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="attr">"reveal"</span>: <span class="string">"always"</span>,</span><br><span class="line">                <span class="attr">"focus"</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="attr">"panel"</span>: <span class="string">"shared"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"problemMatcher"</span>: []</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-launch-json"><a href="#4-launch-json" class="headerlink" title="4. launch.json"></a>4. launch.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="attr">"configurations"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"C/C++ Runner: Debug Session"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">      <span class="attr">"args"</span>: [],</span><br><span class="line">      <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"externalConsole"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"cwd"</span>: <span class="string">"c:/Dev/leetcode"</span>,</span><br><span class="line">      <span class="attr">"program"</span>: <span class="string">"$&#123;workspaceFolder&#125;/build/Debug/outDebug.exe"</span>,</span><br><span class="line">      <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">      <span class="attr">"miDebuggerPath"</span>: <span class="string">"C:\\msys64\\ucrt64\\bin\\gdb.exe"</span>,</span><br><span class="line">      <span class="attr">"setupCommands"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"description"</span>: <span class="string">"Enable pretty-printing for gdb"</span>,</span><br><span class="line">          <span class="attr">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">          <span class="attr">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-keybindings-json（全局配置）"><a href="#5-keybindings-json（全局配置）" class="headerlink" title="5. keybindings.json（全局配置）"></a>5. keybindings.json（全局配置）</h3><p>在 VS Code 用户设置中添加快捷键绑定（<code>Ctrl+Shift+P</code> -&gt; <code>Preferences: Open Keyboard Shortcuts (JSON)</code>）：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"key"</span>: <span class="string">"f6"</span>,</span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"workbench.action.tasks.runTask"</span>,</span><br><span class="line">        <span class="attr">"args"</span>: &#123;</span><br><span class="line">            <span class="attr">"task"</span>: <span class="string">"Run C++ Program"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"when"</span>: <span class="string">"editorTextFocus"</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
+<li><strong>编译</strong>：按 <code>Ctrl+Shift+B</code> 或打开命令面板运行 “Tasks: Run Build Task”</li>
+<li><strong>调试</strong>：按 <code>F5</code>，会启动 gdb 调试器</li>
+<li><strong>运行</strong>：按 <code>F6</code>，会打开 cmd 黑框窗口运行程序</li>
+</ol>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="1-找不到-g-或-gdb"><a href="#1-找不到-g-或-gdb" class="headerlink" title="1. 找不到 g++ 或 gdb"></a>1. 找不到 g++ 或 gdb</h3><ul>
+<li>确保 MSYS2 已正确安装并更新</li>
+<li>检查 PATH 环境变量是否包含 <code>C:\msys64\ucrt64\bin</code></li>
+</ul>
+<h3 id="2-编译失败"><a href="#2-编译失败" class="headerlink" title="2. 编译失败"></a>2. 编译失败</h3><ul>
+<li>检查代码语法错误</li>
+<li>确保头文件路径正确</li>
+</ul>
+<h3 id="3-调试失败"><a href="#3-调试失败" class="headerlink" title="3. 调试失败"></a>3. 调试失败</h3><ul>
+<li>确保已编译生成 <code>build/Debug/outDebug.exe</code></li>
+<li>检查 gdb 路径是否正确</li>
+</ul>
+<h3 id="4-黑框不弹出"><a href="#4-黑框不弹出" class="headerlink" title="4. 黑框不弹出"></a>4. 黑框不弹出</h3><ul>
+<li>重启 VS Code</li>
+<li>检查 <code>terminal.external.windowsExec</code> 设置</li>
+</ul>
+<h2 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h2><ul>
+<li>MSYS2: 最新版本</li>
+<li>g++: 15.2.0</li>
+<li>gdb: 17.1</li>
+<li>VS Code: 最新版本</li>
+<li>C/C++ 扩展: 最新版本</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://www.msys2.org/docs/" target="_blank" rel="noopener">MSYS2 官方文档</a></li>
+<li><a href="https://code.visualstudio.com/docs/cpp/config-mingw" target="_blank" rel="noopener">VS Code C++ 配置指南</a></li>
+<li><a href="https://code.visualstudio.com/docs/cpp/cpp-ide" target="_blank" rel="noopener">C/C++ 扩展文档</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2026-04-18T12:45:50.159Z" itemprop="dateUpdated">2026-04-18 12:45:50</time>
+</span><br>
+
+
+        
+        梦想依在 人生正当年
+        
+    </div>
+    <footer>
+        <a href="http://www.z16388.top">
+            <img src="/img/logo1.png" alt="Anqi Zhao">
+            Anqi Zhao
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2026/04/12/cpp-vscode/&title=《从零配置 VS Code C++ 环境》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2026/04/12/cpp-vscode/&title=《从零配置 VS Code C++ 环境》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2026/04/12/cpp-vscode/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从零配置 VS Code C++ 环境》 — 崎径 其镜&url=http://www.z16388.top/2026/04/12/cpp-vscode/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2026/04/12/cpp-vscode/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2026/04/05/leetcode/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">力扣笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "etRSqNOcMILcVs1M6AUeU6yG-gzGzoHsz",
+            appKey: "kcmkjlCM6bDnVREmI5bqDQEH",
+            avatar: "",
+            placeholder: "在这里输入回复内容,头像可以到https://cn.gravatar.com/进行设置",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        也可以请我喝一杯咖啡
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Anqi Zhao &copy; 2016 - 2026</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备19057807号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2026/04/12/cpp-vscode/&title=《从零配置 VS Code C++ 环境》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2026/04/12/cpp-vscode/&title=《从零配置 VS Code C++ 环境》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2026/04/12/cpp-vscode/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从零配置 VS Code C++ 环境》 — 崎径 其镜&url=http://www.z16388.top/2026/04/12/cpp-vscode/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2026/04/12/cpp-vscode/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/2026/04/12/cpp-vscode/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.1"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.1" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

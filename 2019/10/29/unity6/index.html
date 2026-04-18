@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65402820"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?93a4135d9a9b44969ef103d08c93d191"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://www.z16388.top/2019/10/29/unity6/">
+    
+    
+    <title>U3D问题总结（六） 优化 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Unity">
+    <meta name="description" content="请简述GC（垃圾回收）产生的原因，并描述如何避免（？ GC回收堆上的内存避免：1.减少new产生对象的次数2.使用公用的对象（静态成员）3.将String换为StringBuilder  如何优化内存？ 1.压缩自带类库；2.将暂时不用的以后还需要使用的物体隐藏起来而不是直接Destroy掉；3.释放AssetBundle占用的资源；4.降低模型的片面数，降低模型的骨骼数量，降低贴图的大小；5.使">
+<meta name="keywords" content="Unity">
+<meta property="og:type" content="article">
+<meta property="og:title" content="U3D问题总结（六） 优化">
+<meta property="og:url" content="http://www.z16388.top/2019/10/29/unity6/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="请简述GC（垃圾回收）产生的原因，并描述如何避免（？ GC回收堆上的内存避免：1.减少new产生对象的次数2.使用公用的对象（静态成员）3.将String换为StringBuilder  如何优化内存？ 1.压缩自带类库；2.将暂时不用的以后还需要使用的物体隐藏起来而不是直接Destroy掉；3.释放AssetBundle占用的资源；4.降低模型的片面数，降低模型的骨骼数量，降低贴图的大小；5.使">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2026-04-18T12:45:50.161Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="U3D问题总结（六） 优化">
+<meta name="twitter:description" content="请简述GC（垃圾回收）产生的原因，并描述如何避免（？ GC回收堆上的内存避免：1.减少new产生对象的次数2.使用公用的对象（静态成员）3.将String换为StringBuilder  如何优化内存？ 1.压缩自带类库；2.将暂时不用的以后还需要使用的物体隐藏起来而不是直接Destroy掉；3.释放AssetBundle占用的资源；4.降低模型的片面数，降低模型的骨骼数量，降低贴图的大小；5.使">
+    
+        <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/Favicon1.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.1">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brands/brand3.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo1.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Anqi Zhao</h5>
+          <a href="mailto:1021622929@qq.com" title="1021622929@qq.com" class="mail">1021622929@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-table"></i>
+                动态
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/un"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Unity经验总结
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">U3D问题总结（六） 优化</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://psnine.com/psnid/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-gamepad"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">U3D问题总结（六） 优化</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-10-29T23:00:06.000Z" itemprop="datePublished" class="page-time">
+  2019-10-29
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#请简述GC（垃圾回收）产生的原因，并描述如何避免（？"><span class="post-toc-number">1.</span> <span class="post-toc-text">请简述GC（垃圾回收）产生的原因，并描述如何避免（？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何优化内存？"><span class="post-toc-number">2.</span> <span class="post-toc-text">如何优化内存？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UNITY3d在移动设备上的一些优化资源的方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">UNITY3d在移动设备上的一些优化资源的方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#场景优化"><span class="post-toc-number">4.</span> <span class="post-toc-text">场景优化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UI优化"><span class="post-toc-number">5.</span> <span class="post-toc-text">UI优化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GC优化"><span class="post-toc-number">6.</span> <span class="post-toc-text">GC优化</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-unity6"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">U3D问题总结（六） 优化</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-10-29 23:00:06" datetime="2019-10-29T23:00:06.000Z"  itemprop="datePublished">2019-10-29</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="请简述GC（垃圾回收）产生的原因，并描述如何避免（？"><a href="#请简述GC（垃圾回收）产生的原因，并描述如何避免（？" class="headerlink" title="请简述GC（垃圾回收）产生的原因，并描述如何避免（？"></a>请简述GC（垃圾回收）产生的原因，并描述如何避免（？</h2><blockquote>
+<p>GC回收堆上的内存<br>避免：1.减少new产生对象的次数<br>2.使用公用的对象（静态成员）<br>3.将String换为StringBuilder</p>
+</blockquote>
+<h2 id="如何优化内存？"><a href="#如何优化内存？" class="headerlink" title="如何优化内存？"></a>如何优化内存？</h2><blockquote>
+<p>1.压缩自带类库；<br>2.将暂时不用的以后还需要使用的物体隐藏起来而不是直接Destroy掉；<br>3.释放AssetBundle占用的资源；<br>4.降低模型的片面数，降低模型的骨骼数量，降低贴图的大小；<br>5.使用光照贴图，使用多层次细节(LOD)，使用着色器(Shader)，使用预设(Prefab)。<br>6.代码中少产生临时变量</p>
+</blockquote>
+<h2 id="UNITY3d在移动设备上的一些优化资源的方法"><a href="#UNITY3d在移动设备上的一些优化资源的方法" class="headerlink" title="UNITY3d在移动设备上的一些优化资源的方法"></a>UNITY3d在移动设备上的一些优化资源的方法</h2><blockquote>
+<p>1.使用assetbundle，实现资源分离和共享，将内存控制到200m之内，同时也可以实现资源的在线更新<br>2.顶点数对渲染无论是cpu还是gpu都是压力最大的贡献者，降低顶点数到8万以下，fps稳定到了30帧左右<br>3.只使用一盏动态光，不是用阴影，不使用光照探头<br>粒子系统是cpu上的大头<br>4.剪裁粒子系统<br>5.合并同时出现的粒子系统<br>6.自己实现轻量级的粒子系统<br>animator也是一个效率奇差的地方<br>7.把不需要跟骨骼动画和动作过渡的地方全部使用animation，控制骨骼数量在30根以下<br>8.animator出视野不更新<br>9.删除无意义的animator<br>10.animator的初始化很耗时（粒子上能不能尽量不用animator）<br>11.除主角外都不要跟骨骼运动apply root motion<br>12.绝对禁止掉那些不带刚体带包围盒的物体（static collider ）运动<br>NUGI的代码效率很差，基本上runtime的时候对cpu的贡献和render不相上下<br>13每帧递归的计算finalalpha改为只有初始化和变动时计算<br>14去掉法线计算<br>15不要每帧计算viewsize 和windowsize<br>16filldrawcall时构建顶点缓存使用array.copy<br>17.代码剪裁：使用strip level ，使用.net2.0 subset<br>18.尽量减少smooth group<br>19.给美术定一个严格的经过科学验证的美术标准，并在U3D里面配以相应的检查工具</p>
+</blockquote>
+<h2 id="场景优化"><a href="#场景优化" class="headerlink" title="场景优化"></a>场景优化</h2><blockquote>
+<p>1.遮挡剔除（Occlusion Culling）                不显示被遮挡住的物体<br>2.LOD                                         根据相机距离远近显示不同精细程度的模型<br>3.大场景可以调节相机可视距离<br>4.小物体可以适当隐藏掉<br>5.使用光照贴图                                 避免动态实时的进行光照计算，提高效率</p>
+</blockquote>
+<h2 id="UI优化"><a href="#UI优化" class="headerlink" title="UI优化"></a>UI优化</h2><blockquote>
+<p>1.将同一画面图片放到同一图集中<br>2.图片和文字尽量不要交叉，会产生多余drawcall（相同材质和纹理的UI元素是可以合并的）<br>3.UI层级尽量不要重叠太多<br>4.取消勾选不必要的射线检测RaycastTarget<br>5.将动态的UI元素和静态的UI元素放在不同的Canvas中，减少canvas网格重构频率</p>
+</blockquote>
+<h2 id="GC优化"><a href="#GC优化" class="headerlink" title="GC优化"></a>GC优化</h2><blockquote>
+<p>1.字符串使用StringBuilder而不是string，stringBuilder在创建时会自动获取一个容量存储并逐渐扩充，string每一次改变都会创建一个新的对象。<br>2.访问物体tag的时候尽量使用Gameobject.CompareTag()，因为访问物体的tag属性会在堆上额外的分配空间<br>3.使用对象池缓存大量创建的物体<br>4.用for代替foreach，foreach每次迭代产生24字节垃圾内存</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2026-04-18T12:45:50.161Z" itemprop="dateUpdated">2026-04-18 12:45:50</time>
+</span><br>
+
+
+        
+        梦想依在 人生正当年
+        
+    </div>
+    <footer>
+        <a href="http://www.z16388.top">
+            <img src="/img/logo1.png" alt="Anqi Zhao">
+            Anqi Zhao
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2019/10/29/unity6/&title=《U3D问题总结（六） 优化》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2019/10/29/unity6/&title=《U3D问题总结（六） 优化》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2019/10/29/unity6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《U3D问题总结（六） 优化》 — 崎径 其镜&url=http://www.z16388.top/2019/10/29/unity6/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2019/10/29/unity6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/10/29/unity7/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">U3D问题总结（七） lua</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/10/29/unity5/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">U3D问题总结（五） 渲染与光照</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "etRSqNOcMILcVs1M6AUeU6yG-gzGzoHsz",
+            appKey: "kcmkjlCM6bDnVREmI5bqDQEH",
+            avatar: "",
+            placeholder: "在这里输入回复内容,头像可以到https://cn.gravatar.com/进行设置",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        也可以请我喝一杯咖啡
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Anqi Zhao &copy; 2016 - 2026</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备19057807号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2019/10/29/unity6/&title=《U3D问题总结（六） 优化》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2019/10/29/unity6/&title=《U3D问题总结（六） 优化》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2019/10/29/unity6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《U3D问题总结（六） 优化》 — 崎径 其镜&url=http://www.z16388.top/2019/10/29/unity6/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2019/10/29/unity6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/2019/10/29/unity6/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.1"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.1" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

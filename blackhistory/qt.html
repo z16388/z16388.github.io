@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65402820"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?93a4135d9a9b44969ef103d08c93d191"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://www.z16388.top/blackhistory/qt.html">
+    
+    
+    <title>QT笔记-基础篇 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="基础部分修改某个控件显示的文字（优先级比属性高）123ui-&amp;gt;pushButton-&amp;gt;setText(tr(&quot;新的&quot;));//在软件中应避免直接出现中文字符串，应该使用tr()函数包含//这段代码如果用于控件的初始化，应当写在构造函数中 弹出警告对话框 需要使用头文件QMessageBox  123QMessageBox::warning(this, tr(&quot;警告！&quot;),">
+<meta name="keywords" content="QT">
+<meta property="og:type" content="website">
+<meta property="og:title" content="QT笔记-基础篇">
+<meta property="og:url" content="http://www.z16388.top/blackhistory/qt.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="基础部分修改某个控件显示的文字（优先级比属性高）123ui-&amp;gt;pushButton-&amp;gt;setText(tr(&quot;新的&quot;));//在软件中应避免直接出现中文字符串，应该使用tr()函数包含//这段代码如果用于控件的初始化，应当写在构造函数中 弹出警告对话框 需要使用头文件QMessageBox  123QMessageBox::warning(this, tr(&quot;警告！&quot;),">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2026-04-18T12:45:50.165Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QT笔记-基础篇">
+<meta name="twitter:description" content="基础部分修改某个控件显示的文字（优先级比属性高）123ui-&amp;gt;pushButton-&amp;gt;setText(tr(&quot;新的&quot;));//在软件中应避免直接出现中文字符串，应该使用tr()函数包含//这段代码如果用于控件的初始化，应当写在构造函数中 弹出警告对话框 需要使用头文件QMessageBox  123QMessageBox::warning(this, tr(&quot;警告！&quot;),">
+    
+        <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/Favicon1.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.1">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brands/brand3.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo1.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Anqi Zhao</h5>
+          <a href="mailto:1021622929@qq.com" title="1021622929@qq.com" class="mail">1021622929@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-table"></i>
+                动态
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/un"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Unity经验总结
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">QT笔记-基础篇</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://psnine.com/psnid/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-gamepad"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header page-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">QT笔记-基础篇</h1>
+        <h5 class="subtitle">
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    <article class="page-article fade" itemprop="blogPage">
+        <div class="post-content page-content" id="page-content" itemprop="pageContent">
+            <h1 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h1><h3 id="修改某个控件显示的文字（优先级比属性高）"><a href="#修改某个控件显示的文字（优先级比属性高）" class="headerlink" title="修改某个控件显示的文字（优先级比属性高）"></a>修改某个控件显示的文字（优先级比属性高）</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ui-&gt;pushButton-&gt;setText(tr(<span class="string">"新的"</span>));</span><br><span class="line"><span class="comment">//在软件中应避免直接出现中文字符串，应该使用tr()函数包含</span></span><br><span class="line"><span class="comment">//这段代码如果用于控件的初始化，应当写在构造函数中</span></span><br></pre></td></tr></table></figure>
+<h3 id="弹出警告对话框"><a href="#弹出警告对话框" class="headerlink" title="弹出警告对话框"></a>弹出警告对话框</h3><blockquote>
+<p>需要使用头文件<code>QMessageBox</code></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QMessageBox::warning(<span class="keyword">this</span>, tr(<span class="string">"警告！"</span>),</span><br><span class="line">                   tr(<span class="string">"用户名或密码错误！"</span>),</span><br><span class="line">                   QMessageBox::Yes);</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;从上面的例子我们可以看出这个函数的参数分别为：父窗口、对话框标题、对话框的显示内容、对话框中的按钮。也就是说，上面这段代码实现的是弹出一个提示密码输入错误的，带有一个Yes按钮的警告对话框。</p>
+<p>&emsp;&emsp;<em> 注：需要使用头文件<code> #include <qmessagebox></qmessagebox></code> </em></p>
+<h3 id="登陆窗口的创建步骤"><a href="#登陆窗口的创建步骤" class="headerlink" title="登陆窗口的创建步骤"></a>登陆窗口的创建步骤</h3><ol>
+<li>在项目视图中，右键-&gt;添加文件-&gt;QT-&gt;QT设计师界面类</li>
+<li>在创建好的登陆窗口中新建一个按钮，切换成“控件和槽编辑模式”，拖动按钮，放开鼠标后，会弹出配置连接对话框。将pushButton的clicked()信号和LoginDlg的accept()槽关联起来。<em>其中，accept()槽的功能是：将对话框关闭并返回QDialog::Accepted标识。</em></li>
+<li>修改main函数：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"mainwindow.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"logindlg.h"</span>                      <span class="comment">// 增加登陆窗口的头文件</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line">    MainWindow w;</span><br><span class="line">    LoginDlg dlg;                          <span class="comment">// 声明</span></span><br><span class="line">    <span class="keyword">if</span>(dlg.exec() == QDialog::Accepted)    <span class="comment">// 利用Accepted返回值判断按钮是否被按下</span></span><br><span class="line">    &#123;</span><br><span class="line">        w.show();                          <span class="comment">// 如果被按下，显示主窗口</span></span><br><span class="line">        <span class="keyword">return</span> a.exec();                   <span class="comment">// 程序一直执行，直到主窗口关闭</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;                         <span class="comment">// 如果没有被按下，则不会进入主窗口，整个程序结束运行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;在上面的代码中，我们首先创建了LoginDlg类的对象dlg，然后让dlg运行，即执行<code>exec()</code>函数，然后判断它的返回值。如果用户按下了按钮，那么返回值应该是Accepted，这个时候就会显示主窗口，并正常执行程序；否则，结束程序。</p>
+<p>&emsp;&emsp;另外，在平时写程序的时候，我们需要控制Accepted返回值，可以使用<code>accept()</code>函数。以点击登陆按钮直接进入为例：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LoginDialog::on_loginBtn_clicked</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    accept();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="密码输入框"><a href="#密码输入框" class="headerlink" title="密码输入框"></a>密码输入框</h3><p>&emsp;&emsp;首先，新建一个文本条。然后在这个文本条所在的窗口的构造函数中将它的EchoMode属性更改为密码条就行了。例子如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ui-&gt;pswEdit-&gt;setEchoMode(QLineEdit::Password);</span><br></pre></td></tr></table></figure></p>
+<h3 id="去除输入中的空格"><a href="#去除输入中的空格" class="headerlink" title="去除输入中的空格"></a>去除输入中的空格</h3><p>&emsp;&emsp;使用函数<code>trimmed()</code></p>
+<h3 id="清除文本条、光标定位"><a href="#清除文本条、光标定位" class="headerlink" title="清除文本条、光标定位"></a>清除文本条、光标定位</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ui-&gt;usrLineEdit-&gt;clear();</span><br><span class="line">ui-&gt;usrLineEdit-&gt;setFocus();</span><br></pre></td></tr></table></figure>
+<h3 id="创建新窗口之后、原窗口不消失的窗口"><a href="#创建新窗口之后、原窗口不消失的窗口" class="headerlink" title="创建新窗口之后、原窗口不消失的窗口"></a>创建新窗口之后、原窗口不消失的窗口</h3><ol>
+<li>对一个按钮右键-&gt;”转到槽”；</li>
+<li>选择“clicked()”信号，确定，然后自动转到当前窗口代码编辑模式中的<code>on_pushButton_clicked()</code>函数处；</li>
+<li>补充函数体：（需要添加头文件<code>#include &lt;qdialog.h&gt;</code>）<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MainWindow::on_pushButton_clicked</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   QDialog *dlg = <span class="keyword">new</span> QDialog(<span class="keyword">this</span>);</span><br><span class="line">   dlg-&gt;show();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;在上面的代码中实现了创建一个对话框对象，然后让它显示出来，创建时指定的this参数表明这个对话框的父窗口是MainWindow。</p>
+<p>&emsp;&emsp;这种方法，会让我们每按一次按钮，都会生成一个新的对话框。但是在这个过程中，不会造成内存泄漏或者是内存耗尽，这得益于QT的对象机制，保证了不会造成内存泄漏，而且不需要使用delete语句。</p>
+<p>&emsp;&emsp;在日常使用的过程中，我们可以在<code>mainwindow.h</code>文件中先定义一个对话框对象，并在构造函数中进行创建，再在这里使用。</p>
+<h3 id="创建一个退出按钮"><a href="#创建一个退出按钮" class="headerlink" title="创建一个退出按钮"></a>创建一个退出按钮</h3><ol>
+<li>单击设计模式下方的信号和槽编辑器（Signals &amp; Slots Editor）中的绿色加法号添加关联；</li>
+<li>发送者为按钮，信号为<code>clicked()</code>，接受者为当前窗口，操为<code>close()</code>。</li>
+</ol>
+<h1 id="QT-Creator常用命令"><a href="#QT-Creator常用命令" class="headerlink" title="QT Creator常用命令"></a>QT Creator常用命令</h1><p>Ctrl+滚轮：控制字体大小</p>
+<p>Ctrl+1~6：切换左侧边栏，如常用的Ctrl+2(编辑)、Ctrl+3(设计)</p>
+<p>Ctrl+R：编译</p>
+<p>F3：控件编辑模式</p>
+<p>F4：信号和槽编辑模式</p>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="http://www.kuqin.com/qtdocument/index.html" target="_blank" rel="noopener">API和文档</a></p>
+<p><a href="http://www.qter.org/portal.php?mod=list&amp;catid=6&amp;page=1" target="_blank" rel="noopener">QT开源社区 教程目录</a></p>
+
+        </div>
+
+        
+        <div class="card page-about-me flex-row">
+            <a href="/" class="avatar waves-effect waves-circle waves-light"><img src="/img/logo1.png"></a>
+            <div class="content flex-col">
+                <p><strong>Anqi Zhao</strong></p>
+                <p><em>求学道路上的行车记录仪</em></p>
+                <p>梦想依在，人生正当年</p>
+            </div>
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/blackhistory/qt.html&title=《QT笔记-基础篇》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/blackhistory/qt.html&title=《QT笔记-基础篇》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/blackhistory/qt.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《QT笔记-基础篇》 — 崎径 其镜&url=http://www.z16388.top/blackhistory/qt.html&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/blackhistory/qt.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+        
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "etRSqNOcMILcVs1M6AUeU6yG-gzGzoHsz",
+            appKey: "kcmkjlCM6bDnVREmI5bqDQEH",
+            avatar: "",
+            placeholder: "在这里输入回复内容,头像可以到https://cn.gravatar.com/进行设置",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+    </article>
+    
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        也可以请我喝一杯咖啡
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Anqi Zhao &copy; 2016 - 2026</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备19057807号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/blackhistory/qt.html&title=《QT笔记-基础篇》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/blackhistory/qt.html&title=《QT笔记-基础篇》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/blackhistory/qt.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《QT笔记-基础篇》 — 崎径 其镜&url=http://www.z16388.top/blackhistory/qt.html&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/blackhistory/qt.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/blackhistory/qt.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.1"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.1" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

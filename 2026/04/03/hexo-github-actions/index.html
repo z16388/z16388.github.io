@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65402820"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?93a4135d9a9b44969ef103d08c93d191"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://www.z16388.top/2026/04/03/hexo-github-actions/">
+    
+    
+    <title>一文详解Hexo 博客搭建 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="hexo,Github">
+    <meta name="description" content="前言捡起了好久没有更新的博客。 在AI 的帮助下，我完成了整个环境的重新搭建。 由于我使用的hexo 框架和版本都比较老了，所以有些地方可能不适应于新版本的主题，在接入时还请注意。 参考视频： https://www.bilibili.com/video/BV1xTgTemEDU/ 视频文档： https://xiamu-ssr.github.io/Hexo/2024/06/19/2024-H1/">
+<meta name="keywords" content="hexo,Github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一文详解Hexo 博客搭建">
+<meta property="og:url" content="http://www.z16388.top/2026/04/03/hexo-github-actions/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="前言捡起了好久没有更新的博客。 在AI 的帮助下，我完成了整个环境的重新搭建。 由于我使用的hexo 框架和版本都比较老了，所以有些地方可能不适应于新版本的主题，在接入时还请注意。 参考视频： https://www.bilibili.com/video/BV1xTgTemEDU/ 视频文档： https://xiamu-ssr.github.io/Hexo/2024/06/19/2024-H1/">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2026-04-18T12:45:50.160Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一文详解Hexo 博客搭建">
+<meta name="twitter:description" content="前言捡起了好久没有更新的博客。 在AI 的帮助下，我完成了整个环境的重新搭建。 由于我使用的hexo 框架和版本都比较老了，所以有些地方可能不适应于新版本的主题，在接入时还请注意。 参考视频： https://www.bilibili.com/video/BV1xTgTemEDU/ 视频文档： https://xiamu-ssr.github.io/Hexo/2024/06/19/2024-H1/">
+    
+        <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/Favicon1.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.1">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brands/brand3.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo1.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Anqi Zhao</h5>
+          <a href="mailto:1021622929@qq.com" title="1021622929@qq.com" class="mail">1021622929@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-table"></i>
+                动态
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/un"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Unity经验总结
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">一文详解Hexo 博客搭建</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://psnine.com/psnid/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-gamepad"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">一文详解Hexo 博客搭建</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2026-04-03T14:06:32.000Z" itemprop="datePublished" class="page-time">
+  2026-04-03
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#hexo准备"><span class="post-toc-number">3.</span> <span class="post-toc-text">hexo准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#仓库准备"><span class="post-toc-number">4.</span> <span class="post-toc-text">仓库准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Token准备"><span class="post-toc-number">5.</span> <span class="post-toc-text">Token准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改-config-yml"><span class="post-toc-number">6.</span> <span class="post-toc-text">修改_config.yml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置Github-Actions-工作流"><span class="post-toc-number">7.</span> <span class="post-toc-text">配置Github Actions 工作流</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置Github-Pages"><span class="post-toc-number">8.</span> <span class="post-toc-text">配置Github Pages</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他注意事项"><span class="post-toc-number">9.</span> <span class="post-toc-text">其他注意事项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自定义域名"><span class="post-toc-number">10.</span> <span class="post-toc-text">自定义域名</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Github-配置"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">Github 配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#域名解析"><span class="post-toc-number">10.2.</span> <span class="post-toc-text">域名解析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建CNAME"><span class="post-toc-number">10.3.</span> <span class="post-toc-text">创建CNAME</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-hexo-github-actions"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">一文详解Hexo 博客搭建</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2026-04-03 14:06:32" datetime="2026-04-03T14:06:32.000Z"  itemprop="datePublished">2026-04-03</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>捡起了好久没有更新的博客。</p>
+<p>在AI 的帮助下，我完成了整个环境的重新搭建。</p>
+<p>由于我使用的hexo 框架和版本都比较老了，所以有些地方可能不适应于新版本的主题，在接入时还请注意。</p>
+<p>参考视频： <a href="https://www.bilibili.com/video/BV1xTgTemEDU/" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1xTgTemEDU/</a></p>
+<p>视频文档： <a href="https://xiamu-ssr.github.io/Hexo/2024/06/19/2024-H1/2024-06-19-12-31-52/" target="_blank" rel="noopener">https://xiamu-ssr.github.io/Hexo/2024/06/19/2024-H1/2024-06-19-12-31-52/</a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>使用Github Actions 服务，将hexo 部署到 Github Pages。</p>
+<p>与参考内容不同的是，我使用了两个仓库来实现。</p>
+<p>参考内容中，使用了同一个项目，两个分支。其中一个分支用于提交博客源文件，另一个分支用于存放生成的静态网页文件。</p>
+<p>考虑到将博客源文件内容暴露出来会有一定的风险，于是我的方案是使用两个仓库来实现。其中，Private 的仓库用于存放博客源文件，Public 的仓库用于存放页面。</p>
+<p>我之前是有hexo 环境的，会和从头开始实现有所区别，在接下来的内容中，我将会分别说明。</p>
+<p>关于Github Actions 服务的用量，Public 仓库可以免费使用，但是Private 的仓库会有一定的限制。但是如果只是作为hexo的资源站，免费的额度也是可以覆盖的。</p>
+<h2 id="hexo准备"><a href="#hexo准备" class="headerlink" title="hexo准备"></a>hexo准备</h2><p>安装并初始化hexo，如果已有hexo环境，可跳过这一步。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>如果是已有hexo环境，在其他地方做过备份的。可以删除node_modules目录和package-lock.json，然后重新安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<h2 id="仓库准备"><a href="#仓库准备" class="headerlink" title="仓库准备"></a>仓库准备</h2><p>在github上新建两个仓库，一个Private的blog_base，一个Public 的username.github.io；</p>
+<p>已有Github Pages 的，可以不用重新创建username.github.io，只创建博客源文件仓库。</p>
+<h2 id="Token准备"><a href="#Token准备" class="headerlink" title="Token准备"></a>Token准备</h2><p>使用Github Actions ，需要生成Personal access tokens，而且至少要包含repo 权限。把这个Token 配置给Github Action， 它才有权限去执行自动部署。</p>
+<p>首先是Token 的创建：</p>
+<p>单击头像 -&gt; Settings -&gt; Developer Settings -&gt; Personal access tokens -&gt; Tokens (classic)</p>
+<p>这里是所有Tokens的列表，下面我们继续创建：</p>
+<p>Generate new token -&gt; Generate new token (classic)</p>
+<p>新打开的界面中，我们需要给这个token 命名，随便命名即可，比如blog_base。</p>
+<p>在下面的权限列表中，勾选repo，workflow 两项。</p>
+<p>记录token的有效期，有效期到期后需要给Github Actions 配置新的token。</p>
+<p>完成创建后，去到blog_base 仓库进行配置。首先打开该仓库，点击上方的Settings -&gt; Secrets and variables -&gt; Actions</p>
+<p>点击 New repository secret 创建，Name设置为：GH_TOKEN（可随意设置，后面保持一致即可），Secret 粘贴刚才生成出来的token内容，就是一串以ghp_为开头的字符串。</p>
+<h2 id="修改-config-yml"><a href="#修改-config-yml" class="headerlink" title="修改_config.yml"></a>修改_config.yml</h2><p>为了设置推送的地址，需要在_config.yml 中配置推送地址。这里选择Public 的Github pages 仓库地址：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/yourusername/your-repo.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<h2 id="配置Github-Actions-工作流"><a href="#配置Github-Actions-工作流" class="headerlink" title="配置Github Actions 工作流"></a>配置Github Actions 工作流</h2><p>在blog_base 目录创建<strong>.github</strong>文件夹，再在.github文件夹下创建<strong>workflows</strong>文件夹，然后创建<strong>deploy.yml</strong>，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">name: Deploy Hexo to GitHub Pages</span><br><span class="line"></span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - main  # 当推送到 main 分支时触发</span><br><span class="line"></span><br><span class="line">jobs:</span><br><span class="line">  build:</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line"></span><br><span class="line">    steps:</span><br><span class="line">      - name: Checkout repository</span><br><span class="line">        uses: actions/checkout@v2</span><br><span class="line">        with:</span><br><span class="line">          submodules: false  # 禁用子模块检查</span><br><span class="line"></span><br><span class="line">      - name: Setup Node.js</span><br><span class="line">        uses: actions/setup-node@v2</span><br><span class="line">        with:</span><br><span class="line">          node-version: &apos;12&apos;</span><br><span class="line"></span><br><span class="line">      - name: Install Dependencies</span><br><span class="line">        run: npm install</span><br><span class="line"></span><br><span class="line">      - name: Install Hexo Git Deployer</span><br><span class="line">        run: |</span><br><span class="line">          npm install hexo-deployer-git --save</span><br><span class="line">          npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line">      - name: Clean and Generate Static Files</span><br><span class="line">        run: |</span><br><span class="line">          hexo clean</span><br><span class="line">          hexo generate</span><br><span class="line"></span><br><span class="line">      - name: Configure Git</span><br><span class="line">        run: |</span><br><span class="line">          git config --global user.name &apos;github-actions[bot]&apos;</span><br><span class="line">          git config --global user.email &apos;github-actions[bot]@users.noreply.github.com&apos;</span><br><span class="line"></span><br><span class="line">      - name: Deploy to GitHub Pages</span><br><span class="line">        env:</span><br><span class="line">          GH_TOKEN: $&#123;&#123; secrets.GH_TOKEN &#125;&#125;</span><br><span class="line">        run: |</span><br><span class="line">          cd public/</span><br><span class="line">          git init</span><br><span class="line">          git add -A</span><br><span class="line">          git commit -m &quot;Create by workflows&quot;</span><br><span class="line">          git branch -M master</span><br><span class="line">          git remote add origin https://$&#123;&#123; secrets.GH_TOKEN &#125;&#125;@github.com/yourusername/your-repo.git</span><br><span class="line">          git push -f origin master</span><br></pre></td></tr></table></figure>
+<p>这里最后一步是将生成的内容，推送到你配置的仓库的master 分支，我的Github Pages就是设置的这个分支。</p>
+<p>配置里的node-version 这个参数需要注意。旧版的hexo 使用新版的node 可能会生成失败。我的主题使用的hexo 版本比较老，使用12版本是可以生成的，最新的24 反而无法生成，这里可以按需修改版本。</p>
+<p>这个工作流的意思就是，使用ubuntu-latest作为基础环境，然后安装各种依赖，随后hexo generate生成博客网站静态文件夹，最后再推送到设定的仓库和分支。</p>
+<h2 id="配置Github-Pages"><a href="#配置Github-Pages" class="headerlink" title="配置Github Pages"></a>配置Github Pages</h2><p>到Github Pages 仓库，点击Settings，设置page来源的分支。</p>
+<p>推送并查看是否能够生效。</p>
+<p>在这里，介绍一下我的.gitignore文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br><span class="line">node_modules/</span><br></pre></td></tr></table></figure>
+<p><strong>.DS_Store</strong>文件和<strong>Thumbs.db</strong>文件。这两个文件分别是Mac系统和Win系统生成的垃圾。</p>
+<p>public 目录存放的是本地生成的静态页面，这个也不必上传。Github Actions 会自动生成。</p>
+<p>node_modules 目录一定不能上传，需要排除掉。因为它太大了，不方便版本控制。而且不同平台需求的可能都不同。本地环境和运行Github Actions 的虚拟机环境不可能保证一致的。</p>
+<h2 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h2><p>如果你之前是有Github Pages的，需要做好备份，防止文件丢失。</p>
+<p>我就出现了CNAME文件和其他文件丢失的情况，这里需要注意。</p>
+<h2 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h2><p>如果嫌username.github.io 的网址不够优雅，可以注册域名，然后配置解析。</p>
+<p>在购买域名后，进行以下设置：</p>
+<h3 id="Github-配置"><a href="#Github-配置" class="headerlink" title="Github 配置"></a>Github 配置</h3><p>进入Github Pages 仓库，单击Settings 切页。</p>
+<p>在左侧边栏点击Pages。</p>
+<p>Custom domain 配置为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">www.yourdomin.xxx</span><br></pre></td></tr></table></figure>
+<p>然后勾选Enforce HTTPS </p>
+<h3 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><p>在域名解析中，做出以下设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">www  CNAME  yourusername.github.io</span><br><span class="line">@  AAAA  2606:50c0:8003::153</span><br><span class="line">@  AAAA  2606:50c0:8002::153</span><br><span class="line">@  AAAA  2606:50c0:8001::153</span><br><span class="line">@  AAAA  2606:50c0:8000::153</span><br><span class="line">@  A  185.199.111.153</span><br><span class="line">@  A  185.199.110.153</span><br><span class="line">@  A  185.199.108.153</span><br></pre></td></tr></table></figure>
+<p>这里参考Github的文档：<a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site" target="_blank" rel="noopener">https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site</a></p>
+<h3 id="创建CNAME"><a href="#创建CNAME" class="headerlink" title="创建CNAME"></a>创建CNAME</h3><p>需要在Github Pages 网站的根目录创建CNAME文件，内容是在第一步中配置的<a href="http://www.yourdomin.xxx" target="_blank" rel="noopener">www.yourdomin.xxx</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2026-04-18T12:45:50.160Z" itemprop="dateUpdated">2026-04-18 12:45:50</time>
+</span><br>
+
+
+        
+        梦想依在 人生正当年
+        
+    </div>
+    <footer>
+        <a href="http://www.z16388.top">
+            <img src="/img/logo1.png" alt="Anqi Zhao">
+            Anqi Zhao
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2026/04/03/hexo-github-actions/&title=《一文详解Hexo 博客搭建》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2026/04/03/hexo-github-actions/&title=《一文详解Hexo 博客搭建》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2026/04/03/hexo-github-actions/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一文详解Hexo 博客搭建》 — 崎径 其镜&url=http://www.z16388.top/2026/04/03/hexo-github-actions/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2026/04/03/hexo-github-actions/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2026/04/03/google-16kb/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Unity 游戏的 Google Play 16 kb页面对齐处理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/05/18/xlua/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">xlua学习笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "etRSqNOcMILcVs1M6AUeU6yG-gzGzoHsz",
+            appKey: "kcmkjlCM6bDnVREmI5bqDQEH",
+            avatar: "",
+            placeholder: "在这里输入回复内容,头像可以到https://cn.gravatar.com/进行设置",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        也可以请我喝一杯咖啡
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Anqi Zhao &copy; 2016 - 2026</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备19057807号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2026/04/03/hexo-github-actions/&title=《一文详解Hexo 博客搭建》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2026/04/03/hexo-github-actions/&title=《一文详解Hexo 博客搭建》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2026/04/03/hexo-github-actions/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一文详解Hexo 博客搭建》 — 崎径 其镜&url=http://www.z16388.top/2026/04/03/hexo-github-actions/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2026/04/03/hexo-github-actions/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/2026/04/03/hexo-github-actions/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.1"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.1" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

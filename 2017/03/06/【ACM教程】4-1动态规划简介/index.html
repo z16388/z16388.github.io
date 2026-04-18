@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65402820"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?93a4135d9a9b44969ef103d08c93d191"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://www.z16388.top/2017/03/06/【ACM教程】4-1动态规划简介/">
+    
+    
+    <title>【ACM教程】4.1动态规划简介 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="ACM,算法,ACM教程,动态规划">
+    <meta name="description" content="第一节 动态规划简介基本概念&amp;emsp;&amp;emsp;动态规划（DP）是运筹学的一个分支，是求解决策过程最优化的数学方法。它将多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解。在现实生活中，我们经常会使用到动态规划。例如求最短路径、库存管理、排序、装载等问题，用动态规划方法比用其他方法更加简便。 &amp;emsp;&amp;emsp;动态规划主要用于求解以时间划分阶段的动态过程问题。但是在一些与时">
+<meta name="keywords" content="ACM,算法,ACM教程,动态规划">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ACM教程】4.1动态规划简介">
+<meta property="og:url" content="http://www.z16388.top/2017/03/06/【ACM教程】4-1动态规划简介/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="第一节 动态规划简介基本概念&amp;emsp;&amp;emsp;动态规划（DP）是运筹学的一个分支，是求解决策过程最优化的数学方法。它将多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解。在现实生活中，我们经常会使用到动态规划。例如求最短路径、库存管理、排序、装载等问题，用动态规划方法比用其他方法更加简便。 &amp;emsp;&amp;emsp;动态规划主要用于求解以时间划分阶段的动态过程问题。但是在一些与时">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2026-04-18T12:45:50.162Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【ACM教程】4.1动态规划简介">
+<meta name="twitter:description" content="第一节 动态规划简介基本概念&amp;emsp;&amp;emsp;动态规划（DP）是运筹学的一个分支，是求解决策过程最优化的数学方法。它将多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解。在现实生活中，我们经常会使用到动态规划。例如求最短路径、库存管理、排序、装载等问题，用动态规划方法比用其他方法更加简便。 &amp;emsp;&amp;emsp;动态规划主要用于求解以时间划分阶段的动态过程问题。但是在一些与时">
+    
+        <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/Favicon1.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.1">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brands/brand3.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo1.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Anqi Zhao</h5>
+          <a href="mailto:1021622929@qq.com" title="1021622929@qq.com" class="mail">1021622929@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-table"></i>
+                动态
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/un"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Unity经验总结
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【ACM教程】4.1动态规划简介</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://psnine.com/psnid/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-gamepad"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【ACM教程】4.1动态规划简介</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-06T20:05:18.000Z" itemprop="datePublished" class="page-time">
+  2017-03-06
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第一节-动态规划简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">第一节 动态规划简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本思想"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">基本思想</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#相关术语与性质"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">相关术语与性质</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#理解"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">理解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#适用范围"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">适用范围</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解题方法"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">解题方法</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-【ACM教程】4-1动态规划简介"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【ACM教程】4.1动态规划简介</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-03-06 20:05:18" datetime="2017-03-06T20:05:18.000Z"  itemprop="datePublished">2017-03-06</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="第一节-动态规划简介"><a href="#第一节-动态规划简介" class="headerlink" title="第一节 动态规划简介"></a>第一节 动态规划简介</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>&emsp;&emsp;动态规划（DP）是运筹学的一个分支，是求解决策过程最优化的数学方法。它将多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解。在现实生活中，我们经常会使用到动态规划。例如求最短路径、库存管理、排序、装载等问题，用动态规划方法比用其他方法更加简便。</p>
+<p>&emsp;&emsp;动态规划主要用于求解以时间划分阶段的动态过程问题。但是在一些与时间无关的问题中，我们可以人为地引入时间因素，把它视为多阶段决策过程，也可以使用动态规划来求解。</p>
+<h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>&emsp;&emsp;动态规划算法经常用于求解具有某种最优性的问题中。在这类问题里，可能会有很多的可行解。每个解都对应一个值，我们希望得到具有最优解的值。动态规划算法的思路与分治法类似，其具体的思想也是将问题分割成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。</p>
+<p>&emsp;&emsp;在使用分治法的过程中，有些子问题可能计算了多次。如果我们能够保存已经解决的子问题的答案，在需要的时候直接拿出来，这样就会节省很多时间。我们可以使用一个表来存放我们计算的子问题的结果，无论这个问题在以后是否会用到，只要它被计算过，我们就将它存入表格中。这就是动态规划的基本思想。</p>
+<h2 id="相关术语与性质"><a href="#相关术语与性质" class="headerlink" title="相关术语与性质"></a>相关术语与性质</h2><p>&emsp;&emsp;首先，我们来介绍动态规划的三要素——阶段、状态和决策。</p>
+<p>&emsp;&emsp;阶段：把所给求解问题的过程恰当地分成若干个相互联系的阶段，以便于求解，过程不同，阶段数就可能不同．描述阶段的变量称为阶段变量。在多数情况下，阶段变量是离散的，用k表示。此外，也有阶段变量是连续的情形。如果过程可以在任何时刻作出决策，且在任意两个不同的时刻之间允许有无穷多个决策时，阶段变量就是连续的。</p>
+<p>&emsp;&emsp;状态：状态表示每个阶段开始面临的自然状况或客观条件，它不以人们的主观意志为转移，也称为不可控因素。过程的状态通常可以用一个或一组数来描述，称为状态变量。一般，状态是离散的，但有时为了方便也将状态取成连续的。</p>
+<p>&emsp;&emsp;决策：一个阶段的状态给定以后，从该状态演变到下一阶段某个状态的一种选择（行动）称为决策。在最优控制中，也称为控制。在许多问题中，决策可以自然而然地表示为一个数或一组数。不同的决策对应着不同的数值。描述决策的变量称决策变量，因状态满足无后效性，故在每个阶段选择决策时只需考虑当前的状态而无须考虑过程的历史。</p>
+<p>&emsp;&emsp;在介绍决策时，我们提到了一个很重要的性质——无后效性。这是动态规划算法的的基本准则：</p>
+<blockquote>
+<p>&emsp;&emsp;我们要求状态具有下面的性质：如果给定某一阶段的状态，则在这一阶段以后过程中的发展不受这阶段以前各段状态的影响，所有各阶段都确定时，整个过程也就确定了；换句话说，过程的每一次实现可以用一个状态序列表示，在前面的例子中每阶段的状态是该线路的始点，确定了这些点的序列，整个线路也就完全确定。从某一阶段以后的线路开始，当这段的始点给定时，不受以前线路（所通过的点）的影响。状态的这个性质意味着过程的历史只能通过当前的状态去影响它的未来的发展，这个性质称为无后效性。</p>
+</blockquote>
+<p>&emsp;&emsp;状态转移方程：给定k阶段状态变量x(k)的值后，如果这一阶段的决策变量一经确定，第k+1阶段的状态变量x(k+1)也就完全确定，即x(k+1)的值随x(k)和第k阶段的决策u(k)的值变化而变化，那么可以把这一关系看成(x(k)，u(k))与x(k+1)确定的对应关系，我们来用x(k+1)=Tk(x(k),u(k))表示。它展示了从k阶段到k+1阶段的状态转移规律，我们称之为状态转移方程。</p>
+<p>&emsp;&emsp;由每个阶段的决策组成的序列称为策略。对于每一个实际的多阶段决策过程，可供选取的策略有一定的范围限制，这个范围称为允许策略集合。允许策略集合中达到最优效果的策略称为最优策略。</p>
+<p>&emsp;&emsp;最优化原理:作为整个过程的最优策略，它满足：相对前面决策所形成的状态而言，余下的子策略必然构成“最优子策略”。一个问题满足最优化原理也称其拥有最优子结构性质。最优性原理实际上是要求问题的最优策略的子策略也是最优。</p>
+<h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>&emsp;&emsp;综合前面的概念，如果我们把动态规划求解问题的过程比作工厂的生产线，那么阶段就是生产某个商品的不同环节，状态就是工件当前的状态，决策就是对工件进行的操作。之前对工件进行的操作只是在当时起效，我们可以在后面的过程中对它进行进一步的加工。不同阶段是对前面产品的一个小小的总结，由一个个过程，最终构成了最终的生产线。</p>
+<p>&emsp;&emsp;一个状态经过一个决策变成了另外的一个状态，这个过程就是状态转移。而用来描述状态转移的方程就是状态转移方程。</p>
+<h2 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h2><p>&emsp;&emsp;虽然动态规划很强大，但是它并不是万能的，只能够解决多阶段决策最优化问题。一般在题目中，出现让你求最优解的就要考虑使用动态规划了。但是需要满足一下两个条件。</p>
+<ol>
+<li>最优子结构（最优化原理）</li>
+<li>无后效性</li>
+</ol>
+<p>&emsp;&emsp;一个最优解，它的子问题的解也是最优解，我们就称这个问题具有最优子结构。那无后效性呢？就是在状态i求解时需要用到状态j，而求解j的时候需要k…当求解状态N的时候，需要用到i。那么这个时候就形成了一个环，无法求解了。</p>
+<h2 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h2><p>&emsp;&emsp;在判断题目可以使用动态规划解决之后，我们可以使用以下几种方法进行解题：</p>
+<blockquote>
+<ol>
+<li><em>模型匹配法</em>我们首先要考虑的就是这个方法了。分析题目，如果这个题目是我们之后讲到的模型，就可以直接套用；</li>
+<li><em>三要素法</em>确定题目中的三要素，从比较明显的入手，尝试解题；</li>
+<li><em>规律法</em>多计算出几组数据，试寻找他们之间的联系，建立方程；</li>
+<li><em>边界条件法</em>找到问题的边界条件，分析边界条件和与之邻接状态之间的联系。</li>
+<li><em>放宽约束和增加约束</em>对问题修改，增加或删除一些条件，以便于解题。</li>
+</ol>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2026-04-18T12:45:50.162Z" itemprop="dateUpdated">2026-04-18 12:45:50</time>
+</span><br>
+
+
+        
+        梦想依在 人生正当年
+        
+    </div>
+    <footer>
+        <a href="http://www.z16388.top">
+            <img src="/img/logo1.png" alt="Anqi Zhao">
+            Anqi Zhao
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM教程/">ACM教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动态规划/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2017/03/06/【ACM教程】4-1动态规划简介/&title=《【ACM教程】4.1动态规划简介》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2017/03/06/【ACM教程】4-1动态规划简介/&title=《【ACM教程】4.1动态规划简介》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2017/03/06/【ACM教程】4-1动态规划简介/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【ACM教程】4.1动态规划简介》 — 崎径 其镜&url=http://www.z16388.top/2017/03/06/【ACM教程】4-1动态规划简介/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2017/03/06/【ACM教程】4-1动态规划简介/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/07/【ACM教程】4-3下降非降子序列问题/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【ACM教程】4.3下降非降子序列问题</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/06/【ACM教程】5-2图的存储方式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【ACM教程】5.2图的存储方式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "etRSqNOcMILcVs1M6AUeU6yG-gzGzoHsz",
+            appKey: "kcmkjlCM6bDnVREmI5bqDQEH",
+            avatar: "",
+            placeholder: "在这里输入回复内容,头像可以到https://cn.gravatar.com/进行设置",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        也可以请我喝一杯咖啡
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Anqi Zhao &copy; 2016 - 2026</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备19057807号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2017/03/06/【ACM教程】4-1动态规划简介/&title=《【ACM教程】4.1动态规划简介》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2017/03/06/【ACM教程】4-1动态规划简介/&title=《【ACM教程】4.1动态规划简介》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2017/03/06/【ACM教程】4-1动态规划简介/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【ACM教程】4.1动态规划简介》 — 崎径 其镜&url=http://www.z16388.top/2017/03/06/【ACM教程】4-1动态规划简介/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2017/03/06/【ACM教程】4-1动态规划简介/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/2017/03/06/【ACM教程】4-1动态规划简介/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.1"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.1" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=65402820"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?93a4135d9a9b44969ef103d08c93d191"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://www.z16388.top/2026/04/03/google-16kb/">
+    
+    
+    <title>Unity 游戏的 Google Play 16 kb页面对齐处理 | 崎径 其镜 | 求学道路上的行车记录仪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,Unity,游戏">
+    <meta name="description" content="16 KB 内存页面大小的支持，是Google Play 新提出的要求。要在2026年5月31日之前，满足这一条件： https://play.google.com/console/u/0/developers/9060101706093336387/app/4974577679306649072/policy-center/issues/4988764664083295045/details A">
+<meta name="keywords" content="Android,Unity,游戏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity 游戏的 Google Play 16 kb页面对齐处理">
+<meta property="og:url" content="http://www.z16388.top/2026/04/03/google-16kb/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="16 KB 内存页面大小的支持，是Google Play 新提出的要求。要在2026年5月31日之前，满足这一条件： https://play.google.com/console/u/0/developers/9060101706093336387/app/4974577679306649072/policy-center/issues/4988764664083295045/details A">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2026-04-18T12:45:50.159Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unity 游戏的 Google Play 16 kb页面对齐处理">
+<meta name="twitter:description" content="16 KB 内存页面大小的支持，是Google Play 新提出的要求。要在2026年5月31日之前，满足这一条件： https://play.google.com/console/u/0/developers/9060101706093336387/app/4974577679306649072/policy-center/issues/4988764664083295045/details A">
+    
+        <link rel="alternate" type="application/atom+xml" title="崎径 其镜" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/Favicon1.png">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.1">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brands/brand3.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo1.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Anqi Zhao</h5>
+          <a href="mailto:1021622929@qq.com" title="1021622929@qq.com" class="mail">1021622929@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-table"></i>
+                动态
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/un"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Unity经验总结
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Unity 游戏的 Google Play 16 kb页面对齐处理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+		<a href="https://github.com/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-github"></i>
+		</a>
+		<a href="http://psnine.com/psnid/z16388" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-gamepad"></i>
+		</a>
+		<a href="http://steamcommunity.com/id/z16388/" target="_blank" class="header-icon waves-effect waves-circle waves-light">
+		    <i class="icon icon-lg icon-steam"></i>
+		</a>
+		
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Unity 游戏的 Google Play 16 kb页面对齐处理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2026-04-03T17:21:42.000Z" itemprop="datePublished" class="page-time">
+  2026-04-03
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#检测方式"><span class="post-toc-number">1.</span> <span class="post-toc-text">检测方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法一"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">方法一</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法二"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">方法二</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法三"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">方法三</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#适配方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">适配方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Unity-相关so"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Unity 相关so</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三方SDK"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">第三方SDK</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自己编译的so"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">自己编译的so</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-il2cpp处理方式"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. il2cpp处理方式</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-google-16kb"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Unity 游戏的 Google Play 16 kb页面对齐处理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2026-04-03 17:21:42" datetime="2026-04-03T17:21:42.000Z"  itemprop="datePublished">2026-04-03</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>16 KB 内存页面大小的支持，是Google Play 新提出的要求。要在2026年5月31日之前，满足这一条件：</p>
+<p><a href="https://play.google.com/console/u/0/developers/9060101706093336387/app/4974577679306649072/policy-center/issues/4988764664083295045/details" target="_blank" rel="noopener">https://play.google.com/console/u/0/developers/9060101706093336387/app/4974577679306649072/policy-center/issues/4988764664083295045/details</a></p>
+<p>Android 15 的 16KB page 检测主要看三件事：</p>
+<ol>
+<li>PT_LOAD &gt;= 16 KB</li>
+<li>RELRO 必须在 segment 末尾（suffix）</li>
+<li>RELRO end 必须 16KB 对齐</li>
+</ol>
+<blockquote>
+<p>对于aab 来说，上面的三个要求，一般只用关注PT_LOAD。因为aab 有压缩率，所以关于压缩的两项检验直接计算是不准确的。Google Play 在分发时会自动处理。</p>
+</blockquote>
+<p>官方文档：</p>
+<p><a href="https://developer.android.com/guide/practices/page-sizes?utm_source=chatgpt.com&amp;hl=zh-cn" target="_blank" rel="noopener">https://developer.android.com/guide/practices/page-sizes?utm_source=chatgpt.com&amp;hl=zh-cn</a></p>
+<h2 id="检测方式"><a href="#检测方式" class="headerlink" title="检测方式"></a>检测方式</h2><p>关于so 文件是否合规的检测，主要有以下几种方法：</p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>可以解压出so文件，然后使用ndk 工具检测（一定使用PowerShell，cmd无法运行）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">llvm-objdump.exe -p E:\Test\so\arm64-v8a\libanogs.so | Select-String -Pattern &quot;LOAD&quot;</span><br></pre></td></tr></table></figure>
+<p>运行结果可以看LOAD off 类型行尾是不是带有2<strong>12、2</strong>13。<br>低于2**14的so文件都不符合。</p>
+<p>工具的路径在：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;YourNDKPath&#125;\toolchains\llvm\prebuilt\windows-x86_64\bin</span><br></pre></td></tr></table></figure>
+<p>但是这里只检查了PT_LOAD。</p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>Google 官方提供了检测工具：</p>
+<p><a href="https://cs.android.com/android/platform/superproject/main/+/main:system/extras/tools/check_elf_alignment.sh?hl=zh-cn" target="_blank" rel="noopener">https://cs.android.com/android/platform/superproject/main/+/main:system/extras/tools/check_elf_alignment.sh?hl=zh-cn</a></p>
+<p>可以直接使用这个脚本进行检测。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">check_elf_alignment.sh APK_NAME.apk</span><br></pre></td></tr></table></figure>
+<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><p>最后，如果将Android Studio 更到最新版本，即可使用Apk Analyze 功能进行检测。</p>
+<p>前者报错为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4 KB LOAD section alignment, but 16 KB is required</span><br></pre></td></tr></table></figure></p>
+<p>后者报错为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RELRO is not a suffix and its end is not 16 KB aligned</span><br></pre></td></tr></table></figure></p>
+<h2 id="适配方法"><a href="#适配方法" class="headerlink" title="适配方法"></a>适配方法</h2><h3 id="Unity-相关so"><a href="#Unity-相关so" class="headerlink" title="Unity 相关so"></a>Unity 相关so</h3><p>Unity相关的so，需要通过提升Unity 编辑器版本号的方式进行解决。</p>
+<h3 id="第三方SDK"><a href="#第三方SDK" class="headerlink" title="第三方SDK"></a>第三方SDK</h3><p>第三方SDK 相关的so，需要联系相关提供商进行SDK 升级。</p>
+<p>如果无法完成合规，应该考虑取消对该插件的接入。</p>
+<h3 id="自己编译的so"><a href="#自己编译的so" class="headerlink" title="自己编译的so"></a>自己编译的so</h3><p>如果是自己使用NDK 编译的so，需要升级NDK工具并在编译中指定相关参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(&#123;NDK Path&#125;/ndk-build ^</span><br><span class="line">NDK_PROJECT_PATH=. ^</span><br><span class="line">APP_BUILD_SCRIPT=Android.mk ^</span><br><span class="line">NDK_APPLICATION_MK=Application.mk ^</span><br><span class="line">APP_ABI=&quot;armeabi-v7a x86 arm64-v8a x86_64&quot; ^</span><br><span class="line">APP_LDFLAGS=&quot;-Wl,-z,max-page-size=16384 -Wl,-z,common-page-size=16384&quot; ^ // 新增</span><br><span class="line">|| pause) &amp;&amp; pause</span><br></pre></td></tr></table></figure>
+<p>对于Android.mk 文件和Application.mk 文件也有内容需要修改：</p>
+<p>如果旧内容涉及cmd-strip，在打包时会报错。这是因为NDK r23+中，strip 工具路径变成 LLVM 版本。最简单的解决方式是删掉这一行，新版本不需要手动调用strip，会自动调用。</p>
+<p>如果文件中存在：APP_STL := gnustl_static，也需要进行修改。<br>修改为：APP_STL := c++_static</p>
+<p>为了兼容RELRO 必须在 segment 末尾（suffix）和 RELRO end 必须 16KB 对齐，需要在Android.mk 中增加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_LDFLAGS += -Wl,-z,max-page-size=16384</span><br><span class="line">LOCAL_LDFLAGS += -Wl,-z,common-page-size=16384</span><br></pre></td></tr></table></figure>
+<p>最后，在旧的代码中，如果使用了PAGE_SIZE / PAGE_MASK 宏，这会报错，在新版本中，NDK 不再提供。<br>需要增加以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#ifndef PAGE_SIZE</span><br><span class="line">#define PAGE_SIZE 4096</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">#ifndef PAGE_MASK</span><br><span class="line">#define PAGE_MASK (~(PAGE_SIZE - 1))</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<h2 id="3-il2cpp处理方式"><a href="#3-il2cpp处理方式" class="headerlink" title="3. il2cpp处理方式"></a>3. il2cpp处理方式</h2><p>升级到新版Unity之后，如果不修改代码，可能不会让C++代码重新导出。</p>
+<p>也可以删除Library目录下的Bee目录和所有的il2cpp_*目录的缓存，强制生成。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2026-04-18T12:45:50.159Z" itemprop="dateUpdated">2026-04-18 12:45:50</time>
+</span><br>
+
+
+        
+        梦想依在 人生正当年
+        
+    </div>
+    <footer>
+        <a href="http://www.z16388.top">
+            <img src="/img/logo1.png" alt="Anqi Zhao">
+            Anqi Zhao
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游戏/">游戏</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2026/04/03/google-16kb/&title=《Unity 游戏的 Google Play 16 kb页面对齐处理》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2026/04/03/google-16kb/&title=《Unity 游戏的 Google Play 16 kb页面对齐处理》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2026/04/03/google-16kb/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unity 游戏的 Google Play 16 kb页面对齐处理》 — 崎径 其镜&url=http://www.z16388.top/2026/04/03/google-16kb/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2026/04/03/google-16kb/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2026/04/05/leetcode/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">力扣笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2026/04/03/hexo-github-actions/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">一文详解Hexo 博客搭建</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "etRSqNOcMILcVs1M6AUeU6yG-gzGzoHsz",
+            appKey: "kcmkjlCM6bDnVREmI5bqDQEH",
+            avatar: "",
+            placeholder: "在这里输入回复内容,头像可以到https://cn.gravatar.com/进行设置",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        也可以请我喝一杯咖啡
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Anqi Zhao &copy; 2016 - 2026</span>
+            <span>
+                
+                <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备19057807号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.z16388.top/2026/04/03/google-16kb/&title=《Unity 游戏的 Google Play 16 kb页面对齐处理》 — 崎径 其镜&pic=http://www.z16388.top/img/logo1.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.z16388.top/2026/04/03/google-16kb/&title=《Unity 游戏的 Google Play 16 kb页面对齐处理》 — 崎径 其镜&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.z16388.top/2026/04/03/google-16kb/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unity 游戏的 Google Play 16 kb页面对齐处理》 — 崎径 其镜&url=http://www.z16388.top/2026/04/03/google-16kb/&via=http://www.z16388.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.z16388.top/2026/04/03/google-16kb/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://www.z16388.top/2026/04/03/google-16kb/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1260353234&web_id=1260353234')
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.1"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.1" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '崎径 其镜 | 求学道路上的行车记录仪';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
