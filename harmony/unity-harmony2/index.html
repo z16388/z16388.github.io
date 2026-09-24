@@ -1,0 +1,565 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Unity 项目迁移鸿蒙（二）：打包与调试 | 崎径 其镜</title><meta name="author" content="小墨"><meta name="copyright" content="小墨"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="Unity 项目迁移 HarmonyOS 的系列教程（二）：使用 DevEco Studio、HiLog 和 HDC 调试 OpenHarmony 工程，处理平台代码，配置 Jenkins 构建，并将 Unity 日志转发到原生层。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity 项目迁移鸿蒙（二）：打包与调试">
+<meta property="og:url" content="http://www.z16388.top/harmony/unity-harmony2/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="Unity 项目迁移 HarmonyOS 的系列教程（二）：使用 DevEco Studio、HiLog 和 HDC 调试 OpenHarmony 工程，处理平台代码，配置 Jenkins 构建，并将 Unity 日志转发到原生层。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.z16388.top/img/head.jpg">
+<meta property="article:published_time" content="2026-08-06T11:16:32.000Z">
+<meta property="article:modified_time" content="2026-09-24T06:01:33.219Z">
+<meta property="article:author" content="小墨">
+<meta property="article:tag" content="DevEco Studio">
+<meta property="article:tag" content="HarmonyOS">
+<meta property="article:tag" content="OpenHarmony">
+<meta property="article:tag" content="Unity">
+<meta property="article:tag" content="团结引擎">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.z16388.top/img/head.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Unity 项目迁移鸿蒙（二）：打包与调试",
+  "url": "http://www.z16388.top/harmony/unity-harmony2/",
+  "image": "http://www.z16388.top/img/head.jpg",
+  "datePublished": "2026-08-06T11:16:32.000Z",
+  "dateModified": "2026-09-24T06:01:33.219Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小墨",
+      "url": "http://www.z16388.top"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/Favicon.ico"><link rel="canonical" href="http://www.z16388.top/harmony/unity-harmony2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":500,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 小墨","link":"链接: ","source":"来源: 崎径 其镜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'medium_zoom',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Unity 项目迁移鸿蒙（二）：打包与调试',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
+</head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><span> 概览</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 动态</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder"></i><span> 类型</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 系列</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/un/"><i class="fa-fw fas fa-book"></i><span> Unity面试问题总结</span></a></li><li><a class="site-page child" href="/harmony/"><i class="fa-fw fas fa-book"></i><span> 鸿蒙出包笔记</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">崎径 其镜</span></a><a class="nav-page-title" href="/"><span class="site-name">Unity 项目迁移鸿蒙（二）：打包与调试</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><span> 概览</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 动态</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder"></i><span> 类型</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 系列</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/un/"><i class="fa-fw fas fa-book"></i><span> Unity面试问题总结</span></a></li><li><a class="site-page child" href="/harmony/"><i class="fa-fw fas fa-book"></i><span> 鸿蒙出包笔记</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Unity 项目迁移鸿蒙（二）：打包与调试</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-06T11:16:32.000Z" title="发表于 2026-08-06 11:16:32">2026-08-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-24T06:01:33.219Z" title="更新于 2026-09-24 06:01:33">2026-09-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">游戏开发</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>完成环境配置并成功导出 OpenHarmony 工程后，下一步是让游戏在模拟器或真机上稳定运行。本文主要围绕 DevEco Studio 调试展开，介绍设备文件与 HiLog 的查看方法、平台代码兼容、远程真机连接、Jenkins 构建注意事项，以及 Unity 日志转发到 HarmonyOS 原生层的实现。</p>
+<span id="more"></span>
+
+<h2 id="本篇目标"><a href="#本篇目标" class="headerlink" title="本篇目标"></a>本篇目标</h2><p>经过<a href="/harmony/unity-harmony1/">上一篇</a>的基础适配，项目已经可以导出 HAP，并在模拟器或真机中启动。不过，一些平台相关逻辑只会在运行阶段暴露问题，需要结合 DevEco Studio 日志与游戏内日志继续排查。</p>
+<blockquote>
+<p>模拟器适合验证安装、启动和基础流程。因为目前在渲染层面上，鸿蒙模拟器没有对游戏有很好的支持。游戏的渲染效果、性能、设备能力及第三方 SDK 行为应以真机上的测试结果为准。</p>
+</blockquote>
+<h2 id="使用-DevEco-Studio-定位问题"><a href="#使用-DevEco-Studio-定位问题" class="headerlink" title="使用 DevEco Studio 定位问题"></a>使用 DevEco Studio 定位问题</h2><h3 id="应用文件查看"><a href="#应用文件查看" class="headerlink" title="应用文件查看"></a>应用文件查看</h3><p>Android 调试中可以通过设备文件管理器查看应用内的文件，HarmonyOS 应用不能，需要借助 DevEco Studio 的设备文件浏览功能访问和修改沙箱内的文件。</p>
+<p>依次打开：<code>View &gt; Tool Windows &gt; Device File Explorer</code>。</p>
+<p>然后在文件树中导航到：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">/data/app/el2/100/base/&lt;你的包名&gt;/haps/entry/files/</span><br></pre></td></tr></table></figure>
+
+<h3 id="应用文件替换"><a href="#应用文件替换" class="headerlink" title="应用文件替换"></a>应用文件替换</h3><p><code>Device File Explorer</code> 允许拉取文件，无法完成文件的推送。如果要传入某个文件，需要使用 <code>HDC</code> 命令。</p>
+<p>以应用沙箱下的 <code>res</code> 目录为例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hdc file send -b your.package.name your_file_path &quot;./data/storage/el2/base/haps/entry/files/res&quot;</span><br><span class="line"></span><br><span class="line">如果有多台设备在连接，可以指定 ip 和端口号：</span><br><span class="line">hdc -t &lt;设备 IP&gt;:&lt;端口号&gt; file send -b your.package.name your_file_path &quot;./data/storage/el2/base/haps/entry/files/res&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="DevEco-Studio-日志查看"><a href="#DevEco-Studio-日志查看" class="headerlink" title="DevEco Studio 日志查看"></a>DevEco Studio 日志查看</h3><p>如果日志窗口中只有少量输出，先检查当前是否停留在 <code>FaultLog</code>。它主要用于查看故障信息，并不等同于 Android Studio 中的完整 Logcat。</p>
+<p>在日志面板中切换到 <code>HiLog</code>，即可查看更完整的运行日志。排查时可优先按包名、进程或自定义日志域过滤，减少系统日志干扰。</p>
+<h3 id="快速拷贝代码"><a href="#快速拷贝代码" class="headerlink" title="快速拷贝代码"></a>快速拷贝代码</h3><p>直接重新导出会覆盖手动修改过的 OpenHarmony 工程。在业务环境的一般做法是：保留一份已经完成适配的原生工程，每次导出后只同步代码、资源和原生库。</p>
+<p>下面的批处理脚本会同步 <code>Managed</code> 和 <code>libs</code> 两个目录，便于在接入调试时快速实现代码逻辑的更新。</p>
+<p>执行前应将 <code>{导出目录}</code> 与 <code>{兼容目录}</code> 替换为真实路径：</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">chcp</span> <span class="number">65001</span> &gt;<span class="built_in">nul</span></span><br><span class="line"><span class="built_in">setlocal</span> enabledelayedexpansion</span><br><span class="line"></span><br><span class="line">:: ============================================</span><br><span class="line">:: 路径配置</span><br><span class="line">:: ============================================</span><br><span class="line"><span class="built_in">set</span> &quot;SOURCE_ROOT=&#123;导出目录&#125;&quot;</span><br><span class="line"><span class="built_in">set</span> &quot;TARGET_ROOT=&#123;兼容目录&#125;&quot;</span><br><span class="line"></span><br><span class="line">:: 源路径</span><br><span class="line"><span class="built_in">set</span> &quot;SRC_MANAGED=<span class="variable">%SOURCE_ROOT%</span>\tuanjieLib\src\main\resources\rawfile\Data\Managed&quot;</span><br><span class="line"><span class="built_in">set</span> &quot;SRC_LIBS=<span class="variable">%SOURCE_ROOT%</span>\tuanjieLib\libs&quot;</span><br><span class="line"></span><br><span class="line">:: 目标路径</span><br><span class="line"><span class="built_in">set</span> &quot;DST_MANAGED=<span class="variable">%TARGET_ROOT%</span>\tuanjieLib\src\main\resources\rawfile\Data\Managed&quot;</span><br><span class="line"><span class="built_in">set</span> &quot;DST_LIBS=<span class="variable">%TARGET_ROOT%</span>\tuanjieLib\libs&quot;</span><br><span class="line"></span><br><span class="line">:: ============================================</span><br><span class="line">:: 检查源目录是否存在</span><br><span class="line">:: ============================================</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exist</span> &quot;<span class="variable">%SRC_MANAGED%</span>&quot; (</span><br><span class="line">    <span class="built_in">echo</span> [错误] 源目录不存在: <span class="variable">%SRC_MANAGED%</span></span><br><span class="line">    <span class="keyword">exit</span> /b <span class="number">1</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exist</span> &quot;<span class="variable">%SRC_LIBS%</span>&quot; (</span><br><span class="line">    <span class="built_in">echo</span> [错误] 源目录不存在: <span class="variable">%SRC_LIBS%</span></span><br><span class="line">    <span class="keyword">exit</span> /b <span class="number">1</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> ============================================</span><br><span class="line"><span class="built_in">echo</span> 开始拷贝团结引擎鸿蒙工程文件</span><br><span class="line"><span class="built_in">echo</span> ============================================</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"></span><br><span class="line">:: ============================================</span><br><span class="line">:: <span class="number">1</span>. 拷贝 Managed 目录（C# 编译产物）</span><br><span class="line">:: ============================================</span><br><span class="line"><span class="built_in">echo</span> [<span class="number">1</span>/<span class="number">2</span>] 正在拷贝 Managed 目录...</span><br><span class="line"><span class="built_in">echo</span>     源: <span class="variable">%SRC_MANAGED%</span></span><br><span class="line"><span class="built_in">echo</span>     目标: <span class="variable">%DST_MANAGED%</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exist</span> &quot;<span class="variable">%DST_MANAGED%</span>&quot; <span class="built_in">mkdir</span> &quot;<span class="variable">%DST_MANAGED%</span>&quot;</span><br><span class="line"></span><br><span class="line">robocopy &quot;<span class="variable">%SRC_MANAGED%</span>&quot; &quot;<span class="variable">%DST_MANAGED%</span>&quot; *.* /E /MIR /R:<span class="number">3</span> /W:<span class="number">2</span> /NP /NDL /NFL</span><br><span class="line"><span class="keyword">if</span> <span class="variable">%errorlevel%</span> <span class="keyword">geq</span> <span class="number">8</span> (</span><br><span class="line">    <span class="built_in">echo</span> [失败] Managed 目录拷贝出错，错误码: <span class="variable">%errorlevel%</span></span><br><span class="line">    <span class="keyword">exit</span> /b <span class="number">1</span></span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">echo</span> [成功] Managed 目录拷贝完成</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"></span><br><span class="line">:: ============================================</span><br><span class="line">:: <span class="number">2</span>. 拷贝 libs 目录（SO 库 / 依赖库）</span><br><span class="line">:: ============================================</span><br><span class="line"><span class="built_in">echo</span> [<span class="number">2</span>/<span class="number">2</span>] 正在拷贝 libs 目录...</span><br><span class="line"><span class="built_in">echo</span>     源: <span class="variable">%SRC_LIBS%</span></span><br><span class="line"><span class="built_in">echo</span>     目标: <span class="variable">%DST_LIBS%</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exist</span> &quot;<span class="variable">%DST_LIBS%</span>&quot; <span class="built_in">mkdir</span> &quot;<span class="variable">%DST_LIBS%</span>&quot;</span><br><span class="line"></span><br><span class="line">robocopy &quot;<span class="variable">%SRC_LIBS%</span>&quot; &quot;<span class="variable">%DST_LIBS%</span>&quot; *.* /E /MIR /R:<span class="number">3</span> /W:<span class="number">2</span> /NP /NDL /NFL</span><br><span class="line"><span class="keyword">if</span> <span class="variable">%errorlevel%</span> <span class="keyword">geq</span> <span class="number">8</span> (</span><br><span class="line">    <span class="built_in">echo</span> [失败] libs 目录拷贝出错，错误码: <span class="variable">%errorlevel%</span></span><br><span class="line">    <span class="keyword">exit</span> /b <span class="number">1</span></span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">echo</span> [成功] libs 目录拷贝完成</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> ============================================</span><br><span class="line"><span class="built_in">echo</span> 所有文件拷贝完成！</span><br><span class="line"><span class="built_in">echo</span> ============================================</span><br><span class="line"></span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="处理平台相关代码"><a href="#处理平台相关代码" class="headerlink" title="处理平台相关代码"></a>处理平台相关代码</h2><p>除了<a href="/harmony/unity-harmony1/">上一篇</a>提到的 <code>#if UNITY_ANDROID</code> 条件编译，项目中还可能存在运行时的平台判断，自定义的平台枚举、路径规则和 SDK 处理逻辑。这类逻辑不一定触发编译错误，通常需要结合运行表现和日志定位。</p>
+<h3 id="RuntimePlatform"><a href="#RuntimePlatform" class="headerlink" title="RuntimePlatform"></a>RuntimePlatform</h3><p><code>RuntimePlatform</code> 是 Unity 用于标识当前运行平台的枚举。迁移时应全局搜索它，检查原有 Android 分支是否需要补充 OpenHarmony 处理逻辑。</p>
+<p>除此之外，还会有以下区分平台的内容：</p>
+<ul>
+<li><code>UNITY_ANDROID</code>、<code>UNITY_IOS</code> 等平台宏；</li>
+<li><code>RuntimePlatform</code> 和项目自定义平台枚举；</li>
+<li><code>Application.platform</code>、<code>Application.persistentDataPath</code> 等平台相关 API；</li>
+<li>Java、JNI、Android Activity 或 Intent 等原生调用。</li>
+</ul>
+<h2 id="远程调试真机"><a href="#远程调试真机" class="headerlink" title="远程调试真机"></a>远程调试真机</h2><p>当测试设备不方便通过 USB 连接线进行连结时，可以使用 HDC 的无线连接功能进行安装和调试。开发机与设备应处于可互通的同一内网中。</p>
+<h3 id="打开无线调试"><a href="#打开无线调试" class="headerlink" title="打开无线调试"></a>打开无线调试</h3><p>在设备的 <code>设置 &gt; 系统 &gt; 开发者选项</code> 中打开无线调试，并记录设备的 IP 地址和端口号。</p>
+<p>在 DevEco Studio 终端中执行：</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">hdc tconn &lt;设备 IP&gt;:&lt;端口号&gt;</span><br></pre></td></tr></table></figure>
+
+<p>可通过 <code>hdc list targets</code> 命令确认设备是否已经连接成功。</p>
+<h3 id="配置真机调试签名"><a href="#配置真机调试签名" class="headerlink" title="配置真机调试签名"></a>配置真机调试签名</h3><p>在 IDE 顶部的设备列表中选择刚刚连接的设备，然后点击编译运行项目，即可进行远程安装。</p>
+<p>首次安装时如果出现签名错误，可根据 DevEco Studio 的提示创建调试用的签名，这一步需要登录华为开发者账号。</p>
+<h2 id="Jenkins-自动化构建"><a href="#Jenkins-自动化构建" class="headerlink" title="Jenkins 自动化构建"></a>Jenkins 自动化构建</h2><h3 id="Jenkins-与-C-构建入口"><a href="#Jenkins-与-C-构建入口" class="headerlink" title="Jenkins 与 C# 构建入口"></a>Jenkins 与 C# 构建入口</h3><p>团结引擎仍可通过编辑器命令行参数调用 C# 构建方法，整体流程与 Unity 类似。</p>
+<p>需要注意的是，团结引擎产品版本与编辑器版本采用不同的编号规则。例如，团结引擎 <code>1.9.3</code> 对应的编辑器版本应为 <code>2022.3.62t11</code>。Jenkins 任务应以实际安装的编辑器路径和版本为准，不要直接使用产品版本号拼接路径。</p>
+<h3 id="BuildPlayer-参数差异"><a href="#BuildPlayer-参数差异" class="headerlink" title="BuildPlayer 参数差异"></a>BuildPlayer 参数差异</h3><p>Unity 导出 Android Studio 或 Xcode 工程时，常会使用 <code>BuildOptions.AcceptExternalModificationsToPlayer</code> 这个枚举。</p>
+<p>团结引擎导出 DevEco Studio 工程时不需要指定该参数。迁移现有构建脚本时，应将它从 OpenHarmony 分支中移除，避免沿用 Android&#x2F;iOS 的导出配置。</p>
+<h2 id="将-Unity-日志转发到-HiLog"><a href="#将-Unity-日志转发到-HiLog" class="headerlink" title="将 Unity 日志转发到 HiLog"></a>将 Unity 日志转发到 HiLog</h2><p>如果 Unity 日志在 HiLog 中无法打印，或者为了集中管理日志，可以在团结引擎中注册 <code>Application.logMessageReceived</code> 消息，再通过原生桥接将日志转发到 HarmonyOS 的 <code>hilog</code>。</p>
+<p>这个示例也展示了团结引擎 C# 与 ArkTS 代码之间最基础的调用方式。</p>
+<h3 id="创建-LogBridge"><a href="#创建-LogBridge" class="headerlink" title="创建 LogBridge"></a>创建 LogBridge</h3><p>在 <code>tuanjieLib/src/main/ets</code> 下创建 <code>bridge</code> 目录，并新建 <code>LogBridge.ets</code>：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> hilog <span class="keyword">from</span> <span class="string">&#x27;@ohos.hilog&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">LogBridge</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="title class_">ForwardLog</span>(<span class="attr">level</span>: <span class="built_in">string</span>, <span class="attr">logString</span>: <span class="built_in">string</span>): <span class="built_in">void</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (level) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;D&quot;</span>:</span><br><span class="line">        hilog.<span class="title function_">debug</span>(<span class="number">0x0000</span>, <span class="string">&#x27;GameLog&#x27;</span>, <span class="string">&#x27;%&#123;public&#125;s&#x27;</span>, logString);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;I&quot;</span>:</span><br><span class="line">        hilog.<span class="title function_">info</span>(<span class="number">0x0000</span>, <span class="string">&#x27;GameLog&#x27;</span>, <span class="string">&#x27;%&#123;public&#125;s&#x27;</span>, logString);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;W&quot;</span>:</span><br><span class="line">        hilog.<span class="title function_">warn</span>(<span class="number">0x0000</span>, <span class="string">&#x27;GameLog&#x27;</span>, <span class="string">&#x27;%&#123;public&#125;s&#x27;</span>, logString);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;E&quot;</span>:</span><br><span class="line">        hilog.<span class="title function_">error</span>(<span class="number">0x0000</span>, <span class="string">&#x27;GameLog&#x27;</span>, <span class="string">&#x27;%&#123;public&#125;s&#x27;</span>, logString);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="attr">default</span>:</span><br><span class="line">        hilog.<span class="title function_">info</span>(<span class="number">0x0000</span>, <span class="string">&#x27;GameLog&#x27;</span>, <span class="string">&#x27;%&#123;public&#125;s&#x27;</span>, logString);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">RegisterLogBridge</span>(<span class="params"></span>): <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="title class_">Object</span>&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> <span class="attr">register</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="title class_">Object</span>&gt; = &#123;&#125;;</span><br><span class="line">  register[<span class="string">&quot;LogBridge&quot;</span>] = <span class="title class_">LogBridge</span>;</span><br><span class="line">  <span class="keyword">return</span> register;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>%{public}s</code> 表示日志内容可以公开显示，便于调试时查看完整文本。发布时应避免把账号、Token 等敏感信息写入日志，可以用 <code>%{private}s</code> 来隐藏这些信息。</p>
+<h3 id="注册并导出-LogBridge"><a href="#注册并导出-LogBridge" class="headerlink" title="注册并导出 LogBridge"></a>注册并导出 LogBridge</h3><p>首先在 <code>tuanjieLib/build-profile.json5</code> 的 <code>arkOptions.runtimeOnly.sources</code> 中加入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;./src/main/ets/bridge/LogBridge.ets&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这一步是避免代码在编译时被裁剪掉，确保桥接类在运行时可用。</p>
+<p>然后在 <code>tuanjieLib/exported.ets</code> 中导出 <code>LogBridge</code>：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123; <span class="title class_">LogBridge</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./src/main/ets/bridge/LogBridge&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>最后，在 <code>tuanjieLib/src/main/ets/gen/TuanjieJSScriptRegister.ets</code> 中引入注册函数，并在 <code>RegisterJSScriptToCSharp</code> 中完成注册：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">RegisterLogBridge</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;../bridge/LogBridge&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 RegisterJSScriptToCSharp 中注册</span></span><br><span class="line"><span class="title function_">register</span>(tuanjieJSClasses, <span class="title class_">RegisterLogBridge</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="在-C-中转发日志"><a href="#在-C-中转发日志" class="headerlink" title="在 C# 中转发日志"></a>在 C# 中转发日志</h3><p>原生工程注册完成后，在 Unity C# 代码中订阅日志回调并调用桥接类：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">Application.logMessageReceived += OnLogMessage;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> level = type <span class="keyword">switch</span></span><br><span class="line">&#123;</span><br><span class="line">    LogType.Log =&gt; <span class="string">&quot;I&quot;</span>,</span><br><span class="line">    LogType.Warning =&gt; <span class="string">&quot;W&quot;</span>,</span><br><span class="line">    LogType.Error =&gt; <span class="string">&quot;E&quot;</span>,</span><br><span class="line">    LogType.Exception =&gt; <span class="string">&quot;E&quot;</span>,</span><br><span class="line">    LogType.Assert =&gt; <span class="string">&quot;E&quot;</span>,</span><br><span class="line">    _ =&gt; <span class="string">&quot;I&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> bridge = <span class="keyword">new</span> OpenHarmonyJSClass(<span class="string">&quot;LogBridge&quot;</span>);</span><br><span class="line">    bridge.CallStatic(<span class="string">&quot;ForwardLog&quot;</span>, level, logString);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 防止桥接失败时递归打日志</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>建议在 <code>Awake</code> 等初始化阶段创建并缓存 <code>OpenHarmonyJSClass</code>，不要在每条日志到来时重复实例化。这样既能避免桥接对象尚未完成初始化的问题，也能减少频繁创建对象带来的开销。</p>
+<p>还需要注意两点：</p>
+<ul>
+<li>在对象销毁或应用退出时取消 <code>Application.logMessageReceived</code> 订阅，避免重复注册；</li>
+<li>桥接调用失败时不要再通过 Unity 日志记录异常，否则可能造成递归调用。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://www.z16388.top">小墨</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://www.z16388.top/harmony/unity-harmony2/">http://www.z16388.top/harmony/unity-harmony2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://www.z16388.top" target="_blank">崎径 其镜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Unity/">Unity</a><a class="post-meta__tags" href="/tags/%E5%9B%A2%E7%BB%93%E5%BC%95%E6%93%8E/">团结引擎</a><a class="post-meta__tags" href="/tags/HarmonyOS/">HarmonyOS</a><a class="post-meta__tags" href="/tags/OpenHarmony/">OpenHarmony</a><a class="post-meta__tags" href="/tags/DevEco-Studio/">DevEco Studio</a></div><div class="post-share"><div class="social-share" data-image="/img/head.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/img/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/harmony/unity-harmony3/" title="Unity 项目迁移鸿蒙（三）：SDK 接入与双向通信"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Unity 项目迁移鸿蒙（三）：SDK 接入与双向通信</div></div><div class="info-2"><div class="info-item-1">Unity 项目迁移 HarmonyOS 的系列教程（三）：讲解 DevEco Studio 工程中的 SDK 模块划分、HAR 依赖接入、C# 与 ArkTS 双向通信，以及延迟启动和应用重启等常用方案。</div></div></div></a><a class="pagination-related" href="/harmony/unity-harmony1/" title="Unity 项目迁移鸿蒙（一）：环境准备与工程结构"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Unity 项目迁移鸿蒙（一）：环境准备与工程结构</div></div><div class="info-2"><div class="info-item-1">Unity 项目迁移 HarmonyOS 的系列教程（一）：完成团结引擎与 DevEco Studio 环境配置，处理平台宏和字体兼容问题，并快速理解 OpenHarmony 导出工程结构。</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/harmony/unity-harmony4/" title="Unity 项目迁移鸿蒙（四）：联合登录报错 1002000001 排查"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-26</div><div class="info-item-2">Unity 项目迁移鸿蒙（四）：联合登录报错 1002000001 排查</div></div><div class="info-2"><div class="info-item-1">Unity 项目迁移 HarmonyOS 的系列教程（四）：排查鸿蒙联合登录错误码 1002000001，正确区分 AGC 项目级与应用级参数，并配置 App ID 和 Client ID。</div></div></div></a><a class="pagination-related" href="/harmony/unity-harmony1/" title="Unity 项目迁移鸿蒙（一）：环境准备与工程结构"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-04</div><div class="info-item-2">Unity 项目迁移鸿蒙（一）：环境准备与工程结构</div></div><div class="info-2"><div class="info-item-1">Unity 项目迁移 HarmonyOS 的系列教程（一）：完成团结引擎与 DevEco Studio 环境配置，处理平台宏和字体兼容问题，并快速理解 OpenHarmony 导出工程结构。</div></div></div></a><a class="pagination-related" href="/harmony/unity-harmony3/" title="Unity 项目迁移鸿蒙（三）：SDK 接入与双向通信"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-18</div><div class="info-item-2">Unity 项目迁移鸿蒙（三）：SDK 接入与双向通信</div></div><div class="info-2"><div class="info-item-1">Unity 项目迁移 HarmonyOS 的系列教程（三）：讲解 DevEco Studio 工程中的 SDK 模块划分、HAR 依赖接入、C# 与 ArkTS 双向通信，以及延迟启动和应用重启等常用方案。</div></div></div></a><a class="pagination-related" href="/ios/aliyun-faceauth/" title="阿里云实人认证iOS SDK 升级"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-03</div><div class="info-item-2">阿里云实人认证iOS SDK 升级</div></div><div class="info-2"><div class="info-item-1">记录阿里云实人认证 RPSDK 停止服务后，iOS 项目迁移到金融级实人认证 SDK 的完整过程，包含旧 SDK 删除、新 SDK 接入与踩坑记录。</div></div></div></a><a class="pagination-related" href="/interview/unity1/" title="U3D问题总结（一） 计算机基础与C#"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-29</div><div class="info-item-2">U3D问题总结（一） 计算机基础与C#</div></div><div class="info-2"><div class="info-item-1">U3D问题总结第一篇，梳理计算机基础概念与C#语言在Unity开发中的应用要点。</div></div></div></a><a class="pagination-related" href="/android/unity-cve-patch/" title="Unity CVE-2025-59489 漏洞修复实践（Google Play 合规）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-14</div><div class="info-item-2">Unity CVE-2025-59489 漏洞修复实践（Google Play 合规）</div></div><div class="info-2"><div class="info-item-1"> Google Play 要求所有 Unity 应用完成对 CVE-2025-59489 漏洞的修补，否则将无法通过审核。本文记录实际操作流程与注意事项。    背景Unity 官方安全公告：https://unity.com/security/sept-2025-01 注意：虽然部分新版 Unity Editor 的更新日志中声称已内置修复，但实测使用 2022.3.62f3c1 提审 Google Play 时仍会收到不合规提示。因此，无论 Editor 版本如何，都建议使用 Unity 官方 Patch 工具进行修补。  修补工具工具下载页面：https://unity.com/security/sept-2025-01/remediation  Windows：使用 UnityApplicationPatcherCLI.exe macOS：使用 UnityApplicationPatcher.app/Contents/MacOS/UnityApplicationPatcherCLI   Android APK&#x2F;AAB 修补（最常用）基本命令UnityApplic...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">小墨</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" href="https://github.com/z16388"><i class="fab fa-github"></i><span>关注 Github</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/z16388" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/1021622929@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><span>如果有任何疑问，欢迎加群共同交流：542675939</span><br><img src="/img/qun.png" alt="QQ群" style="width: 260px; height: 260px; margin-left: 0px;"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E7%AF%87%E7%9B%AE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">本篇目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-DevEco-Studio-%E5%AE%9A%E4%BD%8D%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">使用 DevEco Studio 定位问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B"><span class="toc-number">2.1.</span> <span class="toc-text">应用文件查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E6%96%87%E4%BB%B6%E6%9B%BF%E6%8D%A2"><span class="toc-number">2.2.</span> <span class="toc-text">应用文件替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DevEco-Studio-%E6%97%A5%E5%BF%97%E6%9F%A5%E7%9C%8B"><span class="toc-number">2.3.</span> <span class="toc-text">DevEco Studio 日志查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8B%B7%E8%B4%9D%E4%BB%A3%E7%A0%81"><span class="toc-number">2.4.</span> <span class="toc-text">快速拷贝代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E5%B9%B3%E5%8F%B0%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">处理平台相关代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RuntimePlatform"><span class="toc-number">3.1.</span> <span class="toc-text">RuntimePlatform</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E7%9C%9F%E6%9C%BA"><span class="toc-number">4.</span> <span class="toc-text">远程调试真机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95"><span class="toc-number">4.1.</span> <span class="toc-text">打开无线调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95%E7%AD%BE%E5%90%8D"><span class="toc-number">4.2.</span> <span class="toc-text">配置真机调试签名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA"><span class="toc-number">5.</span> <span class="toc-text">Jenkins 自动化构建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Jenkins-%E4%B8%8E-C-%E6%9E%84%E5%BB%BA%E5%85%A5%E5%8F%A3"><span class="toc-number">5.1.</span> <span class="toc-text">Jenkins 与 C# 构建入口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BuildPlayer-%E5%8F%82%E6%95%B0%E5%B7%AE%E5%BC%82"><span class="toc-number">5.2.</span> <span class="toc-text">BuildPlayer 参数差异</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86-Unity-%E6%97%A5%E5%BF%97%E8%BD%AC%E5%8F%91%E5%88%B0-HiLog"><span class="toc-number">6.</span> <span class="toc-text">将 Unity 日志转发到 HiLog</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-LogBridge"><span class="toc-number">6.1.</span> <span class="toc-text">创建 LogBridge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E5%B9%B6%E5%AF%BC%E5%87%BA-LogBridge"><span class="toc-number">6.2.</span> <span class="toc-text">注册并导出 LogBridge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-C-%E4%B8%AD%E8%BD%AC%E5%8F%91%E6%97%A5%E5%BF%97"><span class="toc-number">6.3.</span> <span class="toc-text">在 C# 中转发日志</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/android/proguard-error/" title="Unity Android 混淆踩坑：升级 AGP 后找不到 Java 方法">Unity Android 混淆踩坑：升级 AGP 后找不到 Java 方法</a><time datetime="2026-09-16T10:11:30.000Z" title="发表于 2026-09-16 10:11:30">2026-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/harmony/unity-harmony4/" title="Unity 项目迁移鸿蒙（四）：联合登录报错 1002000001 排查">Unity 项目迁移鸿蒙（四）：联合登录报错 1002000001 排查</a><time datetime="2026-08-26T10:43:24.000Z" title="发表于 2026-08-26 10:43:24">2026-08-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/harmony/unity-harmony3/" title="Unity 项目迁移鸿蒙（三）：SDK 接入与双向通信">Unity 项目迁移鸿蒙（三）：SDK 接入与双向通信</a><time datetime="2026-08-18T15:20:22.000Z" title="发表于 2026-08-18 15:20:22">2026-08-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/harmony/unity-harmony2/" title="Unity 项目迁移鸿蒙（二）：打包与调试">Unity 项目迁移鸿蒙（二）：打包与调试</a><time datetime="2026-08-06T11:16:32.000Z" title="发表于 2026-08-06 11:16:32">2026-08-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/harmony/unity-harmony1/" title="Unity 项目迁移鸿蒙（一）：环境准备与工程结构">Unity 项目迁移鸿蒙（一）：环境准备与工程结构</a><time datetime="2026-08-04T14:59:05.000Z" title="发表于 2026-08-04 14:59:05">2026-08-04</time></div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 小墨</span><span class="framework-info"><span>框架 </span><a href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text"><a href="https://beian.miit.gov.cn/#/Integrated/recordQuery"><span>京ICP备19057807号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">簡</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="/js/tw_cn.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const parseViewBox = viewBox => {
+    if (!viewBox) return null
+    const parts = viewBox.trim().split(/[\s,]+/).map(n => Number(n))
+    if (parts.length !== 4 || parts.some(n => Number.isNaN(n))) return null
+    return parts
+  }
+
+  const getSvgViewBox = svg => {
+    const attr = parseViewBox(svg.getAttribute('viewBox'))
+    if (attr) return attr
+
+    // Fallback: use bbox to build a viewBox
+    try {
+      const bbox = svg.getBBox()
+      if (bbox && bbox.width && bbox.height) return [bbox.x, bbox.y, bbox.width, bbox.height]
+    } catch (e) {
+      // getBBox may fail on some edge cases; ignore
+    }
+
+    const w = Number(svg.getAttribute('width')) || 0
+    const h = Number(svg.getAttribute('height')) || 0
+    if (w > 0 && h > 0) return [0, 0, w, h]
+    return [0, 0, 100, 100]
+  }
+
+  const setSvgViewBox = (svg, vb) => {
+    svg.setAttribute('viewBox', `${vb[0]} ${vb[1]} ${vb[2]} ${vb[3]}`)
+  }
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v))
+
+  const openSvgInNewTab = ({ source, initViewBox }) => {
+    const getClonedSvg = () => {
+      if (typeof source === 'string') {
+        const template = document.createElement('template')
+        template.innerHTML = source.trim()
+        const svg = template.content.querySelector('svg')
+        return svg ? svg.cloneNode(true) : null
+      }
+      if (source && typeof source.cloneNode === 'function') {
+        return source.cloneNode(true)
+      }
+      return null
+    }
+
+    const clone = getClonedSvg()
+    if (!clone) return
+    if (initViewBox && initViewBox.length === 4) {
+      clone.setAttribute('viewBox', initViewBox.join(' '))
+    }
+    if (!clone.getAttribute('xmlns')) clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+    if (!clone.getAttribute('xmlns:xlink') && clone.outerHTML.includes('xlink:')) {
+      clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
+    }
+    // inject background to match current theme
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+    const bg = getComputedStyle(document.body).backgroundColor || (isDark ? '#1e1e1e' : '#ffffff')
+    if (!clone.style.background) clone.style.background = bg
+
+    const serializer = new XMLSerializer()
+    const svgSource = serializer.serializeToString(clone)
+    const htmlSource = `<!doctype html><html><head><meta charset="utf-8" />
+      <style>
+        html, body { width: 100%; height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; background: ${bg}; }
+        svg { max-width: 100%; max-height: 100%; height: auto; width: auto; }
+      </style>
+      </head><body>${svgSource}</body></html>`
+    const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    window.open(url, '_blank', 'noopener')
+    setTimeout(() => URL.revokeObjectURL(url), 30000)
+  }
+
+  const attachMermaidViewerButton = wrap => {
+    let btn = wrap.querySelector('.mermaid-open-btn')
+    if (!btn) {
+      btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'mermaid-open-btn'
+      wrap.appendChild(btn)
+    }
+
+    btn.innerHTML = '<i class="fa fa-search fa-fw" aria-hidden="true"></i>'
+
+    if (!btn.__mermaidViewerBound) {
+      btn.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+        const svg = wrap.__mermaidOriginalSvg || wrap.querySelector('svg')
+        if (!svg) return
+        const initViewBox = wrap.__mermaidInitViewBox
+        if (typeof svg === 'string') {
+          openSvgInNewTab({ source: svg, initViewBox })
+          return
+        }
+        openSvgInNewTab({ source: svg, initViewBox })
+      })
+      btn.__mermaidViewerBound = true
+    }
+  }
+
+  // Zoom around a point (px, py) in the SVG viewport (in viewBox coordinates)
+  const zoomAtPoint = (vb, factor, px, py) => {
+    const w = vb[2] * factor
+    const h = vb[3] * factor
+    const nx = px - (px - vb[0]) * factor
+    const ny = py - (py - vb[1]) * factor
+    return [nx, ny, w, h]
+  }
+
+  const initMermaidGestures = wrap => {
+    const svg = wrap.querySelector('svg')
+    if (!svg) return
+
+    // Ensure viewBox exists so gestures always work
+    const initVb = getSvgViewBox(svg)
+    wrap.__mermaidInitViewBox = initVb
+    wrap.__mermaidCurViewBox = initVb.slice()
+    setSvgViewBox(svg, initVb)
+
+    // Avoid binding multiple times on themeChange/pjax
+    if (wrap.__mermaidGestureBound) return
+    wrap.__mermaidGestureBound = true
+
+    // Helper: map client (viewport) coordinate -> viewBox coordinate
+    const clientToViewBox = (clientX, clientY) => {
+      const rect = svg.getBoundingClientRect()
+      const vb = wrap.__mermaidCurViewBox || getSvgViewBox(svg)
+      const x = vb[0] + (clientX - rect.left) * (vb[2] / rect.width)
+      const y = vb[1] + (clientY - rect.top) * (vb[3] / rect.height)
+      return { x, y, rect, vb }
+    }
+
+    const state = {
+      pointers: new Map(),
+      startVb: null,
+      startDist: 0,
+      startCenter: null
+    }
+
+    const clampVb = vb => {
+      const init = wrap.__mermaidInitViewBox || vb
+      const minW = init[2] * 0.1
+      const maxW = init[2] * 10
+      const minH = init[3] * 0.1
+      const maxH = init[3] * 10
+      vb[2] = clamp(vb[2], minW, maxW)
+      vb[3] = clamp(vb[3], minH, maxH)
+      return vb
+    }
+
+    const setCurVb = vb => {
+      vb = clampVb(vb)
+      wrap.__mermaidCurViewBox = vb
+      setSvgViewBox(svg, vb)
+    }
+
+    const onPointerDown = e => {
+      // Allow only primary button for mouse
+      if (e.pointerType === 'mouse' && e.button !== 0) return
+      svg.setPointerCapture(e.pointerId)
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      if (state.pointers.size === 1) {
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      } else if (state.pointers.size === 2) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        state.startDist = Math.hypot(dx, dy)
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        state.startCenter = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 }
+      }
+    }
+
+    const onPointerMove = e => {
+      if (!state.pointers.has(e.pointerId)) return
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      // Pan with 1 pointer
+      if (state.pointers.size === 1 && state.startVb) {
+        const p = [...state.pointers.values()][0]
+        const prev = { x: e.clientX - e.movementX, y: e.clientY - e.movementY }
+        // movementX/Y unreliable on touch, compute from stored last position
+        const last = wrap.__mermaidLastSinglePointer || p
+        const dxClient = p.x - last.x
+        const dyClient = p.y - last.y
+        wrap.__mermaidLastSinglePointer = p
+
+        const { rect } = clientToViewBox(p.x, p.y)
+        const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        const dx = dxClient * (vb[2] / rect.width)
+        const dy = dyClient * (vb[3] / rect.height)
+        setCurVb([vb[0] - dx, vb[1] - dy, vb[2], vb[3]])
+        return
+      }
+
+      // Pinch zoom with 2 pointers
+      if (state.pointers.size === 2 && state.startVb && state.startDist > 0) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        const dist = Math.hypot(dx, dy)
+        if (!dist) return
+        const factor = state.startDist / dist // dist bigger => zoom in (viewBox smaller)
+
+        const cx = (pts[0].x + pts[1].x) / 2
+        const cy = (pts[0].y + pts[1].y) / 2
+        const centerClient = { x: cx, y: cy }
+
+        const pxy = clientToViewBox(centerClient.x, centerClient.y)
+        const cpx = pxy.x
+        const cpy = pxy.y
+
+        const vb = zoomAtPoint(state.startVb, factor, cpx, cpy)
+        setCurVb(vb)
+      }
+    }
+
+    const onPointerUpOrCancel = e => {
+      state.pointers.delete(e.pointerId)
+      if (state.pointers.size === 0) {
+        state.startVb = null
+        state.startDist = 0
+        state.startCenter = null
+        wrap.__mermaidLastSinglePointer = null
+      } else if (state.pointers.size === 1) {
+        // reset single pointer baseline to avoid jump
+        wrap.__mermaidLastSinglePointer = [...state.pointers.values()][0]
+      }
+    }
+
+    // Wheel zoom (mouse/trackpad)
+    const onWheel = e => {
+      // ctrlKey on mac trackpad pinch; we treat both as zoom
+      e.preventDefault()
+      const delta = e.deltaY
+      const zoomFactor = delta > 0 ? 1.1 : 0.9
+      const { x, y } = clientToViewBox(e.clientX, e.clientY)
+      const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      setCurVb(zoomAtPoint(vb, zoomFactor, x, y))
+    }
+
+    const onDblClick = () => {
+      const init = wrap.__mermaidInitViewBox
+      if (!init) return
+      wrap.__mermaidCurViewBox = init.slice()
+      setSvgViewBox(svg, init)
+    }
+
+    svg.addEventListener('pointerdown', onPointerDown)
+    svg.addEventListener('pointermove', onPointerMove)
+    svg.addEventListener('pointerup', onPointerUpOrCancel)
+    svg.addEventListener('pointercancel', onPointerUpOrCancel)
+    svg.addEventListener('wheel', onWheel, { passive: false })
+    svg.addEventListener('dblclick', onDblClick)
+  }
+
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+
+      // Clear old render (themeChange/pjax will rerun)
+      const oldSvg = item.querySelector('svg')
+      if (oldSvg) oldSvg.remove()
+      item.__mermaidGestureBound = false
+
+      const config = mermaidSrc.dataset.config ? JSON.parse(mermaidSrc.dataset.config) : {}
+      if (!config.theme) {
+        config.theme = theme
+      }
+      const mermaidThemeConfig = `%%{init: ${JSON.stringify(config)}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+        if (true) initMermaidGestures(item)
+        item.__mermaidOriginalSvg = svg
+        if (true) attachMermaidViewerButton(item)
+      }
+
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (true) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@11.12.2/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【ACM教程】3.8从全排列到深度优先搜索dfs算法 | 崎径 其镜</title><meta name="author" content="小墨"><meta name="copyright" content="小墨"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="以全排列问题为切入点，深入讲解DFS算法的核心思想与实现模板，附典型例题分析。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ACM教程】3.8从全排列到深度优先搜索dfs算法">
+<meta property="og:url" content="http://www.z16388.top/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-8%E4%BB%8E%E5%85%A8%E6%8E%92%E5%88%97%E5%88%B0%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2dfs%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="以全排列问题为切入点，深入讲解DFS算法的核心思想与实现模板，附典型例题分析。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.z16388.top/img/head.jpg">
+<meta property="article:published_time" content="2017-03-22T16:37:34.000Z">
+<meta property="article:modified_time" content="2026-09-24T06:01:33.216Z">
+<meta property="article:author" content="小墨">
+<meta property="article:tag" content="ACM">
+<meta property="article:tag" content="ACM教程">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.z16388.top/img/head.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【ACM教程】3.8从全排列到深度优先搜索dfs算法",
+  "url": "http://www.z16388.top/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-8%E4%BB%8E%E5%85%A8%E6%8E%92%E5%88%97%E5%88%B0%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2dfs%E7%AE%97%E6%B3%95/",
+  "image": "http://www.z16388.top/img/head.jpg",
+  "datePublished": "2017-03-22T16:37:34.000Z",
+  "dateModified": "2026-09-24T06:01:33.216Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小墨",
+      "url": "http://www.z16388.top"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/Favicon.ico"><link rel="canonical" href="http://www.z16388.top/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-8%E4%BB%8E%E5%85%A8%E6%8E%92%E5%88%97%E5%88%B0%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2dfs%E7%AE%97%E6%B3%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":500,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 小墨","link":"链接: ","source":"来源: 崎径 其镜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'medium_zoom',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【ACM教程】3.8从全排列到深度优先搜索dfs算法',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
+</head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><span> 概览</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 动态</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder"></i><span> 类型</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 系列</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/un/"><i class="fa-fw fas fa-book"></i><span> Unity面试问题总结</span></a></li><li><a class="site-page child" href="/harmony/"><i class="fa-fw fas fa-book"></i><span> 鸿蒙出包笔记</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">崎径 其镜</span></a><a class="nav-page-title" href="/"><span class="site-name">【ACM教程】3.8从全排列到深度优先搜索dfs算法</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><span> 概览</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 动态</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder"></i><span> 类型</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 系列</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/un/"><i class="fa-fw fas fa-book"></i><span> Unity面试问题总结</span></a></li><li><a class="site-page child" href="/harmony/"><i class="fa-fw fas fa-book"></i><span> 鸿蒙出包笔记</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">【ACM教程】3.8从全排列到深度优先搜索dfs算法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2017-03-22T16:37:34.000Z" title="发表于 2017-03-22 16:37:34">2017-03-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-24T06:01:33.216Z" title="更新于 2026-09-24 06:01:33">2026-09-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="第八节-从全排列到深度优先搜索算法"><a href="#第八节-从全排列到深度优先搜索算法" class="headerlink" title="第八节 从全排列到深度优先搜索算法"></a>第八节 从全排列到深度优先搜索算法</h1><h2 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h2><p>&emsp;&emsp;什么是全排列？就是一组数据所有可能的排列顺序。如果使用暴力枚举的方法，需要对每一个位置都进行一次循环，如果有n个数据则需要循环n次，而且还要加上对重复序列的判断。</p>
+<p>&emsp;&emsp;可喜的是，在STL中有两个函数可以帮我们实现字典序的全排列。他们分别是：<code>next_permutation()</code><code>prev_permutation()</code>，参数是数据的开始和结束地址。举个例子，比如一个字符数组：a,b,c，它的下一个序列就是a,c,b。在处理全排列问题的时候，使用比较方便。这两个函数在算法头文件中。</p>
+<p>&emsp;&emsp;由于这两个函数是根据字典序来给出下一个全排列，如果想要得出所有的全排列，则需要首先对序列进行排序。</p>
+<p>&emsp;&emsp;蓝桥杯中很多题目可以使用这种方法来解决，以第七届蓝桥杯的第三题为例：</p>
+<blockquote>
+<p>　　B　　 DEF<br>A +  ——  +  ———   &#x3D;  10<br>　　C　　 GHI<br>这个算式中A<del>I代表1</del>9的数字，不同的字母代表不同的数字。<br>比如：<br>6+8&#x2F;3+952&#x2F;714 就是一种解法，<br>5+3&#x2F;1+972&#x2F;486 是另一种解法。<br>这个算式一共有多少种解法？<br>注意：你提交应该是个整数，不要填写任何多余的内容或说明性文字。</p>
+</blockquote>
+<p>&emsp;&emsp;代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> a[<span class="number">10</span>];</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">int</span> sum[<span class="number">4</span>];</span><br><span class="line">    <span class="type">int</span> ans;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">9</span>;++i)&#123;</span><br><span class="line">        a[i]=i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        sum[<span class="number">0</span>]=a[<span class="number">1</span>]*a[<span class="number">3</span>]*(a[<span class="number">7</span>]*<span class="number">100</span>+a[<span class="number">8</span>]*<span class="number">10</span>+a[<span class="number">9</span>]);</span><br><span class="line">        sum[<span class="number">1</span>]=a[<span class="number">2</span>]*(a[<span class="number">7</span>]*<span class="number">100</span>+a[<span class="number">8</span>]*<span class="number">10</span>+a[<span class="number">9</span>]);</span><br><span class="line">        sum[<span class="number">2</span>]=(a[<span class="number">4</span>]*<span class="number">100</span>+a[<span class="number">5</span>]*<span class="number">10</span>+a[<span class="number">6</span>])*a[<span class="number">3</span>];</span><br><span class="line">        sum[<span class="number">3</span>]=<span class="number">10</span>*a[<span class="number">3</span>]*(a[<span class="number">7</span>]*<span class="number">100</span>+a[<span class="number">8</span>]*<span class="number">10</span>+a[<span class="number">9</span>]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(sum[<span class="number">0</span>]+sum[<span class="number">1</span>]+sum[<span class="number">2</span>]==sum[<span class="number">3</span>])&#123;</span><br><span class="line">            ++ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">while</span>(<span class="built_in">next_permutation</span>(a<span class="number">+1</span>,a<span class="number">+1</span><span class="number">+9</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="深度优先搜索dfs算法"><a href="#深度优先搜索dfs算法" class="headerlink" title="深度优先搜索dfs算法"></a>深度优先搜索dfs算法</h2><p>&emsp;&emsp;突然想要感叹一句：终于要讲到dfs算法了。为什么要发出这样的感叹呢，因为从这里开始，我们真正要接触到算法的内容了。之前的学习都可以说是小打小闹，到这里再是正主。</p>
+<p>&emsp;&emsp;事实上，深度优先搜索属于图算法的一种，英文缩写为DFS即Depth First Search。其过程简要来说是对每一个可能的分支路径深入到不能再深入为止，而且每个节点只能访问一次。dfs算法是算法学习过程中的重中之重，因为全排列是个一维的过程，为了便于大家的理解，我就从它开始吧。</p>
+<p>&emsp;&emsp;有a、b、c三个盒子，以及1，2，3三只球。我们将球放到盒子里，每个盒子只能放一个球，求一共有几种放法。如果形象地形容这个全排列的过程，将会是这个样子：首先按照字典序顺序放球，也就是在a盒子中放1号球，b盒子中放2号球，c盒子中放3号球。再向后走就没有盒子了，同时我们手中也没有剩余球了。这个时候，往回走，寻找有没有其他的放球顺序。先回到c盒子前拿出3号球，再到b盒子前拿出2号球。这时候，又产生了一种排列方式：把3号球放到b盒子中，2号球放到c盒子中。接下来以此类推，产生剩余的序列。</p>
+<p>&emsp;&emsp;那么，我们把上面的过程用程序来模拟一下。首先是第一种放置方法，先按照升序将球放好：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    a[step] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;这里的数组a表示盒子的序列，变量step表示我们正处在第step个盒子的前面。a[step]&#x3D;i的意思就是将第i个球放到第step个盒子里。但是需要注意的是，球一旦放进一个盒子里，就不能放在另一个盒子里了。这时候，我们需要记录一下。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i;i&lt;=n;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(book[i]==<span class="number">0</span>) &#123; <span class="comment">//book[i]==0表示球还在我们手上</span></span><br><span class="line">        a[step]=i;</span><br><span class="line">        book[i]=<span class="number">1</span>;   <span class="comment">//标记i号球已经放到盒子里了</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;那么，我们既然在第step个盒子里放球了，后面就要继续向后放了。很明显，这是一个递归的过程。我们将要写的过程封装到函数里，将这个函数命名为dfs。然后在里面处理第step+1个盒子。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> step)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i;i&lt;=n;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(book[i]==<span class="number">0</span>) &#123; </span><br><span class="line">            a[step]=i;</span><br><span class="line">            book[i]=<span class="number">1</span>;</span><br><span class="line">            <span class="built_in">dfs</span>(step<span class="number">+1</span>);</span><br><span class="line">            book[i]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;细心的同学可能已经注意到了，除了除以step+1个盒子之外，我们还另外加了一行代码<code>book[i]=0</code>，为什么要加上这一句呢？我们想一下，递归放完所有的球之后，我们是不是在回来的过程中要将这个球从盒子里拿出来呀。如果没有这个操作，这将会对接下来的放置造成障碍。</p>
+<p>&emsp;&emsp;在之前的学习中，我们都知道，递归必须要有一个停止条件。转换到这个问题中就是：我们应该在什么时候将计算完毕的全排列输出出来呢？答案是处理到第n+1个盒子时。在前面的“故事背景”中，我们在走到第四个盒子的位置时，发现这个地方没有盒子，就往回走了。这个时候就是要输出的时候。代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> step)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(step==n<span class="number">+1</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;    <span class="comment">//返回前一步</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i;i&lt;=n;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(book[i]==<span class="number">0</span>) &#123; </span><br><span class="line">            a[step]=i;</span><br><span class="line">            book[i]=<span class="number">1</span>;</span><br><span class="line">            <span class="built_in">dfs</span>(step<span class="number">+1</span>);</span><br><span class="line">            book[i]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;整个过程我们模拟完毕了，整理得到完整的代码：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">10</span>],book[<span class="number">10</span>],n;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> step)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(step==n<span class="number">+1</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;    <span class="comment">//返回前一步</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i;i&lt;=n;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(book[i]==<span class="number">0</span>) &#123; </span><br><span class="line">            a[step]=i;</span><br><span class="line">            book[i]=<span class="number">1</span>;</span><br><span class="line">            <span class="built_in">dfs</span>(step<span class="number">+1</span>);</span><br><span class="line">            book[i]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;这个问题虽然简单，但是包含了dfs的基本模型。理解dfs算法的关键在于理解“当下应该如何去做”。至于“下一步应该怎么做”是和当下的操作一样的。我们在处理第step个盒子和step+1个盒子的时候，都采用的是一样的操作。因此，我们可以整理出dfs的基本模型：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> step)</span> </span>&#123;</span><br><span class="line">    判断边界</span><br><span class="line">    尝试所有的可能 <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">        继续下一步 <span class="built_in">dfs</span>(step<span class="number">+1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    返回</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;我们以一道题目为例，第七届蓝桥杯的第七题，剪邮票：</p>
+<blockquote>
+<p>如【图1.jpg】, 有12张连在一起的12生肖的邮票。<br>现在你要从中剪下5张来，要求必须是连着的。<br>（仅仅连接一个角不算相连）<br>比如，【图2.jpg】，【图3.jpg】中，粉红色所示部分就是合格的剪取。<br>请你计算，一共有多少种不同的剪取方法。<br>请填写表示方案数目的整数。<br>注意：你提交的应该是一个整数，不要填写任何多余的内容或说明性文字。</p>
+</blockquote>
+<p><img src="http://oda2v68ht.bkt.clouddn.com/1.jpg"><br>图1</p>
+<p><img src="http://oda2v68ht.bkt.clouddn.com/2.jpg"><br>图2</p>
+<p><img src="http://oda2v68ht.bkt.clouddn.com/3.jpg"><br>图3</p>
+<p>&emsp;&emsp;我们先看一下一位同学错误的解法吧：<a href="http://blog.csdn.net/star92014/article/details/50942239">http://blog.csdn.net/star92014/article/details/50942239</a></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> a[<span class="number">5</span>]=&#123;<span class="number">0</span>,&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">check</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> flag[<span class="number">5</span>]=&#123;<span class="number">0</span>,&#125;;</span><br><span class="line">    flag[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> check[<span class="number">5</span>]=&#123;<span class="number">0</span>,&#125;;</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line"></span><br><span class="line">rep:    </span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(flag[i]&amp;&amp;check[i]==<span class="number">0</span>)&#123;</span><br><span class="line">            check[i]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">5</span>;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(j==i)<span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span>(a[j]==a[i]<span class="number">+1</span>||a[j]==a[i]<span class="number">-1</span></span><br><span class="line">                ||a[j]==a[i]<span class="number">-4</span>||a[j]==a[i]<span class="number">+4</span>)&#123;</span><br><span class="line">                    flag[j]=<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;   </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(flag[i]&amp;&amp;check[i]==<span class="number">0</span>)<span class="keyword">goto</span> rep;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> count=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(flag[i])count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(count==<span class="number">5</span>)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> count=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(a[<span class="number">0</span>]=<span class="number">1</span>;a[<span class="number">0</span>]&lt;<span class="number">13</span>;a[<span class="number">0</span>]++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(a[<span class="number">1</span>]=a[<span class="number">0</span>]<span class="number">+1</span>;a[<span class="number">1</span>]&lt;<span class="number">13</span>;a[<span class="number">1</span>]++)&#123;</span><br><span class="line">    <span class="comment">//  if(a[1]==a[0])continue;</span></span><br><span class="line">        <span class="keyword">for</span>(a[<span class="number">2</span>]=a[<span class="number">1</span>]<span class="number">+1</span>;a[<span class="number">2</span>]&lt;<span class="number">13</span>;a[<span class="number">2</span>]++)&#123;</span><br><span class="line">    <span class="comment">//  if(a[2]==a[0]||a[2]==a[1])continue;</span></span><br><span class="line">        <span class="keyword">for</span>(a[<span class="number">3</span>]=a[<span class="number">2</span>]<span class="number">+1</span>;a[<span class="number">3</span>]&lt;<span class="number">13</span>;a[<span class="number">3</span>]++)&#123;</span><br><span class="line">    <span class="comment">//  if(a[3]==a[0]||a[3]==a[1]||a[3]==a[2])continue;</span></span><br><span class="line">        <span class="keyword">for</span>(a[<span class="number">4</span>]=a[<span class="number">3</span>]<span class="number">+1</span>;a[<span class="number">4</span>]&lt;<span class="number">13</span>;a[<span class="number">4</span>]++)&#123;</span><br><span class="line">        <span class="comment">//if(a[4]==a[0]||a[4]==a[1]||a[4]==a[2]||a[4]==a[3])continue;</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">check</span>())&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d %d %d %d %d\n&quot;</span>,a[<span class="number">0</span>],a[<span class="number">1</span>],a[<span class="number">2</span>],a[<span class="number">3</span>],a[<span class="number">4</span>]);</span><br><span class="line">        count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,count);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;代码质量不说，这位同学得到的答案是202，是错误的。那么问题出在了哪里呢？是序列的重复问题。比如12345和12354。为了避免这种情况，我们除了增加判断条件之外，还可以从数据上入手，将序列改为<code>{1,2,3,4,6,7,8,9,11,12,13,14};</code>这样，在判断换行之后的左右侧元素时，就会有失效的元素，避免了重复。下面是代码：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> dir[<span class="number">4</span>] = &#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">5</span>,<span class="number">-5</span>&#125;;</span><br><span class="line"><span class="type">int</span> temp1[<span class="number">12</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>&#125;;</span><br><span class="line"><span class="type">int</span> temp2[<span class="number">5</span>];</span><br><span class="line"><span class="type">int</span> vis[<span class="number">5</span>];</span><br><span class="line"><span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span> ;i&lt;<span class="number">4</span> ;i++)&#123;</span><br><span class="line">        <span class="type">int</span> t = temp2[u]+dir[i];</span><br><span class="line">        <span class="keyword">if</span>(t&gt;=<span class="number">1</span>&amp;&amp;t&lt;=<span class="number">14</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span> ;j&lt;<span class="number">5</span> ;j++)</span><br><span class="line">                <span class="keyword">if</span>(t==temp2[j]&amp;&amp;!vis[j])&#123;</span><br><span class="line">                    vis[j]=<span class="number">1</span>;</span><br><span class="line">                    <span class="built_in">dfs</span>(j);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> a=<span class="number">0</span> ;a&lt;<span class="number">12</span> ;a++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> b=a<span class="number">+1</span> ;b&lt;<span class="number">12</span> ;b++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> c=b<span class="number">+1</span> ;c&lt;<span class="number">12</span> ;c++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> d=c<span class="number">+1</span> ;d&lt;<span class="number">12</span> ;d++)&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="type">int</span> e=d<span class="number">+1</span> ;e&lt;<span class="number">12</span> ;e++)&#123;</span><br><span class="line">                        temp2[<span class="number">0</span>]=temp1[a];</span><br><span class="line">                        temp2[<span class="number">1</span>]=temp1[b];</span><br><span class="line">                        temp2[<span class="number">2</span>]=temp1[c];</span><br><span class="line">                        temp2[<span class="number">3</span>]=temp1[d];</span><br><span class="line">                        temp2[<span class="number">4</span>]=temp1[e];</span><br><span class="line">                        <span class="comment">//初始化访问标记数组</span></span><br><span class="line">                        <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="built_in">sizeof</span>(vis));</span><br><span class="line">                        vis[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">                        <span class="built_in">dfs</span>(<span class="number">0</span>);</span><br><span class="line">                        <span class="comment">//连通性判断</span></span><br><span class="line">                        <span class="type">int</span> flag = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span> ;i&lt;<span class="number">5</span> ;i++)&#123;</span><br><span class="line">                            <span class="keyword">if</span>(vis[i]==<span class="number">0</span>)&#123;</span><br><span class="line">                                flag = <span class="number">0</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span>(flag)ans++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;DFS专项练习：<a href="http://www.z16388.top/acm/dfs/">http://www.z16388.top/acm/dfs/</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://www.z16388.top">小墨</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://www.z16388.top/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-8%E4%BB%8E%E5%85%A8%E6%8E%92%E5%88%97%E5%88%B0%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2dfs%E7%AE%97%E6%B3%95/">http://www.z16388.top/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-8%E4%BB%8E%E5%85%A8%E6%8E%92%E5%88%97%E5%88%B0%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2dfs%E7%AE%97%E6%B3%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://www.z16388.top" target="_blank">崎径 其镜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ACM/">ACM</a><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a><a class="post-meta__tags" href="/tags/ACM%E6%95%99%E7%A8%8B/">ACM教程</a></div><div class="post-share"><div class="social-share" data-image="/img/head.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/img/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/acm/dfs/" title="dfs专项练习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">dfs专项练习</div></div><div class="info-2"><div class="info-item-1">DFS深度优先搜索专项练习题目集合，含解题思路与代码，适合算法竞赛备赛刷题。</div></div></div></a><a class="pagination-related" href="/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-5%E6%95%B0%E5%AD%A6%E7%AE%80%E5%8D%95%E9%97%AE%E9%A2%98/" title="【ACM教程】2.5数学简单问题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">【ACM教程】2.5数学简单问题</div></div><div class="info-2"><div class="info-item-1">介绍ACM竞赛中常见的数学基础题，包括质数判断、GCD计算与进制转换等解法。</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%914-1%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%80%E4%BB%8B/" title="【ACM教程】4.1动态规划简介"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-03-06</div><div class="info-item-2">【ACM教程】4.1动态规划简介</div></div><div class="info-2"><div class="info-item-1">介绍动态规划的基本概念、核心思想与一般解题步骤，帮助初学者建立DP思维框架。</div></div></div></a><a class="pagination-related" href="/acm/ACM%E6%95%99%E7%A8%8B/" title="ACM教程"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-09-09</div><div class="info-item-2">ACM教程</div></div><div class="info-2"><div class="info-item-1">ACM教程系列文章总索引，汇总从算法基础到图论的完整教程体系，适合系统学习算法竞赛。</div></div></div></a><a class="pagination-related" href="/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-2%E4%BB%8E%E6%8E%92%E5%BA%8F%E5%BC%80%E5%A7%8B/" title="【ACM教程】2.2从排序开始"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-10-28</div><div class="info-item-2">【ACM教程】2.2从排序开始</div></div><div class="info-2"><div class="info-item-1">以排序算法为切入点，介绍竞赛中常用的基础算法思路与STL排序函数的使用方式。</div></div></div></a><a class="pagination-related" href="/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%914-3%E4%B8%8B%E9%99%8D%E9%9D%9E%E9%99%8D%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98/" title="【ACM教程】4.3下降非降子序列问题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-03-07</div><div class="info-item-2">【ACM教程】4.3下降非降子序列问题</div></div><div class="info-2"><div class="info-item-1">深入分析最长下降子序列与最长非降子序列问题，提供多种解法与时间复杂度对比分析。</div></div></div></a><a class="pagination-related" href="/acm/dfs/" title="dfs专项练习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-03-30</div><div class="info-item-2">dfs专项练习</div></div><div class="info-2"><div class="info-item-1">DFS深度优先搜索专项练习题目集合，含解题思路与代码，适合算法竞赛备赛刷题。</div></div></div></a><a class="pagination-related" href="/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%911-1%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0/" title="【ACM教程】1.1算法概述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-09-09</div><div class="info-item-2">【ACM教程】1.1算法概述</div></div><div class="info-2"><div class="info-item-1">第一节 算法概述算法是什么？&emsp;&emsp;算法是软件工程非常重要的基础科目。简单来说，算法就是解决特定问题的方法和步骤。为了解决现实生活中的各种问题，我们就把现实问题对应成数学问题，然后设计公式，编写程序，让计算机编译，运行得到答案——这时候运用的方法就是算法。 &emsp;&emsp;尽管这里运用了“公式”这个词来形容算法，然而算法并不是大家印象中死板的数学公式。因为计算机能够执行复杂的计算，所以公式可以设计成好几行，甚至几百行，用到很多数学理论。因此，就算学习过算法的人，也不一定会设计算法。因为数学、程序上面的东西都比较复杂。想要把现实中的问题对应到数学问题，那就更加复杂了。 &emsp;&emsp;通常，算法具有由三部分组成：输入、输出、计算过程。说到这里，大家可能会联想到函数。 &emsp;&emsp;输入、输出是一个或一组数据，实际上是将这些数字放在数据结构中比如数组、链表。输入的来源，通常是硬盘中存储的数据，或者是由键盘输入的数字；输出的去处可能是硬盘中的文件或是由硬盘中的数据转换之后以其他的形式呈现，例如显示器。 &emsp;&emsp;计算过程是一连串处...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">小墨</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" href="https://github.com/z16388"><i class="fab fa-github"></i><span>关注 Github</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/z16388" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/1021622929@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><span>如果有任何疑问，欢迎加群共同交流：542675939</span><br><img src="/img/qun.png" alt="QQ群" style="width: 260px; height: 260px; margin-left: 0px;"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E8%8A%82-%E4%BB%8E%E5%85%A8%E6%8E%92%E5%88%97%E5%88%B0%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">第八节 从全排列到深度优先搜索算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E6%8E%92%E5%88%97"><span class="toc-number">1.1.</span> <span class="toc-text">全排列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2dfs%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">深度优先搜索dfs算法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/android/proguard-error/" title="Unity Android 混淆踩坑：升级 AGP 后找不到 Java 方法">Unity Android 混淆踩坑：升级 AGP 后找不到 Java 方法</a><time datetime="2026-09-16T10:11:30.000Z" title="发表于 2026-09-16 10:11:30">2026-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/harmony/unity-harmony4/" title="Unity 项目迁移鸿蒙（四）：联合登录报错 1002000001 排查">Unity 项目迁移鸿蒙（四）：联合登录报错 1002000001 排查</a><time datetime="2026-08-26T10:43:24.000Z" title="发表于 2026-08-26 10:43:24">2026-08-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/harmony/unity-harmony3/" title="Unity 项目迁移鸿蒙（三）：SDK 接入与双向通信">Unity 项目迁移鸿蒙（三）：SDK 接入与双向通信</a><time datetime="2026-08-18T15:20:22.000Z" title="发表于 2026-08-18 15:20:22">2026-08-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/harmony/unity-harmony2/" title="Unity 项目迁移鸿蒙（二）：打包与调试">Unity 项目迁移鸿蒙（二）：打包与调试</a><time datetime="2026-08-06T11:16:32.000Z" title="发表于 2026-08-06 11:16:32">2026-08-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/harmony/unity-harmony1/" title="Unity 项目迁移鸿蒙（一）：环境准备与工程结构">Unity 项目迁移鸿蒙（一）：环境准备与工程结构</a><time datetime="2026-08-04T14:59:05.000Z" title="发表于 2026-08-04 14:59:05">2026-08-04</time></div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 小墨</span><span class="framework-info"><span>框架 </span><a href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text"><a href="https://beian.miit.gov.cn/#/Integrated/recordQuery"><span>京ICP备19057807号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">簡</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="/js/tw_cn.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const parseViewBox = viewBox => {
+    if (!viewBox) return null
+    const parts = viewBox.trim().split(/[\s,]+/).map(n => Number(n))
+    if (parts.length !== 4 || parts.some(n => Number.isNaN(n))) return null
+    return parts
+  }
+
+  const getSvgViewBox = svg => {
+    const attr = parseViewBox(svg.getAttribute('viewBox'))
+    if (attr) return attr
+
+    // Fallback: use bbox to build a viewBox
+    try {
+      const bbox = svg.getBBox()
+      if (bbox && bbox.width && bbox.height) return [bbox.x, bbox.y, bbox.width, bbox.height]
+    } catch (e) {
+      // getBBox may fail on some edge cases; ignore
+    }
+
+    const w = Number(svg.getAttribute('width')) || 0
+    const h = Number(svg.getAttribute('height')) || 0
+    if (w > 0 && h > 0) return [0, 0, w, h]
+    return [0, 0, 100, 100]
+  }
+
+  const setSvgViewBox = (svg, vb) => {
+    svg.setAttribute('viewBox', `${vb[0]} ${vb[1]} ${vb[2]} ${vb[3]}`)
+  }
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v))
+
+  const openSvgInNewTab = ({ source, initViewBox }) => {
+    const getClonedSvg = () => {
+      if (typeof source === 'string') {
+        const template = document.createElement('template')
+        template.innerHTML = source.trim()
+        const svg = template.content.querySelector('svg')
+        return svg ? svg.cloneNode(true) : null
+      }
+      if (source && typeof source.cloneNode === 'function') {
+        return source.cloneNode(true)
+      }
+      return null
+    }
+
+    const clone = getClonedSvg()
+    if (!clone) return
+    if (initViewBox && initViewBox.length === 4) {
+      clone.setAttribute('viewBox', initViewBox.join(' '))
+    }
+    if (!clone.getAttribute('xmlns')) clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+    if (!clone.getAttribute('xmlns:xlink') && clone.outerHTML.includes('xlink:')) {
+      clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
+    }
+    // inject background to match current theme
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+    const bg = getComputedStyle(document.body).backgroundColor || (isDark ? '#1e1e1e' : '#ffffff')
+    if (!clone.style.background) clone.style.background = bg
+
+    const serializer = new XMLSerializer()
+    const svgSource = serializer.serializeToString(clone)
+    const htmlSource = `<!doctype html><html><head><meta charset="utf-8" />
+      <style>
+        html, body { width: 100%; height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; background: ${bg}; }
+        svg { max-width: 100%; max-height: 100%; height: auto; width: auto; }
+      </style>
+      </head><body>${svgSource}</body></html>`
+    const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    window.open(url, '_blank', 'noopener')
+    setTimeout(() => URL.revokeObjectURL(url), 30000)
+  }
+
+  const attachMermaidViewerButton = wrap => {
+    let btn = wrap.querySelector('.mermaid-open-btn')
+    if (!btn) {
+      btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'mermaid-open-btn'
+      wrap.appendChild(btn)
+    }
+
+    btn.innerHTML = '<i class="fa fa-search fa-fw" aria-hidden="true"></i>'
+
+    if (!btn.__mermaidViewerBound) {
+      btn.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+        const svg = wrap.__mermaidOriginalSvg || wrap.querySelector('svg')
+        if (!svg) return
+        const initViewBox = wrap.__mermaidInitViewBox
+        if (typeof svg === 'string') {
+          openSvgInNewTab({ source: svg, initViewBox })
+          return
+        }
+        openSvgInNewTab({ source: svg, initViewBox })
+      })
+      btn.__mermaidViewerBound = true
+    }
+  }
+
+  // Zoom around a point (px, py) in the SVG viewport (in viewBox coordinates)
+  const zoomAtPoint = (vb, factor, px, py) => {
+    const w = vb[2] * factor
+    const h = vb[3] * factor
+    const nx = px - (px - vb[0]) * factor
+    const ny = py - (py - vb[1]) * factor
+    return [nx, ny, w, h]
+  }
+
+  const initMermaidGestures = wrap => {
+    const svg = wrap.querySelector('svg')
+    if (!svg) return
+
+    // Ensure viewBox exists so gestures always work
+    const initVb = getSvgViewBox(svg)
+    wrap.__mermaidInitViewBox = initVb
+    wrap.__mermaidCurViewBox = initVb.slice()
+    setSvgViewBox(svg, initVb)
+
+    // Avoid binding multiple times on themeChange/pjax
+    if (wrap.__mermaidGestureBound) return
+    wrap.__mermaidGestureBound = true
+
+    // Helper: map client (viewport) coordinate -> viewBox coordinate
+    const clientToViewBox = (clientX, clientY) => {
+      const rect = svg.getBoundingClientRect()
+      const vb = wrap.__mermaidCurViewBox || getSvgViewBox(svg)
+      const x = vb[0] + (clientX - rect.left) * (vb[2] / rect.width)
+      const y = vb[1] + (clientY - rect.top) * (vb[3] / rect.height)
+      return { x, y, rect, vb }
+    }
+
+    const state = {
+      pointers: new Map(),
+      startVb: null,
+      startDist: 0,
+      startCenter: null
+    }
+
+    const clampVb = vb => {
+      const init = wrap.__mermaidInitViewBox || vb
+      const minW = init[2] * 0.1
+      const maxW = init[2] * 10
+      const minH = init[3] * 0.1
+      const maxH = init[3] * 10
+      vb[2] = clamp(vb[2], minW, maxW)
+      vb[3] = clamp(vb[3], minH, maxH)
+      return vb
+    }
+
+    const setCurVb = vb => {
+      vb = clampVb(vb)
+      wrap.__mermaidCurViewBox = vb
+      setSvgViewBox(svg, vb)
+    }
+
+    const onPointerDown = e => {
+      // Allow only primary button for mouse
+      if (e.pointerType === 'mouse' && e.button !== 0) return
+      svg.setPointerCapture(e.pointerId)
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      if (state.pointers.size === 1) {
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      } else if (state.pointers.size === 2) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        state.startDist = Math.hypot(dx, dy)
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        state.startCenter = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 }
+      }
+    }
+
+    const onPointerMove = e => {
+      if (!state.pointers.has(e.pointerId)) return
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      // Pan with 1 pointer
+      if (state.pointers.size === 1 && state.startVb) {
+        const p = [...state.pointers.values()][0]
+        const prev = { x: e.clientX - e.movementX, y: e.clientY - e.movementY }
+        // movementX/Y unreliable on touch, compute from stored last position
+        const last = wrap.__mermaidLastSinglePointer || p
+        const dxClient = p.x - last.x
+        const dyClient = p.y - last.y
+        wrap.__mermaidLastSinglePointer = p
+
+        const { rect } = clientToViewBox(p.x, p.y)
+        const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        const dx = dxClient * (vb[2] / rect.width)
+        const dy = dyClient * (vb[3] / rect.height)
+        setCurVb([vb[0] - dx, vb[1] - dy, vb[2], vb[3]])
+        return
+      }
+
+      // Pinch zoom with 2 pointers
+      if (state.pointers.size === 2 && state.startVb && state.startDist > 0) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        const dist = Math.hypot(dx, dy)
+        if (!dist) return
+        const factor = state.startDist / dist // dist bigger => zoom in (viewBox smaller)
+
+        const cx = (pts[0].x + pts[1].x) / 2
+        const cy = (pts[0].y + pts[1].y) / 2
+        const centerClient = { x: cx, y: cy }
+
+        const pxy = clientToViewBox(centerClient.x, centerClient.y)
+        const cpx = pxy.x
+        const cpy = pxy.y
+
+        const vb = zoomAtPoint(state.startVb, factor, cpx, cpy)
+        setCurVb(vb)
+      }
+    }
+
+    const onPointerUpOrCancel = e => {
+      state.pointers.delete(e.pointerId)
+      if (state.pointers.size === 0) {
+        state.startVb = null
+        state.startDist = 0
+        state.startCenter = null
+        wrap.__mermaidLastSinglePointer = null
+      } else if (state.pointers.size === 1) {
+        // reset single pointer baseline to avoid jump
+        wrap.__mermaidLastSinglePointer = [...state.pointers.values()][0]
+      }
+    }
+
+    // Wheel zoom (mouse/trackpad)
+    const onWheel = e => {
+      // ctrlKey on mac trackpad pinch; we treat both as zoom
+      e.preventDefault()
+      const delta = e.deltaY
+      const zoomFactor = delta > 0 ? 1.1 : 0.9
+      const { x, y } = clientToViewBox(e.clientX, e.clientY)
+      const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      setCurVb(zoomAtPoint(vb, zoomFactor, x, y))
+    }
+
+    const onDblClick = () => {
+      const init = wrap.__mermaidInitViewBox
+      if (!init) return
+      wrap.__mermaidCurViewBox = init.slice()
+      setSvgViewBox(svg, init)
+    }
+
+    svg.addEventListener('pointerdown', onPointerDown)
+    svg.addEventListener('pointermove', onPointerMove)
+    svg.addEventListener('pointerup', onPointerUpOrCancel)
+    svg.addEventListener('pointercancel', onPointerUpOrCancel)
+    svg.addEventListener('wheel', onWheel, { passive: false })
+    svg.addEventListener('dblclick', onDblClick)
+  }
+
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+
+      // Clear old render (themeChange/pjax will rerun)
+      const oldSvg = item.querySelector('svg')
+      if (oldSvg) oldSvg.remove()
+      item.__mermaidGestureBound = false
+
+      const config = mermaidSrc.dataset.config ? JSON.parse(mermaidSrc.dataset.config) : {}
+      if (!config.theme) {
+        config.theme = theme
+      }
+      const mermaidThemeConfig = `%%{init: ${JSON.stringify(config)}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+        if (true) initMermaidGestures(item)
+        item.__mermaidOriginalSvg = svg
+        if (true) attachMermaidViewerButton(item)
+      }
+
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (true) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@11.12.2/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

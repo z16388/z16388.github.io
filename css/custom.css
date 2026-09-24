@@ -1,0 +1,7 @@
+/* 限制文章内图片最大宽度，自动等比缩小 */
+.post-content img {
+  max-width: 100%;
+  height:  500px;
+  display: block;
+  margin: 0 auto;
+}

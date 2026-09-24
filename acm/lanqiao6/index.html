@@ -1,0 +1,567 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>第六届蓝桥杯C/C++省赛B组题目详解 | 崎径 其镜</title><meta name="author" content="小墨"><meta name="copyright" content="小墨"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="第六届蓝桥杯C&#x2F;C++省赛B组全部题目的详细解析与AC代码，供竞赛备赛参考。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第六届蓝桥杯C&#x2F;C++省赛B组题目详解">
+<meta property="og:url" content="http://www.z16388.top/acm/lanqiao6/index.html">
+<meta property="og:site_name" content="崎径 其镜">
+<meta property="og:description" content="第六届蓝桥杯C&#x2F;C++省赛B组全部题目的详细解析与AC代码，供竞赛备赛参考。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.z16388.top/img/head.jpg">
+<meta property="article:published_time" content="2017-03-21T19:57:34.000Z">
+<meta property="article:modified_time" content="2026-09-24T06:01:33.215Z">
+<meta property="article:author" content="小墨">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="蓝桥杯">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.z16388.top/img/head.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "第六届蓝桥杯C/C++省赛B组题目详解",
+  "url": "http://www.z16388.top/acm/lanqiao6/",
+  "image": "http://www.z16388.top/img/head.jpg",
+  "datePublished": "2017-03-21T19:57:34.000Z",
+  "dateModified": "2026-09-24T06:01:33.215Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "小墨",
+      "url": "http://www.z16388.top"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/Favicon.ico"><link rel="canonical" href="http://www.z16388.top/acm/lanqiao6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":500,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 小墨","link":"链接: ","source":"来源: 崎径 其镜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'medium_zoom',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '第六届蓝桥杯C/C++省赛B组题目详解',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="崎径 其镜" type="application/atom+xml">
+</head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><span> 概览</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 动态</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder"></i><span> 类型</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 系列</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/un/"><i class="fa-fw fas fa-book"></i><span> Unity面试问题总结</span></a></li><li><a class="site-page child" href="/harmony/"><i class="fa-fw fas fa-book"></i><span> 鸿蒙出包笔记</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">崎径 其镜</span></a><a class="nav-page-title" href="/"><span class="site-name">第六届蓝桥杯C/C++省赛B组题目详解</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><span> 概览</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 动态</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder"></i><span> 类型</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><span> 系列</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/un/"><i class="fa-fw fas fa-book"></i><span> Unity面试问题总结</span></a></li><li><a class="site-page child" href="/harmony/"><i class="fa-fw fas fa-book"></i><span> 鸿蒙出包笔记</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">第六届蓝桥杯C/C++省赛B组题目详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2017-03-21T19:57:34.000Z" title="发表于 2017-03-21 19:57:34">2017-03-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-24T06:01:33.215Z" title="更新于 2026-09-24 06:01:33">2026-09-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">3.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="第一题-奖券数目"><a href="#第一题-奖券数目" class="headerlink" title="第一题 奖券数目"></a>第一题 奖券数目</h2><blockquote>
+<p>有些人很迷信数字，比如带“4”的数字，认为和“死”谐音，就觉得不吉利。<br>虽然这些说法纯属无稽之谈，但有时还要迎合大众的需求。某抽奖活动的奖券号码是5位数（10000-99999），要求其中不要出现带“4”的号码，主办单位请你计算一下，如果任何两张奖券不重号，最多可发出奖券多少张。<br>请提交该数字（一个整数），不要写任何多余的内容或说明性文字。</p>
+</blockquote>
+<p>&emsp;&emsp;这道题虽然可以使用穷举法去做，但是其实是一道“稿纸题”。分析每一位上面数的可能性，直接使用8*9*9*9*9即可计算出来。最终答案为：<code>52488</code></p>
+<h2 id="第二题-星系炸弹"><a href="#第二题-星系炸弹" class="headerlink" title="第二题 星系炸弹"></a>第二题 星系炸弹</h2><blockquote>
+<p>在X星系的广袤空间中漂浮着许多X星人造“炸弹”，用来作为宇宙中的路标。<br>每个炸弹都可以设定多少天之后爆炸。<br>比如：阿尔法炸弹2015年1月1日放置，定时为15天，则它在2015年1月16日爆炸。<br>有一个贝塔炸弹，2014年11月9日放置，定时为1000天，请你计算它爆炸的准确日期。<br>请填写该日期，格式为yyyy-mm-dd  即4位年份2位月份2位日期。比如：2015-02-19</p>
+</blockquote>
+<p>&emsp;&emsp;这是一道简单的日期计算问题。掌握好每个月的天数，然后计算。当然，也可以是一道稿纸题。</p>
+<p>&emsp;&emsp;最终答案为：<code>2017-08-05</code></p>
+<h2 id="第三题-三羊献瑞"><a href="#第三题-三羊献瑞" class="headerlink" title="第三题 三羊献瑞"></a>第三题 三羊献瑞</h2><blockquote>
+<p>观察下面的加法算式：<br>       祥 瑞生 辉</p>
+</blockquote>
+<ul>
+<li>三羊 献 瑞</li>
+</ul>
+<p>-——————<br> 三 羊 生 瑞 气<br>其中，相同的汉字代表相同的数字，不同的汉字代表不同的数字。<br>请你填写“三羊献瑞”所代表的4位数字（答案唯一），不要填写任何多余内容。</p>
+<p>&emsp;&emsp;经典的蓝桥题目，直接暴力枚举就可以。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    int xiang,rui,sheng,hui;</span></span><br><span class="line"><span class="comment">    int san,yang,xian,rui;</span></span><br><span class="line"><span class="comment">    int san,yang,sheng,rui,qi;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> xiang,rui,sheng,hui;</span><br><span class="line">    <span class="type">int</span> san,yang,xian;</span><br><span class="line">    <span class="type">int</span> qi;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> a,b,c;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(xiang=<span class="number">1</span>;xiang&lt;=<span class="number">9</span>;++xiang)&#123;</span><br><span class="line">        <span class="keyword">for</span>(rui=<span class="number">0</span>;rui&lt;=<span class="number">9</span>;++rui)&#123;</span><br><span class="line">            <span class="keyword">if</span>(rui==xiang)<span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(sheng=<span class="number">0</span>;sheng&lt;=<span class="number">9</span>;++sheng)&#123;</span><br><span class="line">                <span class="keyword">if</span>(sheng==xiang||sheng==rui)<span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">for</span>(hui=<span class="number">0</span>;hui&lt;=<span class="number">9</span>;++hui)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(hui==xiang||hui==rui||hui==sheng)<span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">for</span>(san=<span class="number">1</span>;san&lt;=<span class="number">9</span>;++san)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(san==xiang||san==rui||san==sheng||san==hui)<span class="keyword">continue</span>;</span><br><span class="line">                        <span class="keyword">for</span>(yang=<span class="number">0</span>;yang&lt;=<span class="number">9</span>;++yang)&#123;</span><br><span class="line">                            <span class="keyword">if</span>(yang==xiang||yang==rui||yang==sheng||yang==hui||yang==san)<span class="keyword">continue</span>;</span><br><span class="line">                            <span class="keyword">for</span>(xian=<span class="number">0</span>;xian&lt;=<span class="number">9</span>;++xian)&#123;</span><br><span class="line">                                <span class="keyword">if</span>(xian==xiang||xian==rui||xian==sheng||xian==hui||xian==san||xian==yang)<span class="keyword">continue</span>;</span><br><span class="line">                                <span class="keyword">for</span>(qi=<span class="number">0</span>;qi&lt;=<span class="number">9</span>;++qi)&#123;</span><br><span class="line">                                    <span class="keyword">if</span>(qi==xiang||qi==rui||qi==sheng||qi==hui||qi==san||qi==yang||qi==xian)<span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">                                    a=xiang*<span class="number">1000</span>+rui*<span class="number">100</span>+sheng*<span class="number">10</span>+hui;</span><br><span class="line">                                    b=san*<span class="number">1000</span>+yang*<span class="number">100</span>+xian*<span class="number">10</span>+rui;</span><br><span class="line">                                    c=san*<span class="number">10000</span>+yang*<span class="number">1000</span>+sheng*<span class="number">100</span>+rui*<span class="number">10</span>+qi;</span><br><span class="line">                                    <span class="keyword">if</span>(a+b==c)&#123;</span><br><span class="line">                                        <span class="comment">//printf(&quot;%d+%d=%d\n&quot;,a,b,c);</span></span><br><span class="line">                                        <span class="built_in">printf</span>(<span class="string">&quot;%d %d %d %d\n&quot;</span>,san,yang,xian,rui);</span><br><span class="line">                                    &#125;</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="第四题-格子中输出"><a href="#第四题-格子中输出" class="headerlink" title="第四题 格子中输出"></a>第四题 格子中输出</h2><blockquote>
+<p>格子中输出<br>StringInGrid函数会在一个指定大小的格子中打印指定的字符串。<br>要求字符串在水平、垂直两个方向上都居中。<br>如果字符串太长，就截断。<br>如果不能恰好居中，可以稍稍偏左或者偏上一点。<br>下面的程序实现这个逻辑，请填写划线部分缺少的代码。<br>对于题目中数据，应该输出：<br>+——————+<br>|&emsp;&emsp;&emsp;&emsp;&emsp;|<br>|     abcd1234     |<br>|&emsp;&emsp;&emsp;&emsp;&emsp;|<br>|&emsp;&emsp;&emsp;&emsp;&emsp;|<br>+——————+</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">StringInGrid</span><span class="params">(<span class="type">int</span> width, <span class="type">int</span> height, <span class="type">const</span> <span class="type">char</span>* s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> i,k;</span><br><span class="line">    <span class="type">char</span> buf[<span class="number">1000</span>];</span><br><span class="line">    <span class="built_in">strcpy</span>(buf, s);</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">strlen</span>(s)&gt;width<span class="number">-2</span>) buf[width<span class="number">-2</span>]=<span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;+&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;width<span class="number">-2</span>;i++) <span class="built_in">printf</span>(<span class="string">&quot;-&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;+\n&quot;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(k=<span class="number">1</span>; k&lt;(height<span class="number">-1</span>)/<span class="number">2</span>;k++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;|&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;width<span class="number">-2</span>;i++) <span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;|\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;|&quot;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%*s%s%*s&quot;</span>,_____________________________________________);  <span class="comment">//填空</span></span><br><span class="line">              </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;|\n&quot;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(k=(height<span class="number">-1</span>)/<span class="number">2</span><span class="number">+1</span>; k&lt;height<span class="number">-1</span>; k++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;|&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;width<span class="number">-2</span>;i++) <span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;|\n&quot;</span>);</span><br><span class="line">    &#125;    </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;+&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;width<span class="number">-2</span>;i++) <span class="built_in">printf</span>(<span class="string">&quot;-&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;+\n&quot;</span>);    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">StringInGrid</span>(<span class="number">20</span>,<span class="number">6</span>,<span class="string">&quot;abcd1234&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>答案是：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">(width-<span class="built_in">strlen</span>(buf)<span class="number">-2</span>)/<span class="number">2</span>,<span class="string">&quot;&quot;</span>,buf,(width-<span class="built_in">strlen</span>(buf)<span class="number">-2</span><span class="number">+1</span>)/<span class="number">2</span>,<span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;C语言语法考题，太过于变态，基本没有做出来的。这道题不必深究。</p>
+<h2 id="第五题-九数组分数"><a href="#第五题-九数组分数" class="headerlink" title="第五题 九数组分数"></a>第五题 九数组分数</h2><blockquote>
+<p>九数组分数<br>1,2,3…9 这九个数字组成一个分数，其值恰好为1&#x2F;3，如何组法？<br>下面的程序实现了该功能，请填写划线部分缺失的代码。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">(<span class="type">int</span> x[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a = x[<span class="number">0</span>]*<span class="number">1000</span> + x[<span class="number">1</span>]*<span class="number">100</span> + x[<span class="number">2</span>]*<span class="number">10</span> + x[<span class="number">3</span>];</span><br><span class="line">    <span class="type">int</span> b = x[<span class="number">4</span>]*<span class="number">10000</span> + x[<span class="number">5</span>]*<span class="number">1000</span> + x[<span class="number">6</span>]*<span class="number">100</span> + x[<span class="number">7</span>]*<span class="number">10</span> + x[<span class="number">8</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(a*<span class="number">3</span>==b) <span class="built_in">printf</span>(<span class="string">&quot;%d / %d\n&quot;</span>, a, b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> x[], <span class="type">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> i,t;</span><br><span class="line">    <span class="keyword">if</span>(k&gt;=<span class="number">9</span>)&#123;</span><br><span class="line">        <span class="built_in">test</span>(x);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(i=k; i&lt;<span class="number">9</span>; i++)&#123;</span><br><span class="line">        &#123;t=x[k]; x[k]=x[i]; x[i]=t;&#125;</span><br><span class="line">        <span class="built_in">f</span>(x,k<span class="number">+1</span>);</span><br><span class="line">        _____________________________________________ <span class="comment">// 填空处</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> x[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line">    <span class="built_in">f</span>(x,<span class="number">0</span>);    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;水题，答案：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;t=x[k]; x[k]=x[i]; x[i]=t;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="第六题-加法变乘法"><a href="#第六题-加法变乘法" class="headerlink" title="第六题 加法变乘法"></a>第六题 加法变乘法</h2><blockquote>
+<p>我们都知道：1+2+3+… + 49 &#x3D; 1225<br>现在要求你把其中两个不相邻的加号变成乘号，使得结果为2015<br>比如：<br>1+2+3+…+10*11+12+…+27*28+29+…+49 &#x3D;2015<br>就是符合要求的答案。<br>请你寻找另外一个可能的答案，并把位置靠前的那个乘号左边的数字提交（对于示例，就是提交10）。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="type">int</span> a,b;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">49</span>;++i)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=i<span class="number">+2</span>;j&lt;=<span class="number">49</span>;++j)&#123;</span><br><span class="line">            a=<span class="number">1225</span>-(i+i<span class="number">+1</span>)-(j+j<span class="number">+1</span>);</span><br><span class="line">            b=<span class="number">2015</span>-(i*(i<span class="number">+1</span>))-(j*(j<span class="number">+1</span>));</span><br><span class="line">            <span class="keyword">if</span>(a==b)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;i=%d,j=%d\n&quot;</span>,i,j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;暴力枚举，枚举所有的可能的两个位置，用1225和2015分别减去这两个位置的值，看看是否相等。</p>
+<h2 id="第七题-牌型种数"><a href="#第七题-牌型种数" class="headerlink" title="第七题 牌型种数"></a>第七题 牌型种数</h2><blockquote>
+<p>小明被劫持到X赌城，被迫与其他3人玩牌。<br>一副扑克牌（去掉大小王牌，共52张），均匀发给4个人，每个人13张。<br>这时，小明脑子里突然冒出一个问题：<br>如果不考虑花色，只考虑点数，也不考虑自己得到的牌的先后顺序，自己手里能拿到的初始牌型组合一共有多少种呢？</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,aJ,aQ,aK;</span><br><span class="line">    <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(a1=<span class="number">0</span>;a1&lt;=<span class="number">4</span>;++a1)&#123;</span><br><span class="line">        <span class="keyword">for</span>(a2=<span class="number">0</span>;a2&lt;=<span class="number">4</span>;++a2)&#123;</span><br><span class="line">            <span class="keyword">for</span>(a3=<span class="number">0</span>;a3&lt;=<span class="number">4</span>;++a3)&#123;</span><br><span class="line">                <span class="keyword">for</span>(a4=<span class="number">0</span>;a4&lt;=<span class="number">4</span>;++a4)&#123;</span><br><span class="line">                    <span class="keyword">for</span>(a5=<span class="number">0</span>;a5&lt;=<span class="number">4</span>;++a5)&#123;</span><br><span class="line">                        <span class="keyword">for</span>(a6=<span class="number">0</span>;a6&lt;=<span class="number">4</span>;++a6)&#123;</span><br><span class="line">                            <span class="keyword">for</span>(a7=<span class="number">0</span>;a7&lt;=<span class="number">4</span>;++a7)&#123;</span><br><span class="line">                                <span class="keyword">for</span>(a8=<span class="number">0</span>;a8&lt;=<span class="number">4</span>;++a8)&#123;</span><br><span class="line">                                    <span class="keyword">for</span>(a9=<span class="number">0</span>;a9&lt;=<span class="number">4</span>;++a9)&#123;</span><br><span class="line">                                        <span class="keyword">for</span>(a10=<span class="number">0</span>;a10&lt;=<span class="number">4</span>;++a10)&#123;</span><br><span class="line">                                            <span class="keyword">for</span>(aJ=<span class="number">0</span>;aJ&lt;=<span class="number">4</span>;++aJ)&#123;</span><br><span class="line">                                                <span class="keyword">for</span>(aQ=<span class="number">0</span>;aQ&lt;=<span class="number">4</span>;++aQ)&#123;</span><br><span class="line">                                                    <span class="keyword">for</span>(aK=<span class="number">0</span>;aK&lt;=<span class="number">4</span>;++aK)&#123;</span><br><span class="line">                                                        <span class="keyword">if</span>(a1+a2+a3+a4+a5+a6+a7+a8+a9+a10+aJ+aQ+aK==<span class="number">13</span>)&#123;</span><br><span class="line">                                                            ++sum;</span><br><span class="line">                                                        &#125;</span><br><span class="line">                                                    &#125;</span><br><span class="line">                                                &#125;</span><br><span class="line">                                            &#125;</span><br><span class="line">                                        &#125;</span><br><span class="line">                                    &#125;</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,sum);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;当然，我们也可以用dfs来解决这道题。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> sum;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> cur,<span class="type">int</span> tol)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(tol&gt;<span class="number">13</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span>(cur==<span class="number">14</span>)&#123;<span class="comment">//13种牌都拿完了</span></span><br><span class="line">        <span class="keyword">if</span>(tol==<span class="number">13</span>)&#123;<span class="comment">//手里13张牌了</span></span><br><span class="line">            ++sum;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=<span class="number">4</span>;++i)&#123;</span><br><span class="line">        <span class="built_in">dfs</span>(cur<span class="number">+1</span>,tol+i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    sum=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>,<span class="number">0</span>);<span class="comment">//从第1张牌开始选，当前手中有0张</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,sum);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="第八题-移动距离"><a href="#第八题-移动距离" class="headerlink" title="第八题 移动距离"></a>第八题 移动距离</h2><blockquote>
+<p>X星球居民小区的楼房全是一样的，并且按矩阵样式排列。其楼房的编号为1,2,3…<br>当排满一行时，从下一行相邻的楼往反方向排号。<br>比如：当小区排号宽度为6时，开始情形如下：<br>  1   2   3  4 5  6<br>12 11 10 9 8  7<br>13 14 15 …..<br>我们的问题是：已知了两个楼号m和n，需要求出它们之间的最短移动距离（不能斜线方向移动）<br>输入为3个整数w m n，空格分开，都在1到10000范围内<br>w为排号宽度，m,n为待计算的楼号。<br>要求输出一个整数，表示m n两楼间最短移动距离。<br>例如：<br>用户输入：<br>6 8 2<br>则，程序应该输出：<br>4<br>再例如：<br>用户输入：<br>4 7 20<br>则，程序应该输出：<br>5<br>资源约定：<br>峰值内存消耗 &lt;256M<br>CPU消耗 &lt; 1ms<br>请严格按要求输出，不要画蛇添足地打印类似：“请您输入…” 的多余内容。<br>所有代码放在同一个源文件中，调试通过后，拷贝提交该源码。<br>注意: main函数需要返回0<br>注意: 只使用ANSI C&#x2F;ANSI C++ 标准，不要调用依赖于编译环境或操作系统的特殊函数。<br>注意: 所有依赖的函数必须明确地在源文件中 #include<xxx>， 不能通过工程设置而省略常用头文件。<br>提交时，注意选择所期望的编译器类型。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> w,m,n;</span><br><span class="line">    <span class="type">int</span> x1,y1;</span><br><span class="line">    <span class="type">int</span> x2,y2;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;w,&amp;m,&amp;n))&#123;</span><br><span class="line">        x1=(m<span class="number">-1</span>)/w;</span><br><span class="line">        y1=(m<span class="number">-1</span>)%w;</span><br><span class="line">        <span class="keyword">if</span>(x1%<span class="number">2</span>!=<span class="number">0</span>)&#123;</span><br><span class="line">            y1=w<span class="number">-1</span>-y1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        x2=(n<span class="number">-1</span>)/w;</span><br><span class="line">        y2=(n<span class="number">-1</span>)%w;</span><br><span class="line">        <span class="keyword">if</span>(x2%<span class="number">2</span>!=<span class="number">0</span>)&#123;</span><br><span class="line">            y2=w<span class="number">-1</span>-y2;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">abs</span>(x1-x2)+<span class="built_in">abs</span>(y1-y2));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="第九题-垒骰子"><a href="#第九题-垒骰子" class="headerlink" title="第九题 垒骰子"></a>第九题 垒骰子</h2><blockquote>
+<p>赌圣atm晚年迷恋上了垒骰子，就是把骰子一个垒在另一个上边，不能歪歪扭扭，要垒成方柱体。<br>经过长期观察，atm 发现了稳定骰子的奥秘：有些数字的面贴着会互相排斥！<br>我们先来规范一下骰子：1 的对面是 4，2 的对面是 5，3 的对面是 6。<br>假设有 m 组互斥现象，每组中的那两个数字的面紧贴在一起，骰子就不能稳定的垒起来。<br>atm想计算一下有多少种不同的可能的垒骰子方式。<br>两种垒骰子方式相同，当且仅当这两种方式中对应高度的骰子的对应数字的朝向都相同。<br>由于方案数可能过多，请输出模10^9 + 7 的结果。<br>不要小看了 atm 的骰子数量哦～<br>「输入格式」<br>第一行两个整数 n m<br>n表示骰子数目<br>接下来 m 行，每行两个整数 a b ，表示 a 和 b 数字不能紧贴在一起。<br>「输出格式」<br>一行一个数，表示答案模10^9 + 7 的结果。<br>「样例输入」<br>2 1<br>1 2<br>「样例输出」<br>544<br>「数据范围」<br>对于 30% 的数据：n &lt;&#x3D; 5<br>对于 60% 的数据：n &lt;&#x3D; 100<br>对于 100% 的数据：0 &lt; n &lt;&#x3D; 10^9, m &lt;&#x3D; 36<br>资源约定：<br>峰值内存消耗 &lt;256M<br>CPU消耗 &lt; 2000ms<br>请严格按要求输出，不要画蛇添足地打印类似：“请您输入…” 的多余内容。<br>所有代码放在同一个源文件中，调试通过后，拷贝提交该源码。<br>注意: main函数需要返回0<br>注意: 只使用ANSI C&#x2F;ANSI C++ 标准，不要调用依赖于编译环境或操作系统的特殊函数。<br>注意: 所有依赖的函数必须明确地在源文件中 #include<xxx>， 不能通过工程设置而省略常用头文件。<br>提交时，注意选择所期望的编译器类型。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MOD 1000000007</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> flag[<span class="number">7</span>][<span class="number">7</span>];<span class="comment">//-1可以相邻，0不能相邻</span></span><br><span class="line"><span class="type">long</span> <span class="type">long</span> dp[<span class="number">2</span>][<span class="number">7</span>];<span class="comment">//滚动数组，dp[i][j]代表高度为i，顶面骰子的顶面点数为j的叠骰子方案数</span></span><br><span class="line"><span class="type">int</span> convert[<span class="number">7</span>]=&#123;<span class="number">0</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> n,m;</span><br><span class="line">    <span class="type">int</span> a,b;</span><br><span class="line">    <span class="type">int</span> i,j,k;</span><br><span class="line">    <span class="type">int</span> e;<span class="comment">//滚动标志，就2个交换的话这样滚动（e=1-e）应该比%快点吧（其实加减法和%速度应该差不多少吧。）</span></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> sum;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m))&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">memset</span>(flag,<span class="number">-1</span>,<span class="built_in">sizeof</span>(flag));</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;m;++i)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">            flag[a][b]=<span class="number">0</span>;</span><br><span class="line">            flag[b][a]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        e=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;<span class="number">7</span>;++i)&#123;</span><br><span class="line">            dp[e][i]=<span class="number">4</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//骰子4面转动，乘以4</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;++i)&#123;</span><br><span class="line">            e=<span class="number">1</span>-e;<span class="comment">//滚动数组</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;<span class="number">7</span>;++j)&#123;</span><br><span class="line">                dp[e][j]=<span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span>(k=<span class="number">1</span>;k&lt;<span class="number">7</span>;++k)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(flag[k][convert[j]]==<span class="number">-1</span>)&#123;</span><br><span class="line">                        dp[e][j]=(dp[e][j]+dp[<span class="number">1</span>-e][k]*<span class="number">4</span>)%MOD;</span><br><span class="line">                    &#125;    </span><br><span class="line">                &#125;    </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;<span class="number">7</span>;++i)&#123;</span><br><span class="line">            sum=(sum+dp[e][i])%MOD;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,sum);</span><br><span class="line">    &#125;    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="第十题-生命之树"><a href="#第十题-生命之树" class="headerlink" title="第十题 生命之树"></a>第十题 生命之树</h2><blockquote>
+<p>在X森林里，上帝创建了生命之树。<br>他给每棵树的每个节点（叶子也称为一个节点）上，都标了一个整数，代表这个点的和谐值。<br>上帝要在这棵树内选出一个非空节点集S，使得对于S中的任意两个点a,b，都存在一个点列 {a, v1, v2, …, vk, b} 使得这个点列中的每个点都是S里面的元素，且序列中相邻两个点间有一条边相连。<br>在这个前提下，上帝要使得S中的点所对应的整数的和尽量大。<br>这个最大的和就是上帝给生命之树的评分。<br>经过atm的努力，他已经知道了上帝给每棵树上每个节点上的整数。但是由于 atm 不擅长计算，他不知道怎样有效的求评分。他需要你为他写一个程序来计算一棵树的分数。<br>「输入格式」<br>第一行一个整数 n 表示这棵树有 n 个节点。<br>第二行 n 个整数，依次表示每个节点的评分。<br>接下来 n-1 行，每行 2 个整数 u, v，表示存在一条 u 到 v 的边。由于这是一棵树，所以是不存在环的。<br>「输出格式」<br>输出一行一个数，表示上帝给这棵树的分数。<br>「样例输入」<br>5<br>1 -2 -3 4 5<br>4 2<br>3 1<br>1 2<br>2 5<br>「样例输出」<br>8<br>「数据范围」<br>对于 30% 的数据，n &lt;&#x3D; 10<br>对于 100% 的数据，0 &lt; n &lt;&#x3D; 10^5, 每个节点的评分的绝对值不超过 10^6 。<br>资源约定：<br>峰值内存消耗 &lt; 256M<br>CPU消耗 &lt; 3000ms<br>请严格按要求输出，不要画蛇添足地打印类似：“请您输入…” 的多余内容。<br>所有代码放在同一个源文件中，调试通过后，拷贝提交该源码。<br>注意: main函数需要返回0<br>注意: 只使用ANSI C&#x2F;ANSI C++ 标准，不要调用依赖于编译环境或操作系统的特殊函数。<br>注意: 所有依赖的函数必须明确地在源文件中 #include <xxx>， 不能通过工程设置而省略常用头文件。<br>提交时，注意选择所期望的编译器类型。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://www.z16388.top">小墨</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://www.z16388.top/acm/lanqiao6/">http://www.z16388.top/acm/lanqiao6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://www.z16388.top" target="_blank">崎径 其镜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a><a class="post-meta__tags" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">蓝桥杯</a></div><div class="post-share"><div class="social-share" data-image="/img/head.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/img/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-5%E6%95%B0%E5%AD%A6%E7%AE%80%E5%8D%95%E9%97%AE%E9%A2%98/" title="【ACM教程】2.5数学简单问题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">【ACM教程】2.5数学简单问题</div></div><div class="info-2"><div class="info-item-1">介绍ACM竞赛中常见的数学基础题，包括质数判断、GCD计算与进制转换等解法。</div></div></div></a><a class="pagination-related" href="/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-3%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84Dijkstra%E7%AE%97%E6%B3%95/" title="【ACM教程】5.3单源最短路径Dijkstra算法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">【ACM教程】5.3单源最短路径Dijkstra算法</div></div><div class="info-2"><div class="info-item-1">详解Dijkstra单源最短路径算法的原理与实现，以及在竞赛中处理最短路径问题的应用。</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/acm/lanqiao7/" title="第七届蓝桥杯C&#x2F;C++省赛B组题目详解"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-02-21</div><div class="info-item-2">第七届蓝桥杯C&#x2F;C++省赛B组题目详解</div></div><div class="info-2"><div class="info-item-1">第七届蓝桥杯C/C++省赛B组全部题目的详细解析与AC代码，供竞赛备赛参考。</div></div></div></a><a class="pagination-related" href="/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%912-2%E4%BB%8E%E6%8E%92%E5%BA%8F%E5%BC%80%E5%A7%8B/" title="【ACM教程】2.2从排序开始"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-10-28</div><div class="info-item-2">【ACM教程】2.2从排序开始</div></div><div class="info-2"><div class="info-item-1">以排序算法为切入点，介绍竞赛中常用的基础算法思路与STL排序函数的使用方式。</div></div></div></a><a class="pagination-related" href="/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%915-2%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/" title="【ACM教程】5.2图的存储方式"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-03-06</div><div class="info-item-2">【ACM教程】5.2图的存储方式</div></div><div class="info-2"><div class="info-item-1">介绍邻接矩阵和邻接表两种图存储方式，分析各自的适用场景与时空复杂度。</div></div></div></a><a class="pagination-related" href="/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%914-1%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%80%E4%BB%8B/" title="【ACM教程】4.1动态规划简介"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-03-06</div><div class="info-item-2">【ACM教程】4.1动态规划简介</div></div><div class="info-2"><div class="info-item-1">介绍动态规划的基本概念、核心思想与一般解题步骤，帮助初学者建立DP思维框架。</div></div></div></a><a class="pagination-related" href="/acm/dfs/" title="dfs专项练习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-03-30</div><div class="info-item-2">dfs专项练习</div></div><div class="info-2"><div class="info-item-1">DFS深度优先搜索专项练习题目集合，含解题思路与代码，适合算法竞赛备赛刷题。</div></div></div></a><a class="pagination-related" href="/acm/%E3%80%90ACM%E6%95%99%E7%A8%8B%E3%80%913-3%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" title="【ACM教程】3.3二分查找"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-11-09</div><div class="info-item-2">【ACM教程】3.3二分查找</div></div><div class="info-2"><div class="info-item-1">详解二分查找算法的原理与标准模板，以及在有序数组和值域空间上的应用技巧。</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">小墨</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" href="https://github.com/z16388"><i class="fab fa-github"></i><span>关注 Github</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/z16388" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/1021622929@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><span>如果有任何疑问，欢迎加群共同交流：542675939</span><br><img src="/img/qun.png" alt="QQ群" style="width: 260px; height: 260px; margin-left: 0px;"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98-%E5%A5%96%E5%88%B8%E6%95%B0%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">第一题 奖券数目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98-%E6%98%9F%E7%B3%BB%E7%82%B8%E5%BC%B9"><span class="toc-number">2.</span> <span class="toc-text">第二题 星系炸弹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%A2%98-%E4%B8%89%E7%BE%8A%E7%8C%AE%E7%91%9E"><span class="toc-number">3.</span> <span class="toc-text">第三题 三羊献瑞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%A2%98-%E6%A0%BC%E5%AD%90%E4%B8%AD%E8%BE%93%E5%87%BA"><span class="toc-number">4.</span> <span class="toc-text">第四题 格子中输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E9%A2%98-%E4%B9%9D%E6%95%B0%E7%BB%84%E5%88%86%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">第五题 九数组分数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E9%A2%98-%E5%8A%A0%E6%B3%95%E5%8F%98%E4%B9%98%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">第六题 加法变乘法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E9%A2%98-%E7%89%8C%E5%9E%8B%E7%A7%8D%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text">第七题 牌型种数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E9%A2%98-%E7%A7%BB%E5%8A%A8%E8%B7%9D%E7%A6%BB"><span class="toc-number">8.</span> <span class="toc-text">第八题 移动距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E9%A2%98-%E5%9E%92%E9%AA%B0%E5%AD%90"><span class="toc-number">9.</span> <span class="toc-text">第九题 垒骰子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E9%A2%98-%E7%94%9F%E5%91%BD%E4%B9%8B%E6%A0%91"><span class="toc-number">10.</span> <span class="toc-text">第十题 生命之树</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/android/proguard-error/" title="Unity Android 混淆踩坑：升级 AGP 后找不到 Java 方法">Unity Android 混淆踩坑：升级 AGP 后找不到 Java 方法</a><time datetime="2026-09-16T10:11:30.000Z" title="发表于 2026-09-16 10:11:30">2026-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/harmony/unity-harmony4/" title="Unity 项目迁移鸿蒙（四）：联合登录报错 1002000001 排查">Unity 项目迁移鸿蒙（四）：联合登录报错 1002000001 排查</a><time datetime="2026-08-26T10:43:24.000Z" title="发表于 2026-08-26 10:43:24">2026-08-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/harmony/unity-harmony3/" title="Unity 项目迁移鸿蒙（三）：SDK 接入与双向通信">Unity 项目迁移鸿蒙（三）：SDK 接入与双向通信</a><time datetime="2026-08-18T15:20:22.000Z" title="发表于 2026-08-18 15:20:22">2026-08-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/harmony/unity-harmony2/" title="Unity 项目迁移鸿蒙（二）：打包与调试">Unity 项目迁移鸿蒙（二）：打包与调试</a><time datetime="2026-08-06T11:16:32.000Z" title="发表于 2026-08-06 11:16:32">2026-08-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/harmony/unity-harmony1/" title="Unity 项目迁移鸿蒙（一）：环境准备与工程结构">Unity 项目迁移鸿蒙（一）：环境准备与工程结构</a><time datetime="2026-08-04T14:59:05.000Z" title="发表于 2026-08-04 14:59:05">2026-08-04</time></div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 小墨</span><span class="framework-info"><span>框架 </span><a href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text"><a href="https://beian.miit.gov.cn/#/Integrated/recordQuery"><span>京ICP备19057807号-1</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">簡</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="/js/tw_cn.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const parseViewBox = viewBox => {
+    if (!viewBox) return null
+    const parts = viewBox.trim().split(/[\s,]+/).map(n => Number(n))
+    if (parts.length !== 4 || parts.some(n => Number.isNaN(n))) return null
+    return parts
+  }
+
+  const getSvgViewBox = svg => {
+    const attr = parseViewBox(svg.getAttribute('viewBox'))
+    if (attr) return attr
+
+    // Fallback: use bbox to build a viewBox
+    try {
+      const bbox = svg.getBBox()
+      if (bbox && bbox.width && bbox.height) return [bbox.x, bbox.y, bbox.width, bbox.height]
+    } catch (e) {
+      // getBBox may fail on some edge cases; ignore
+    }
+
+    const w = Number(svg.getAttribute('width')) || 0
+    const h = Number(svg.getAttribute('height')) || 0
+    if (w > 0 && h > 0) return [0, 0, w, h]
+    return [0, 0, 100, 100]
+  }
+
+  const setSvgViewBox = (svg, vb) => {
+    svg.setAttribute('viewBox', `${vb[0]} ${vb[1]} ${vb[2]} ${vb[3]}`)
+  }
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v))
+
+  const openSvgInNewTab = ({ source, initViewBox }) => {
+    const getClonedSvg = () => {
+      if (typeof source === 'string') {
+        const template = document.createElement('template')
+        template.innerHTML = source.trim()
+        const svg = template.content.querySelector('svg')
+        return svg ? svg.cloneNode(true) : null
+      }
+      if (source && typeof source.cloneNode === 'function') {
+        return source.cloneNode(true)
+      }
+      return null
+    }
+
+    const clone = getClonedSvg()
+    if (!clone) return
+    if (initViewBox && initViewBox.length === 4) {
+      clone.setAttribute('viewBox', initViewBox.join(' '))
+    }
+    if (!clone.getAttribute('xmlns')) clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+    if (!clone.getAttribute('xmlns:xlink') && clone.outerHTML.includes('xlink:')) {
+      clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
+    }
+    // inject background to match current theme
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+    const bg = getComputedStyle(document.body).backgroundColor || (isDark ? '#1e1e1e' : '#ffffff')
+    if (!clone.style.background) clone.style.background = bg
+
+    const serializer = new XMLSerializer()
+    const svgSource = serializer.serializeToString(clone)
+    const htmlSource = `<!doctype html><html><head><meta charset="utf-8" />
+      <style>
+        html, body { width: 100%; height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; background: ${bg}; }
+        svg { max-width: 100%; max-height: 100%; height: auto; width: auto; }
+      </style>
+      </head><body>${svgSource}</body></html>`
+    const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    window.open(url, '_blank', 'noopener')
+    setTimeout(() => URL.revokeObjectURL(url), 30000)
+  }
+
+  const attachMermaidViewerButton = wrap => {
+    let btn = wrap.querySelector('.mermaid-open-btn')
+    if (!btn) {
+      btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'mermaid-open-btn'
+      wrap.appendChild(btn)
+    }
+
+    btn.innerHTML = '<i class="fa fa-search fa-fw" aria-hidden="true"></i>'
+
+    if (!btn.__mermaidViewerBound) {
+      btn.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+        const svg = wrap.__mermaidOriginalSvg || wrap.querySelector('svg')
+        if (!svg) return
+        const initViewBox = wrap.__mermaidInitViewBox
+        if (typeof svg === 'string') {
+          openSvgInNewTab({ source: svg, initViewBox })
+          return
+        }
+        openSvgInNewTab({ source: svg, initViewBox })
+      })
+      btn.__mermaidViewerBound = true
+    }
+  }
+
+  // Zoom around a point (px, py) in the SVG viewport (in viewBox coordinates)
+  const zoomAtPoint = (vb, factor, px, py) => {
+    const w = vb[2] * factor
+    const h = vb[3] * factor
+    const nx = px - (px - vb[0]) * factor
+    const ny = py - (py - vb[1]) * factor
+    return [nx, ny, w, h]
+  }
+
+  const initMermaidGestures = wrap => {
+    const svg = wrap.querySelector('svg')
+    if (!svg) return
+
+    // Ensure viewBox exists so gestures always work
+    const initVb = getSvgViewBox(svg)
+    wrap.__mermaidInitViewBox = initVb
+    wrap.__mermaidCurViewBox = initVb.slice()
+    setSvgViewBox(svg, initVb)
+
+    // Avoid binding multiple times on themeChange/pjax
+    if (wrap.__mermaidGestureBound) return
+    wrap.__mermaidGestureBound = true
+
+    // Helper: map client (viewport) coordinate -> viewBox coordinate
+    const clientToViewBox = (clientX, clientY) => {
+      const rect = svg.getBoundingClientRect()
+      const vb = wrap.__mermaidCurViewBox || getSvgViewBox(svg)
+      const x = vb[0] + (clientX - rect.left) * (vb[2] / rect.width)
+      const y = vb[1] + (clientY - rect.top) * (vb[3] / rect.height)
+      return { x, y, rect, vb }
+    }
+
+    const state = {
+      pointers: new Map(),
+      startVb: null,
+      startDist: 0,
+      startCenter: null
+    }
+
+    const clampVb = vb => {
+      const init = wrap.__mermaidInitViewBox || vb
+      const minW = init[2] * 0.1
+      const maxW = init[2] * 10
+      const minH = init[3] * 0.1
+      const maxH = init[3] * 10
+      vb[2] = clamp(vb[2], minW, maxW)
+      vb[3] = clamp(vb[3], minH, maxH)
+      return vb
+    }
+
+    const setCurVb = vb => {
+      vb = clampVb(vb)
+      wrap.__mermaidCurViewBox = vb
+      setSvgViewBox(svg, vb)
+    }
+
+    const onPointerDown = e => {
+      // Allow only primary button for mouse
+      if (e.pointerType === 'mouse' && e.button !== 0) return
+      svg.setPointerCapture(e.pointerId)
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      if (state.pointers.size === 1) {
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      } else if (state.pointers.size === 2) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        state.startDist = Math.hypot(dx, dy)
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        state.startCenter = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 }
+      }
+    }
+
+    const onPointerMove = e => {
+      if (!state.pointers.has(e.pointerId)) return
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      // Pan with 1 pointer
+      if (state.pointers.size === 1 && state.startVb) {
+        const p = [...state.pointers.values()][0]
+        const prev = { x: e.clientX - e.movementX, y: e.clientY - e.movementY }
+        // movementX/Y unreliable on touch, compute from stored last position
+        const last = wrap.__mermaidLastSinglePointer || p
+        const dxClient = p.x - last.x
+        const dyClient = p.y - last.y
+        wrap.__mermaidLastSinglePointer = p
+
+        const { rect } = clientToViewBox(p.x, p.y)
+        const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        const dx = dxClient * (vb[2] / rect.width)
+        const dy = dyClient * (vb[3] / rect.height)
+        setCurVb([vb[0] - dx, vb[1] - dy, vb[2], vb[3]])
+        return
+      }
+
+      // Pinch zoom with 2 pointers
+      if (state.pointers.size === 2 && state.startVb && state.startDist > 0) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        const dist = Math.hypot(dx, dy)
+        if (!dist) return
+        const factor = state.startDist / dist // dist bigger => zoom in (viewBox smaller)
+
+        const cx = (pts[0].x + pts[1].x) / 2
+        const cy = (pts[0].y + pts[1].y) / 2
+        const centerClient = { x: cx, y: cy }
+
+        const pxy = clientToViewBox(centerClient.x, centerClient.y)
+        const cpx = pxy.x
+        const cpy = pxy.y
+
+        const vb = zoomAtPoint(state.startVb, factor, cpx, cpy)
+        setCurVb(vb)
+      }
+    }
+
+    const onPointerUpOrCancel = e => {
+      state.pointers.delete(e.pointerId)
+      if (state.pointers.size === 0) {
+        state.startVb = null
+        state.startDist = 0
+        state.startCenter = null
+        wrap.__mermaidLastSinglePointer = null
+      } else if (state.pointers.size === 1) {
+        // reset single pointer baseline to avoid jump
+        wrap.__mermaidLastSinglePointer = [...state.pointers.values()][0]
+      }
+    }
+
+    // Wheel zoom (mouse/trackpad)
+    const onWheel = e => {
+      // ctrlKey on mac trackpad pinch; we treat both as zoom
+      e.preventDefault()
+      const delta = e.deltaY
+      const zoomFactor = delta > 0 ? 1.1 : 0.9
+      const { x, y } = clientToViewBox(e.clientX, e.clientY)
+      const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      setCurVb(zoomAtPoint(vb, zoomFactor, x, y))
+    }
+
+    const onDblClick = () => {
+      const init = wrap.__mermaidInitViewBox
+      if (!init) return
+      wrap.__mermaidCurViewBox = init.slice()
+      setSvgViewBox(svg, init)
+    }
+
+    svg.addEventListener('pointerdown', onPointerDown)
+    svg.addEventListener('pointermove', onPointerMove)
+    svg.addEventListener('pointerup', onPointerUpOrCancel)
+    svg.addEventListener('pointercancel', onPointerUpOrCancel)
+    svg.addEventListener('wheel', onWheel, { passive: false })
+    svg.addEventListener('dblclick', onDblClick)
+  }
+
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+
+      // Clear old render (themeChange/pjax will rerun)
+      const oldSvg = item.querySelector('svg')
+      if (oldSvg) oldSvg.remove()
+      item.__mermaidGestureBound = false
+
+      const config = mermaidSrc.dataset.config ? JSON.parse(mermaidSrc.dataset.config) : {}
+      if (!config.theme) {
+        config.theme = theme
+      }
+      const mermaidThemeConfig = `%%{init: ${JSON.stringify(config)}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+        if (true) initMermaidGestures(item)
+        item.__mermaidOriginalSvg = svg
+        if (true) attachMermaidViewerButton(item)
+      }
+
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (true) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@11.12.2/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
